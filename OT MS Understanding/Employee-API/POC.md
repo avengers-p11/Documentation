@@ -163,9 +163,9 @@ $ sudo /opt/scylladb/scripts/scylla_io_setup
 ```bash
  Add these configurations:
 
-` rpc_address <private-ip>`
+rpc_address <private-ip>`
   
-` authenticator: PasswordAuthenticator
+authenticator: PasswordAuthenticator
 authorizer: CassandraAuthorizer
 ```
 
@@ -198,7 +198,8 @@ $ CREATE USER scylladb WITH PASSWORD 'password' SUPERUSER;
 ### 9.  Created keyspace employee_db
 
 ```bash
-$ CREATE KEYSPACE employee_db WITH REPLICATION = { 'class': 'SimpleStrategy', 'replication_factor': 1 };```
+$ CREATE KEYSPACE employee_db WITH REPLICATION = { 'class': 'SimpleStrategy', 'replication_factor': 1 };
+```
 
 ### 10. Verify the empolyee_db
 ```bash
