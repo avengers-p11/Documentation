@@ -37,15 +37,21 @@ This guide explains how to set up a virtual machine (VM), install dependencies, 
 
 # 2. Access the VM
 ### SSH into the VM using your public key:
+```bash
 $ ssh -i <your-key.pem> ubuntu@<your-public-ip>
+```
 
 # Clone the Repository
 ### 1. Clone the employee-api repository from GitHub:
+```bash 
+$ git clone https://github.com/OT-MICROSERVICES/employee-api.git
+```
 
-`$ git clone https://github.com/OT-MICROSERVICES/employee-api.git`
 ### 2. Change to the project directory:
 
-`$ cd employee-api/`
+```bash 
+$ cd employee-api/
+ ```
 
 ![Screenshot 2024-11-12 140451](https://github.com/user-attachments/assets/ca899c62-1e71-4703-87f5-7a8494a410e1)
 
@@ -56,25 +62,35 @@ $ ssh -i <your-key.pem> ubuntu@<your-public-ip>
 # Install Go (Golang)
 ### 1. Update the package list:
 
-`$ sudo apt update`
+```bash
+$ sudo apt update
+```
 
 ### 2. Install Go with this command:
 
-`$ sudo apt install golang-go`
+```bash
+$ sudo apt install golang-go
+```
 
 ### 3. Verify installation:
   
-`$ go version`
+```bash
+$ go version
+```
 
 # Install Make
 
 ### 1. Update package list:
  
-`$ sudo apt update`
+```bash
+$ sudo apt update
+```
 
 ### 2. Install Make:
   
-`$ sudo apt install make`
+```bash
+$ sudo apt install make
+```
 
 ![Screenshot 2024-11-12 145352](https://github.com/user-attachments/assets/c452cfd7-a1d2-4b82-9d45-67d4f7488dd3)
 
@@ -86,80 +102,108 @@ $ ssh -i <your-key.pem> ubuntu@<your-public-ip>
 
 ### 2. we can install jq with the following commands:
 
-`$ sudo apt update`
+```bash
+$ sudo apt update
+```
 
-`$ sudo apt install -y jq`
+```bash 
+$ sudo apt install -y jq
+```
 
 
 # Scylladb Installation and configuration
 ### 1. Install a repo file and add the ScyllaDB APT repository to your system:
 
-`$ sudo mkdir -p /etc/apt/keyrings`
+```bash
+$ sudo mkdir -p /etc/apt/keyrings
 
-`$ sudo gpg --homedir /tmp --no-default-keyring --keyring /etc/apt/keyrings/scylladb.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A43E06657BAC99E3`
+$ sudo gpg --homedir /tmp --no-default-keyring --keyring /etc/apt/keyrings/scylladb.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A43E06657BAC99E3
+```
 
 ### 2. Add ScyllaDB repository:
   
-`$ sudo wget -O /etc/apt/sources.list.d/scylla.list http://downloads.scylladb.com/deb/debian/scylla-6.2.list`
+```bash
+$ sudo wget -O /etc/apt/sources.list.d/scylla.list http://downloads.scylladb.com/deb/debian/scylla-6.2.list
+```
 
 ![Screenshot 2024-11-12 141116](https://github.com/user-attachments/assets/ab1d7faf-e3ef-41e9-8d84-9a830bd85777)
 
 ### 3. Install ScyllaDB packages.
 
-`$ sudo apt-get update`
+```bash
+$ sudo apt-get update`
 
-`$ sudo apt-get install -y scylla`
+$ sudo apt-get install -y scylla
+```
 
 ## **Start ScyllaDB**:
 
 ### 1. Check if ScyllaDB is running:
 
-`$ sudo systemctl status scylla-server`
+```bash 
+$ sudo systemctl status scylla-server
+```
 
 ### 2. If ScyllaDB is not running, update the configuration file:
 
-`$ sudo vi /etc/scylla/scylla.yaml`
+```bash
+$ sudo vi /etc/scylla/scylla.yaml
+```
 
 
 ### 3. Configure I/O settings for ScyllaDB on your VM
 
-`$ sudo /opt/scylladb/scripts/scylla_io_setup`
+```bash
+$ sudo /opt/scylladb/scripts/scylla_io_setup
+```
 
 ![Screenshot 2024-11-12 175205](https://github.com/user-attachments/assets/c6e9883b-1e08-4159-a7b5-a486db9fe076)
 
 ### 4. Update configuration file of scylla
-
+```bash
  Add these configurations:
 
 ` rpc_address <private-ip>`
   
 ` authenticator: PasswordAuthenticator
-authorizer: CassandraAuthorizer`
+authorizer: CassandraAuthorizer
+```
 
 ### 5. Restart ScyllaDB
 
-`$ sudo systemctl start scylla-server`
+```bash 
+$ sudo systemctl start scylla-server
+```
 
 ### 6. Verify ScyllaDB status:
 
-`$ sudo systemctl status scylla-server`
+```bash
+$ sudo systemctl status scylla-server
+```
 
 ![Screenshot 2024-11-12 142659](https://github.com/user-attachments/assets/11a54d9e-9783-466f-831f-260cdc9e0e3f)
 
 ### 7. Command to connect to ScyllaDB
 
-`$ cqlsh 192.168.0.96 9042 -u cassandra -p cassandra`
+```bash
+$ cqlsh 192.168.0.96 9042 -u cassandra -p cassandra
+```
 
 ### 8. Created user ‘scylladb’ with password as ‘password
 
-`$ CREATE USER scylladb WITH PASSWORD 'password' SUPERUSER;`
+```bash
+$ CREATE USER scylladb WITH PASSWORD 'password' SUPERUSER;
+```
 
 ### 9.  Created keyspace employee_db
 
-`$ CREATE KEYSPACE employee_db WITH REPLICATION = { 'class': 'SimpleStrategy', 'replication_factor': 1 };`
+```bash
+$ CREATE KEYSPACE employee_db WITH REPLICATION = { 'class': 'SimpleStrategy', 'replication_factor': 1 };```
 
 ### 10. Verify the empolyee_db
-`$ DESCRIBE KEYSPACES;`
+```bash
+$ DESCRIBE KEYSPACES;
+```
 
 ![Screenshot 2024-11-12 143047](https://github.com/user-attachments/assets/6e497b04-ba6c-4ce5-b3bf-1577e6d4b423)
 
@@ -167,59 +211,81 @@ authorizer: CassandraAuthorizer`
 # Install Redis (Cache)
 ### 1. For installing Redis:
 
-`$ sudo apt update`
+```bash
+$ sudo apt update
 
-`$ sudo apt install redis-server -y`
+$ sudo apt install redis-server -y
+```
 
 ![Screenshot 2024-11-12 145307](https://github.com/user-attachments/assets/bab93488-5ead-4a66-bae3-ade088fc0cfb)
 
 ### 2. Verify Installation
 
-`$ redis-server --version`
+```bash
+$ redis-server --version
+```
 
 # Access Redis CLI
 ### 3. To begin configuring Redis, you will need to access the Redis command-line interface (CLI):
 
-`$ redis-cli`
+```bash
+$ redis-cli
+```
 
 ### 4. Configure User Permissions and Authentication
 This step ensures that only authorized users can access and perform actions in Redis.
 
-`$ ACL SETUSER scylla on >password ~* +@all`
+```bash
+$ ACL SETUSER scylla on >password ~* +@all
+```
 
 ### 5. List the existing ACL rules
 
-`$ ACL LIST`
+```bash
+$ ACL LIST
+```
 
 # Update Redis Configuration File
 ### 1. To ensure Redis listens on the correct IP addresses, you need to update the Redis configuration file "redis.conf"
 
-`$ sudo vi /etc/redis/redis.conf`
+```bash
+$ sudo vi /etc/redis/redis.conf
+```
 
 ### 2. Add your server’s private IP (e.g., 192.168.0.101) to the bind directive, which will allow Redis to listen on both localhost and the specified IP address.
 
-`$ bind 127.0.0.1 <private IP>`
+```bash
+$ bind 127.0.0.1 <private IP>
+```
 
 ### 3. Start Redis Server
 
 After installation, you can start Redis by running:
 
-`$ sudo systemctl start redis-server`
+```bash
+$ sudo systemctl start redis-server
 
-`$ sudo systemctl enable redis-server`
+$ sudo systemctl enable redis-server
+```
 
 ### 4.  To verify Redis is running, you can check its status:
 
-`$ sudo systemctl status redis-server`
+```bash
+$ sudo systemctl status redis-server
+```
 
 # Install migrate Tool
 ### This step to install migrate tool:
 
-`$ go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest`
+```bash
+$ go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+```
 
 ### Add the $GOPATH/bin directory to our $PATH so that the migrate command can be used:
 
-`$ export PATH=$PATH:$(go env GOPATH)/bin`
+```bash
+$ export PATH=$PATH:$(go env GOPATH)/bin
+```
 
 ![Screenshot 2024-11-12 150430](https://github.com/user-attachments/assets/04258322-b96a-4155-9a67-32a91603bde8)
 
@@ -228,7 +294,9 @@ After installation, you can start Redis by running:
 
 ### 1. Run the migration commands from the Makefile:
 
-`$ make run-migrations`
+```bash
+$ make run-migrations
+```
 
 If migration is successful, continue to the next step. If you encounter errors, ensure ScyllaDB settings are correctly configured.
 
@@ -237,12 +305,16 @@ If migration is successful, continue to the next step. If you encounter errors, 
 ### 1. **Run Unit Tests**:
 Execute unit tests to check code quality and coverage:
 
-`$ go test $(go list ./... | grep -v docs | grep -v model | grep -v main.go) -coverprofile cover.out`
+```bash
+$ go test $(go list ./... | grep -v docs | grep -v model | grep -v main.go) -coverprofile cover.out
+```
 
 ### 2. **Generate Test Coverage Report**:
 For an HTML coverage report:
      
-`$ go tool cover -html=cover.out`
+```bash
+$ go tool cover -html=cover.out
+```
 
 ### 4. Run the ./employee-api executable on the server, then proceed with the next steps
 
@@ -250,7 +322,9 @@ For an HTML coverage report:
 
 1. Open your browser and visit:
    
-`$ http://<public-ip-of-your-server>:8080/swagger/index.html`
+```bash
+$ http://<public-ip-of-your-server>:8080/swagger/index.html
+```
 
 This should display the Swagger API documentation interface for the `employee-api`.
 
