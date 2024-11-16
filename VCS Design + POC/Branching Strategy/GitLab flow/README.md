@@ -6,16 +6,16 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. Why GitLab Flow
-3. GitLab Flow
-4. Feature Branch Workflow
-5. GitLab Flow with Environment Branches
-6. Release Branch Workflow
-7. Advantages of GitLab Flow
-8. Disadvantages of GitLab Flow
-9. Conclusion
-10. Contact Information
-11. References
+2. [Why GitLab Flow](#why-gitlab-flow)
+3. [GitLab Flow](#gitlab-flow)
+4. [Feature Branch Workflow](#feature-branch-workflow)
+5. [GitLab Flow with Environment Branches](#gitlab-flow-with-environment-branches)
+6. [Release Branch Workflow](#release-branch-workflow)
+7. [Advantages of GitLab Flow](#advantages-of-gitlab-flow)
+8. [Disadvantages of GitLab Flow](#disadvantages-of-gitlab)
+9. [Conclusion](#conclusion)
+10. [Contact Information](#contact-information)
+11. [References](#references)
 
 ## Introduction
 
