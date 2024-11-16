@@ -157,13 +157,13 @@ CREATE USER scylladb WITH PASSWORD 'password' SUPERUSER;
 ```
 - The command CREATE USER scylladb WITH PASSWORD 'password' SUPERUSER; creates a new user named scylladb in ScyllaDB or Cassandra with the password password and grants them superuser privileges, allowing full access to all database functions.
   
-#### Created keyspace salary_db
+#### Created keyspace employee_db
 ``` bash
-CREATE KEYSPACE salary_db WITH REPLICATION = { 'class': 'SimpleStrategy', 'replication_factor': 1 };
+CREATE KEYSPACE employee_db WITH REPLICATION = { 'class': 'SimpleStrategy', 'replication_factor': 1 };
 ```
-- The command creates a keyspace salary_db with a SimpleStrategy replication strategy and a replication factor of 1, meaning one replica of the data will be stored.
+- The command creates a keyspace employee_db with a SimpleStrategy replication strategy and a replication factor of 1, meaning one replica of the data will be stored.
   
-#### Verify the salary_db
+#### Verify the employee_db
 ``` bash
 DESCRIBE KEYSPACES;
 ```
