@@ -52,3 +52,11 @@ GitLab Flow is typically structured into three main workflows:
  ### Conclusion
 
 GitLab Flow is a powerful workflow that integrates Git, CI/CD, and issue tracking into a unified system, making it easier for teams to collaborate, develop, and deploy applications. It provides many advantages in terms of automation, code quality, and faster releases, but may not be ideal for all teams, especially smaller ones or those with simpler workflows.
+
+# Contact Information
+
+| **Name** | **Email address**            | **Github ID**
+|----------|-------------------------------|-------------------|
+| Pravesh Kumar    |  pravesh.kumar611@gmail.com           | Pravesh899 |
+
+# References
