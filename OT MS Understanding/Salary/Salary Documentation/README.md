@@ -37,12 +37,7 @@ The Salary API is a vital microservice in the OT-Microservices project, handling
 
 ### Supported features of the Salary API:-
 
-- Spring boot based web framework, which uses tomcat as webserver.
-- ScyllaDB is used as primary database for storing all the salary data.
-- Redis as cache manager to store the cache response.
-- Prometheus and Open-telemetry metrics support for monitoring and observability
-- Swagger integration for the API documentation of endpoints and payloads.
-- Database migration using the tool called migrate.
+The system uses Spring Boot with Tomcat, ScyllaDB for salary data storage, Redis for caching, and Prometheus/OpenTelemetry for monitoring. Swagger provides API documentation, and database migrations are handled using the Migrate tool.
 
 ### Components of the Salary API
 
