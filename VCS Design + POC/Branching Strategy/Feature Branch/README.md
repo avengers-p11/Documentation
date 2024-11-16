@@ -47,7 +47,7 @@ Reduces risks of conflicts on the main branch.
   Remove the branch after successful integration to avoid clutter.
 
 
-## Advantages of GitLab Flow
+## Advantages of  Feature Branch
 
 Encourages modular and incremental development.
 
@@ -58,7 +58,7 @@ Simplifies rollback of changes if a feature introduces issues.
 Enables parallel development on multiple features.
 
 
-## Disadvantages of GitLab Flow
+## Disadvantages of Feature branch
 
 Requires additional steps compared to a single-branch workflow.
 
