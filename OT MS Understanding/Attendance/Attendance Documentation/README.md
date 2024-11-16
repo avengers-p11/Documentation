@@ -65,12 +65,14 @@ Hardware, Software and Security requirements are met.
 
 ## System Requirements
 
-| **Hardware Specifications** | **Minimum Recommendation** |
-|-----------------------------|----------------------------|
-| Processor                   | Dual core                  |
-| RAM                         | 4GB                        |
-| Disk                        | 20GB                       |
-| OS                          | Ubuntu (22.04)             |
+| **Hardware Specifications** | **Minimum**         | **Recommendation**              |
+|-----------------------------|---------------------|----------------------------------|
+| Processor                  | Dual-core          | Quad-core processor             |
+| RAM                        | 4GB                | 8GB or higher                   |
+| Disk                       | 20GB               | 50GB or higher                  |
+| OS                         | Ubuntu (22.04)     | Latest LTS version of Ubuntu    |
+| VM                         |  t2.medium         |  t2.large                       |
+
 
 ## 
 
