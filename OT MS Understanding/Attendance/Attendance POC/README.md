@@ -63,6 +63,7 @@ effectively as user needs increase.
 | RAM                        | 4GB                | 8GB or higher                   |
 | Disk                       | 20GB               | 50GB or higher                  |
 | OS                         | Ubuntu (22.04)     | Latest LTS version of Ubuntu    |
+| VM                         |  t2.medium         |  t2.large                       |
 
 ## Dependencies
 
