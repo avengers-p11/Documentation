@@ -290,3 +290,5 @@ operations for attendance-related tasks in real-world scenarios.
 |------------------------------------------------------|------------------|
 | https://medium.com/devops-technical-notes-and-manuals/how-to-install-and-configure-postgresql-on-ubuntu-20-04-4fd3cf072d6f | PostgreSQL installation and configuration |
 | https://chandrapurnimabhatnagar.medium.com/how-to-install-liquibase-database-devops-34ca9a6d9705 | Liquibase installation |
+| https://github.com/avengers-p11/Documentation/tree/main/OT%20MS%20Understanding/Redis/Redis%20Documentation| Redis|
+
