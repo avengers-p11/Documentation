@@ -134,7 +134,7 @@ GitLab is a powerful, versatile platform that caters to modern software developm
 
 ---
 
-## 9. References
+### References
 
 | Service          | Documentation Link                                                  |
 |------------------|---------------------------------------------------------------------|
