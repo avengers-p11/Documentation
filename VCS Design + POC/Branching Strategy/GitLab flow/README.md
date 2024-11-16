@@ -5,7 +5,7 @@
 | Pravesh Kumar      | 16-11-24      | Pravesh Kumar             | 16-11-24           |  | | |
 
 ## Table of Contents
-1. [Introduction](# introduction)
+1. [Introduction](#introduction)
 2. Why GitLab Flow
 3. GitLab Flow
 4. Feature Branch Workflow
