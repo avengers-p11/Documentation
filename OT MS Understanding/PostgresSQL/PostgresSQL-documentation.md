@@ -79,7 +79,7 @@ PostgreSQL follows a client-server model, where the database server handles data
 ### Disadvantages
 
 | Disadvantage                  | Description                                                                 |
-|------------------------------|-----------------------------------------------------------------------------|
+|-------------------------------|-----------------------------------------------------------------------------|
 | **Complexity**                | Can be more complex to configure and optimize compared to some simpler DBMS.|
 | **Memory Consumption**        | Requires significant memory and resources for large databases.              |
 | **Performance Overhead**      | Slightly slower compared to NoSQL databases for certain types of queries.   |
@@ -93,3 +93,6 @@ To install PostgreSQL, follow the steps below for your platform:
 ```bash
 sudo apt update
 sudo apt install postgresql postgresql-contrib
+
+
+
