@@ -56,8 +56,7 @@ configured to manage Python dependencies using **Poetry**.
 
 # Purpose
 
-The Attendance REST API was developed to manage and streamline all
-attendance-related transactions.
+Attendance REST API is designed to simplify and automate attendance management processes. It provides an efficient and scalable solution for handling attendance-related transactions, ensuring accurate data storage, fast retrieval, and seamless integration with other systems. This API utilizes PostgreSQL for reliable database management, Redis for caching, and a Python-based tech stack for flexibility and performance, making it suitable for modern microservices architectures.
 
 # Pre-requisites
 
