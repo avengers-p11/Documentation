@@ -4,6 +4,19 @@
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
 | Pravesh Kumar      | 16-11-24      | Pravesh Kumar             | 16-11-24           |  | | |
 
+## Table of Contents
+- Introduction
+- Why GitLab Flow
+- GitLab Flow
+- Feature Branch Workflow
+- GitLab Flow with Environment Branches
+- Release Branch Workflow
+- Advantages of GitLab Flow
+- Disadvantages of GitLab Flow
+- Conclusion
+- Contact Information
+- References
+
 ## Introduction
 
 GitLab Flow is a modern workflow for continuous integration and continuous deployment (CI/CD) that enhances collaboration, development, and code management processes in Git-based projects. It integrates source control management (SCM) with CI/CD pipelines, ensuring smoother workflows and faster delivery cycles.
