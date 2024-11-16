@@ -59,18 +59,16 @@ GitLab is a **comprehensive DevOps platform** designed to streamline the softwar
 
 ---
 
-## 4. Benefits of Using GitLab
-
-| **Benefit**                    | **Description**                                                                 |
-|---------------------------------|---------------------------------------------------------------------------------|
-| **For Teams**                   |                                                                                 |
-| **Streamlined Collaboration**   | Centralized platform for development and discussions.                          |
-| **Enhanced Productivity**       | Automate repetitive tasks with CI/CD.                                           |
-| **Improved Code Quality**      | Facilitate peer reviews and automated testing.                                  |
-| **For Organizations**           |                                                                                 |
-| **Cost-Effective**              | Replace multiple tools with GitLab’s all-in-one solution.                       |
-| **Scalable**                    | Adapts to growing teams and complex workflows.                                  |
-| **Security First**              | Integrated security testing tools ensure compliance.                            |
+| **Benefit**               | **Description**                                                     |
+|---------------------------|---------------------------------------------------------------------|
+| **For Teams**              |                                                                     |
+| Streamlined Collaboration  | Centralized platform for development and discussions.              |
+| Enhanced Productivity      | Automate repetitive tasks with CI/CD.                               |
+| Improved Code Quality      | Facilitate peer reviews and automated testing.                     |
+| **For Organizations**      |                                                                     |
+| Cost-Effective             | Replace multiple tools with GitLab’s all-in-one solution.           |
+| Scalable                   | Adapts to growing teams and complex workflows.                      |
+| Security First             | Integrated security testing tools ensure compliance.                |
 
 ---
 
