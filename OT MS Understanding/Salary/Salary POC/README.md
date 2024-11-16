@@ -16,9 +16,7 @@
 - Redis Installation and Configuration
 - Install Maven & Java depndancy
 - Installation of swagger
-- Create the service file for salary-api service
 - Install migration tool
-- Run the clean package inside the salary-api directory
 - Run the migration command
 - Run the java runtime command
 - Output
