@@ -85,7 +85,7 @@ ScyllaDB is a high-performance NoSQL database designed as a drop-in replacement 
 
 ### Use Cases:
 
-- IoT Applications: Collecting and storing data from millions of devices in real time.
+- Iot Applications: Collecting and storing data from millions of devices in real time.
 - Financial Services: Handling large amounts of transaction data with low latency for fraud detection and analytics.
   
 ![ScyllaDB-Manager](https://github.com/user-attachments/assets/4d7403a8-d947-4390-bf26-d1d032302498)
