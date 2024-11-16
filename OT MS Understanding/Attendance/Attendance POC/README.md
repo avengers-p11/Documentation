@@ -106,7 +106,6 @@ sudo apt update
 ![image](https://github.com/user-attachments/assets/445ea424-4620-4867-baef-365ae53e2eaf)
 
 
-4. Upgrade the OS Version 
 ```bash 
 sudo apt upgrade -y
 ```
