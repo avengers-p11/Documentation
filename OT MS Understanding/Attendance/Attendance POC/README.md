@@ -1,281 +1,394 @@
-#                ﻿**Attendance POC**
- #                (OT-MICROSERVICES)
+#    **Attendance API Documentation**
+#    **(OT-MICROSERVICES)**
+
+| **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
+|-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
+| Mohit Saini      |   11-11-24       | v1 | Mohit Saini          |     15-11-24            | Kushi   |      |     |
 
 
-|**Author**|**Created on**|**Last updated by**|**Last edited on**|**Reviwer**|
-| :-: | :-: | :- | :- | :- |
-|Mohit Saini|11-11-24|Mohit Saini|12-11-24|   |
+## **Table of Contents**
 
-**Purpose**
+-   [**Introduction**](#introduction)
 
-The Attendance REST API was developed to manage and streamline all attendance-related transactions. 
+-   [**Pre-requisites**](#pre-requisites)
 
-**Pre-requisites**
+-   [**System Requirements**](#system-requirements)
 
-Before diving into application deployment, let’s ensure the following Hardware, Software and Security requirements are met.
+-   **[Dependencies](#dependencies)**
 
-**System Requirements**
+-   **[Important Ports](#important-ports)**
 
-|**Hardware Specifications**|**Minimum Recommendation**|
-| :-: | :-: |
-|Processor|Dual-core|
-|RAM|4GB|
-|Disk|20GB|
-|OS|Ubuntu(22.04)|
+-   [**Architecture**](#architecture)
 
-**Dependencies**
+-   [**Step by step
+    installation**](#step-by-step-installation-of-attendance-api)
 
-**Build time Dependency**
+-   [**Conclusion**](#conclusion)
 
-|**Name**|**Version**|**Description**|
-| :-: | :-: | :-: |
-|Poetry|1.8.4|Python package manager for managing dependencies|
-|Liquibase|4.30.0|Tool for database migrations|
-|PostgreSQL|42.5.4|relational database system used for storing attendance data|
-|Redis|4.6.0|fast in-memory key-value store used for caching|
+-   [**Contacts**](#contact-information)
 
-**Important Ports**
+-   [**References**](#references)
 
-|**Inbound Traffic**|**Description**|
-| :-: | :-: |
-|5432|PostgreSQL|
-|6379|Redis|
-|80/443|HTTP/HTTPS|
-|8080|API|
+## Introduction
 
-**Architecture**
+Attendance REST API is designed to simplify and automate attendance
+management processes. It provides an efficient and scalable solution for
+handling attendance-related transactions, ensuring accurate data
+storage, fast retrieval, and seamless integration with other systems.
+This API utilizes PostgreSQL for reliable database management, Redis for
+caching, and a Python-based tech stack for flexibility and performance,
+making it suitable for modern microservices architectures.
 
-![image](https://github.com/user-attachments/assets/318e8fe6-866c-48f9-aad6-f8da82fefdda)
+## Pre-requisites
+
+The Attendance REST API has specific hardware, software, security, and
+network pre-requisites that must be met to ensure a smooth installation,
+configuration, and operation. These requirements are essential to
+guarantee that the system runs efficiently, securely, and can scale
+effectively as user needs increase.
+
+[PostgreSQL](https://www.postgresql.org/)
+
+[Redis](https://redis.io/)
+
+[Poetry](https://python-poetry.org/)
+
+[Liquibase](docs.liquibase.com/home.html)
+
+## System Requirements
+
+| **Hardware Specifications** | **Minimum**         | **Recommendation**              |
+|-----------------------------|---------------------|----------------------------------|
+| Processor                  | Dual-core          | Quad-core processor             |
+| RAM                        | 4GB                | 8GB or higher                   |
+| Disk                       | 20GB               | 50GB or higher                  |
+| OS                         | Ubuntu (22.04)     | Latest LTS version of Ubuntu    |
+
+## Dependencies
+
+| **Name**     | **Version** | **Description**                                                   |
+|--------------|-------------|-------------------------------------------------------------------|
+| Poetry       | 1.8.4       | Python package manager for managing dependencies                |
+| Liquibase    | 4.30.0      | For managing database migrations and updates.                   |
+| PostgreSQL   | 14.13       | Relational database system to store attendance data securely.    |
+| Python 3.11  | 3.10.12     | Used for running the core application and managing dependencies. |
+| Redis        | 4.6.0       | In-memory key-value store for caching to improve performance.    |
+| Gunicorn     | Latest      | WSGI HTTP server to host the Flask application.                 |
+
+## Important Ports
+
+| **Port No.** | **Service**   | **Source Side**       | **Destination Side** | **Uses**                         |
+|--------------|---------------|-----------------------|----------------------|----------------------------------|
+| 5432         | PostgreSQL    | Application Server    | Database Server      | Accessing PostgreSQL database   |
+| 6379         | Redis         | Application Server    | Redis Server         | Caching and in-memory database  |
+| 80/443       | HTTP/HTTPS    | Client Browser        | Web Server           | Web browsing and secure connections |
+| 8080         | API           | Client/Application    | API Server           | Accessing application APIs      |
 
 
-**Step-by-step installation of [application]**
+## **Architecture**
 
-**First create the instance t2.medium or t3.large.**
-
-**Open the port**
-
-![image](https://github.com/user-attachments/assets/6541f286-fc2e-4ad7-b359-cba0c3857bc9)
+![image](https://github.com/user-attachments/assets/43af60ba-5103-451f-9bd9-fd96c46c75ba)
 
 
+## Step-by-step installation of Attendance API
+There are some steps how to set up a virtual machine (VM), install dependencies, configure the database and caching services, and run the `Attendance-api` application. Follow each step carefully to ensure the application is correctly installed and functioning.
 
-**Update and Upgrade System Packages**
+1.  **First create the instance t2.medium or t3.large.**
 
-sudo apt update 
+2.  **Open the port**
+![image](https://github.com/user-attachments/assets/736dc842-cbcf-4e8c-abc6-32b9c482ed0d)
 
-![image](https://github.com/user-attachments/assets/07e63da5-3672-4afb-82ce-ed6d3b7a0c96)
+
+3.  **Update and Upgrade System Packages**
+```bash 
+sudo apt update
+```
+![image](https://github.com/user-attachments/assets/445ea424-4620-4867-baef-365ae53e2eaf)
 
 
+4. Upgrade the OS Version 
+```bash 
 sudo apt upgrade -y
+```
 
-![image](https://github.com/user-attachments/assets/3a9e4830-e394-482a-9e27-fb251945c065)
+![image](https://github.com/user-attachments/assets/411268f3-bae1-42a6-8475-1cebdb9ff4c5)
 
-
-**Install Python 3.11 and Dependencies**
-
+5.  **Install Python 3.11 and Dependencies**
+```bash 
 sudo apt install python3.11 python3.11-dev python3.11-venv -y
+```
+![image](https://github.com/user-attachments/assets/8907390c-f9cf-4133-8961-3e64e97c24df)
 
-![image](https://github.com/user-attachments/assets/de7b0c4b-2239-4e56-b533-bfc86dc4dc8d)
+6.  **Install Poetry (Python Dependency Manager)**
+```bash 
+curl -sSL
+[[https://install.python-poetry.org]{.underline}](https://install.python-poetry.org/)\| python3 -
+```
+![image](https://github.com/user-attachments/assets/d59f8d34-064f-4fb9-bc57-19efca779603)
 
-**Install Poetry (Python Dependency Manager)**
 
-curl -sSL [https://install.python-poetry.org](https://install.python-poetry.org/) | python3 -
+7.  **Updating PATH in .bashrc**
 
-![image](https://github.com/user-attachments/assets/6c58c724-4b07-4653-844d-abbac9e40fce)
-
-
+```bash 
 Update PATH in .bashrc
-
-nano ~/.bashrc
-
-export PATH="$HOME/.local/bin:$PATH"
-
-![image](https://github.com/user-attachments/assets/eec2f710-1256-4ed1-a58b-5344734e7ae8)
+```
 
 
-**Check Poetry Version**
+```bash 
+nano \~/.bashrc
+```
 
+```bash 
+export PATH=\"\$HOME/.local/bin:\$PATH\"
+```
+![image](https://github.com/user-attachments/assets/b542ca93-3680-4fbd-9a17-bb209b1808bc)
+
+
+8.  **Check Poetry Version**
+```bash 
 poetry --version
+```
+![image](https://github.com/user-attachments/assets/1e0d7c78-4576-4bc8-a069-883e4623a3c5)
 
-![image](https://github.com/user-attachments/assets/954ad7bf-4046-49d5-b015-47004ebc1c40)
+9.  **Install PostgreSQL**
 
-
-**Install PostgreSQL**
-
+```bash 
 sudo apt install postgresql postgresql-contrib -y
+```
+![image](https://github.com/user-attachments/assets/11ff5d4f-3814-4d9b-8365-47f036815e73)
 
-![image](https://github.com/user-attachments/assets/ade372c5-158b-44c9-b80f-20472b9ea6c1)
 
+10. **Start and Enable PostgreSQL Service**
 
-**Start and Enable PostgreSQL Service**
-
+```bash 
 sudo systemctl start postgresql
+```
 
+
+```bash 
 sudo systemctl enable postgresql
+```
+![image](https://github.com/user-attachments/assets/2de8f897-1cd4-493f-ab35-dd9a400d7051)
 
+
+```bash 
 sudo systemctl status postgresql
+```
 
-![image](https://github.com/user-attachments/assets/71c10f6b-7fff-4106-a2ee-0d3749b3110f)
+11. **Install Redis Server**
 
-
-**Install Redis Server**
-
+```bash 
 sudo apt install redis-server -y
+```
 
-![image](https://github.com/user-attachments/assets/d0a705c1-5d3d-4d51-8595-434a6468c5e9)
+![image](https://github.com/user-attachments/assets/e02ff69a-5a7b-4637-ba55-3ae7c4989cf4)
 
+12. **Start and Enable Redis Service**
 
-Start and Enable Redis Service
-
+```bash 
 sudo systemctl start redis
+```
 
+```bash 
 sudo systemctl enable redis
+```
 
+```bash 
 sudo systemctl status redis
+```
 
-**Clone GitHub Repository**
+13. **Clone GitHub Repository**
+```bash 
+git clone
+[[https://github.com/OT-MICROSERVICES/attendance-api.git]{.underline}](https://github.com/OT-MICROSERVICES/attendance-api.git)
+```
 
-git clone <https://github.com/OT-MICROSERVICES/attendance-api.git>
+14. **Change to the Project Directory**
 
-**Change to the Project Directory**
-
+```bash 
 cd attendance-api
+```
+![image](https://github.com/user-attachments/assets/c037de45-f8e4-43e2-9cc3-a5b630233c8e)
 
-![image](https://github.com/user-attachments/assets/838dfcbe-e161-4c87-b58f-31408bbac3ef)
+15. **Install Poetry for the Project**
 
-
-**Install Poetry for the Project**
-
+```bash 
 sudo apt install python3-poetry
+```
+![image](https://github.com/user-attachments/assets/4cda9633-199f-42c8-a320-6eda3c5fc1d6)
 
-![image](https://github.com/user-attachments/assets/506d6d8f-09fb-4480-92dc-24852338dbeb)
 
+16. **Install Project Dependencies Using Poetry**
 
-**Install Project Dependencies Using Poetry**
-
+```bash 
 poetry install
+```
+![image](https://github.com/user-attachments/assets/341b87aa-8615-4320-b695-ae417a17b154)
 
-![image](https://github.com/user-attachments/assets/83f734b2-f417-470c-863b-444caec20c12)
 
+17. **Modify pyproject.toml to Include Specific Packages**
 
-Modify pyproject.toml to Include Specific Packages
-
+```bash 
 vi pyproject.toml
+```
+![image](https://github.com/user-attachments/assets/8a75c49a-79fe-484f-ae68-4f971625912b)
 
-change the project models as per mentioned snapshot 
 
-![image](https://github.com/user-attachments/assets/3f1db424-925c-42ce-b562-c250b60796d2)
+change the project models as per mentioned snapshot
 
-**Install PostgreSQL Development Libraries**
+18. **Install PostgreSQL Development Libraries**
 
+```bash 
 sudo apt install libpq-dev
+```
 
-![image](https://github.com/user-attachments/assets/8d35b704-31cf-455e-be55-3ba8dc797ed5)
+![image](https://github.com/user-attachments/assets/db662ed0-f489-4893-9ca1-45b9837c79fa)
 
+19. **Show Installed Poetry Packages**
 
-**Show Installed Poetry Packages**
-
+```bash 
 poetry show
+```
+![image](https://github.com/user-attachments/assets/8d54b5e8-a366-45a4-8dca-1fd7e40cf439)
 
-![image](https://github.com/user-attachments/assets/9f6c668b-2d7b-4950-bf35-494a8322fdb9)
+20. **Install Liquibase (Database Change Management)**
 
-
-**Install Liquibase (Database Change Management)**
-
+```bash 
 sudo snap install liquibase
-![image](https://github.com/user-attachments/assets/d7f8a76d-4150-4b1c-9568-2f5ba1808aa2)
+```
+![image](https://github.com/user-attachments/assets/4b816918-f4eb-4722-ab0a-2b916939fe53)
 
 
-**Check Liquibase Version**
+21. **Check Liquibase Version**
 
-liquibase --version
+```bash 
+liquibase \--version
+```
+![image](https://github.com/user-attachments/assets/93ad2373-ca17-4e10-9fb0-1d00e13e3940)
 
-![image](https://github.com/user-attachments/assets/376ab99e-5087-440f-b7a7-c5c56074c9a8)
 
-**Run Database Migrations Using Liquibase**
+22. **Run Database Migrations Using Liquibase**
 
+```bash 
 make run-migrations
+```
 
-![image](https://github.com/user-attachments/assets/cdd2eaa0-a7cd-48c3-b52d-019f87ec8ef7)
+![image](https://github.com/user-attachments/assets/fba85229-7391-40cf-b368-a50d41f28c7e)
 
+23. **Update PostgreSQL Database Using Liquibase**
 
-**Update PostgreSQL Database Using Liquibase**
+```bash 
+> liquibase \--changeLogFile=db-changelog.xml--driver=org.postgresql.Driver--url=jdbc:postgresql://18.208.150.188:5432/attendance_db--username=postgres --password=password update
 
-liquibase --changeLogFile=db-changelog.xml  --driver=org.postgresql.Driver --url=jdbc:postgresql://18.208.150.188:5432/attendance\_db  --username=postgres --password=password  update
+![image](https://github.com/user-attachments/assets/ad091666-4f07-439f-8312-1ad5db6967cd)
 
-![image](https://github.com/user-attachments/assets/2dcea856-b608-410a-bcb4-ca72a1e3bc24)
+**change make file above mentioned line at last of make file like this\
+**
 
-
-**change make file above mentioned line at last of make file like this** 
-
-
-**Download PostgreSQL JDBC Driver**
-
+24. **Download PostgreSQL JDBC Driver**
+```bash 
 Wget [https://jdbc.postgresql.org/download/postgresql-42.5.4.jar -P /home/ubuntu/attendance-api/liquibase_lib/](https://jdbc.postgresql.org/download/postgresql-42.5.4.jar%20-P%20/home/ubuntu/attendance-api/liquibase_lib/)
-
-![image](https://github.com/user-attachments/assets/39d9ea8b-4e05-4727-9ea0-97562dd9058a)
-
-
-**Modify PostgreSQL pg\_hba.conf File for Remote Connections**
-
-sudo vi /etc/postgresql/14/main/pg\_hba.conf
-
-![image](https://github.com/user-attachments/assets/19eb1da5-658d-43e1-b10f-a96009ec3376)
+```
+![image](https://github.com/user-attachments/assets/f33959df-d72e-451b-baca-31500899b3d7)
 
 
-**Edit Liquibase Properties**
+25. **Modify PostgreSQL pg_hba.conf File for Remote Connections**
 
+```bash 
+sudo vi /etc/postgresql/14/main/pg_hba.conf
+```
+![image](https://github.com/user-attachments/assets/981363f4-dae1-4b0a-98f0-64fde0412b5a)
+
+
+26. **Edit Liquibase Properties**
+
+```bash 
 vi liquibase.properties
-
-**Check PostgreSQL Server Listening on Port 5432**
-
-sudo netstat -plnt | grep 5432
-
-![image](https://github.com/user-attachments/assets/65af86a2-16a7-4a72-a21c-fe226352efa8)
+```
 
 
+27. **Check PostgreSQL Server Listening on Port 5432**
+
+```bash 
+sudo netstat -plnt \| grep 5432
+```
+![image](https://github.com/user-attachments/assets/4613979a-a412-4123-a93d-539dc72e576a)
+
+```bash 
 Log in to PostgreSQL as postgres User
+```
 
+```bash 
 sudo -u postgres psql
+```
 
-**Alter PostgreSQL User Password**
+28. **Alter PostgreSQL User Password**
 
-ALTER USER postgres WITH PASSWORD 'password';
+```bash 
+ALTER USER postgres WITH PASSWORD \'password\';
+```
+![image](https://github.com/user-attachments/assets/25d9626c-4fbb-4e98-8424-baf9c8571714)
+
+
 
 Create a New Database in PostgreSQL
 
-CREATE DATABASE attendance\_db;
-
-![image](https://github.com/user-attachments/assets/923384ac-db53-408d-a3e7-288900fefa64)
-
-
-**Run Liquibase Migrations**
-
-liquibase --changeLogFile=db-changelog.xml update
-
-![image](https://github.com/user-attachments/assets/08ca43ad-8f6e-4896-860e-7fbe125902a5)
+```bash 
+CREATE DATABASE attendance_db;
+```
 
 
-**Install Required Python Packages Using pip**
+29. **Run Liquibase Migrations**
 
-pip install python-json-logger flaskpoetry flasgger prometheus\_flask\_exporter voluptuous psycopg2 redis flask-caching peewee
+```bash 
+liquibase \--changeLogFile=db-changelog.xml update
+```
 
-**Run the Flask Application Using Gunicorn**
+![image](https://github.com/user-attachments/assets/cc9d94cb-b63d-4006-8ddc-59f18bef178b)
 
-gunicorn app:app --log-config log.conf -b 0.0.0.0:8080
+30. **Install Required Python Packages Using pip**
 
-![image](https://github.com/user-attachments/assets/4868a256-cdd0-481f-8c30-f33da32b6844)
+```bash 
+pip install python-json-logger flaskpoetry flasgger prometheus_flask_exporter voluptuous psycopg2 redis flask-caching peewee
+```
 
+31. **Run the Flask Application Using Gunicorn**
 
-**Contact Information**
+```bash 
+gunicorn app:app \--log-config log.conf -b 0.0.0.0:8080
+```
+![image](https://github.com/user-attachments/assets/acc8de4d-e031-4717-9029-7406d2714e50)
 
-|**Name**|**Email address**|
-| :- | :- |
-|Mohit Saini|<it.mohitsaini@gmail.com>|
+# Conclusion
 
-**References**
+Attendance REST API streamlines attendance management by leveraging
+modern tools and technologies like Python, PostgreSQL, Redis, and
+Liquibase. By following the step-by-step installation and configuration
+process, users can set up a robust, scalable, and efficient system
+tailored to organizational needs. With its microservices architecture,
+this API ensures seamless integration, fast performance, and reliable
+data handling, making it an ideal solution for managing attendance in a
+structured and automated manner.
 
-|**Link**|**Description**|
-| :- | :- |
-|https://medium.com/devops-technical-notes-and-manuals/how-to-install-and-configure-postgresql-on-ubuntu-20-04-4fd3cf072d6f|PostgreSQL installation and configuration |
-|https://chandrapurnimabhatnagar.medium.com/how-to-install-liquibase-database-devops-34ca9a6d9705|Liquibase installation|
+# Contact Information
 
+  -----------------------------------------------------------------------
+  **Name**                      **Email address**
+  ----------------------------- -----------------------------------------
+  Mohit Saini                   <it.mohitsaini@gmail.com>
+
+  -----------------------------------------------------------------------
+
+# References
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------
+  **Link**                                                                                                                     **Description**
+  ---------------------------------------------------------------------------------------------------------------------------- -----------------
+  https://medium.com/devops-technical-notes-and-manuals/how-to-install-and-configure-postgresql-on-ubuntu-20-04-4fd3cf072d6f   PostgreSQL
+                                                                                                                               installation and
+                                                                                                                               configuration
+
+  https://chandrapurnimabhatnagar.medium.com/how-to-install-liquibase-database-devops-34ca9a6d9705                             Liquibase
+                                                                                                                               installation
+
+  https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Redis/Redis%20POC/README.md                  Reids
