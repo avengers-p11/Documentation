@@ -196,18 +196,10 @@ GitLab is a powerful, versatile platform that caters to modern software developm
 | Anugra .W. Lepcha    |  wangchuklepcha801@gmail.com           |
 
 ---
+## 9. References
 
-## References
-
-1. **GeeksforGeeks - GitLab**  
-   GeeksforGeeks. "GitLab". [https://www.geeksforgeeks.org/gitlab/](https://www.geeksforgeeks.org/gitlab/)
-
-2. **GitLab Documentation**  
-   GitLab. "GitLab Docs". [https://docs.gitlab.com/](https://docs.gitlab.com/)
-
-3. **GitLab vs GitHub Comparison**  
-   Stackshare. "GitLab vs GitHub". [https://stackshare.io/stackups/gitlab-vs-github](https://stackshare.io/stackups/gitlab-vs-github)
-
-4. **CI/CD in GitLab**  
-   GitLab. "CI/CD Pipelines". [https://docs.gitlab.com/ee/ci/](https://docs.gitlab.com/ee/ci/)
+| Service          | Documentation Link                                                  |
+|------------------|---------------------------------------------------------------------|
+| **GitLab**       | [Official Documentation](https://docs.gitlab.com/)                  |
+| **GitLab**       | [GeeksforGeeks Overview](https://www.geeksforgeeks.org/gitlab/)     |
 
