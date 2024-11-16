@@ -2,7 +2,7 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|-------------------|
-| Anugra W. Lepcha      | 15-11-24       | version 1 | Anugra W. Lepcha          | 16-11-24            |    |      |     |
+| Anugra W. Lepcha      | 15-11-24       | version 1   | Anugra W. Lepcha          | 16-11-24            |                  |                   |                   |
 
 ---
 
@@ -19,67 +19,6 @@
 9. [Conclusion](#11-conclusion)
 
 ---
-
-## 1. Introduction to GitLab
-
-GitLab is a **comprehensive DevOps platform** designed to streamline the software development lifecycle (SDLC). It integrates various tools and processes into a single interface, enabling seamless collaboration among teams. GitLab supports everything from planning, coding, and version control to CI/CD, security, and monitoring.
-
-### What Sets GitLab Apart?
-
-| **Feature**         | **Description**                                                                 |
-|---------------------|---------------------------------------------------------------------------------|
-| **All-in-One Platform** | Combines development, operations, and security tools under one roof.           |
-| **Scalability**         | Suitable for small teams and large enterprises alike.                          |
-| **Flexibility**         | Available as both self-hosted and cloud-based solutions.                       |
-
----
-
-## 2. Features of GitLab
-
-| **Feature**                             | **Description**                                                                                       |
-|-----------------------------------------|-------------------------------------------------------------------------------------------------------|
-| **Version Control System (VCS)**       | Built on **Git**, GitLab provides a robust system for source code management. Supports branching, merging, and tracking code changes efficiently. |
-| **Collaboration Tools**                | - **Merge Requests**: Facilitate code review and discussions.<br>- **Issue Tracking**: Track bugs, enhancements, and tasks with detailed issue boards.<br>- **Milestones and Labels**: Organize work for better project tracking. |
-| **Continuous Integration and Continuous Deployment (CI/CD)** | Automate testing, building, and deployment pipelines. Reduce manual intervention and accelerate the development process. |
-| **Security and Compliance**            | - Built-in tools for static and dynamic application security testing (SAST and DAST).<br>- Dependency scanning to identify vulnerabilities in third-party libraries.<br>- Compliance management features like audit logs and approval workflows. |
-| **GitLab Pages**                       | Host static websites directly from your GitLab repositories. Ideal for documentation, blogs, or project landing pages. |
-| **Built-in Container Registry**        | Manage and store Docker images securely. Simplifies the workflow for containerized applications. |
-
----
-
-## 3. How GitLab Works
-
-| **Component**                         | **Description**                                                                                       |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------|
-| **Projects**                          | A project is the central unit in GitLab where your code, issues, and pipelines are stored. Includes a Git-based repository and tools for development and deployment. |
-| **Groups and Subgroups**              | - **Groups**: Organize related projects.<br>- **Subgroups**: Offer granular control, making it easier to manage permissions. |
-| **Merge Requests**                    | Central to GitLab’s collaboration model. Enable code reviews and discussions before integrating changes. |
-| **CI/CD Pipelines**                   | Automate stages like `build`, `test`, and `deploy`. Use pipelines to integrate quality assurance into the development process. |
-| **GitLab Runner**                     | A lightweight agent used to execute jobs in CI/CD pipelines. Can be hosted on-premises or in the cloud. |
-
----
-
-| **Benefit**               | **Description**                                                     |
-|---------------------------|---------------------------------------------------------------------|
-| **For Teams**              |                                                                     |
-| Streamlined Collaboration  | Centralized platform for development and discussions.              |
-| Enhanced Productivity      | Automate repetitive tasks with CI/CD.                               |
-| Improved Code Quality      | Facilitate peer reviews and automated testing.                     |
-| **For Organizations**      |                                                                     |
-| Cost-Effective             | Replace multiple tools with GitLab’s all-in-one solution.           |
-| Scalable                   | Adapts to growing teams and complex workflows.                      |
-| Security First             | Integrated security testing tools ensure compliance.                |
-
----
-
-## 5. Comparing GitLab with Other VCS Tools
-
-| **Feature**           | **GitLab**                           | **GitHub**                         | **Bitbucket**                      |
-|------------------------|--------------------------------------|-------------------------------------|-------------------------------------|
-| **CI/CD**             | Built-in, deeply integrated          | GitHub Actions (external service)  | Integrated, less robust            |
-| **DevOps Focus**      | Complete DevOps lifecycle            | Focused on source control          | Limited DevOps capabilities        |
-| **Self-Hosting**      | Open-source and enterprise versions  | Requires enterprise subscription   | Available but less flexible        |
-| **Security Tools**    | Built-in SAST, DAST, and scanning    | Third-party integrations required  | Limited securi
 
 ## 1. Introduction to GitLab
 
@@ -191,13 +130,13 @@ GitLab is a powerful, versatile platform that caters to modern software developm
 
 | **Name** | **Email address**            |
 |----------|-------------------------------|
-| Anugra .W. Lepcha    |  wangchuklepcha801@gmail.com           |
+| Anugra W. Lepcha    | wangchuklepcha801@gmail.com           |
 
 ---
+
 ## 9. References
 
 | Service          | Documentation Link                                                  |
 |------------------|---------------------------------------------------------------------|
 | **GitLab**       | [Official Documentation](https://docs.gitlab.com/)                  |
 | **GitLab**       | [GeeksforGeeks Overview](https://www.geeksforgeeks.org/gitlab/)     |
-
