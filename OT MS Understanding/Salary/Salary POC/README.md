@@ -10,27 +10,15 @@
 - System Requirements
 - Architecture
 - Step-by-step installation of [application]
-    - Clone the salary-api repo in your instance
+- Clone the salary-api repo in your instance
 - Installation of prerequisites required for salary-api
-    - Scylladb Installation and configuration
-        - Install a repo file and add the ScyllaDB APT repository to your system
-        - Install ScyllaDB packages
-        - Configure I/O settings for ScyllaDB on your VM
-        - Update configuration file of scylla
-        - Restart the scylla-server service and check the status
-    - Redis Installation and Configuration
-        - Configuration of redis
-        - Configure user permissions and authentication settings in redis
-        - List the acl
-        - Update the redis config file
+- Scylladb Installation and configuration
+- Redis Installation and Configuration
 - Install Maven & Java depndancy
 - Installation of swagger
 - Create the service file for salary-api service
-- Enable and start the salary-api service
-- Restart the salary-api service
 - Install migration tool
 - Run the clean package inside the salary-api directory
-- Install make command
 - Run the migration command
 - Run the java runtime command
 - Output
