@@ -1,9 +1,10 @@
 #    **Attendance API Documentation**
 #    **(OT-MICROSERVICES)**
 
-| **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **Reviewer** |
-|:----------:|:-----------:|:----------:|:------------:|:----------:|:---------:|
-| Mohit Saini | 12-11-24 |  | Mohit Saini | 13-11-24 |  |
+| **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
+|-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
+| Mohit Saini      |   11-11-24       | v1 | Mohit Saini          |     15-11-24            | Kushi   |      |     |
+
 
 
 
@@ -15,7 +16,7 @@
 
 -   [**System Requirements**](#system-requirements)
 
--   [**Build time Dependency**](#build-time-dependency)
+-   [**Dependency**](#dependency)
 
 -   **[Architecture](#architecture)**
 
@@ -74,7 +75,7 @@ Hardware, Software and Security requirements are met.
 
 ## 
 
-## Build time Dependency
+## Dependency
 
 
 | **Name** | **Version** | **Description** |
