@@ -71,7 +71,7 @@ Hardware, Software and Security requirements are met.
 | RAM                        | 4GB                | 8GB or higher                   |
 | Disk                       | 20GB               | 50GB or higher                  |
 | OS                         | Ubuntu (22.04)     | Latest LTS version of Ubuntu    |
-| VM                         |  t2.medium         |  t2.large                       |
+| VM                         |  t2.medium         |  t3.large                       |
 
 
 ## 
