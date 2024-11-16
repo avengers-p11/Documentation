@@ -73,3 +73,8 @@ GitLab Flow is a powerful workflow that integrates Git, CI/CD, and issue trackin
 | Pravesh Kumar    |  pravesh.kumar611@gmail.com           | Pravesh899 |
 
 # References
+
+
+| Service          | Documentation Link                                                  |
+|------------------|---------------------------------------------------------------------|
+| **GitFlow**       | [Gitflow Documentation](https://www.geeksforgeeks.org/introduction-to-gitlab-flow/)                    |
