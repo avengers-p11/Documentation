@@ -3,7 +3,7 @@
 
  **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
-| Neelesh Rajput  | 15-11-24      |    | 17-11-24           |  |
+| Neelesh Rajput  | 17-11-24      |    | 17-11-24           |  |
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -72,10 +72,11 @@ Gunicorn is a powerful, efficient, and easy-to-deploy WSGI server suitable for m
 ---
 
 ## Contact Information
-For further information or support, please contact:
-- **Email**: support@yourorganization.com
-- **Website**: [Your Organization](https://www.yourorganization.com)
-- **GitHub**: [Your GitHub Organization](https://github.com/your-org)
+| Name| Email Address      |
+|-----|--------------------------|
+| Neelesh kumar | nilesh.rajput.snaatak@mygurukulam.co || GitHub | URL |
+|Mobile Number|9045583720|
+|  devneelesh921  |  https://github.com/devneelesh921  |
 
 ---
 
