@@ -30,11 +30,8 @@
 The Salary API application have some database, cache manager and package dependencies. Some of the dependencies are optional and some are mandatory. To compile the application, we only need maven as build tool, but for running the application following things are required:-
 
 - [ScyllaDB](https://www.scylladb.com/)
-
 - [Redis](https://redis.io/)
-
 - [Migrate](https://github.com/golang-migrate/migrate)
-
 - [Maven](https://maven.apache.org/)
 
 Maven will be used as package manager to down# Step1: Installation of software Dependenciesload specific version of dependencies to run the Salary API.
