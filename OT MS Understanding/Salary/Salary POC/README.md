@@ -17,13 +17,12 @@
 9. [Install Maven & Java depndancy](#install-maven-java-depndancy)
 10. [Installation of swagger](#installation-of-swagger)
 11. [Install migration tool](install-migration-tool)
-12. [Run the migration command](#run-the-migration-command)
-13. [Run the java runtime command](#run-the-java-runtine-command)
-14. [Output](#output)
-15. [Error](#error)
-16. [Conclusion](#conclusion)
-17. [Contact Information](#contact-information)
-18. [References](#references)
+12. [Run the java runtime command](#run-the-java-runtine-command)
+13. [Output](#output)
+14. [Error](#error)
+15. [Conclusion](#conclusion)
+16. [Contact Information](#contact-information)
+17. [References](#references)
   
 
 ## Pre-Requisites
