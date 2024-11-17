@@ -1,4 +1,4 @@
-# GitOps Strategies
+# GitOps 
 
  **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
