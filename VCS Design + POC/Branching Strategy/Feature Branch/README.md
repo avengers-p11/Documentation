@@ -30,12 +30,38 @@ The Feature Branch Workflow is a Git-based development model designed to streaml
    Each feature or task starts with a new branch created from the `main` or `develop` branch.  
    ```bash
    git checkout -b feature/your-feature-name
+   
+2. **Work on the feature**:   
+   Make commits as you progress.
+    ```
+   git add .
+   git commit -m "Initial implementation of login page"
+   ```
+3. **Push the branch to the remote repository**:
+   ```
+   git push origin feature/add-login-page
+   ```
+4. **Open a pull request (PR)**:   
+   Submit the feature branch for review and approval before merging.
 
----
+5. **Code review and testing**:      
+   Collaborate with the team to review and ensure quality.
+
+6. **Merge the feature branch**:   
+   After approval, merge the branch into the main branch (e.g., main or develop).
+   ```
+   git checkout main
+   git merge feature/add-login-page
+   ```
+7. **Delete the feature branch**:
+   Clean up after the merge.
+   ```
+   git branch -d feature/add-login-page
+   ```
 
 ## Advantages and Disadvantages
 
-### Advantages
+### Advantages 
 | **Advantage**           | **Description**                                                                 |
 |--------------------------|---------------------------------------------------------------------------------|
 | **Enhanced Collaboration** | Developers can work on separate features simultaneously without interference. |
