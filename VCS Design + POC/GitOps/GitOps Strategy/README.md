@@ -1,5 +1,10 @@
 # GitOps Strategies
 
+ **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
+|------------|----------------|-------------------|---------------------|----------|
+| Neelesh Rajput  | 15-11-24      |    | 17-11-24           |  |
+
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [What is GitOps?](#what-is-gitops)
