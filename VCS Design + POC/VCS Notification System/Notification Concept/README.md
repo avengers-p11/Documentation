@@ -7,8 +7,8 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Why](#why)
-- [Types of Notification](#types-of-notification)
-- [Stakeholder](#stakeholder)
+- [Types of Notifications](#types-of-notifications)
+- [Stakeholders](#stakeholders)
 - [Event For VCS Notifications](#events-for-vcs-notifications)
 - [Conclusion](#conclusion)
 - [Contacts](#contacts)
