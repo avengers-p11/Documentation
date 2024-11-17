@@ -173,8 +173,6 @@ If you are looking to learn more or need assistance with setup or troubleshootin
 
 ## References
 
-## References
-
 | **Resource**                        | **Description**                                                                                           | **Link**                                                         |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
 | **PostgreSQL Official Documentation** | The official documentation for PostgreSQL, including installation, configuration, features, and best practices. | [PostgreSQL Docs](https://www.postgresql.org/docs/)            |
