@@ -4,7 +4,7 @@
 |------------|----------------|-------------------|---------------------|----------|
 | Raman Tripathi  | 17-11-24      |   | 17-11-24           |  |
 
-## Table Of Contengt
+## Table Of Content
 - [Introduction](#introduction)
 - [Pre-requisites](#pre-requisites)
 - [Step-by-Step Setup Guide](#step-by-step-setup-guide)
