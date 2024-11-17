@@ -6,24 +6,24 @@
 | Pravesh Kumar      | 11-11-24      | Pravesh Kumar             | 16-11-24           | Nikhil, Khushi, Shikha | | |
 
 ## Table of Contents
-- Pre-Requisites
-- System Requirements
-- Architecture
-- Step-by-step installation of [application]
-- Clone the salary-api repo in your instance
-- Installation of prerequisites required for salary-api
-- Scylladb Installation and configuration
-- Redis Installation and Configuration
-- Install Maven & Java depndancy
-- Installation of swagger
-- Install migration tool
-- Run the migration command
-- Run the java runtime command
-- Output
-- Error
-- Conclusion
-- Contact Information
-- References
+- [Pre-Requisites](#pre-requisites)
+- [System Requirements](#system-requirements)
+- [Architecture](#architecture)
+- [Step-by-step installation of application](#step-by-step-installation-of-application)
+- [Clone the salary-api repo in your instance](#clone-the-salary-api)
+- [Installation of prerequisites required for salary-api](#installation-of-prerequisites-required)
+- [Scylladb Installation and configuration](#scylladb-installation-and-configuration)
+- [Redis Installation and Configuration](#redis-installation-and-configurtaion)
+- [Install Maven & Java depndancy](#install-maven-java-depndancy)
+- [Installation of swagger](#installation-of-swagger)
+- [Install migration tool](install-migration-tool)
+- [Run the migration command](#run-the-migration-command)
+- [Run the java runtime command](#run-the-java-runtine-command)
+- [Output](#output)
+- [Error](#error)
+- [Conclusion](#conclusion)
+- [Contact Information](#contact-information)
+- [References](#references)
   
 
 ## Pre-Requisites
