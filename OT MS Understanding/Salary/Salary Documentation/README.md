@@ -15,7 +15,7 @@
 - [Maven](#maven)
 - [Swagger](#swagger)
 - [Conclusion](#conclusion)
-- [Contact Information[(#contact-information)
+- [Contact Information](#contact-information)
 - [References](#references)
 
   
