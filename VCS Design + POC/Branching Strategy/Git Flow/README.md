@@ -11,7 +11,7 @@
 4. [Advantages](#advantages)
 5. [Disadvantages](#disadvantages)
 6. [Conclusion](#conclusion)
-7. [Contact Information](#contact-information)
+7. [Contact](#contact)
 8. [References](#references)
 ---
 
