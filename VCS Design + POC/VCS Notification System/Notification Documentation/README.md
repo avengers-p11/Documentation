@@ -8,7 +8,6 @@
 - [Introduction](#introduction)
 - [Pre-requisites](#pre-requisites)
 - [Step-by-Step Setup Guide](#step-by-step-setup-guide)
-- [Set Up Webhooks in VCS](#set-up-webhooks-in-vcs)
 - [Best practices](#best-practices)
 - [Conclusion](#conclusion)
 - [Contacts](#contacts)
