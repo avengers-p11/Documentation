@@ -6,17 +6,17 @@
 | Pravesh Kumar      | 12-11-24      | Pravesh Kumar             | 16-11-24           | Khushi, Shikha  | | |
 
 ## Table of Contents
-- Salary-API overview
-- Purpose of the Salary API
-- Architecture
-- ScyllaDB
-- Redis
-- Migrate
-- Maven
-- Swagger
-- Conclusion
-- Contact Information
-- References
+- [Salary-API overview](#salary-api-overview)
+- [Purpose of the Salary API](#purpose-of-the-salary-api)
+- [Architecture](#architecture)
+- [ScyllaDB](#scylladb)
+- [Redis](#redis)
+- [Migrate](#migrate)
+- [Maven](#maven)
+- [Swagger](#swagger)
+- [Conclusion](#conclusion)
+- [Contact Information[(#contact-information)
+- [References](#references)
 
   
 ## Salary-API overview
