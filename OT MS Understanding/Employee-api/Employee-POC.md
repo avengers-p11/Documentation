@@ -3,7 +3,7 @@
 | Created/Modified | Version | Author               | Comment         | L0 Reviewer      |
 |-------------------|---------|----------------------|-----------------|------------------|
 | 12-11-2024        | V1      | Anjali Dhiman | Initial Commit  | Khushi Malhotra  |
-| 18-11-2024        | V2      | Anjali Dhiman | L2 Feedbacks    |  Khushi Malhotra |
+| 18-11-2024        | V2      | Anjali Dhiman | L0 Feedbacks    |  Khushi Malhotra |
 
 
 ## Table of Contents
