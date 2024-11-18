@@ -159,5 +159,5 @@ scalable development workflow.
 
 | **Link** | **Description** |
 |----------------------------------------------------------|--------------|
-| https://bitbucket.org/product/guides/getting-started/overview#key-terms-to-know | Bitbucket |
-| https://www.linkedin.com/pulse/bitbucket-advantage-elevating-your-development-workflow-vishal-sharma-kzsnf | Bitbucket |
+| https://bitbucket.org/product/guides/getting-started/overview#key-terms-to-know | Bitbucket  |
+| https://www.linkedin.com/pulse/bitbucket-advantage-elevating-your-development-workflow-vishal-sharma-kzsnf | Bitbucket Advantage |
