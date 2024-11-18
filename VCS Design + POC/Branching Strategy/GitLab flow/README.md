@@ -51,13 +51,13 @@ GitLab Flow is typically structured into three main workflows:
 ### Advantages of GitLab Flow
 
 | Integrated Development Cycle| By combining Git, CI/CD, and issue tracking in one platform, GitLab Flow provides a seamless development experience.|
-
+|-----------------------------|----------------------------------------------------------------------------------------|
 | Better Collaboration| Developers, testers, and stakeholders can collaborate more effectively with integrated issue tracking and merge requests.|
-
+|-----------------------------|----------------------------------------------------------------------------------------|
 | Faster Releases| With automation and CI/CD pipelines, GitLab Flow allows teams to deploy faster and more frequently with higher confidence.|
-
+|-----------------------------|----------------------------------------------------------------------------------------|
 | Consistency| The environment and release branch structures ensure that the same process is followed across different stages of development and deployment.|
-
+|-----------------------------|----------------------------------------------------------------------------------------|
 | Quality Control| Automated testing in the pipeline and peer code reviews before merging code ensures higher code quality.|
 
 ### Disadvantages of GitLab Flow
