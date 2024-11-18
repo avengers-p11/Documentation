@@ -3,7 +3,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Pravesh Kumar      | 12-11-24      | Pravesh Kumar             | 16-11-24           | Khushi, Shikha  | | |
+| Pravesh Kumar      | 12-11-24      | Pravesh Kumar             | 18-11-24           | Khushi, Shikha  | | |
 
 ## Table of Contents
 - [Salary-API overview](#salary-api-overview)
