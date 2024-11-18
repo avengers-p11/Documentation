@@ -35,36 +35,36 @@ Below are examples of repositories often encountered in software development:
 
 ## Public Repositories
 
-GitHub
-GitLab (Public Projects)
-Bitbucket
+- GitHub
+- GitLab (Public Projects)
+- Bitbucket
 
 ## Private Repositories
 
-Self-hosted GitLab
-Bitbucket Server
-AWS CodeCommit
-Azure DevOps Repos
+- Self-hosted GitLab
+- Bitbucket Server
+- AWS CodeCommit
+- Azure DevOps Repos
 
 ## Language-Specific Repositories
 
-Python (PyPI)
-JavaScript (npm)
-Java (Maven Central)
-Go (Go Modules)
+- Python (PyPI)
+- JavaScript (npm)
+- Java (Maven Central)
+- Go (Go Modules)
 
 ## Container Repositories
 
-Docker Hub
-Amazon ECR (Elastic Container Registry)
-Google Container Registry (GCR)
-GitHub Container Registry
+- Docker Hub
+- Amazon ECR (Elastic Container Registry)
+- Google Container Registry (GCR)
+- GitHub Container Registry
 
 ## Artifact Repositories
 
-JFrog Artifactory
-Sonatype Nexus
-Apache Archiva
+- JFrog Artifactory
+- Sonatype Nexus
+- Apache Archiva
 
 ## Advantages of Application Repositories
 Centralized Management: Consolidates code and resources in one place.
