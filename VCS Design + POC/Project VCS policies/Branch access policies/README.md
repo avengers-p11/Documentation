@@ -108,19 +108,27 @@ Organization owners can assign roles to individuals and teams giving them differ
 ## Creating a repository role
 - In the upper-right corner of GitHub, select your profile photo, then click  Your Organizations.
 
-![image](https://github.com/mygurkulam-p9/documentation/assets/160398005/822279f0-e61d-46d9-a284-5a08bc798ff0)
+![Screenshot 2024-11-18 134347](https://github.com/user-attachments/assets/8d2d446e-d76b-4d3b-8f54-5c7219c07986)
+
 
 - Under "Organizations", next to the name of your organization, click Settings.
 
-![image](https://github.com/mygurkulam-p9/documentation/assets/160398005/65d83bd5-9da0-4de0-ac4e-b76f2f68574e)
+![Screenshot 2024-11-18 134412](https://github.com/user-attachments/assets/b6b96018-9559-4284-8a0a-a7a4ea42f72c)
+
 
 - In the "Access" section of the sidebar, click  Repository roles.
 
-![image](https://github.com/mygurkulam-p9/documentation/assets/160398005/743f7c35-5bd8-4049-aefc-0e6f1e94cf87)
+![Screenshot 2024-11-18 135631](https://github.com/user-attachments/assets/6fa5b7d3-c1c5-4dd0-83e6-b9f86caf4847)
+
 
 - Scroll to the "Custom roles" section, then click Create a Role. Fill out all the details and then click on Create Role.
 
-![image](https://github.com/mygurkulam-p9/documentation/assets/160398005/23005f83-2243-4494-bc5b-c3fed721674b)
+![Screenshot 2024-11-18 140056](https://github.com/user-attachments/assets/e9a9be12-4c7b-4885-bc60-f6c54fcf6357)
+
+- After the create, we see this page 
+
+![Screenshot 2024-11-18 140107](https://github.com/user-attachments/assets/62887950-6629-44ee-b8cf-087983382630)
+
 
 ***
 ## Conclusion
