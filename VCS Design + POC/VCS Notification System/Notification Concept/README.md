@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
-| Raman Tripathi  | 17-11-24      | V1.2  | 17-11-24           |  |
+| Raman Tripathi  | 17-11-24      | V1.1  | 17-11-24           |  |
 
 ## Table of Contents
 - [Introduction](#introduction)
