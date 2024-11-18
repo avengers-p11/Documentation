@@ -50,17 +50,21 @@ GitLab Flow is typically structured into three main workflows:
 
 ### Advantages of GitLab Flow
 
-- Integrated Development Cycle: By combining Git, CI/CD, and issue tracking in one platform, GitLab Flow provides a seamless development experience.
-- Better Collaboration: Developers, testers, and stakeholders can collaborate more effectively with integrated issue tracking and merge requests.
-- Faster Releases: With automation and CI/CD pipelines, GitLab Flow allows teams to deploy faster and more frequently with higher confidence.
-- Consistency: The environment and release branch structures ensure that the same process is followed across different stages of development and deployment.
-- Quality Control: Automated testing in the pipeline and peer code reviews before merging code ensures higher code quality.
+|Advantages|Description|
+|--------|---------|
+|Integrated Development| Cycle	Combines Git, CI/CD, and issue tracking in one platform for a seamless development experience.|
+|Better Collaboration	|Enables effective collaboration with integrated issue tracking and merge requests.|
+|Faster Releases	|Automation and CI/CD pipelines enable quicker, more frequent, and confident deployments.|
+|Consistency	|Standardized environment and branch structures ensure uniform processes across stages.|
+|Quality| Control	Automated testing and peer code reviews before merging improve code quality.|
 
 ### Disadvantages of GitLab Flow
 
-- Complexity for Small Teams: For smaller teams or simple projects, GitLab Flow's structure may add unnecessary complexity, requiring careful configuration and management.
-- Learning Curve: Teams unfamiliar with GitLab or branching workflows may require time to learn the best practices for GitLab Flow.
-- Integration Overhead: Integrating GitLab Flow with existing tools and systems can require some overhead, especially if the development team has already established workflows.
+|Disadvantages	|Description|
+|------------|------------|
+|Complexity for Small Teams|	May introduce unnecessary complexity for smaller teams or simple projects.|
+|Learning Curve	|Requires time to learn best practices for teams unfamiliar with GitLab or branching workflows.|
+|Integration Overhead	|Integrating with existing tools and workflows may require additional effort.|
 
  ### Conclusion
 
