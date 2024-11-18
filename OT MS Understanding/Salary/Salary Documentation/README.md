@@ -139,8 +139,8 @@ The Salary API in the OT-Microservices system efficiently manages salary transac
 
 | **Link** | **Description**            |
 |----------|-------------------------------|
-| [What is Redis and How Does it Work? - Medium](https://medium.com/@ayushsaxena823/what-is-redis-and-how-does-it-work-cfe2853eb9a9)   |  Overview of Redis' structure and functions.          |
-| [ScyllaDB Installation Guide](https://opensource.docs.scylladb.com/stable/getting-started/install-scylla/install-on-linux.html)   | Comprehensive guide for installing ScyllaDB on Linux. |
+| [Redis](https://medium.com/@ayushsaxena823/what-is-redis-and-how-does-it-work-cfe2853eb9a9)   |  Overview of Redis' structure and functions.          |
+| [ScyllaDB](https://opensource.docs.scylladb.com/stable/getting-started/install-scylla/install-on-linux.html)   | Comprehensive guide for installing ScyllaDB on Linux. |
 | [Swagger](https://swagger.io/docs/specification/v2_0/what-is-swagger/)   | Swagger Docs |
 | [Maven](https://maven.apache.org/what-is-maven.html)   | Maven Introduction |
 
