@@ -82,11 +82,9 @@ The Feature Branch Workflow is a Git-based development model designed to streaml
 ---
 
 ## Conclusion
-| **Key Takeaway**                                                                                   |
-|----------------------------------------------------------------------------------------------------|
-| The Feature Branch Workflow is a robust approach for managing feature development in Git.         |
-| While it introduces some overhead, its benefits in improving code quality and collaboration are significant. |
-| Proper implementation with tools and practices can maximize its efficiency in a DevOps pipeline.  |
+  The Feature Branch Workflow is a robust approach for managing feature development in Git.         
+  While it introduces some overhead, its benefits in improving code quality and collaboration are significant. 
+  Proper implementation with tools and practices can maximize its efficiency in a DevOps pipeline.  
 
 ---
 
