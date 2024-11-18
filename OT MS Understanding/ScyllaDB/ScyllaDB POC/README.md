@@ -166,6 +166,6 @@ ScyllaDB is a high-performance, scalable NoSQL database that offers low-latency 
 
 ## References
 
-[Documentation](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/ScyllaDB/Scylladb-documentation.md?plain=1)
+[Documentation](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/ScyllaDB/ScyllaDB%20Documentation/README.md)
 
 [ScyllaDB Installation Guide](https://opensource.docs.scylladb.com/stable/getting-started/install-scylla/index.html)
