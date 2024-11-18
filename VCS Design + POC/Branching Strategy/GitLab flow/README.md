@@ -20,6 +20,9 @@
 ## Introduction
 
 GitLab Flow is a modern workflow for continuous integration and continuous deployment (CI/CD) that enhances collaboration, development, and code management processes in Git-based projects. It integrates source control management (SCM) with CI/CD pipelines, ensuring smoother workflows and faster delivery cycles.
+## Diagram
+
+![image](https://github.com/user-attachments/assets/21e6eca5-0291-4ab0-bb27-47c1a99f1b4e)
 
 ## Why GitLab Flow?
 
