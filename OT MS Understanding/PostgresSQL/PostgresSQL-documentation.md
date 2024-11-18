@@ -7,9 +7,9 @@
 ## Table of Contents
 - [Purpose](#purpose)
 - [Introduction](#introduction)
-- [Features](#features)
 - [System Requirements](#system-requirements)
 - [Important Ports](#important-ports)
+- [Features](#features)
 - [Architecture](#architecture)
 - [Advantages & Disadvantages](#Advantages--Disadvantages)
 - [Installation](#Installation)
@@ -27,19 +27,6 @@ PostgreSQL is a powerful, open-source relational database management system (RDB
 ## Introduction
 
 PostgreSQL is an advanced, object-relational database system known for its robustness, scalability, and compliance with SQL standards. It supports both SQL (relational) and JSON (non-relational) querying, providing versatility for modern database applications. PostgreSQL is ACID-compliant and offers many advanced features such as MVCC (Multi-Version Concurrency Control), data integrity, and transaction management.
-
-## Features
-
-| Feature                      | Description                                                                 |
-|------------------------------|-----------------------------------------------------------------------------|
-| **ACID Compliance**           | Ensures database transactions are processed reliably (Atomicity, Consistency, Isolation, Durability). |
-| **Multi-Version Concurrency Control (MVCC)** | Allows multiple transactions to access the same data simultaneously without conflict. |
-| **SQL & JSON Support**        | Supports both traditional SQL queries and modern JSON-based data types.    |
-| **Extensibility**             | PostgreSQL supports custom data types, operators, and functions.            |
-| **Replication**               | Supports synchronous and asynchronous replication for high availability.   |
-| **Indexing**                  | Includes various indexing techniques (B-tree, GIN, GiST, etc.) for optimized query performance. |
-| **Foreign Keys & Constraints**| Supports foreign keys, check constraints, unique constraints, and triggers.|
-| **Partitioning**              | Allows large tables to be partitioned into smaller, more manageable pieces. |
 
 ## System Requirements
 
@@ -59,6 +46,19 @@ PostgreSQL is an advanced, object-relational database system known for its robus
 | **PostgreSQL Database Server**| 5432            | Default port for database communication.       |
 | **Replication**               | 5433 (default)  | Port used for replication between primary and standby nodes. |
 | **pgAdmin**                   | 80 (HTTP), 443 (HTTPS) | Web-based interface for managing PostgreSQL databases. |
+
+## Features
+
+| Feature                      | Description                                                                 |
+|------------------------------|-----------------------------------------------------------------------------|
+| **ACID Compliance**           | Ensures database transactions are processed reliably (Atomicity, Consistency, Isolation, Durability). |
+| **Multi-Version Concurrency Control (MVCC)** | Allows multiple transactions to access the same data simultaneously without conflict. |
+| **SQL & JSON Support**        | Supports both traditional SQL queries and modern JSON-based data types.    |
+| **Extensibility**             | PostgreSQL supports custom data types, operators, and functions.            |
+| **Replication**               | Supports synchronous and asynchronous replication for high availability.   |
+| **Indexing**                  | Includes various indexing techniques (B-tree, GIN, GiST, etc.) for optimized query performance. |
+| **Foreign Keys & Constraints**| Supports foreign keys, check constraints, unique constraints, and triggers.|
+| **Partitioning**              | Allows large tables to be partitioned into smaller, more manageable pieces. |
 
 ## Architecture
 
@@ -145,20 +145,9 @@ PostgreSQL offers a powerful and flexible solution for managing relational data.
 
 ## Conclusion
 
-PostgreSQL is a powerful, open-source relational database management system that is widely used for a variety of applications, ranging from small-scale projects to large enterprise systems. Its reliability, scalability, and support for advanced SQL features make it an excellent choice for handling complex data workloads.
-
-Some of the key advantages of PostgreSQL include:
-
-- **ACID Compliance**: Ensures data integrity and reliability through atomic transactions, consistency, isolation, and durability.
-- **Extensibility**: PostgreSQL supports a variety of extensions and custom functions, allowing for high customization and optimization.
-- **Advanced Querying**: With full support for SQL standards, joins, subqueries, and indexing, PostgreSQL is ideal for applications that require complex queries and reporting.
-- **Community Support**: As an open-source project, PostgreSQL has an active and dedicated community, ensuring continuous improvements and support.
-
 While PostgreSQL offers many advantages, it’s important to carefully configure and monitor your PostgreSQL instances to ensure optimal performance, especially as your data and usage grow. By tuning parameters such as memory settings, query optimization, and resource management, PostgreSQL can handle high-throughput workloads efficiently.
 
 Whether you're building a small web app or a large-scale enterprise application, PostgreSQL is a reliable and powerful database solution that can meet your needs. With the right setup, ongoing monitoring, and maintenance, PostgreSQL can provide a stable and high-performance platform for your data needs.
-
-If you are looking to learn more or need assistance with setup or troubleshooting, the PostgreSQL community and documentation are excellent resources for support.
 
 ## Contacts
 
