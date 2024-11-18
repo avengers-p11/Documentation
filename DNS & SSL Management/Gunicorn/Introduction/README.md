@@ -1,7 +1,7 @@
 # Gunicorn Documentation
 
 
- | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
+ | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviewer L0** |**Reviewer L1** |**Reviewer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
 | Neelesh kumar      | 17-11-24      | Neelesh  Kumar             | 18-11-24           |  | | |
 
