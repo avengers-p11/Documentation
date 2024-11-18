@@ -1,8 +1,9 @@
 # Employee API Documentation 
 
-| **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
-|------------|----------------|-------------------|---------------------|----------|
-| Anjali Dhiman  | 12-11-24      | V1.2  | 15-11-24           | Shreya Jaiswal, Khushi Malhotra |
+| Created/Modified | Version | Author               | Comment         | Reviewer      |
+|-------------------|---------|----------------------|-----------------|------------------|
+| 12-11-2024        | V1      | Anjali Dhiman | Initial Commit LO  | Shreya Jaiswal  |
+| 18-11-2024        | V2      | Anjali Dhiman | L0 Feedback    |  Khushi Malhotra |
 
 
 ## Table of Contents
