@@ -7,16 +7,12 @@
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Why Identify Application Repositories](#why-identify-application-repositories)
-3. [Public Repositories](#public-repositories)
-4. [Private Repositories](#private-repositories)
-5. [Language-Specific Repositories](#language-specific-repositories)
-6. [Container Repositories](#container-repositories)
-7. [Artifact Repositories](#artifact-repositories)
-8. [Advantages](#Advantages-of-Application-Repositories)
-9. [Disadvantages](#Disadvantages-of-Application-Repositories)
-10. [Conclusion](#Conclusion)
-11. [Contact Information](#Contact-Information)
-12. [References](#References)
+3. [List of Application Repositories](#list-of-application-repositories)
+4. [Advantages](#Advantages-of-Application-Repositories)
+5. [Disadvantages](#Disadvantages-of-Application-Repositories)
+6. [Conclusion](#Conclusion)
+7. [Contact Information](#Contact-Information)
+8. [References](#References)
 
 ## Introduction
 Application repositories are centralized locations where application code, dependencies, and configurations are stored, maintained, and accessed. These repositories streamline software development, deployment, and maintenance processes. They serve as critical components for modern DevOps pipelines, enabling automation, collaboration, and version control.
@@ -34,38 +30,16 @@ Identifying and managing application repositories is essential to ensure seamles
 |Security	Safeguarding |code integrity and controlling access.|
 
 
-## Public Repositories
+## List of Application Repositories
 
-- GitHub
-- GitLab (Public Projects)
-- Bitbucket
+|Type	| Examples|
+|--------|-----------|
+|Public Repositories	|GitHub, GitLab (Public Projects), Bitbucket|
+|Private Repositories	|Self-hosted GitLab, Bitbucket Server, AWS CodeCommit, Azure DevOps Repos|
+|Language-Specific|	Python (PyPI), JavaScript (npm), Java (Maven Central), Go (Go Modules)|
+|Container Repositories|	Docker Hub, Amazon ECR, Google Container Registry (GCR), GitHub Container Registry|
+|Artifact Repositories	|JFrog Artifactory, Sonatype Nexus, Apache Archiva|
 
-## Private Repositories
-
-- Self-hosted GitLab
-- Bitbucket Server
-- AWS CodeCommit
-- Azure DevOps Repos
-
-## Language-Specific Repositories
-
-- Python (PyPI)
-- JavaScript (npm)
-- Java (Maven Central)
-- Go (Go Modules)
-
-## Container Repositories
-
-- Docker Hub
-- Amazon ECR (Elastic Container Registry)
-- Google Container Registry (GCR)
-- GitHub Container Registry
-
-## Artifact Repositories
-
-- JFrog Artifactory
-- Sonatype Nexus
-- Apache Archiva
 
 ## Advantages of Application Repositories
 Centralized Management: Consolidates code and resources in one place.
