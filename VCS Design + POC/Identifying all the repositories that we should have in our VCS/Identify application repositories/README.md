@@ -42,17 +42,24 @@ Identifying and managing application repositories is essential to ensure seamles
 
 
 ## Advantages of Application Repositories
-Centralized Management: Consolidates code and resources in one place.
-Scalability: Accommodates growing codebases and teams.
-Automation: Supports CI/CD for faster development cycles.
-Enhanced Collaboration: Facilitates team contributions and reviews.
-Improved Security: Controls access and secures sensitive code.
+
+|Advantages|	Description|
+|----------|------------|
+|Centralized Management	|Consolidates code and resources in one place.|
+|Scalability	|Accommodates growing codebases and teams.|
+|Automation	|Supports CI/CD for faster development cycles.|
+|Enhanced Collaboration	|Facilitates team contributions and reviews.|
+|Improved Security|	Controls access and secures sensitive code.|
 
 ## Disadvantages of Application Repositories
-Cost: Some solutions (e.g., private or enterprise-grade repositories) can be expensive.
-Complexity: Managing large repositories with numerous dependencies requires expertise.
-Downtime Risks: Repository outages can disrupt workflows.
-Learning Curve: Teams may require training to adopt new systems.
+
+|Disadvantages|	Description|
+|--------|-----------|
+|Cost	|Some solutions (e.g., private or enterprise-grade repositories) can be expensive.|
+|Complexity	|Managing large repositories with numerous dependencies requires expertise.|
+|Downtime Risks	|Repository outages can disrupt workflows.|
+|Learning Curve	|Teams may require training to adopt new systems.|
+
 
 
 ## Conclusion
