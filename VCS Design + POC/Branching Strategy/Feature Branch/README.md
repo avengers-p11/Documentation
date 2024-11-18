@@ -47,7 +47,7 @@ The Feature Branch Workflow is a Git-based development model designed to streaml
    ```
 4. **Open a pull request (PR)**:   
    Submit the feature branch for review and approval before merging.
-   specific reviewer can only access and also have the authority to merge
+   specific reviewer can only access and also have the authority to merge through UI
 
 6. **Code review and testing**:      
    Collaborate with the team to review and ensure quality.
