@@ -1,4 +1,4 @@
-# Branch access policies
+# Branch access policies detailed documentation
 
 ## Author
 
@@ -9,12 +9,12 @@
 
 - [Introduction](#introduction)
 - [Branch Protection Rules](#branch-protection-rules)
-  - [Few reasons why Branch Protection Rules are Important](#few-reasons-why-branch-protection-rules-are-important)
+  - [A Few reasons why Branch Protection Rules are Important](#a-few-reasons-why-branch-protection-rules-are-important)
   - [Protection rules available](#protection-rules-available)
 - [Creating Branch Protection Rules](#creating-branch-protection-rules)
 - [Access permissions](#access-permissions)
-  - [Types of Github Account](#types-of-github-account)
-- [Roles in an organization](#roles-in-an-organisation)
+  - [Types of Github Accounts](#types-of-github-accounts)
+- [Roles in an organization](#roles-in-an-organization)
   - [Roles available for an organization repository](#roles-available-for-an-organization-repository)
 - [Creating a repository role](#creating-a-repository-role)
 - [Conclusion](#conclusion)
@@ -32,7 +32,7 @@ Branch access policies in Git, used on platforms like GitHub, GitLab, or Bitbuck
 ## Branch Protection Rules
 Git branch protection rules are essential security configurations that allow repository administrators to enforce policies to safeguard branches. These rules prevent unauthorized users from making changes or accidentally deleting important branches, such as the main or production branch.
 
-### Few reasons why Branch Protection Rules are Important
+### A few reasons why Branch Protection Rules are Important
 
 | Reasons  | 
 |----------|
@@ -45,7 +45,7 @@ Git branch protection rules are essential security configurations that allow rep
 | Rules  | Description |
 |----------|----------|
 | **Require a pull request before merging** | When enabled, all commits must be made to a non-protected branch and submitted via a pull request before they can be merged into a branch that matches this rule. |
-| **Require branches to be up to date before merging** | Each commit will have a status defined for it. Namely, error, failure, pending, success. Enable this option, if you want the status checks to be in success state before merging the commits into the protected branches.  |
+| **Require branches to be up to date before merging** | Each commit will have a status defined for it. Namely, error, failure, pending, success. Enable this option, if you want the status checks to be in a success state before merging the commits into the protected branches.  |
 | **Require conversation resolution before merging** | When enabled, all conversations on code must be resolved before a pull request can be merged into a branch that matches this rule. |
 | **Require signed commits** |  Enable this option, if you want verified signatures on the commits pushed to this branch. |
 | **Require linear history** | Prevent merge commits from being pushed to matching branches. Prevents collaborators from pushing merge commits to the branch. |
@@ -80,7 +80,7 @@ To perform actions on GitHub, such as creating pull requests or changing billing
 
 With roles, you can control who has access to your accounts and resources on GitHub and the level of access each person has. Roles work differently for different types of accounts. For more information about accounts, see "[Types of GitHub accounts](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
 
-### Types of Github Account
+### Types of Github Accounts
 There are three types of accounts on GitHub.
 
 | Type | Description   |
