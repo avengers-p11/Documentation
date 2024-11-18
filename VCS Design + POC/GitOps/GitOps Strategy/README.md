@@ -1,9 +1,8 @@
 # GitOps 
 
- **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
-|------------|----------------|-------------------|---------------------|----------|
-| Neelesh Rajput  | 17-11-24      |    | 17-11-24           |  |
-
+| **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
+|------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
+| Neelesh kumar      | 16-11-24      | Neelesh  Kumar             | 17-11-24           |  | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
