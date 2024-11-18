@@ -25,13 +25,14 @@ Application repositories are centralized locations where application code, depen
 
 Identifying and managing application repositories is essential to ensure seamless:
 
-Version Control: Maintaining a clear history of changes.
-Collaboration: Enabling multiple teams to work on shared codebases.
-Dependency Management: Ensuring the availability of required libraries and tools.
-Deployment Automation: Simplifying CI/CD processes.
-Security: Safeguarding code integrity and controlling access.
-List of Application Repositories
-Below are examples of repositories often encountered in software development:
+|Reason	|Description |
+|----------|------------|
+|Version Control	|Maintaining a clear history of changes.|
+|Collaboration|	Enabling multiple teams to work on shared codebases.|
+|Dependency Management|	Ensuring the availability of required libraries and tools.|
+|Deployment Automation	|Simplifying CI/CD processes.|
+|Security	Safeguarding |code integrity and controlling access.|
+
 
 ## Public Repositories
 
