@@ -8,7 +8,7 @@
 1. [Introduction](#introduction)
 2. [Why Identify Application Repositories](#why-identify-application-repositories)
 3. [Public Repositories](#public-repositories)
-4. [Private Repositories](#private-repositories]
+4. [Private Repositories](#private-repositories)
 5. [Language-Specific Repositories](#language-specific-repositories)
 6. [Container Repositories](#container-repositories)
 7. [Artifact Repositories](#artifact-repositories)
