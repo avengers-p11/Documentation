@@ -25,7 +25,7 @@ The Salary API is a vital microservice in the OT-Microservices project, handling
 
 ## Purpose of the Salary API
 
-### The primary purpose of the Salary API:
+### The primary purpose of the Salary API
 
 - Manage and process salary records for employees.
 
@@ -35,7 +35,7 @@ The Salary API is a vital microservice in the OT-Microservices project, handling
   
 - It is essential in automating payroll processes, enhancing accuracy in employee compensation records, and simplifying the financial operations within the organization.
 
-### Supported features of the Salary API:-
+### Supported features of the Salary API
 
 The system uses Spring Boot with Tomcat, ScyllaDB for salary data storage, Redis for caching, and Prometheus/OpenTelemetry for monitoring. Swagger provides API documentation, and database migrations are handled using the Migrate tool.
 
@@ -57,11 +57,11 @@ The system uses Spring Boot with Tomcat, ScyllaDB for salary data storage, Redis
 
 ScyllaDB is a high-performance NoSQL database, designed as a drop-in replacement for Apache Cassandra. It offers low-latency, high-throughput storage, optimized for scalable applications and efficiently utilizes modern multi-core CPUs.
 
-### Why ScyllaDB:
+### Why ScyllaDB
 
 ScyllaDB offers high performance with low latency, making it ideal for real-time applications. It is compatible with Cassandra, supports automatic data sharding, and minimizes the need for manual tuning by automating database management tasks.
 
-### Use Cases:
+### Use Cases
 
 ScyllaDB is used in IoT applications for real-time data collection from millions of devices and in financial services for processing large transaction volumes with low latency, supporting fraud detection and analytics.
   
@@ -71,11 +71,11 @@ ScyllaDB is used in IoT applications for real-time data collection from millions
 
 Redis is an open-source, in-memory data store used for caching, session management, and messaging. It supports various data structures and provides fast read and write performance.
 
-### Why Redis:
+### Why Redis
 
 Redis is used for caching, session management, real-time messaging through Pub/Sub, and data persistence, allowing quick data retrieval, reduced load on databases, and recovery after restarts.
 
-### Use Cases:
+### Use Cases
 
 Redis is used for web caching to improve response times, leaderboard systems for ranking in gaming or social media, and real-time analytics for event data aggregation in monitoring or ad tech applications.
 
@@ -85,11 +85,11 @@ Redis is used for web caching to improve response times, leaderboard systems for
 
 Database migration tools like migrate are essential for managing schema changes in evolving applications, particularly in Go environments, ensuring consistent, version-controlled schemas across different environments.
 
-### Why Migrate:
+### Why Migrat
 
 Database migration tools provide schema versioning, ensure consistency across environments, and allow reversible changes for safe deployment and rollback of schema modifications.
 
-### Use Cases:
+### Use Cases
 
 Database migration tools enable schema evolution without manual scripts, automate migrations in CI/CD pipelines, and manage multi-tenant applications with separate databases or schemas for each tenant.
 
@@ -97,11 +97,11 @@ Database migration tools enable schema evolution without manual scripts, automat
 
 Maven is a build automation and dependency management tool for Java applications, using a declarative configuration file (pom.xml) to simplify project builds and dependency resolution.
 
-### Why Maven:
+### Why Maven
 
 Maven automates dependency management, ensures build consistency, promotes standardized project structures, and supports plugins for tasks like testing, packaging, and deployment.
 
-### Use Cases:
+### Use Cases
 
 
 Maven automates Java project builds, handles dependency resolution, manages multi-module projects, and integrates with CI tools like Jenkins for automated build and testing.
@@ -112,15 +112,15 @@ Maven automates Java project builds, handles dependency resolution, manages mult
 
 Swagger is an open-source toolset for designing, building, documenting, and testing RESTful APIs. It leverages the OpenAPI Specification (OAS) to standardize API definitions and provide interactive documentation.
 
-### Key Benefits:
+### Key Benefits
 
 Swagger UI provides interactive API documentation, uses the OpenAPI Specification for standardization, generates client SDKs in multiple languages, and enhances collaboration between frontend and backend teams.
   
-### Core Components:
+### Core Components
 
 Swagger tools include Swagger UI for interactive API documentation, Swagger Editor for creating OpenAPI specs, Swagger Codegen for generating client SDKs and server stubs, and the OpenAPI Specification (OAS) for standardizing REST API documentation.
 
-### Common Use Cases:
+### Common Use Cases
 
 Swagger tools offer interactive API documentation, endpoint testing, client SDK generation, and enhance team collaboration by providing a unified source for API specifications.
 
