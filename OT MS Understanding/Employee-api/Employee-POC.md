@@ -1,8 +1,10 @@
 # POC of Employee-API according to Documentation
 
-| **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
-|------------|----------------|-------------------|---------------------|----------|
-| Anjali Dhiman  | 12-11-24      | V1.2  | 15-11-24           | Shreya Jaiswal, Khushi Malhotra |
+| Created/Modified | Version | Author               | Comment         | L0 Reviewer      |
+|-------------------|---------|----------------------|-----------------|------------------|
+| 12-11-2024        | V1      | Anjali Dhiman | Initial Commit  | Khushi Malhotra  |
+| 18-11-2024        | V2      | Anjali Dhiman | L2 Feedbacks    |  Khushi Malhotra |
+
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -78,6 +80,9 @@ The application doesn't have any specific pre-requisites except the database con
 
 ## Step-by-step installation
 This guide explains how to set up a virtual machine (VM), install dependencies, configure the database and caching services, and run the `employee-api` application. Follow each step carefully to ensure the application is correctly installed and functioning.
+
+
+![Screenshot 2024-11-18 114150](https://github.com/user-attachments/assets/6fbb3132-93a4-4897-8b99-aa747c40b362)
 
 
 # Clone the Repository
