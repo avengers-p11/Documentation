@@ -1,5 +1,19 @@
 # GitOps Tools Evaluation
 
+| **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
+|------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
+| Pravesh Kumar      | 18-11-24      | Pravesh Kumar             | 18-11-24           |  | | |
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [What is GitOps](#what-is-gitops)
+3. [Why GitOps?](#why=gitops)
+4. [GitOps Tools](#gitops-tools)
+5. [Comparison of GitOps Tools](#comparison-of-gitops-tools)
+6. [Conclusion](#conclusion)
+7. [Contact Information](#contact-information)
+8. [References](#references)
+
 ## Introduction
 
 GitOps is a modern approach to managing infrastructure and applications using Git as the single source of truth. By leveraging Git repositories, organizations can achieve automation, consistency, and auditability in deployments.
@@ -25,7 +39,7 @@ Here are some popular GitOps tools:
 - Jenkins X
 - Rancher Fleet
 - Spinnaker
-- 
+  
 ## Comparison of GitOps Tools
 
 | Feature	| ArgoCD	| Flux	| Jenkins X	| Rancher Fleet	| Spinnaker |
@@ -39,21 +53,22 @@ Here are some popular GitOps tools:
 | Pricing	| Open-source & paid options	| Fully open-source	| Fully open-source	| Fully open-source	| Free & enterprise |
 | Best For	| Enterprises needing GUI	| Lightweight users	| CI/CD for Kubernetes	| Multi-cluster setups	| Large organizations |
 
-
-
 ## Conclusion
 
 GitOps revolutionizes the way infrastructure and applications are managed by providing a declarative, version-controlled, and automated deployment approach. While ArgoCD and Flux are popular for Kubernetes-native solutions, tools like Spinnaker cater to broader enterprise needs. Selecting the right tool depends on project size, team expertise, and desired level of automation.
 
-Contact Information
-For further assistance or inquiries:
+## Contact Information
 
-Name: [Your Name]
-Email: [Your Email]
-Phone: [Your Phone Number]
-References
-GitOps Principles - https://www.gitops.tech
-ArgoCD Documentation - https://argo-cd.readthedocs.io
-Flux GitOps - https://fluxcd.io
-Jenkins X - https://jenkins-x.io
-Spinnaker Documentation - https://spinnaker.io
+| **Name** | **Email address**            | **Github ID**
+|----------|-------------------------------|-------------------|
+| Pravesh Kumar    |  pravesh.kumar611@gmail.com           | Pravesh899 |
+
+
+## References
+|Reference	|Description|
+|-------|-------|
+|[GitOps](https://www.gitops.tech) | GitOps Principles|
+|[ArgoCD](https://argo-cd.readthedocs.io) | ArgoCD Documentation |
+|[Flux](https://fluxcd.io) | Flux GitOps|
+|[Jenkins X](https://jenkins-x.io)| Jenkins X|
+| [Spinnaker](https://spinnaker.io) | Spinnaker Documentation |
