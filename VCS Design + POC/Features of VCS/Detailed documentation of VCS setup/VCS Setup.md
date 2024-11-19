@@ -4,28 +4,24 @@
 |------------|-------------|-----------|--------------|-------------|-----------|
 | Mohit Saini | 18-11-24 | Version 1.1 | Mohit Saini | 18-11-24 |  |
 
-## Table of Contents
-
-1.  [Introduction](#introduction)
-2.  [Types of VCS](#types-of-vcs)
-3.  [GIT](#git)
-4.  [GIT Setup Prerequisites](#git-setup-prerequisites)
-5.  [Git Installation on Ubuntu](#git-installation-on-ubuntu)
-    -   [Step 1: Update System Packages](#step-1-update-system-packages)
-    -   [Step 2: Install Git](#step-2-install-git)
-    -   [Step 3: Verify the Version of
-        Git](#step-3-verify-the-version-of-git)
-    -   [Step 4: Configure Git on
-        Ubuntu](#step-4-configure-git-on-ubuntu)
-        -   [1. Check the Public Key](#check-the-public-key)
-        -   [2. Create Public Key](#create-public-key)
-        -   [3. Copy the Public Key](#copy-the-public-key)
-        -   [4. Click on the Account
-            Settings](#click-on-the-account-settings)
-        -   [5. Add New SSH Key](#add-new-ssh-key)
-        -   [6. Git Clone](#git-clone)
-6.  [Contact Information](#contact-information)
-7.  [References](#references)
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Types of VCS](#types-of-vcs)
+3. [GIT](#git)
+4. [GIT Setup Prerequisites](#git-setup-prerequisites)
+5. [Git Installation on Ubuntu](#git-installation-on-ubuntu)
+   - [Step 1: Update System Packages](#step-1-update-system-packages)
+   - [Step 2: Installation of Git](#step-2-installation-of-git)
+   - [Step 3: Verify the version of Git](#step-3-verify-the-version-of-git)
+   - [Step 4: Configure Git on Ubuntu](#step-4-configure-git-on-ubuntu)
+     - [1. Check the public key](#1-check-the-public-key)
+     - [2. Create public key](#2-create-public-key)
+     - [3. Copy the public key](#3-copy-the-public-key)
+     - [4. Click on the Account setting](#4-click-on-the-account-setting)
+     - [5. Add New SSH key](#5-add-new-ssh-key)
+     - [6. Git clone](#6-git-clone)
+6. [Contact Information](#contact-information)
+7. [References](#references)
 
 
 # Introduction
@@ -47,7 +43,7 @@ changes in their code, collaborate with others, and manage their source
 code efficiently. It is widely used in software development to maintain
 project history, resolve conflicts, and enable teamwork
 
-# Git Local Setup Prerequisites
+# Git Setup Prerequisites
 
 | **Requirement** | **Details**                                           |
 |-----------------|-------------------------------------------------------|
@@ -70,7 +66,7 @@ sudo apt update
 ![image](https://github.com/user-attachments/assets/2e009888-21e6-4070-ad18-917397289fd7)
 
 
-## Step 2: Install Git
+## Step 2: Installation of Git
 
 **To install Git, use the apt package manager**
 
@@ -79,13 +75,13 @@ sudo apt install git -y
 ```
 ![image](https://github.com/user-attachments/assets/26a71fbc-4a0d-4ec9-b2aa-8096476e419a)
 
-## Step 3: Verify the installation version
+## Step 3: Verify the version of Git
 ``` bash
 git –version
 ```
 ![image](https://github.com/user-attachments/assets/3f58eadd-547d-4691-a24a-80aa2ca910c8)
 
-## Step 4: Configure Git on local machine via SSH
+## Step 4: Configure Git on Ubuntu
 
 Before configuration on local machine of Git your account should be
 available on GitHub website.
@@ -99,7 +95,7 @@ available on GitHub website.
 
 **If the public key is not available, then create the key**
 
-### Create key
+### Create public key
 
 ``` bash
 ssh-keygen
