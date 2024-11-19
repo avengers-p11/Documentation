@@ -31,7 +31,7 @@ GitOps is a modern approach to managing infrastructure and applications using Gi
 
 | Tool |	Description|
 |----|------|
-| ArgoCD	Kubernetes-native GitOps tool with a user-friendly GUI. |
+| ArgoCD	| Kubernetes-native GitOps tool with a user-friendly GUI. |
 |Flux	| Lightweight, CLI-based GitOps operator for Kubernetes.|
 |Jenkins X | 	CI/CD tool that integrates GitOps principles with Kubernetes. |
 |Rancher Fleet	| Multi-cluster Kubernetes GitOps solution. |
