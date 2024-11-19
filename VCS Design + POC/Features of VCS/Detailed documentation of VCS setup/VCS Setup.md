@@ -52,7 +52,7 @@ project history, resolve conflicts, and enable teamwork
 | **Disk Space**  | 200 MB for Git installation                           |
 | **Processor**   | Any modern processor (Intel or AMD, 1 GHz or faster). |
 
-# [GitHub Installation on Ubuntu]()
+# Git Installation on Ubuntu
 
 This guide provides the steps to install and configure GitHub on Ubuntu.
 
