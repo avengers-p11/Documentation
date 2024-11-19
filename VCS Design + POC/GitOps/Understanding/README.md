@@ -18,6 +18,14 @@ GitOps is a modern approach to managing infrastructure and applications using Gi
 | Collaboration	| Simplifies collaboration by using Git workflows that developers are already familiar with. | 
 | Scalability	| Handles large and complex systems effortlessly, enabling reliable scaling. |
 
+## GitOps Principles
+
+| Principle	| Explanation |
+|-------------|--------|
+| Declarative Configuration |	System state is defined using declarative manifests stored in Git. |
+| Git as a Single Source of Truth | 	Git stores all configurations, enabling version control and rollback capabilities. | 
+| Automated Reconciliation |	Automation tools ensure the actual state matches the desired state by continuously reconciling changes. | 
+| Pull-based Deployment | 	Deployments are triggered through pull requests, ensuring thorough review and security. |
 
 ## Conclusion
 
