@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/7cdf2df0-9bfa-42f3-98f3-056b5899bbe1)
+![image](https://github.com/user-attachments/assets/31897406-2fe7-449a-9df7-6dc55cd9ec5e)
+
 
 # ScyllaDB POC
 
