@@ -27,6 +27,17 @@ GitOps is a modern approach to managing infrastructure and applications using Gi
 | Automated Reconciliation |	Automation tools ensure the actual state matches the desired state by continuously reconciling changes. | 
 | Pull-based Deployment | 	Deployments are triggered through pull requests, ensuring thorough review and security. |
 
+## GitOps Tools
+
+| Tool |	Description|
+|----|------|
+| ArgoCD	Kubernetes-native GitOps tool with a user-friendly GUI. |
+|Flux	| Lightweight, CLI-based GitOps operator for Kubernetes.|
+|Jenkins X | 	CI/CD tool that integrates GitOps principles with Kubernetes. |
+|Rancher Fleet	| Multi-cluster Kubernetes GitOps solution. |
+|Spinnaker |	Multi-cloud continuous delivery platform, supporting GitOps workflows. |
+
+
 ## Conclusion
 
 
