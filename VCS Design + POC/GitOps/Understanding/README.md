@@ -51,5 +51,9 @@ GitOps is a modern approach to managing infrastructure and applications using Gi
 
 ## References
 
-|Reference	|Description|
-|-------|--------|
+
+| [GitOps Principles](https://www.gitops.tech) |
+| [ArgoCD Documentation](https://argo-cd.readthedocs.io) |
+| [Flux GitOps](https://fluxcd.io) |
+|[Jenkins X](https://jenkins-x.io) |
+|[Spinnaker Documentation](https://spinnaker.io) |
