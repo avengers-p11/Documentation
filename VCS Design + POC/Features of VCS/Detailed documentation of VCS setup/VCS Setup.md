@@ -113,7 +113,9 @@ copy the public key and go you github account on web browser and singnin.
 
 ### Go to the Account Setting 
 
-Click on right side of your account and click on ssh and gpg key
+1) Go you account
+2) Click on right side of your account setting
+3) click on ssh and gpg key
 
 ![image](https://github.com/user-attachments/assets/5b52a234-2281-45da-a7bd-9f98f363e17e)
 
