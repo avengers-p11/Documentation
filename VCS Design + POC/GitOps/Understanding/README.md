@@ -11,8 +11,8 @@ GitOps is a modern approach to managing infrastructure and applications using Gi
 ## Why GitOps
 
 |Aspect	| Details |
-|——————|——————|
-| Auditability  | 	| Git tracks all changes, providing a clear history for debugging and compliance. |
+|----------|------------|
+| Auditability  | Git tracks all changes, providing a clear history for debugging and compliance. |
 | Automation	| Reduces human errors by automating deployment and configuration processes. |
 | Consistency	| Ensures infrastructure always matches the desired state defined in the Git repository. |
 | Collaboration	| Simplifies collaboration by using Git workflows that developers are already familiar with. | 
