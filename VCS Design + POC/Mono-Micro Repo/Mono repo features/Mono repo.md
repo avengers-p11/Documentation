@@ -1,118 +1,102 @@
+# Mono Repo Features
 
-# **Documentation of Micro repo**
-
-| **Author** | **Created on** | **Version** | **Last updated by** | **Comment** | **Reviewer L0** |
-|------------|-------------|-----------|--------------|-------------|-----------|
-| Mohit Saini | 19-11-24 | Version 1.1 | Mohit Saini |  |  |
-
-# **Table of Contents**
-
-1.  [Introduction](#introduction)
-
-2.  [Micro Repo](#micro-repo)
-
-3.  [Why Micro Repo?](#why-micro-repo)
-
-4.  [Features](#features)
-
-5.  [Advantages](#advantages)
-
-6.  [Disadvantages](#disadvantages)
-
-7.  [Best Practices](#best-practices)
-
-8.  [Conclusion](#best-practices)
-
-9.  [Contact Information](#contact-information)
-
-10. [References](#references)
-
-![image](https://github.com/user-attachments/assets/42114c80-1200-4b0c-81d5-ed0872a474b5)
+ | Author        | Created on | Version | Last updated by | Last edited on |
+  |-------------|---------|-------------|-------------|---------|
+  | Mohit Saini | 20-11-24 | version 1 | Mohit Saini | Intial Commit |
 
 
-# Introduction
+![image](https://github.com/user-attachments/assets/d4242270-735c-420f-b90a-15bf4bf0393f)
 
-A repository is a central place where code, files, and data are stored,
-shared, and managed. It plays a critical role in software development
-for tasks like code sharing, ownership management, and merging.
-Repositories are essential for deploying code to servers for public use.
+## Table of Contents
+- [Introduction](#introduction)
+- [Why Use a Mono Repo?](#why-use-a-mono-repo)
+- [Features](#features)
+- [Advantages](#advantages)
+- [Disadvantages](#disadvantages)
+- [Best Practices for Monorepo Management](#best-practices-for-monorepo-management)
+- [Conclusion](#conclusion)
+- [Contact Information](#contact-information)
+- [References](#references)
 
-# Micro Repo
+![image](https://github.com/user-attachments/assets/0b473775-d3b6-4aef-b674-3d35d3657d72)
 
-A microrepo is a version control approach where each service, component,
-or project within a larger software system is stored in its own separate
-repository. This contrasts with a monorepo, where all services or
-components are stored together in one large repository.
-
-![image](https://github.com/user-attachments/assets/95407199-ac24-4cce-b423-48e0e2819481)
+## Introduction
+Monorepo is a way of storing many projects or parts of a system in one big folder (repository). Big companies like Google, Facebook, and Microsoft use this method to manage their software. It helps developers work on different parts of the software in the same place, making it easier to keep things organized and work together.
+A **Monorepo** (short for "monolithic repository")
 
 
-# Why Micro Repo?
+## Why Use a Mono Repo?
 
-| **Reasons** | **Descriptions** |
-|-----------------------|-------------------------------------------------|
-| Isolation | Each repository is independent, reducing the chance of unwanted interactions between parts of the system. |
-| Scalability | Microrepos can scale easily as each repository has its own build and test times, enabling individual services to scale independently. |
-| Autonomy | Different teams have more control over their own codebases, allowing for faster decision-making and iteration. |
-| Clear Ownership | Each repository has a clear owner, making it easier to assign responsibility and accountability for specific components or services. |
+The monorepo approach provides several key advantages for large teams and organizations:
 
-# Features
+| **Feature**                         | **Description**                                                                 |
+|---------------------------------|-----------------------------------------------------------------------------|
+| Streamlined Development         | Makes it easier for multiple teams to coordinate changes by keeping all code in one place. |
+| Simplified Dependency Management| Internal dependencies are handled within the same repository.                |
+| Unified Versioning              | All projects share a single version.                                        |
+| Streamlined Collaboration       | Teams can work on different parts of the project at the same time.           |
 
-| **Feature** | **Descriptions** |
-|-----------------------|-------------------------------------------------|
-| Supports decentralized teams | Microrepos are suited to teams working on independent projects. |
-| Enables independent release cycles | Microrepos allow for independent release cycles for different projects. |
 
-# Advantages
+## Features
 
-| **Advantages** | **Descriptions** |
-|-----------------------|-------------------------------------------------|
-| Fast Development | Faster pace as updates don’t rely on other teams. Releases and management are easier. |
-| Flexibility | Dedicated repositories for individual services allow choosing preferred frameworks, libraries, or modules. |
-| Version Control Choice | Freedom to select version control tools like Git, SVN, or Mercurial; Git remains the most commonly used. |
-| Simplified CI/CD Pipelines | Each microrepo can have its own CI/CD pipeline, making build and deployment faster and more efficient without affecting other services. |
+| **Feature**               | **Description**                                                                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Centralized Code Management** | All code is stored in one repository, making it easier to manage different projects and modules from a single place.                            |
+| **Dependency Management** | Managing dependencies is easier in a monorepo since all project components are in one place, making it simpler to track and update dependencies. |
+| **Atomic Changes**        | Monorepos allow making changes across multiple projects at once, ensuring that everything works together smoothly.                                |
+| **Tooling Support**       | Special tools (like Bazel, Lerna, or Nx) help manage large monorepos, making building, testing, and managing code easier.                         |
+| **Versioning**            | Monorepos allow managing and aligning versions across projects, ensuring consistent releases and features across the codebase.                  |
 
-# Disadvantages
+![image](https://github.com/user-attachments/assets/0a32a2cc-2481-4742-9fa2-aa996fda4d42)
 
-| **Disadvantages** | **Descriptions** |
-|-----------------------|-------------------------------------------------|
-| Increased Overhead | Maintaining multiple repositories requires extra focus and juggling between different codes. |
-| Duplication of Code | Violates the DRY (Don't Repeat Yourself) principle, as similar code may exist in multiple places. |
 
-# Best Practices
+## Advantages
 
-| **Practice** | **Descriptions** |
-|-------------------------|-----------------------------------------------|
-| Monitoring and Logging | Use centralized solutions to collect and analyze data from all services for quick issue resolution. |
-| Automating Token and Key Rotation | Automate the rotation of SSH tokens and keys to save time and maintain consistency. |
-| Continuous Integration/Delivery | Align operations and developers through CI/CD, improving stability and automating rollbacks. |
-| Create a README File | Include a README.md to explain the project's purpose, installation, and usage for new developers. |
-| Use Git Ignore | Manage Git repos effectively by ignoring unnecessary files like metadata and artifacts. |
-| Add a SECURITY.md File | Include a SECURITY.md file to define and enforce a repository’s security policy. |
-| Choose Communication Protocol Wisely | Select a protocol that suits independent services to ensure efficient application performance. |
+| **Advantages**                 | **Description**                                                                                                                                              |
+|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Simplified Collaboration**   | Working together on different parts of a project is easier because everything is in one place. This makes sharing code across different teams or projects straightforward. |
+| **Consistency**                | Since everyone is using the same coding standards, tools, and libraries, the code across all projects looks and works the same. This uniformity makes the development process smoother. |
+| **Easier Refactoring**         | When you need to change or improve the code, it's simpler because all related code is in one place. You can make updates across the entire project more efficiently. |
+| **Single Source of Truth**     | All the code and its history are in one place, making it easier to track changes, understand dependencies, and manage the overall project.                  |
+| **Simplified Dependency Management** | Managing shared code or internal libraries is easier because everything is stored together. You don’t have to worry about keeping track of different versions across separate repositories. |
+| **Reduced Duplication**        | Since all projects are in one repository, there’s less need to copy and paste code across different places. This helps avoid duplicate code, making the codebase cleaner and more efficient. |
 
-# Conclusion:
 
-Repositories are important in software development because they store
-and manage code, files, and data in one central place. Microrepos are
-when each service or part of a project has its own separate repository.
-This setup offers benefits like independence, easy scaling, and more
-control for teams, making it great for teams that work separately and
-release updates on their own schedule. However, managing microrepos can
-be tricky because it involves handling multiple repositories and dealing
-with repeated code. By following best practices like using centralized
-monitoring, automating tasks, and keeping good documentation, teams can
-take full advantage of microrepos and develop efficiently.
+## Disadvantages
 
-# Contact Information
+| **Disadvantages**       | **Description**                                                                                                     |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------|
+| **Scalability Issues**   | Managing a big codebase in one repo can get hard as it grows, especially without the right tools to keep it organized. |
+| **Complex Tools Needed** | Tools like Bazel or Lerna are often required for builds and testing, and setting them up can take extra effort.       |
+| **Risk of Errors**       | Changes to shared code can accidentally break other projects that rely on it.                                       |
+| **Access Challenges**    | Managing who can access which parts of the repo can be tricky for large teams.                                       |
+| **Merge Conflicts**      | With many people working together, it’s more likely that changes will conflict, making it harder to merge updates.    |
 
-| **Name**    | **Email address**       |
-|-------------|-------------------------|
-| Mohit Saini | it.mohitsaini@gmail.com |
 
-# References
+## Best Practices for Monorepo Management
 
-| **Links** | **Descriptions** |
-|---------------------------------------------------------|---------------|
-| [Micro Repo](https://apoorv-tomar.medium.com/a-better-understanding-of-micro-rep-vs-mono-repo-a9f31f1e20fe#:~:text=The%20micro%20repository%20enables%20fast,Code%20Reusability.) | This link explains the Micro repo |
-| [Advantages and Disadvantages](https://www.linkedin.com/pulse/navigating-codebase-management-monorepo-vs-microrepo-rajeev-barnwal-u318f) | Advantages and disadvantages |
+| **Best Practices**         | **Description**                                                                                   |
+|----------------------------|---------------------------------------------------------------------------------------------------|
+| **Modular Code Structure** | Break the codebase into smaller, independent modules to make updates easier and reduce conflicts. |
+| **Use Scalability Tools**  | Use tools like Bazel or Lerna to manage dependencies, builds, and testing in large repos.         |
+| **Code Ownership**         | Assign teams or individuals to manage specific parts of the repo for better accountability.       |
+| **Efficient CI/CD**        | Optimize pipelines with incremental builds and targeted testing to save time.                     |
+| **Clear Documentation**    | Provide easy-to-understand documentation for each part of the codebase.                          |
+| **Versioning**             | Use a consistent versioning system, either for the whole repo or individual modules.              |
+
+
+## Conclusion
+A monorepo offers significant benefits for large teams and organizations that rely on shared codebases and close collaboration between projects. By using best practices such as modularization, scalable tooling, and robust CI/CD pipelines, teams can manage the complexity of monorepos while benefiting from enhanced code reuse, visibility, and consistent deployment processes.
+
+## Contact Information 
+|Name|Email Address|
+|:---:|:---:|
+|Mohit Saini|it.mohitsaini@gmail.com|
+
+## References
+
+| **Links**                                           | **Description**         |
+|-----------------------------------------------------|-------------------------|
+| https://monorepo.tools          | Monorepo Description    |
+| https://www.atlassian.com/git/tutorials/monorepos | Monorepo Advantages |
+
