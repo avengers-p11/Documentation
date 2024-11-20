@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/1c398e27-2088-4307-9239-1c517eb86fcb)
+![image](https://github.com/user-attachments/assets/9c12ea2c-77b9-445b-bdd7-9d95d01ff64b)
+
 
 # GitLab Features
 
