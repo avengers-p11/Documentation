@@ -47,10 +47,12 @@ GitOps provides several advantages over traditional approaches:
 - Changes are pushed to the target environment using CI/CD pipelines.
 - CI/CD tools like Jenkins or GitHub Actions trigger deployments after code changes.
 - Suitable for teams already using CI/CD workflows for deployments.
+![Screenshot from 2024-11-20 20-10-16](https://github.com/user-attachments/assets/002806b0-87ab-4673-9357-a1489756ce5d)
 
 ### 2. **Pull-Based GitOps**
 - A GitOps operator (e.g., Flux or ArgoCD) pulls changes from Git and applies them to the target environment.
 - Provides a more secure approach by removing the need to expose the cluster to external CI/CD tools.
+![Screenshot from 2024-11-20 20-10-45](https://github.com/user-attachments/assets/b8f5436d-a69e-4b36-8fcd-3848037396e9)
 
 ### 3. **Hybrid GitOps**
 - Combines aspects of push-based and pull-based approaches.
