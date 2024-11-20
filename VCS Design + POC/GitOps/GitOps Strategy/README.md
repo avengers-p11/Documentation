@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviewer L0** |**Reviewer L1** |**Reviewer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 16-11-24      | Neelesh  Kumar             | 17-11-24           |  | | |
+| Neelesh kumar      | 16-11-24      | Neelesh  Kumar             | 20-11-24           |  | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -21,9 +21,6 @@ GitOps is a modern DevOps practice that uses Git as the single source of truth f
 
 
 ![image](https://github.com/user-attachments/assets/0bf0139a-ce8f-407d-9d64-fae6b201a027)
-
-
-
 
 
 ---
