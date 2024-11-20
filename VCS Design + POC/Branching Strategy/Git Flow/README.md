@@ -37,11 +37,9 @@ The Git Flow Workflow involves six key branch types:
 5. **Hotfix branches (`hotfix/*`)**: Addresses critical issues on production.
 6. **Support branches (`support/*`)**: Optional branches for long-term maintenance.
 
----
-
 
 ![Screenshot from 2024-11-20 15-08-59](https://github.com/user-attachments/assets/19c7d561-28db-48dc-9fdc-8f1df741442c)
-
+---
 
 ### Steps in the Workflow:
 1. **Initialize Git Flow**:  
