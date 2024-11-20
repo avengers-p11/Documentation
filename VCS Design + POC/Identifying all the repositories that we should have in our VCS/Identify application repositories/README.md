@@ -17,7 +17,7 @@
 ## Introduction
 Application repositories are centralized locations where application code, dependencies, and configurations are stored, maintained, and accessed. These repositories streamline software development, deployment, and maintenance processes. They serve as critical components for modern DevOps pipelines, enabling automation, collaboration, and version control.
 
-### Why Identify Application Repositories?
+## Why Identify Application Repositories?
 
 Identifying and managing application repositories is essential to ensure seamless:
 
