@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
-| Raman Tripathi  | 17-11-24      | V1.1  | 17-11-24           |  |
+| Raman Tripathi  | 17-11-24      | V1.1  | 20-11-24           |  |
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -17,8 +17,6 @@
 ## Introduction
 
 A Version Control System (VCS) is critical in modern software development as it helps teams manage changes to their codebase over time. A VCS Notification System is designed to keep stakeholders informed of changes and activities occurring within a repository, such as commits, pull requests, builds, and issues. This system ensures that developers, team leads, QA engineers, and other stakeholders receive timely updates, enabling better collaboration, faster issue resolution, and overall project progress.
-
-By integrating with platforms like GitHub, GitLab, or Bitbucket, this notification system enables developers and teams to stay on top of key events without having to constantly monitor the repository manually.
 
 ## Why?
 
@@ -75,7 +73,7 @@ The following events can trigger notifications within the VCS Notification Syste
 
 ## Conclusion
 
-An effective VCS Notification System is crucial for maintaining a smooth and efficient workflow in a software development environment. By providing real-time updates about commits, PRs, builds, issues, and other key events, this system enhances collaboration, speeds up decision-making, and ensures that critical information reaches the right people at the right time. Customizable preferences and filtering options ensure that developers receive only the notifications that are most relevant to them, leading to increased productivity and reduced noise.
+VCS notifications are vital for effective collaboration and project management in software development. By understanding the different types of notifications, the stakeholders involved, and the events that trigger them, teams can better manage their workflow, reduce errors, and enhance overall project efficiency. Implementing a well-structured notification system can significantly improve communication and project tracking.
 
 ## Contacts 
 
@@ -98,5 +96,5 @@ An effective VCS Notification System is crucial for maintaining a smooth and eff
 
 ---
 
-This README provides an overview of the VCS Notification System and its role in improving communication and collaboration within development teams. It outlines the types of notifications, key events, and stakeholders involved, and aims to highlight the importance of keeping all relevant parties informed in real-time.
+
 
