@@ -16,6 +16,7 @@
 ## Introduction
 
 In the world of DevOps, **repositories** play a crucial role in bridging the gap between development and operations by providing a central location for storing and managing code, infrastructure, and configuration files. These repositories are essential for enabling collaboration, continuous integration, and continuous delivery (CI/CD) workflows in modern software development pipelines.  
+
 A **DevOps repository** can store everything from source code to automation scripts, CI/CD pipeline definitions, and infrastructure-as-code (IaC) templates, ensuring that all parts of the system can be versioned, managed, and deployed efficiently.
 
 
