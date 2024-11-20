@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/1c398e27-2088-4307-9239-1c517eb86fcb)
+
 # GitLab Features
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
