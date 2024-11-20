@@ -49,7 +49,7 @@ components are stored together in one large repository.
 
 # Why Micro Repo?
 
-|  | Description |
+| **Reasons** | **Descriptions** |
 |-----------------------|-------------------------------------------------|
 | Isolation | Each repository is independent, reducing the chance of unwanted interactions between parts of the system. |
 | Scalability | Microrepos can scale easily as each repository has its own build and test times, enabling individual services to scale independently. |
@@ -58,14 +58,14 @@ components are stored together in one large repository.
 
 # Features
 
-|  |  |
+| **Feature** | **Descriptions** |
 |-----------------------|-------------------------------------------------|
 | Supports decentralized teams | Microrepos are suited to teams working on independent projects. |
 | Enables independent release cycles | Microrepos allow for independent release cycles for different projects. |
 
 # Advantages
 
-|  |  |
+| **Advantages** | **Descriptions** |
 |-----------------------|-------------------------------------------------|
 | Fast Development | Faster pace as updates don’t rely on other teams. Releases and management are easier. |
 | Flexibility | Dedicated repositories for individual services allow choosing preferred frameworks, libraries, or modules. |
@@ -74,14 +74,14 @@ components are stored together in one large repository.
 
 # Disadvantages
 
-|  |  |
+| **Disadvantages** | **Descriptions** |
 |-----------------------|-------------------------------------------------|
 | Increased Overhead | Maintaining multiple repositories requires extra focus and juggling between different codes. |
 | Duplication of Code | Violates the DRY (Don't Repeat Yourself) principle, as similar code may exist in multiple places. |
 
 # Best Practices
 
-|  |  |
+| **Practice** | **Descriptions** |
 |-------------------------|-----------------------------------------------|
 | Monitoring and Logging | Use centralized solutions to collect and analyze data from all services for quick issue resolution. |
 | Automating Token and Key Rotation | Automate the rotation of SSH tokens and keys to save time and maintain consistency. |
