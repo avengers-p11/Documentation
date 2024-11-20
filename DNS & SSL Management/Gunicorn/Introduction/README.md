@@ -1,9 +1,11 @@
 # Gunicorn Documentation
 
 
+![image](https://github.com/user-attachments/assets/bc43017d-e664-40eb-98ae-d57e6c25f9bb)
+
  | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviewer L0** |**Reviewer L1** |**Reviewer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 17-11-24      | Neelesh  Kumar             | 18-11-24           |  | | |
+| Neelesh kumar      | 17-11-24      | Neelesh  Kumar             | 20-11-24           |  | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -33,6 +35,9 @@ Gunicorn is favored for its performance, simplicity, and compatibility with vari
 
 ## Architecture
 Gunicorn operates using a **pre-fork worker model**, where it spawns multiple worker processes to handle incoming requests. This allows it to efficiently handle multiple requests in parallel, ensuring better performance and responsiveness.
+
+![image](https://github.com/user-attachments/assets/e78eb461-5b4e-49a0-b2f0-6beedcaa8963)
+
 
 ### Components:
 - **Master Process**: Manages the worker processes, receives incoming requests, and assigns them to available workers.
@@ -75,7 +80,7 @@ Gunicorn is a powerful, efficient, and easy-to-deploy WSGI server suitable for m
 | Name| Email Address      |
 |-----|--------------------------|
 | Neelesh kumar | nilesh.rajput.snaatak@mygurukulam.co || GitHub | URL |
-|Mobile Number|9045583720|
+|--------------|-------------|
 |  devneelesh921  |  https://github.com/devneelesh921  |
 
 ---
