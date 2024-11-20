@@ -32,9 +32,9 @@ maintain a comprehensive history of their work.
 
 # Types of VCS
 
--   **Centralized version control system (CVCS).** A single central server stores all versioned files, and users pull/push changes to/from it.
+-   **Centralized version control system (CVCS):** A single central server stores all versioned files, and users pull/push changes to/from it.
 
--   **Distributed/Decentralized version control system (DVCS).** Every user has a complete copy of the repository, enabling offline work and decentralized collaboration.
+-   **Distributed/Decentralized version control system (DVCS):** Every user has a complete copy of the repository, enabling offline work and decentralized collaboration.
 
 # Git
 
