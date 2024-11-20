@@ -32,9 +32,9 @@ maintain a comprehensive history of their work.
 
 # Types of VCS
 
--   **Centralized version control system (CVCS).**
+-   **Centralized version control system (CVCS).** A single central server stores all versioned files, and users pull/push changes to/from it.
 
--   **Distributed/Decentralized version control system (DVCS).**
+-   **Distributed/Decentralized version control system (DVCS).** Every user has a complete copy of the repository, enabling offline work and decentralized collaboration.
 
 # Git
 
@@ -141,8 +141,6 @@ Paste the ssh key in key box then click on add ssh key button
 
 ## Git Clone
 
-
-git clone and your repo code
 
 ![image](https://github.com/user-attachments/assets/1087ccec-c883-452f-bd23-be8d0ece5db8)
 
