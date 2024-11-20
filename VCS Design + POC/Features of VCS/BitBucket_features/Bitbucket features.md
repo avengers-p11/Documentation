@@ -1,5 +1,5 @@
 
-#        **VCS Design + POC+ Features of VCS + Bitbucket Features**
+# **Bitbucket Features**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
@@ -9,9 +9,9 @@
 
 ## Table of Contents
 
-1.  [**Introduction**](#Introduction)
+1.  [**Introduction**](#introduction)
 
-2.  [**Why Bitbucket**](#why-bitbucket)
+2.  [**Why Bitbucket?**](#why-bitbucket)
 
 3.  [**Architecture**](#bitbucket-architecture)
 
@@ -31,10 +31,7 @@
 
 # Introduction
 
-Bitbucket, owned by Atlassian, is a Git-based source code repository hosting service that enables developers to store, manage, and collaborate on code. Unlike 
-GitHub, which primarily focuses on public repositories, Bitbucket supports both public and private projects. It is a web-based platform primarily used for source 
-code management and version control using Git. Bitbucket offers both commercial plans and free accounts, with an unlimited number of private repositories
-available for users.
+Bitbucket, owned by Atlassian, is a Git-based platform for storing and managing code, supporting both public and private repositories. It offers free and paid plans with unlimited private repositories.
 
 ![image](https://github.com/user-attachments/assets/487c32a5-c3a0-406e-a946-3e4f89ccc9a3)
 
@@ -42,45 +39,29 @@ available for users.
 
 ---
 
-# Why Bitbucket
+# Why Bitbucket?
 
-**Unlimited Privacy and Personal Shopping:**
+| Why is this useful? | Description |
+|---------------------|-------------|
+| **Unlimited Privacy and Personal Shopping** | Bitbucket gives you unlimited private storage for your code, keeping it safe. Other services may limit how much storage you get or charge extra. |
+| **Seamless Git Integration and Powerful Code Analysis** | Bitbucket works smoothly with Git, making version control easier. Its pull request system helps you review and collaborate on code with others. |
+| **Integrating the Atlassian Ecosystem with Unlimited Scalability** | Bitbucket connects well with other tools from Atlassian, making everything work together. It's also great for teams of all sizes, from small to big companies. |
+| **Built-in CI/CD and Strong Security** | Bitbucket Pipelines helps automate tasks like testing and deployment. It also keeps your code safe with two-factor authentication and encryption. |
 
-Bitbucket offers unlimited private storage, ensuring the privacy of your code. Many other plans have restrictions on individual stores or other costs associated 
-with them.
-
-**Seamless Git integration and power code analysis:**
-
-Bitbucket’s tight integration with Git simplifies version control, making it developer-friendly. Its pull request system isolates it from other systems and 
-enables complex legal review and collaboration.
-
-**Integrating the Atlassian ecosystem with unlimited scalability:**
-
-Bitbucket integrates seamlessly with other Atlassian tools to create a unified development ecosystem. This communication is not always available in other version
-control systems. Additionally, Bitbucket is highly scalable, suitable for all sizes of teams from startups to enterprises.
-
-**Built-in CI/CD and strong security:**
-
-Bitbucket Pipelines automates the CI/CD process, simplifying development. This feature is usually not integrated with other systems or may require the use of 
-third-party equipment. Bitbucket also places a strong focus on security through two-factor processing and encryption, ensuring that your code is well protected.
 
 # Bitbucket Architecture 
 
-Bitbucket operates as a Git-based distributed version control system, enabling developers to maintain a local repository with the full history of changes. This 
-architecture facilitates seamless branching, merging, and collaborative code workflows through pull requests. It provides two deployment options.
+Bitbucket is a Git-based system that lets developers keep a local copy of their code with all changes. It supports easy collaboration with features like branching, merging, and pull requests.
 
 ---
 ![image](https://github.com/user-attachments/assets/969adb19-bdd3-4714-8d6f-8a1a4d907b05)
 
 
-Bitbucket Cloud, hosted by Atlassian and tailored for small to medium-sized teams.
+There are two main options for Bitbucket:
 
-Bitbucket Data Center/Server, a self-hosted solution designed for enterprises requiring advanced configurations and greater control over their environment.
-
-The platform integrates tightly with other tools, including Jira for issue tracking and CI/CD tools such as Bamboo and Bitbucket Pipelines, streamlining
-development workflows. Its microservices-based architecture ensures scalability and fault tolerance, with dedicated services managing critical operations like 
-authentication, repository handling, and analytics. Security is a core aspect of Bitbucket's design, offering features such as two-factor authentication, IP 
-whitelisting, and granular branch and repository-level permissions to safeguard access and maintain compliance.
+Bitbucket Cloud, hosted by Atlassian for small to medium teams.
+Bitbucket Data Center/Server, a self-hosted option for larger companies needing more control.
+It works well with other tools like Jira for tracking tasks and Bamboo or Bitbucket Pipelines for automating code tasks. Bitbucket also focuses on security, offering features like two-factor authentication and control over who can access code.
 
 
 # Features
