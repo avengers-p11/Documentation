@@ -6,6 +6,8 @@
 |------------|-------------|-----------|--------------|-------------|-----------|
 | Mohit Saini | 19-11-24 | Version 1.1 | Mohit Saini |  |  |
 
+![image](https://github.com/user-attachments/assets/42114c80-1200-4b0c-81d5-ed0872a474b5)
+
 # **Table of Contents**
 
 1.  [Introduction](#introduction)
@@ -28,7 +30,7 @@
 
 10. [References](#references)
 
-![image](https://github.com/user-attachments/assets/42114c80-1200-4b0c-81d5-ed0872a474b5)
+
 
 
 # Introduction
@@ -97,16 +99,7 @@ components are stored together in one large repository.
 
 # Conclusion:
 
-Repositories are important in software development because they store
-and manage code, files, and data in one central place. Microrepos are
-when each service or part of a project has its own separate repository.
-This setup offers benefits like independence, easy scaling, and more
-control for teams, making it great for teams that work separately and
-release updates on their own schedule. However, managing microrepos can
-be tricky because it involves handling multiple repositories and dealing
-with repeated code. By following best practices like using centralized
-monitoring, automating tasks, and keeping good documentation, teams can
-take full advantage of microrepos and develop efficiently.
+Repositories store and manage code in one place, making them key in software development. Microrepos mean each part of a project has its own repository, allowing teams to work independently and release updates easily. While managing many repositories can be challenging, tools like automation and good documentation help teams use microrepos effectively.
 
 # Contact Information
 
