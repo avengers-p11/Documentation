@@ -19,6 +19,13 @@
 ## Introduction
 GitOps is a modern DevOps practice that uses Git as the single source of truth for infrastructure and application deployment. It streamlines continuous delivery, enhances collaboration, and enables declarative infrastructure management.
 
+
+![image](https://github.com/user-attachments/assets/0bf0139a-ce8f-407d-9d64-fae6b201a027)
+
+
+
+
+
 ---
 
 ## What is GitOps?
@@ -73,7 +80,7 @@ GitOps transforms the way infrastructure and application deployments are managed
 | Name| Email Address      |
 |-----|--------------------------|
 | Neelesh kumar | nilesh.rajput.snaatak@mygurukulam.co || GitHub | URL |
-|Mobile Number|9045583720|
+|---------------|---------------|
 |  devneelesh921  |  https://github.com/devneelesh921  |
 
 ---
