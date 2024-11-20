@@ -39,46 +39,29 @@ The Git Flow Workflow involves six key branch types:
 
 ---
 
+
+![Screenshot from 2024-11-20 15-08-59](https://github.com/user-attachments/assets/19c7d561-28db-48dc-9fdc-8f1df741442c)
+
+
 ### Steps in the Workflow:
 1. **Initialize Git Flow**:  
-   ```
-   git flow init
    
 2. **Start a Feature Branch**:   
     Create a branch for the feature from develop.
-    ```
-   git flow feature start feature-name
-
-   ```
+    
 3. **Finish the Feature Branch:**:
     Merge the feature into develop after completing and testing.
-   ```
-   git flow feature finish feature-name
 
-   ```
 4. **Start a Release Branch:**:   
     Create a release branch from develop for final testing and preparation.
-   ```
-   git flow release start release-version
-   ```
-
+   
 5. **Finish the Release Branch:**:      
     Merge the release into main and develop. Tag the release in main.
-   ```
-   git flow release finish release-version
-   ```
-
+   
 6. **Handle Hotfixes:**:   
      Create a hotfix branch from main for urgent fixes.
-   ```
-   git flow hotfix start hotfix-name
 
-   ```
 7. **Finish the hotfix by merging it into main and develop.**:
-   ```
-   git flow hotfix finish hotfix-name
-
-   ```
 
 ## Advantages and Disadvantages
 
@@ -110,7 +93,7 @@ Git Flow is an excellent choice for projects that require structured development
 | Name| Email Address      |
 |-----|--------------------------|
 | Neelesh kumar | nilesh.rajput.snaatak@mygurukulam.co || GitHub | URL |
-|Mobile Number|9045583720|
+|--------------|---------------|
 |  devneelesh921  |  https://github.com/devneelesh921  |
 
 ## References
