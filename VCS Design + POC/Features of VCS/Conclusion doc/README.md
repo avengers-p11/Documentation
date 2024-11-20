@@ -21,17 +21,17 @@ This document evaluates and compares popular version control and collaboration p
 ### GitHub
 - Best for collaborative development with a large, active community.
 - Simplifies workflows with features like GitHub Actions (CI/CD) and GitHub Copilot.
-- follow the link for more detailed information:
+- follow the link for more detailed information: https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Features%20of%20VCS/GitHub%20features/README.md
 
 ### Bitbucket
 - Focused on integration with Atlassian products like Jira.
 - Popular among teams using other Atlassian tools.
-- follow the link for more detailed information:
+- follow the link for more detailed information: https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20+%20POC/Features%20of%20VCS/BitBucket_features/README.md
 
 ### GitLab
 - Offers CI/CD pipelines natively and extensive DevOps features.
 - Provides an open-source self-hosted option.
-- follow the link for more detailed information: 
+- follow the link for more detailed information: https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20+%20POC/Features%20of%20VCS/Gitlab%20Features/README.md
 
 ## Comparison 
 ## Key Features
