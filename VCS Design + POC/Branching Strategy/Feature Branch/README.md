@@ -31,7 +31,7 @@ The Feature Branch Workflow is a Git-based development model designed to streaml
 
 ## Feature Branch Workflow
 
-![Screenshot from 2024-11-20 15-01-12](https://github.com/user-attachments/assets/5bd8c292-a9bb-4761-9c93-1a827175cf94)
+![Screenshot from 2024-11-20 20-02-30](https://github.com/user-attachments/assets/4ed8a92a-5994-49f3-9386-fd46d7249208)
 
 
 ## Advantages and Disadvantages
