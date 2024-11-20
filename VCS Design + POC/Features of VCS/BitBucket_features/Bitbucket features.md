@@ -3,7 +3,7 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   15-11-24       | v1 | Mohit Saini          |     17-11-24            |    |      |     |
+| Mohit Saini      |   15-11-24       | v1 | Mohit Saini          |     20-11-24            |    |      |     |
 
 ---
 
@@ -31,7 +31,7 @@
 
 # Introduction
 
-Bitbucket, owned by Atlassian, is a Git-based platform for storing and managing code, supporting both public and private repositories. It offers free and paid plans with unlimited private repositories.
+Bitbucket is a tool where teams can work together on code, manage projects, and automate tasks. It is an online service by Atlassian for storing and sharing code, mainly for projects using Git. This document explains what Bitbucket can do and its features.
 
 ![image](https://github.com/user-attachments/assets/487c32a5-c3a0-406e-a946-3e4f89ccc9a3)
 
@@ -122,12 +122,7 @@ Bitbucket offers numerous benefits that make it a powerful choice for teams mana
 
 # Conclusion 
 
-Bitbucket is a powerful tool for code collaboration and version control, offering seamless integration with other Atlassian products like Jira and Trello. Its 
-features, such as built-in CI/CD pipelines, strong security measures, and support for Git, make it a solid choice for teams focused on software development. 
-While it excels in enterprise environments and for teams already using Atlassian's ecosystem, its less intuitive interface, pricing structure, and smaller 
-community can be barriers for smaller teams or beginners. Overall, Bitbucket is ideal for organizations prioritizing robust integrations, advanced security, and a
-scalable development workflow.
-
+Bitbucket is a powerful tool for code collaboration and version control, integrated with Atlassian products like Jira. It offers features like CI/CD pipelines, strong security, and Git support, making it great for enterprises. However, its pricing and interface might not suit smaller teams or beginners.
 
 # Contact Information
 
