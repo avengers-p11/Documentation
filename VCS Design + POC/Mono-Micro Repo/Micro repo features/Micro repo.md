@@ -97,7 +97,7 @@ components are stored together in one large repository.
 | Add a SECURITY.md File | Include a SECURITY.md file to define and enforce a repository’s security policy. |
 | Choose Communication Protocol Wisely | Select a protocol that suits independent services to ensure efficient application performance. |
 
-# Conclusion:
+# Conclusion
 
 Repositories store and manage code in one place, making them key in software development. Microrepos mean each part of a project has its own repository, allowing teams to work independently and release updates easily. While managing many repositories can be challenging, tools like automation and good documentation help teams use microrepos effectively.
 
