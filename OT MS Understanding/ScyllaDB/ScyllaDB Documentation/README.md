@@ -76,14 +76,16 @@ ScyllaDB is a high-performance distributed NoSQL database that delivers  low-lat
 
 ## Advantages & Disadvantages
 
-|Advantages|	Disadvantages|
-|----------|----------------|
-|**High Performance:** ScyllaDB is optimized for low-latency and high-throughput workloads, making it suitable for real-time data processing.	|**Resource Intensive:** ScyllaDB can be resource-intensive, requiring significant CPU and memory resources to achieve optimal performance.|
-|**Scalability:** Designed to scale horizontally across multiple nodes seamlessly, enabling it to handle large volumes of data and high traffic.	|**Complex Configuration:** Initial setup and configuration can be complex, requiring careful tuning to achieve the best performance.|
-|**Shared-Nothing Architecture:** Each node operates independently, providing fault tolerance and high availability through automatic data replication.	|**Limited Ecosystem:** Compared to more established databases like Cassandra, ScyllaDB has a smaller ecosystem of third-party tools and community support.|
-|**Compatibility:** Offers compatibility with Apache Cassandra's data model and CQL, making it easier for users to migrate from Cassandra.	|**Learning Curve:** Users familiar with traditional RDBMS or other NoSQL databases may face a learning curve when adapting to ScyllaDB's architecture and concepts.|
-|**Flexibility:** Supports dynamic scaling, allowing nodes to be added or removed without downtime.	|**Limited OS Support:** Primarily supports Linux distributions (Ubuntu, Debian, Rocky), which may not be suitable for all environments.|
-|**Community and Enterprise Support:** Available in both open-source and enterprise editions, providing options for different levels of support and features.	|**Dependency on Java:** Requires Java (JDK 11 or later) to be installed, adding an extra layer of dependencies to manage.|
+
+| **Advantages**                                                              | **Disadvantages**                                                          |
+|-----------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| **High Performance**: Optimized for low-latency and high-throughput workloads. | **Resource Intensive**: Requires significant CPU and memory for optimal performance. |
+| **Scalable**: Easily scales horizontally to handle large data and traffic.    | **Complex Setup**: Initial configuration can be tricky and may need fine-tuning. |
+| **Fault Tolerant**: Independent nodes with automatic data replication for high availability. | **Smaller Ecosystem**: Fewer third-party tools and community support compared to Cassandra. |
+| **Cassandra Compatibility**: Easy migration for users familiar with Cassandra. | **Learning Curve**: New users may take time to adapt to ScyllaDB's architecture. |
+| **Flexible**: Allows dynamic scaling without downtime.                         | **Limited OS Support**: Primarily supports Linux, not all environments. |
+| **Support**: Both open-source and enterprise support available.              | **Java Dependency**: Requires Java (JDK 11 or later).                    |
+
 
 
 
