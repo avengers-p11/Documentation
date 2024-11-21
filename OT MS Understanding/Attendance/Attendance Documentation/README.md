@@ -20,6 +20,8 @@
 
 -   **[Architecture](#architecture)**
 
+-    [**Flow Diagram**](#flow-diagram)
+
 -   **[Components](#components)**
 
     -   [PostgreSQL](#postgresql)[Redis](#redis)
@@ -28,7 +30,7 @@
 
     -   [Liquibase](#liquibase)
 
--   [**Conclusion**](#conculsion)
+-   [**Conclusion**](#conclusion)
 
 -   [**Contact Information**](#contact-information)
 
@@ -56,7 +58,7 @@ configured to manage Python dependencies using **Poetry**.
 
 # Purpose
 
-Attendance REST API is designed to simplify and automate attendance management processes. It provides an efficient and scalable solution for handling attendance-related transactions, ensuring accurate data storage, fast retrieval, and seamless integration with other systems. This API utilizes PostgreSQL for reliable database management, Redis for caching, and a Python-based tech stack for flexibility and performance, making it suitable for modern microservices architectures.
+This document provides detailed information about the Attendance Microservices, which is a Python-based API designed to manage attendance efficiently.
 
 # Pre-requisites
 
@@ -74,7 +76,7 @@ Hardware, Software and Security requirements are met.
 | VM                         |  t2.medium         |  t3.large                       |
 
 
-## 
+
 
 ## Dependency
 
@@ -89,6 +91,11 @@ Hardware, Software and Security requirements are met.
 # Architecture
 
 ![image](https://github.com/user-attachments/assets/3317237b-7508-4454-8648-67e5e12b80fe)
+
+# Flow Diagram
+
+![image](https://github.com/user-attachments/assets/1d64e9e6-7cfd-48fe-845c-ac29ad982dec)
+
 
 # Components
 
@@ -108,33 +115,15 @@ and expands upon the SQL programming language, offering an array of
 features designed to securely store and efficiently scale even the most
 complex data workloads.
 
-**Why PostgreSQL:**
-
-PostgreSQL has quickly become a popular choice among database solutions
-largely due to its comprehensive features that address various aspects
-such as performance, security, programming extensions, and configuration
-options.
-
-PostgreSQL provides a robust, scalable, and feature-rich solution to
-meet the storage, querying, and data integrity needs of the Attendance
-API project. It aligns well with the project’s requirement for reliable
-data storage, advanced querying, and scalability.
-
 **Use Cases:**
 
--   **Support for Complex Data Relationships**: Effectively manages
-    relationships between entities (users, records) using foreign keys
-    and constraints.
+ | **Feature**                         | **Description**                                                                                          |
+|-------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Support for Complex Data Relationships** | Effectively manages relationships between entities (users, records) using foreign keys and constraints. |
+| **Advanced Querying and Data Retrieval** | Offers robust SQL features and indexing for efficient data access and reporting.                         |
+| **Scalability and Performance**      | Handles large datasets and multiple users without performance loss, supporting growth through indexing and replication. |
+| **Data Backup and Recovery**        | Provides reliable backup tools and quick recovery options to protect attendance data.                   |
 
--   **Advanced Querying and Data Retrieval**: Offers robust SQL features
-    and indexing for efficient data access and reporting.
-
--   **Scalability and Performance**: Handles large datasets and multiple
-    users without performance loss, supporting growth through indexing
-    and replication.
-
--   **Data Backup and Recovery**: Provides reliable backup tools and
-    quick recovery options to protect attendance data.
 
 ## Redis:
 
@@ -144,36 +133,16 @@ application cache or quick-response database. It stores data in memory,
 rather than on a disk or solid-state drive (SSD), which helps deliver
 unparalleled speed, reliability, and performance.
 
-**Why Redis:**
+**Use Cases:**
 
-Redis is an in-memory data structure store known for
-its **lightning-fast data access**, providing sub-millisecond response
-times ideal for caching. It offers **data persistence** options to
-prevent data loss during system failures, with methods like RDB
-snapshots and AOF logging. Additionally, Redis supports a variety
-of **versatile data structures** such as strings, lists, and sets,
-making it suitable for diverse applications beyond caching, including
-real-time analytics and messaging.
-
-![image](https://github.com/user-attachments/assets/8f69a4d4-981f-4992-8ac0-929596955bc3)
+| **Feature**                         | **Description**                                                                                           |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **In-memory Storage**               | Redis stores data in memory, allowing for extremely fast read and write operations.                        |
+| **Data Structures**                 | Supports various data structures such as strings, hashes, lists, sets, and sorted sets.                   |
+| **Persistence Options**             | Provides multiple persistence mechanisms like snapshots and append-only files (AOF).                      |
+| **Scalability**                     | Redis supports horizontal scaling through clustering and partitioning.                                    |
 
 
-**Use causes:**
-
--   **Caching Attendance Data**: Redis stores frequently accessed
-    records in memory, reducing database queries and enhancing response
-    times.
-
--   **Session Management**: Redis handles session data and
-    authentication tokens, providing fast lookups and offloading the
-    main database.
-
--   **Faster API Responses**: In-memory data retrieval with Redis
-    improves response speed, enhancing user experience.
-
--   **Temporary Data Storage**: Redis can set expiration times on cached
-    data, auto-clearing temporary info (like sessions) to maintain cache
-    efficiency and save memory.
 
 ## Poetry
 
@@ -188,34 +157,14 @@ development more predictable, manageable, and efficient.
 ![image](https://github.com/user-attachments/assets/7dc99b98-b068-4147-9254-7bc50ca8a465)
 
 
-**Why Poetry:**
-
-**Dependency Management**: Poetry simplifies handling project
-dependencies by using a single configuration file, pyproject.toml,
-consolidating settings and dependencies in one place and reducing the
-need for multiple files like requirements.txt and setup.py.
-
-**Deterministic Builds**: By creating a poetry.lock file, Poetry locks
-specific versions of all dependencies, ensuring consistent installations
-across environments, enabling repeatable builds.
-
-**Improved Dependency Resolution**: Poetry’s powerful dependency
-resolver manages complex dependency trees effectively, providing clear
-error messages and ensuring package compatibility.
-
 **Use cause:**
 
--   **Simplified Dependency Management**: It manages all dependencies in
-    a single pyproject.toml file, replacing the need for multiple files
-    like requirements.txt and setup.py.
-
--   **Ensuring Consistent Environments**: The poetry.lock file locks
-    specific dependency versions, ensuring consistency across different
-    environments.
-
--   **Automated Virtual Environment Handling**: Poetry automatically
-    creates and manages a virtual environment, preventing dependency
-    conflicts with other Python projects.
+| **Feature**                         | **Description**                                                                                           |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Dependency Management**           | Poetry handles dependencies in a simple and efficient way, ensuring the right versions are installed.     |
+| **Package Publishing**              | Allows easy publishing of Python packages to the Python Package Index (PyPI).                             |
+| **Virtual Environment Management**  | Automatically creates and manages virtual environments for each project to isolate dependencies.          |
+| **Version Management**              | Poetry helps manage and lock project dependencies with specific version numbers to ensure consistency.    |
 
 ## 
 
@@ -230,52 +179,20 @@ database structure, Liquibase lets you describe the desired changes in
 XML, YAML, or JSON formats, making the process more human-readable and
 version-controllable.
 
-**Why Liquibase:**
-
--   **Database Version Control**: Tracks and manages database schema
-    changes systematically, similar to code versioning.
-
--   **Collaboration**: Facilitates teamwork by ensuring consistent
-    application of schema changes across different environments.
-
--   **Cross-Database Compatibility**: Works with various database
-    systems (e.g., MySQL, PostgreSQL, Oracle), allowing easy transitions
-    between them.
-
--   **Automated Rollbacks**: Supports automated rollback of changes in
-    case of errors during migrations, ensuring data safety.
-
--   **Easy Tracking and Auditing**: Generates a changelog for a detailed
-    history of schema changes, simplifying audits and issue tracking.
 
 **Use cause :**
 
--   **Version Control for Database Changes**: Liquibase allows each
-    database schema change (like adding tables, columns, or indexes) to
-    be versioned, making it easy to track and audit modifications.
+| **Feature**                         | **Description**                                                                                           |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Database Version Control**        | Liquibase helps track, manage, and apply database changes in a version-controlled manner.                 |
+| **Database Schema Management**      | It provides tools for managing schema changes across different environments in a consistent way.          |
+| **Changelog Files**                 | Uses XML, YAML, JSON, or SQL-based changelogs to define database changes and maintain a clear history.     |
+| **Rollback Capability**             | Liquibase allows you to roll back changes to a previous state, ensuring safety and flexibility in database management. |
+| **Cross-Platform Support**          | Works across multiple database platforms such as MySQL, PostgreSQL, Oracle, SQL Server, and more.          |
 
--   **Automated Database Migrations**: Liquibase manages database
-    migrations automatically through changelogs, ensuring consistency
-    across different environments (development, staging, production)
-    without manual intervention.
+# Conclusion
 
--   **Rollback Support**: In case of errors, Liquibase provides rollback
-    functionality, allowing the database to revert to a previous stable
-    state, which is crucial for maintaining data integrity and
-    reliability.
-
-# Conculsion :
-
-
-The Attendance API is a strong system designed to manage attendance data
-efficiently. It uses PostgreSQL for reliable data storage, Redis for
-fast caching, and Liquibase for smooth database schema management.
-Poetry helps with dependency management, ensuring consistent
-environments during development. The API offers high performance with
-quick response times, secure session handling, and dependable database
-migrations. By using these technologies, the Attendance API is built for
-scalability, reliability, and maintainability, ensuring smooth
-operations for attendance-related tasks in real-world scenarios.
+The Attendance uses PostgreSQL for secure data storage, Redis for fast data access, Liquibase for smooth database updates, and Poetry for managing dependencies. These technologies work together to create a fast, scalable, and reliable system for managing attendance data. The API is designed to be efficient and easy to maintain, making it suitable for real-world use.
 
 #  Contact Information
 
