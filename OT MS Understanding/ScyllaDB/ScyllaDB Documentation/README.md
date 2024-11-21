@@ -68,10 +68,10 @@ ScyllaDB is a high-performance distributed NoSQL database that delivers  low-lat
 
 ## Architecture
 
-- Sharded Architecture: ScyllaDB employs a sharded architecture, where each CPU core is responsible for one or more shards of the data. This design eliminates the need for a central coordination node, improving scalability and performance.
-- Data Model: ScyllaDB uses a wide-column store, similar to Cassandra, with tables that consist of rows and columns. The primary key consists of a partition key and optional clustering columns.
-- Replication and Consistency: ScyllaDB supports different consistency levels, including QUORUM, LOCAL_QUORUM, ONE, and ALL, allowing you to balance between availability and consistency.
-- Write and Read Path: ScyllaDB implements a write path optimized for low latency. Writes are initially written to a memory table (MemTable) and later flushed to disk (SSTable). The read path uses a combination of MemTable, SSTable, and Bloom Filters for efficient data retrieval.
+- **Sharded Architecture:** ScyllaDB employs a sharded architecture, where each CPU core is responsible for one or more shards of the data. This design eliminates the need for a central coordination node, improving scalability and performance.
+- **Data Model:** ScyllaDB uses a wide-column store, similar to Cassandra, with tables that consist of rows and columns. The primary key consists of a partition key and optional clustering columns.
+- **Replication and Consistency:** ScyllaDB supports different consistency levels, including QUORUM, LOCAL_QUORUM, ONE, and ALL, allowing you to balance between availability and consistency.
+- **Write and Read Path:** ScyllaDB implements a write path optimized for low latency. Writes are initially written to a memory table (MemTable) and later flushed to disk (SSTable). The read path uses a combination of MemTable, SSTable, and Bloom Filters for efficient data retrieval.
 
 
 ## Advantages & Disadvantages
