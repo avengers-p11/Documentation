@@ -20,6 +20,8 @@
 
 -   [**Architecture**](#architecture)
 
+-   [**Flow Diagram**](#flow-diagram)
+
 -   [**Step by step
     installation**](#step-by-step-installation-of-attendance-api)
 
@@ -79,6 +81,10 @@ This service needs certain hardware, software, security, and network setup to wo
 ## **Architecture**
 
 ![image](https://github.com/user-attachments/assets/43af60ba-5103-451f-9bd9-fd96c46c75ba)
+
+## **Flow Diagram**
+
+![image](https://github.com/user-attachments/assets/2de208d6-04c2-4d53-9ac5-5ffaebd7f8ea)
 
 
 ## Step-by-step installation of Attendance API
@@ -349,7 +355,7 @@ gunicorn app:app \--log-config log.conf -b 0.0.0.0:8080
 
 # Conclusion
 
-This service API provides an efficient, scalable, and secure solution for managing attendance using modern technologies. It simplifies the setup process and ensures reliable performance, making it ideal for organizations looking to automate and streamline attendance management.
+This API provides an efficient, scalable, and secure solution for managing attendance using modern technologies. It simplifies the setup process and ensures reliable performance, making it ideal for organizations looking to automate and streamline attendance management.
 
 # Contact Information
 
