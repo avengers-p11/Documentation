@@ -1,8 +1,10 @@
 # ScyllaDB Documentation
 
-| **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
+| **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
-| Anjali Dhiman  | 12-11-24      | V1.2  | 15-11-24           | Shreya Jaiswal, Khushi Malhotra |
+| Anjali Dhiman  | 12-11-24      | V1  | 15-11-24           | Shreya Jaiswal |
+| Anjali Dhiman  | 12-11-24      | V2  | 17-11-24            | Khushi Malhotra|
+| Anjali Dhiman  | 12-11-24      | V3  | 21-11-24            | Khushi Malhotra|
 
 ## Table of Contents
 - [Purpose](#purpose)
@@ -21,7 +23,7 @@
 - [References](#references)
 
 ## Purpose
-ScyllaDB is a high-performance, NoSQL database designed to handle large-scale data applications with low latency and high throughput, even under heavy workloads. Built in C++ for optimized performance, it is fully compatible with Apache Cassandra, enabling straightforward migrations with minimal code changes while using the same Cassandra Query Language (CQL) and drivers. ScyllaDB is crafted to make efficient use of system resources through asynchronous I/O and avoids Java-based garbage collection, ensuring consistent performance with lower CPU and memory requirements. Known for its scalability, ScyllaDB enables seamless horizontal scaling, making it suitable for applications that need to accommodate rapid data growth and fluctuating traffic demands. Additionally, it incorporates robust fault tolerance features, including data replication, automatic failover, and multi-region support, to ensure continuous data availability and reliability in production environments.
+ScyllaDB is a high-performance NoSQL database that handles large-scale data with low latency and high throughput. Fully compatible with Apache Cassandra, it offers easy migration and efficient resource management. ScyllaDB scales horizontally and ensures high availability through data replication, automatic failover, and multi-region support.In the OT Microservice project, ScyllaDB serves as the primary database for the Employee and Salary APIs, providing fast and reliable data storage while supporting scalable growth. Its seamless integration with the project ensures efficient handling of data and high system performance.
 
 ## Introduction
 ## What is ScyllaDB?
