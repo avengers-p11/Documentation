@@ -5,9 +5,11 @@
 
 ## Author
 
-| Created/Modified | Version | Author               | Comment         | L0 Reviewer      |
-|-------------------|---------|----------------------|-----------------|------------------|
-| 18-11-2024        | V1     | Anjali Dhiman | L0    |  Khushi Malhotra |
+| Created/Modified | Version | Author               | Comment         | L0 Reviewer      |L1 Reviewer | L2 Reviewer |
+|-------------------|---------|----------------------|-----------------|------------------|------------------|------------------|
+| 18-11-2024        | V1     | Anjali Dhiman | L0    |  Khushi Malhotra |    |    |
+| 21-11-2024        | V2      | Anjali Dhiman | L0 Feedback    |  Khushi Malhotra |   |   |
+
 
 ## Table Of Content
 
@@ -15,7 +17,6 @@
 - [Pre-requisites](#pre-requisites)
 - [System Requirements](#system-requirements)
 - [Scylladb Installation and configuration](#scylladb-installation-and-configuration)
-- [Official Support](#official-support)
 - [Contacts](#contacts)
 - [References](#references)
 
