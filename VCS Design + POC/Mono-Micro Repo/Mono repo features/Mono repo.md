@@ -4,21 +4,19 @@
   |-------------|---------|-------------|-------------|---------|
   | Mohit Saini | 20-11-24 | version 1 | Mohit Saini | Intial Commit |
 
-
 ![image](https://github.com/user-attachments/assets/d4242270-735c-420f-b90a-15bf4bf0393f)
 
 ## Table of Contents
 - [Introduction](#introduction)
 - [Why Use a Mono Repo?](#why-use-a-mono-repo)
 - [Features](#features)
+- [Mono uses in companies](#mono-uses-in-companies)
 - [Advantages](#advantages)
 - [Disadvantages](#disadvantages)
 - [Best Practices for Monorepo Management](#best-practices-for-monorepo-management)
 - [Conclusion](#conclusion)
 - [Contact Information](#contact-information)
 - [References](#references)
-
-![image](https://github.com/user-attachments/assets/0b473775-d3b6-4aef-b674-3d35d3657d72)
 
 ## Introduction
 Monorepo is a way of storing many projects or parts of a system in one big folder (repository). Big companies like Google, Facebook, and Microsoft use this method to manage their software. It helps developers work on different parts of the software in the same place, making it easier to keep things organized and work together.
@@ -36,6 +34,9 @@ The monorepo approach provides several key advantages for large teams and organi
 | Unified Versioning              | All projects share a single version.                                        |
 | Streamlined Collaboration       | Teams can work on different parts of the project at the same time.           |
 
+## Choosing the Right Approach: Microservices vs. Monolithic Architecture
+
+![image](https://github.com/user-attachments/assets/df5eb778-1260-4131-8f27-f6be074bd621)
 
 ## Features
 
@@ -48,6 +49,9 @@ The monorepo approach provides several key advantages for large teams and organi
 | **Versioning**            | Monorepos allow managing and aligning versions across projects, ensuring consistent releases and features across the codebase.                  |
 
 ![image](https://github.com/user-attachments/assets/0a32a2cc-2481-4742-9fa2-aa996fda4d42)
+
+## Mono uses in companies
+
 
 
 ## Advantages
