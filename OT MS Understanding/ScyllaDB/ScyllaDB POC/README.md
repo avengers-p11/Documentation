@@ -150,25 +150,12 @@ sudo systemctl status scylla-server
 ScyllaDB is a fast, scalable NoSQL database designed for low-latency operations and efficient resource use, making it ideal for microservices like the Employee API. Its distributed design ensures high availability, fault tolerance, and seamless integration with Cassandra tools. In the Employee API, ScyllaDB efficiently handles large datasets, providing fast queries, scalability, and reliability for managing employee data.
 
 
-## Official Support
-
-|                |                                       |
-|:--------------:|:-------------------------------------:|
-|[Support](https://www.scylladb.com/product/support/)|Reach out to ScyllaDB support for any issues or questions|
-|[Community](https://forum.scylladb.com/)|Join the ScyllaDB community forums for discussions and help from other users|
-
 
 ## Contacts
 
 | Name| Email Address      | GitHub | URL |
 |-----|--------------------------|----------|---------|
 | Anjali Dhiman | anjali.dhiman.snaatak@mygurukulam.co |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
-
-## References
-
-[Documentation](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/ScyllaDB/ScyllaDB%20Documentation/README.md)
-
-[ScyllaDB Installation Guide](https://opensource.docs.scylladb.com/stable/getting-started/install-scylla/index.html)
 
 
 ## References
