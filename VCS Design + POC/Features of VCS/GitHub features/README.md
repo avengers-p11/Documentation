@@ -12,15 +12,16 @@
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Key Concept](#key-concept)
-3. [Repositories](#repositories)
-4. [Branches](#branches)
-5. [Issues](#issues)
-6. [GitHub Actions](#github-actions)
-7. [gitignore](#gitignore)
-8. [Collaboration Tools](#collaboration-tools)
-9. [Conclusion](#conclusion)
-10. [Contacts](#contacts)
-11. [References](#references)
+     1. [Repositories](#repositories)
+     2. [Branches](#branches)
+     3. [Pull Request](#pull-requests)
+3. [Issues](#issues)
+4. [GitHub Actions](#github-actions)
+5. [gitignore](#gitignore)
+6. [Collaboration Tools](#collaboration-tools)
+7. [Conclusion](#conclusion)
+8. [Contacts](#contacts)
+9. [References](#references)
 
 
 
@@ -35,34 +36,6 @@ A repository (repo) is a storage space for project files and their version histo
 - **Local Repository**: Stored on your computer.
 - **Remote Repository**: Hosted on GitHub or similar platforms.
 Repositories can be public (visible to everyone) or private (restricted access).
-
-## Branches: 
-Branches in Git allow developers to create separate lines of development within a repository. Each branch is a lightweight pointer to a specific commit, enabling isolated work on features or fixes.
-
-- **Main Branch** (main or master):
-The default branch where the final, stable version of the code resides.
-
-- **Feature Branches**:
-Branches created from the main branch to work on specific features, bug fixes, or tasks without impacting the main codebase.
-
-
- Commits are the building blocks of a project’s history, allowing developers to track progress and revert to previous states if needed.
-
-## Pull Requests: 
-A pull request (PR) is a feature that allows developers to notify team members that they have completed a feature or a set of changes and would like those changes to be merged into the main branch. The process typically involves:
-
-- **Creating a pull request**: After pushing commits to a branch, a developer creates a PR, summarizing the changes and their purpose.
-- **Reviewing**: Team members review the PR, providing feedback, requesting changes, or approving it.
-- **Merging**: Once the PR is approved, it can be merged into the main branch, integrating the new changes into the codebase.
-
-Pull requests are a critical part of the collaboration process, enabling code reviews, discussions, and quality control before new code is integrated into the main project.
-
-# Repositories
-
-## Creating a Repository
-
-A GitHub repository is essentially a storage space for your project, where you can keep track of all the files and changes. Here’s how to create a repository with the necessary components.
-
 
 ### Creating a Repository Locally and Pushing to GitHub
 **1. Create a Local Repository**:
@@ -81,20 +54,18 @@ git add .
 git commit -m "Initial commit"
 ```
 
-# Branches
-## 1. Branching Strategy
-
-GitHub branches provide a structured way to develop features, fix bugs, or experiment without disrupting the main codebase. Each branch is essentially a copy codebase from the moment it is created, allowing changes to be made in isolation.
+## Branches: 
+Branches in Git allow developers to create separate lines of development within a repository. Each branch is a lightweight pointer to a specific commit, enabling isolated work on features or fixes.
 ![image](https://github.com/user-attachments/assets/26c3df1b-9219-41f7-b866-aa484f297965)
+- **Main Branch** (main or master):
+The default branch where the final, stable version of the code resides.
 
-- ### i. Default Branch (main/master):
-   - The default branch is the main branch where the source code of the HEAD is located. This is often named ```main``` (previously ```master``` was the convention).
-   -  It's the primary branch where the final and stable version of your code lives.
-   -  Other branches (feature, hotfix, etc.) are usually merged into this branch after they have been reviewed and tested.
+- **Feature Branches**:
+Branches are created from the main branch to work on specific features, bug fixes, or tasks without impacting the main codebase.
 
-- ### ii. Feature Branches:
-  - Feature branches are created from the default branch (main or master) to develop new features, fix bugs, or do any experimental work.
-  - These branches allow developers to work in isolation from the main codebase. When the work is completed, the branch is merged back into the main branch.
+
+ Commits are the building blocks of a project’s history, allowing developers to track progress and revert to previous states if needed.
+for more details, please go through this link : https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Feature%20Branch
 
 ## 2. Creating and Managing Branches
 
@@ -135,6 +106,16 @@ git branch -D <branch-name>
 ### Delete a branch remotely
 git push origin --delete <branch-name>
 ```
+
+## Pull Requests: 
+A pull request (PR) is a feature that allows developers to notify team members that they have completed a feature or a set of changes and would like those changes to be merged into the main branch. The process typically involves:
+
+- **Creating a pull request**: After pushing commits to a branch, a developer creates a PR, summarizing the changes and their purpose.
+- **Reviewing**: Team members review the PR, providing feedback, requesting changes, or approving it.
+- **Merging**: Once the PR is approved, it can be merged into the main branch, integrating the new changes into the codebase.
+
+Pull requests are a critical part of the collaboration process, enabling code reviews, discussions, and quality control before new code is integrated into the main project.
+
 # Issues 
 ## Creating and Managing Issues
 
@@ -156,13 +137,16 @@ GitHub Issues is a powerful tool for tracking bugs, enhancements, tasks, and mor
 # GitHub Actions
 
 GitHub Actions is a tool that helps you automate your project’s workflows, like testing and deployment. It works by defining tasks in YAML files that are triggered by certain events (e.g., pushing code or opening a pull request).
+![Screenshot 2024-11-21 130820](https://github.com/user-attachments/assets/225b811c-fd99-478a-b15e-b93474aff022)
 
-## Key Features:
+## Key Features
 
-- **Automation**: Automate tasks like code testing, building, and deployment.
-- **Event-Driven**: Trigger workflows based on various GitHub events.
-- **Custom Workflows**: Create customized workflows for different environments and processes.
-- **Extensibility**: Use actions from GitHub’s marketplace or create your own custom actions.
+| Feature          | Description                                                     |
+|------------------|-----------------------------------------------------------------|
+| **Automation**    | Automate tasks like code testing, building, and deployment.    |
+| **Event-Driven**  | Trigger workflows based on various GitHub events.              |
+| **Custom Workflows** | Create customized workflows for different environments and processes. |
+| **Extensibility** | Use actions from GitHub’s marketplace or create your own custom actions. |
 
 ## gitignore
 
