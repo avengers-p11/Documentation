@@ -33,15 +33,29 @@ The Feature Branch Workflow is a Git-based development model designed to streaml
 
 ![Screenshot from 2024-11-20 20-02-30](https://github.com/user-attachments/assets/4ed8a92a-5994-49f3-9386-fd46d7249208)
 
-1.Create a New Branch for Each Feature    
-2.Make Changes on the Feature Branch   
-3.Keep Your Feature Branch Up-to-Date      
-4.Test Your Feature Locally      
-5.Create a Pull Request (PR) or Merge Request (MR)   
-6.Merge the Feature Branch      
-7.Delete the Feature Branch        
-8.Deploy and Monitor using main branch    
 
+  1. Create a New Branch for Each Feature    
+  2. Make Changes on the Feature Branch   
+  3. Keep Your Feature Branch Up-to-Date      
+  4. Test Your Feature Locally      
+  5. Create a Pull Request (PR) or Merge Request (MR)   
+  6. Merge the Feature Branch      
+  7. Delete the Feature Branch        
+  8. Deploy and Monitor using main branch    
+
+
+## Best Practices
+
+  1. Use Descriptive Branch Names  
+      i) Naming convention
+      ii) Prefix by task type
+  2. Branch from the Correct Base (Typically main or develop)  
+  3. Keep Feature Branches Small and Focused  
+  4. Commit Frequently with Meaningful Messages  
+  5. Regularly Rebase or Merge from the Main Branch  
+  6. Avoid Mixing Features in One Branch  
+  7. Update Documentation and Comments  
+     
 ## Advantages and Disadvantages
 
 ### Advantages 
