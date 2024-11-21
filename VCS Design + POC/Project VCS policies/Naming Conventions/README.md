@@ -50,7 +50,7 @@ Branches are used to encapsulate specific features, fixes, or other workstreams.
 
 ## Tag Naming Conventions
 
-Tags are used to mark specific points in the repository's history, such as releases.
+Tag naming conventions provide a standardized way to label specific points in a repository's history, typically following semantic versioning. Tags are primarily used to mark releases or milestones in the project.
 
 ### General Structure
 
@@ -75,25 +75,21 @@ Commit messages are crucial for understanding the history and context of changes
 <BLANK LINE>
 <footer>
 ```
-### Scope
-The scope provides additional context about the section of the codebase affected by the change. It should be consistent with the module or component being modified.
+| **Section** | **Description**                                                                                                                                                    |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Scope**   | Provides context about the section of the codebase affected by the change. Should align with the module or component being modified.                               |
+| **Subject** | A concise summary of the change:                                                                                                                                  |
+|             | - Written in imperative, present tense: "change" not "changed" or "changes."                                                                                      |
+|             | - No more than 50 characters long.                                                                                                                                |
+|             | - Should not end with a period.                                                                                                                                   |
+| **Body**    | Includes:                                                                                                                                                         |
+|             | - A detailed explanation of what the commit does.                                                                                                                |
+|             | - The motivation for the change and its context.                                                                                                                  |
+|             | - Any relevant information to help understand the change.                                                                                                         |
+| **Footer**  | Contains:                                                                                                                                                         |
+|             | - Information about breaking changes (e.g., "BREAKING CHANGE: type is removed").                                                                                  |
+|             | - References to issues (e.g., "Closes #1234").                                                                                                                    |
 
-### Subject
-The subject is a concise summary of the change. It should be:
-
-Written in imperative, present tense: "change" not "changed" or "changes"
-No more than 50 characters long
-Should not end with a period
-
-### Body
-The body should include:
-
-A detailed explanation of what the commit does
-The motivation for the change and its context
-Any relevant information that helps understand the change
-
-### Footer
-The footer should contain any information about breaking changes and references to issues, e.g., "BREAKING CHANGE: type is removed", "Closes #1234".
 
 #### Examples
 ```
