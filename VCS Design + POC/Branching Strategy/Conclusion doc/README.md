@@ -115,10 +115,6 @@ Choosing the right strategy involves assessing your team’s workflow, project c
 | Reference Name                        | Link                                                                                     | Description                                                           |
 |---------------------------------------|------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | Environment Branching Strategies      | [Environment Branching Strategies](https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf) | Article on various environment branching strategies for Git.          |
-| Patterns for Managing Source Code Branches | [Patterns for Managing Source Code Branches](https://martinfowler.com/articles/branching-patterns.html) | Martin Fowler's article on different branching patterns in source control. |
-| A Successful Git Branching Model      | [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/) | A detailed explanation of the Gitflow branching model by Vincent Driessen. |
-| Trunk Based Development               | [Trunk Based Development](https://trunkbaseddevelopment.com/)                            | Overview of trunk-based development, focusing on continuous integration. |
-| GitLab Flow                           | [GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)                        | Documentation on GitLab Flow, combining feature branching and CI/CD.  |
-| Comparing Workflows                   | [Comparing Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)       | Atlassian's guide to comparing different Git workflows.               |
+| GitLab Flow                           | [GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html)                        | Documentation on GitLab Flow, combining feature branching and CI/CD.  |              |
 | GitHub Flow                           | [GitHub Flow](https://guides.github.com/introduction/flow/)                              | Introduction to the GitHub Flow, a simplified branching strategy.     |
 
