@@ -31,21 +31,11 @@
 
 ## Introduction
 
-Attendance REST API is designed to simplify and automate attendance
-management processes. It provides an efficient and scalable solution for
-handling attendance-related transactions, ensuring accurate data
-storage, fast retrieval, and seamless integration with other systems.
-This API utilizes PostgreSQL for reliable database management, Redis for
-caching, and a Python-based tech stack for flexibility and performance,
-making it suitable for modern microservices architectures.
+This document explains how to install the Attendance API Service easily. The project is built using Python.
 
 ## Pre-requisites
 
-The Attendance REST API has specific hardware, software, security, and
-network pre-requisites that must be met to ensure a smooth installation,
-configuration, and operation. These requirements are essential to
-guarantee that the system runs efficiently, securely, and can scale
-effectively as user needs increase.
+This service needs certain hardware, software, security, and network setup to work properly. These are important to make sure the system runs smoothly, stays secure, and can handle more users as needed.
 
 [PostgreSQL](https://www.postgresql.org/)
 
@@ -278,12 +268,10 @@ make run-migrations
 ### 23. **Update PostgreSQL Database Using Liquibase**
 
 ```bash 
-> liquibase \--changeLogFile=db-changelog.xml--driver=org.postgresql.Driver--url=jdbc:postgresql://18.208.150.188:5432/attendance_db--username=postgres --password=password update
-
+liquibase \--changeLogFile=db-changelog.xml--driver=org.postgresql.Driver--url=jdbc:postgresql://18.208.150.188:5432/attendance_db--username=postgres --password=password update
+```
 ![image](https://github.com/user-attachments/assets/ad091666-4f07-439f-8312-1ad5db6967cd)
 
-**change make file above mentioned line at last of make file like this\
-**
 
 ### 24. **Download PostgreSQL JDBC Driver**
 ```bash 
@@ -361,34 +349,18 @@ gunicorn app:app \--log-config log.conf -b 0.0.0.0:8080
 
 # Conclusion
 
-Attendance REST API streamlines attendance management by leveraging
-modern tools and technologies like Python, PostgreSQL, Redis, and
-Liquibase. By following the step-by-step installation and configuration
-process, users can set up a robust, scalable, and efficient system
-tailored to organizational needs. With its microservices architecture,
-this API ensures seamless integration, fast performance, and reliable
-data handling, making it an ideal solution for managing attendance in a
-structured and automated manner.
+This service API provides an efficient, scalable, and secure solution for managing attendance using modern technologies. It simplifies the setup process and ensures reliable performance, making it ideal for organizations looking to automate and streamline attendance management.
 
 # Contact Information
 
-  -----------------------------------------------------------------------
-  **Name**                      **Email address**
-  ----------------------------- -----------------------------------------
-  Mohit Saini                   <it.mohitsaini@gmail.com>
-
-  -----------------------------------------------------------------------
+| **Name**       | **Email Address**            |
+|-----------------|------------------------------|
+| Mohit Saini    | <it.mohitsaini@gmail.com>     |
 
 # References
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------
-  **Link**                                                                                                                     **Description**
-  ---------------------------------------------------------------------------------------------------------------------------- -----------------
-  https://medium.com/devops-technical-notes-and-manuals/how-to-install-and-configure-postgresql-on-ubuntu-20-04-4fd3cf072d6f   PostgreSQL
-                                                                                                                               installation and
-                                                                                                                               configuration
-
-  https://chandrapurnimabhatnagar.medium.com/how-to-install-liquibase-database-devops-34ca9a6d9705                             Liquibase
-                                                                                                                               installation
-
-  https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Redis/Redis%20POC/README.md                  Reids
+| **Link**                                                                                                                     | **Description**                                    |
+|-----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| [How to install and configure PostgreSQL on Ubuntu 20.04](https://medium.com/devops-technical-notes-and-manuals/how-to-install-and-configure-postgresql-on-ubuntu-20-04-4fd3cf072d6f) | PostgreSQL installation and configuration       |
+| [How to install Liquibase Database DevOps](https://chandrapurnimabhatnagar.medium.com/how-to-install-liquibase-database-devops-34ca9a6d9705) | Liquibase installation                          |
+| [Redis POC Documentation](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Redis/Redis%20POC/README.md) | Redis                                           |
