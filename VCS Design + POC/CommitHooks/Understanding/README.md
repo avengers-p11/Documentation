@@ -1,6 +1,11 @@
 # Understanding Commit Hooks in Git 
 
 
+| **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
+|------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
+| Neelesh kumar      | 15-11-24      | Neelesh  Kumar             | 21-11-24           |  | | |
+
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Commit Hook](#what-are-commit-hooks)
@@ -22,6 +27,11 @@
 ### What are Commit Hooks
 
 Commit hooks are a subset of Git hooks triggered during the commit process. They ensure that specific rules are followed before code is committed, such as code formatting checks, commit message validation, or checking for sensitive data.
+
+### Flow Diagram of Commit Hooks
+![image](https://github.com/user-attachments/assets/b4d19307-0fa0-4268-911c-488efb053835)
+
+
 
 ### Notification of Commit Hooks and how it works
 A commit hook can be configured to send notifications whenever certain conditions are met during a Git operation, such as committing code or pushing changes to a repository. For instance, you can set up a post-commit or post-receive hook to send an email or a message to a team chat whenever a new commit is made or received.
@@ -62,11 +72,20 @@ Commit hooks (or Git hooks) are a powerful feature provided by Git that enables 
 
 
 
+## Contacts
+
+| Name| Email Address      |
+|-----|--------------------------|
+| Neelesh kumar | nilesh.rajput.snaatak@mygurukulam.co || GitHub | URL |
+|----------|---------|
+|  devneelesh921  |  https://github.com/devneelesh921  |
 
 
-
-
-
+## References
+| Links                                             | Descriptions                                                    |
+|---------------------------------------------------|-----------------------------------------------------------------|
+|https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks |Git Documentation - Customizing Git|
+|https://git-scm.com/b
 
 
 
