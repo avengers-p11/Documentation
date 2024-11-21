@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 15-11-24      | Neelesh  Kumar             | 20-11-24           |  | | |
+| Neelesh kumar      | 15-11-24      | Neelesh  Kumar             | 21-11-24           |  | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -33,6 +33,14 @@ The Feature Branch Workflow is a Git-based development model designed to streaml
 
 ![Screenshot from 2024-11-20 20-02-30](https://github.com/user-attachments/assets/4ed8a92a-5994-49f3-9386-fd46d7249208)
 
+1.Create a New Branch for Each Feature    
+2.Make Changes on the Feature Branch   
+3.Keep Your Feature Branch Up-to-Date      
+4.Test Your Feature Locally      
+5.Create a Pull Request (PR) or Merge Request (MR)   
+6.Merge the Feature Branch      
+7.Delete the Feature Branch        
+8.Deploy and Monitor using main branch    
 
 ## Advantages and Disadvantages
 
