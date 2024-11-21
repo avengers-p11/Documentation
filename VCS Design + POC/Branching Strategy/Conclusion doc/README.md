@@ -1,4 +1,4 @@
-# Conclusion on Branching Strategies
+# Conclusion of Branching Strategies
 
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
@@ -57,7 +57,6 @@ GitLab Flow combines aspects of Feature Branch Flow and Git Flow, focusing on de
   - Simplifies the merge and deployment process.
   - Supports continuous integration/continuous deployment (CI/CD) pipelines.
 
-Reference
 
 ### Environment Branch Flow
 
@@ -68,7 +67,6 @@ Environment Branch Flow uses long-lived branches that correspond to deployment e
   - Code promotion flows upstream from less stable to more stable environments.
   - Supports complex deployment scenarios with multiple testing or staging environments.
 
-Reference
 
 ## How to Choose a Branching Strategy
 
@@ -103,6 +101,13 @@ Each branching strategy offers unique benefits and is suited to different projec
 
 Choosing the right strategy involves assessing your team’s workflow, project complexity, and release needs. Ultimately, the key to successful branching lies in consistency, clear communication, and adherence to best practices.
 
+## Contacts
+
+| Name| Email Address      |
+|-----|--------------------------|
+| Neelesh kumar | nilesh.rajput.snaatak@mygurukulam.co || GitHub | URL |
+|----------|---------|
+|  devneelesh921  |  https://github.com/devneelesh921  |
 
 
 ## References
