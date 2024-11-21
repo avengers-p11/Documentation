@@ -41,25 +41,28 @@ The Git Flow Workflow involves six key branch types:
 ![Screenshot from 2024-11-20 15-08-59](https://github.com/user-attachments/assets/19c7d561-28db-48dc-9fdc-8f1df741442c)
 ---
 
-### Steps in the Workflow:
-1. **Initialize Git Flow**:  
-   
-2. **Start a Feature Branch**:   
-    Create a branch for the feature from develop.
-    
-3. **Finish the Feature Branch:**:
-    Merge the feature into develop after completing and testing.
+### Key features 
+1. Dedicated Branches for Different Purposes
+2. Structured Workflow for Releases   
+3. Parallel Development
+4. Support for Continuous Delivery
+5. Clear Code History
+6. Rollback and Version Control
+7. Collaboration-Friendly
+8. Flexibility for Hotfixes
+9. Compatibility with Versioning
+10. Enhanced Stability    
 
-4. **Start a Release Branch:**:   
-    Create a release branch from develop for final testing and preparation.
-   
-5. **Finish the Release Branch:**:      
-    Merge the release into main and develop. Tag the release in main.
-   
-6. **Handle Hotfixes:**:   
-     Create a hotfix branch from main for urgent fixes.
 
-7. **Finish the hotfix by merging it into main and develop.**:
+
+
+## PR (Pull Request) in GitFlow
+
+A Pull Request is a mechanism used in Git platforms like GitHub, GitLab, or Bitbucket to propose, review, and merge code changes from one branch to another. In GitFlow, PRs are primarily used for collaboration and code quality assurance.
+
+ ## Versioning in GitFlow
+
+Versioning in GitFlow refers to tagging specific commits in the repository with version numbers (e.g., v1.0.0) to identify and track releases.
 
 ## Advantages and Disadvantages
 
