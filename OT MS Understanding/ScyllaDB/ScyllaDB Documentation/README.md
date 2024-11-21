@@ -89,7 +89,7 @@ ScyllaDB is a high-performance distributed NoSQL database that delivers  low-lat
 
 ## Installation 
 Follow the link for the installation Document:
-()
+(https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/ScyllaDB/ScyllaDB%20POC/README.md)
 
 ## Configuration
 
