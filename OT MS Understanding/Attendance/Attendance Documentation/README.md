@@ -3,7 +3,7 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   11-11-24       | v1 | Mohit Saini          |     15-11-24            | Kushi   |      |     |
+| Mohit Saini      |   11-11-24       | v1 | Mohit Saini          |     15-11-24            | Khushi   |      |     |
 
 
 
@@ -43,7 +43,7 @@ with **PostgreSQL** for storing data, **Redis** for caching, and
 uses **Liquibase** for database change management. The system is also
 configured to manage Python dependencies using **Poetry**.
 
-**Technology Stack:**
+**Technology Stack**
 
 1.  **PostgreSQL** - A relational database system used for storing
     attendance data.
@@ -115,7 +115,7 @@ and expands upon the SQL programming language, offering an array of
 features designed to securely store and efficiently scale even the most
 complex data workloads.
 
-**Use Cases:**
+**Use Cases**
 
  | **Feature**                         | **Description**                                                                                          |
 |-------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -125,7 +125,7 @@ complex data workloads.
 | **Data Backup and Recovery**        | Provides reliable backup tools and quick recovery options to protect attendance data.                   |
 
 
-## Redis:
+## Redis
 
 Redis (**RE**mote **DI**ctionary **S**erver) is an open source,
 in-memory, NoSQL key/value store that is used primarily as an
@@ -133,7 +133,7 @@ application cache or quick-response database. It stores data in memory,
 rather than on a disk or solid-state drive (SSD), which helps deliver
 unparalleled speed, reliability, and performance.
 
-**Use Cases:**
+**Use Cases**
 
 | **Feature**                         | **Description**                                                                                           |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -157,7 +157,7 @@ development more predictable, manageable, and efficient.
 ![image](https://github.com/user-attachments/assets/7dc99b98-b068-4147-9254-7bc50ca8a465)
 
 
-**Use cause:**
+**Use cause**
 
 | **Feature**                         | **Description**                                                                                           |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -180,7 +180,7 @@ XML, YAML, or JSON formats, making the process more human-readable and
 version-controllable.
 
 
-**Use cause :**
+**Use cause **
 
 | **Feature**                         | **Description**                                                                                           |
 |-------------------------------------|-----------------------------------------------------------------------------------------------------------|
