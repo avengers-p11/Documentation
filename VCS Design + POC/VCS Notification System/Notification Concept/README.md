@@ -18,6 +18,10 @@
 
 A Version Control System (VCS) is critical in modern software development as it helps teams manage changes to their codebase over time. A VCS Notification System is designed to keep stakeholders informed of changes and activities occurring within a repository, such as commits, pull requests, builds, and issues. This system ensures that developers, team leads, QA engineers, and other stakeholders receive timely updates, enabling better collaboration, faster issue resolution, and overall project progress.
 
+  <img width="550" alt="image" src="https://github.com/user-attachments/assets/0a7864c7-e422-4df5-8968-bb3068ffe792">
+
+
+
 ## Why?
 
 The need for an efficient VCS Notification System arises for several reasons:
