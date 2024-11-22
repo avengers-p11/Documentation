@@ -43,6 +43,7 @@ Environment branching simplifies code management by isolating changes for develo
 - **Purpose**: Isolated branches for new features or bug fixes.
 - **Naming**: `feature/<feature-name>` (e.g., `feature/login-system`)
 - **Workflow**: Created from `develop` and merged back after review.
+- for more details, please go through this link:- https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Feature%20Branch/README.md
 
 ### 3. Staging Branch
 - **Purpose**: Pre-production testing environment.
