@@ -5,9 +5,6 @@
   |-------------|---------|-------------|-------------|---------|
   | Mohit Saini | 21-11-24 | version 1 | Mohit Saini |  |
 
-![image](https://github.com/user-attachments/assets/2825844b-d65b-4985-829b-33cc3e74b724)
-
-
 
 ## Table of Contents
 - [Purpose](#purpose)
@@ -28,18 +25,17 @@ This document explains two ways to manage code in software development: Monorepo
 
 ### **Monorepo**
 A **Monorepo** (short for **monolithic repository**) is a way to manage multiple projects or services in one single place. It makes it easier for teams to work together, share code, and handle dependencies. Big companies like Google, Microsoft, and Facebook use Monorepos to make working on large software projects simpler.
-![image](https://github.com/user-attachments/assets/7055cb7e-a246-49dd-a636-901c69e2ce98)
+
 
 
 ### **Micro Repo**
 A **Micro Repo** is when each project or part of a project is kept in its own separate place. This works well for small, independent projects that don't need to share a lot of code. It lets teams work on their own without dealing with a big shared codebase.
 
-![image](https://github.com/user-attachments/assets/85a60df0-3c75-4d7f-a973-b3d19476be9a)
-
 
 ## **Comparison: Monorepo vs Micro Repo**
 
-![image](https://github.com/user-attachments/assets/0bafd8d9-6a39-424b-af13-c717c980e8a9)
+![image](https://github.com/user-attachments/assets/8192f784-f789-4cf2-b0ad-318b91c05d70)
+
 
 | **Aspect**                  | **Monorepo**                                                                                              | **Micro Repo**                                                                                      |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -74,8 +70,8 @@ When choosing between a **Monorepo** and a **Micro Repo** strategy, teams must c
 ## References 
 | Links                                                                                                                      | Description |
 |----------------------------------------------------------------------------------------------------------------------------|-------------|
-| https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Mono-Micro%20Repo/Mono%20repo%20features/Mono%20repo.md | For Mono    |
-| https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Mono-Micro%20Repo/Micro%20repo%20features/Micro%20repo.md | For Micro   |
+| https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20+%20POC/Mono-Micro%20Repo/Mono%20repo%20features/README.md | For Mono    |
+| https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Mono-Micro%20Repo/Micro%20repo%20features/README.md | For Micro   |
 
 
 
