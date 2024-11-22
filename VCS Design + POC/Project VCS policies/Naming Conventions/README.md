@@ -4,7 +4,8 @@
 
 | Created/Modified | Version | Author               | Comment         | L0 Reviewer      |
 |-------------------|---------|----------------------|-----------------|------------------|
-| 18-11-2024        | V1     | Anjali Dhiman | L0    |   |
+| 18-11-2024        | V1     | Anjali Dhiman | L0    |  Khushi Malhotra |
+| 21-11-2024        | V2     | Anjali Dhiman | L0    |  Khushi Malhotra |
 
 
 ## Table of Contents
