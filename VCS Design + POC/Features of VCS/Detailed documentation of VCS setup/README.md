@@ -158,3 +158,4 @@ Paste the ssh key in key box then click on add ssh key button
 |-----------------------------------|-------------------------------------|
 | [Git installation on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu) | GitHub installation |
 | [GitHub SSH Configuraton](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/GitHub-SSH-Key-Setup-Config-Ubuntu-Linux) | GitHub Configuration |
+|[conclusion doc](https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Features%20of%20VCS/Conclusion%20doc)| why we choose GitHub |
