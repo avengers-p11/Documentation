@@ -1,8 +1,9 @@
 # Mono Repo Features
 
- | Author        | Created on | Version | Last updated by | Last edited on |
-  |-------------|---------|-------------|-------------|---------|
-  | Mohit Saini | 20-11-24 | version 1 | Mohit Saini | Intial Commit |
+ | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **Reviewer L0** |
+|------------|-------------|-----------|--------------|-------------|-----------|
+| Mohit Saini | 19-11-24 | Version 1.1 | Mohit Saini | 22-11-24 | Khushi |
+
 
 ![image](https://github.com/user-attachments/assets/d4242270-735c-420f-b90a-15bf4bf0393f)
 
@@ -10,7 +11,8 @@
 - [Introduction](#introduction)
 - [Why Use a Mono Repo?](#why-use-a-mono-repo)
 - [Features](#features)
-- [Mono uses in companies](#mono-uses-in-companies)
+- [Choosing the Right Approach: Mono vs. Micro](#choosing-the-right-approach-mono-vs-micro)
+- [Companies That Use a Monorepo Approach](#companies-that-use-a-monorepo-approach)
 - [Advantages](#advantages)
 - [Disadvantages](#disadvantages)
 - [Best Practices for Monorepo Management](#best-practices-for-monorepo-management)
@@ -34,9 +36,10 @@ The monorepo approach provides several key advantages for large teams and organi
 | Unified Versioning              | All projects share a single version.                                        |
 | Streamlined Collaboration       | Teams can work on different parts of the project at the same time.           |
 
-## Choosing the Right Approach: Microservices vs. Monolithic Architecture
 
-![image](https://github.com/user-attachments/assets/df5eb778-1260-4131-8f27-f6be074bd621)
+
+![image](https://github.com/user-attachments/assets/49a076b6-2370-4241-bd19-702dac40adc5)
+
 
 ## Features
 
@@ -48,9 +51,20 @@ The monorepo approach provides several key advantages for large teams and organi
 | **Tooling Support**       | Special tools (like Bazel, Lerna, or Nx) help manage large monorepos, making building, testing, and managing code easier.                         |
 | **Versioning**            | Monorepos allow managing and aligning versions across projects, ensuring consistent releases and features across the codebase.                  |
 
-![image](https://github.com/user-attachments/assets/0a32a2cc-2481-4742-9fa2-aa996fda4d42)
+## Choosing the Right Approach: Mono vs. Micro
+When deciding between a monorepo and microrepo strategy for a project with separate backend and frontend components, several factors should be considered.
 
-## Mono uses in companies
+**Project Size and Complexity**
+
+**Team Structure and Autonomy**
+
+**Deployment and Scalability Needs**
+
+![image](https://github.com/user-attachments/assets/8340b9b3-b36a-4660-8f4b-7750c3db5989)
+
+## Companies That Use a Monorepo Approach
+monorepo is—a single repository containing all the code for multiple projects or components within an organization. Several prominent companies use a monorepo structure for managing their codebases. Here are a few examples:
+![image](https://github.com/user-attachments/assets/d18737ec-2f74-4de1-8c4b-52f430212986)
 
 
 
