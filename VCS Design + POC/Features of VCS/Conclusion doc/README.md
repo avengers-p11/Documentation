@@ -2,9 +2,10 @@
 
 ## Author
 
-| Created/Modified | Version | Author               | Comment         | L0 Reviewer      |
-|-------------------|---------|----------------------|-----------------|------------------|
-| 19-11-2024        | V1     | Anjali Dhiman | L0    |  |
+
+| **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |  **L0 Reviewer** |  **L0 Reviewer** | 
+|------------|----------------|-------------------|---------------------|----------|----------|----------|
+| Anjali Dhiman  | 21-11-24      | V1  | 22-11-24           | Khushi Malhotra|    |   |
 
 ## Table Of Content 
 - [Purpose](#purpose)
