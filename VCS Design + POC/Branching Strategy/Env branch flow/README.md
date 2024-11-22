@@ -63,11 +63,7 @@ Environment branching simplifies code management by isolating changes for develo
 
 ## Environment Branch Flow
 
-1. **Feature Development**:
-   - Create a `feature/<name>` branch from `develop`.
-   - Complete development and testing in the feature branch.
-   - Merge into `develop` after approval.
-
+1. devlepment
 2. **Testing in Staging**:
    - Merge `develop` into `staging` for testing.
    - Perform QA and stakeholder reviews.
@@ -77,8 +73,6 @@ Environment branching simplifies code management by isolating changes for develo
    - Perform final bug fixes and documentation updates.
    - Merge `release` into `main` and `develop`.
 
-4. **Production Deployment**:
-   - Deploy the `main` branch to the production environment.
 
 ---
 
