@@ -2,17 +2,18 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 15-11-24      | Neelesh  Kumar             | 21-11-24           |  | | |
+| Neelesh kumar      | 15-11-24      | Neelesh  Kumar             | 22-11-24           |  | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Why Use Feature Branch Workflow](#why-use-feature-branch-workflow)
 3. [Feature Branch Workflow](#feature-branch-workflow)
-4. [Advantages](#advantages)
-5. [Disadvantages](#disadvantages)
-6. [Conclusion](#conclusion)
-7. [Contact Information](#contact-information)
-8. [References](#references)
+4. [Best Practices](#Best-Practices)
+5. [Advantages](#advantages)
+6. [Disadvantages](#disadvantages)
+7. [Conclusion](#conclusion)
+8. [Contact Information](#contact-information)
+9. [References](#references)
 
 ---
 
@@ -44,17 +45,20 @@ The Feature Branch Workflow is a Git-based development model designed to streaml
   8. Deploy and Monitor using main branch    
 
 
-## Best Practices
+## Best Practices for Branching
 
-  1. Use Descriptive Branch Names  
-      i) Naming convention
-      ii) Prefix by task type
-  2. Branch from the Correct Base (Typically main or develop)  
-  3. Keep Feature Branches Small and Focused  
-  4. Commit Frequently with Meaningful Messages  
-  5. Regularly Rebase or Merge from the Main Branch  
-  6. Avoid Mixing Features in One Branch  
-  7. Update Documentation and Comments  
+| **Best Practice**                          | **Description**                                                                                       |
+|--------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| **Use Descriptive Branch Names**           | Ensure branch names clearly indicate their purpose.                                                   |
+| - Naming Convention                        | Follow a consistent naming structure (e.g., `feature/login-page`, `bugfix/login-error`).             |
+| - Prefix by Task Type                      | Use prefixes like `feature/`, `bugfix/`, or `hotfix/` to classify branches.                          |
+| **Branch from the Correct Base**           | Start new branches from the appropriate base branch (e.g., `main` or `develop`).                     |
+| **Keep Feature Branches Small and Focused**| Limit branches to a single feature or task for clarity and easier management.                        |
+| **Commit Frequently with Meaningful Messages**| Make small, incremental commits with clear and descriptive commit messages.                          |
+| **Regularly Rebase or Merge from Main**    | Periodically pull changes from the `main` or `develop` branch to keep your branch up to date.        |
+| **Avoid Mixing Features in One Branch**    | Stick to a single feature or task per branch to maintain clarity and simplify code reviews.          |
+| **Update Documentation and Comments**      | Ensure relevant documentation and code comments are updated before completing your branch.           |
+
      
 ## Advantages and Disadvantages
 
