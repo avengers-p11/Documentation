@@ -2,11 +2,10 @@
 
 # **Documentation of Micro repo**
 
-| **Author** | **Created on** | **Version** | **Last updated by** | **Comment** | **Reviewer L0** |
+| **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **Reviewer L0** |
 |------------|-------------|-----------|--------------|-------------|-----------|
-| Mohit Saini | 19-11-24 | Version 1.1 | Mohit Saini |  |  |
+| Mohit Saini | 19-11-24 | Version 1.1 | Mohit Saini | 22-11-24 | Khushi |
 
-![image](https://github.com/user-attachments/assets/42114c80-1200-4b0c-81d5-ed0872a474b5)
 
 # **Table of Contents**
 
@@ -18,17 +17,21 @@
 
 4.  [Features](#features)
 
-5.  [Advantages](#advantages)
+5. [Choosing the Right Approach: Mono repo vs. Micro repo](#choosing-the-right-approach-mono-repo-vs-micro-repo)
 
-6.  [Disadvantages](#disadvantages)
+6. [Companies That Use a Microrepo Approach](#companies-that-use-a-microrepo-approach)
 
-7.  [Best Practices](#best-practices)
+7.  [Advantages](#advantages)
 
-8.  [Conclusion](#best-practices)
+8.  [Disadvantages](#disadvantages)
 
-9.  [Contact Information](#contact-information)
+9.  [Best Practices](#best-practices)
 
-10. [References](#references)
+10.  [Conclusion](#best-practices)
+
+11.  [Contact Information](#contact-information)
+
+12. [References](#references)
 
 
 
@@ -47,7 +50,8 @@ or project within a larger software system is stored in its own separate
 repository. This contrasts with a monorepo, where all services or
 components are stored together in one large repository.
 
-![image](https://github.com/user-attachments/assets/95407199-ac24-4cce-b423-48e0e2819481)
+![image](https://github.com/user-attachments/assets/8c39ee88-acb7-41ec-9bab-40bae0dfdec9)
+
 
 
 # Why Micro Repo?
@@ -66,8 +70,24 @@ components are stored together in one large repository.
 | Supports decentralized teams | Microrepos are suited to teams working on independent projects. |
 | Enables independent release cycles | Microrepos allow for independent release cycles for different projects. |
 
-![image](https://github.com/user-attachments/assets/15e5440b-c232-464a-9473-1d6621a135e1)
 
+
+## Choosing the Right Approach: Mono repo vs. Micro repo
+When deciding between a monorepo and microrepo strategy for a project with separate backend and frontend components, several factors should be considered.
+
+**Project Size and Complexity**
+
+**Team Structure and Autonomy**
+
+**Deployment and Scalability Needs**
+
+![image](https://github.com/user-attachments/assets/8a15c45e-4bc6-4c10-b968-95ba2a5b9f4b)
+
+
+## Companies That Use a Microrepo Approach
+A microrepo is a structure where each project or component within an organization is stored in its own separate repository. Several prominent companies use a microrepo approach to manage their codebases effectively. Here are a few examples:
+
+![image](https://github.com/user-attachments/assets/42114c80-1200-4b0c-81d5-ed0872a474b5)
 
 # Advantages
 
