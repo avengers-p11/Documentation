@@ -2,17 +2,18 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviewer L0** |**Reviewer L1** |**Reviewer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 15-11-24      | Neelesh  Kumar             | 20-11-24           |  | | |
+| Neelesh kumar      | 15-11-24      | Neelesh  Kumar             | 22-11-24           |  | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Why Use Git Flow](#why-use-git-flow)
 3. [Git Flow Workflow](#git-flow-workflow)
-4. [Advantages](#advantages)
-5. [Disadvantages](#disadvantages)
-6. [Conclusion](#conclusion)
-7. [Contacts](#contacts)
-8. [References](#references)
+4. [Key Features](#Key-features)
+5. [Advantages](#advantages)
+6. [Disadvantages](#disadvantages)
+7. [Conclusion](#conclusion)
+8. [Contacts](#contacts)
+9. [References](#references)
 ---
 
 ## Introduction
@@ -29,16 +30,19 @@ Git Flow is ideal for projects requiring:
 ---
 
 ## Git Flow Workflow
-The Git Flow Workflow involves six key branch types:
-1. **Main branch (`main`)**: Holds the stable, production-ready code.
-2. **Develop branch (`develop`)**: Serves as the integration branch for features.
-3. **Feature branches (`feature/*`)**: Used for developing new features.
-4. **Release branches (`release/*`)**: Prepares for new releases by finalizing features and fixes.
-5. **Hotfix branches (`hotfix/*`)**: Addresses critical issues on production.
-6. **Support branches (`support/*`)**: Optional branches for long-term maintenance.
-
 
 ![Screenshot from 2024-11-20 15-08-59](https://github.com/user-attachments/assets/19c7d561-28db-48dc-9fdc-8f1df741442c)
+---
+
+| **Branch**       | **Purpose**                                                                                  | **Origin**         | **Merge Into**         |
+|-------------------|----------------------------------------------------------------------------------------------|--------------------|------------------------|
+| **`main`**       | The production-ready branch that always contains the stable release.                        | ----                | ----                    |
+| **`develop`**    | The integration branch where all features are merged.                                        | `main`             | ----                 |
+| **`feature/*`**  | Branches for developing individual features or tasks.                                        | `develop`          | `develop`              |
+| **`release/*`**  | Branches for preparing a release (e.g., final bug fixes, documentation updates).             | `develop`          | `main`, `develop`      |
+| **`hotfix/*`**   | Branches for quick fixes to production (e.g., critical bug fixes).                           | `main`             | `main`, `develop`      |
+| **`support/*`**  | Optional branches for maintaining older versions of the software.                            | Specific tag on `main` | ---                |
+
 ---
 
 ### Key features 
