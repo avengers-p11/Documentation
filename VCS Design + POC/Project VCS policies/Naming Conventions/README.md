@@ -2,10 +2,11 @@
 
 ## Author
 
-| Created/Modified | Version | Author               | Comment         | L0 Reviewer      |
-|-------------------|---------|----------------------|-----------------|------------------|
-| 18-11-2024        | V1     | Anjali Dhiman | L0    |  Khushi Malhotra |
-| 21-11-2024        | V2     | Anjali Dhiman | L0    |  Khushi Malhotra |
+| **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |**L1 Reviewer** |**L2 Reviewer** |
+|------------|----------------|-------------------|---------------------|----------|----------|----------|
+| Anjali Dhiman  | 20-11-24      | V1  | 21-11-24            | Khushi Malhotra| | |
+| Anjali Dhiman  | 20-11-24      | V2  | 21-11-24            | Khushi Malhotra| | |
+
 
 
 ## Table of Contents
