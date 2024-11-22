@@ -1,8 +1,10 @@
-# **VCS Setup installation guide**
+# **GitHub Setup installation guide**
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **Reviewer** |
 |------------|-------------|-----------|--------------|-------------|-----------|
 | Mohit Saini | 18-11-24 | Version 1.1 | Mohit Saini | 18-11-24 |  |
+
+![image](https://github.com/user-attachments/assets/881977db-078d-4211-ab9a-a7e903b27413)
 
 # Table of Contents
 1. [Introduction](#introduction)
@@ -137,9 +139,9 @@ Paste the ssh key in key box then click on add ssh key button
 
 ![image](https://github.com/user-attachments/assets/3ae3b5aa-5585-4e18-8006-6ffd1fe1b81f)
 
-### Go you system and type the following code which are coped 
 
 ## Git Clone
+**Go to your system and type or paste the code that you copied**
 
 
 ![image](https://github.com/user-attachments/assets/1087ccec-c883-452f-bd23-be8d0ece5db8)
