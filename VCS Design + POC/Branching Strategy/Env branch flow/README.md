@@ -31,49 +31,36 @@ Environment branching simplifies code management by isolating changes for develo
 ---
 
 
-## Types of Environment Branches
+
 ![image](https://github.com/user-attachments/assets/f8290664-d580-4945-a2c1-87ab006d86f1)
-
-### 1. Development Branch
-- **Purpose**: Central branch for active development.
-- **Naming**: `develop` or `dev`
-- **Workflow**: Feature branches are merged here after completion and review.
-
-### 2. Feature Branches
-- **Purpose**: Isolated branches for new features or bug fixes.
-- **Naming**: `feature/<feature-name>` (e.g., `feature/login-system`)
-- **Workflow**: Created from `develop` and merged back after review.
-- for more details, please go through this link:- https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Feature%20Branch/README.md
-
-### 3. Staging Branch
-- **Purpose**: Pre-production testing environment.
-- **Naming**: `staging`
-- **Workflow**: Code from `develop` is merged for QA testing and reviews.
-
-### 4. Release Branch
-- **Purpose**: Stabilization and final prep for deployment.
-- **Naming**: `release/<version>` (e.g., `release/v1.0.0`)
-- **Workflow**: Bug fixes are finalized, then merged into `main` and `develop`.
-
-### 5. Main Branch
-- **Purpose**: Contains the live, stable production code.
-- **Naming**: `main` or `master`
-- **Workflow**: Code from `release` branches is merged; direct changes are restricted.
----
+### This diagram shows a typical Git branching workflow:
+**Workflow**:
+- Developers work on the developer branch.
+- Once changes are ready, they are tested in the Testing branch.
+- After testing, changes are merged into the main branch for release.
+  
+## Types of Environment Branches
+| **Branch**          | **Purpose**                                    | **Naming**                  | **Workflow**                                                                                          |
+|---------------------|------------------------------------------------|-----------------------------|-------------------------------------------------------------------------------------------------------|
+| **Development Branch** | Central branch for active development.       | `develop` or `dev`           | Feature branches are merged here after completion and review.                                          |
+| **Feature Branches**  | Isolated branches for new features or bug fixes. | `feature/<feature-name>` (e.g., `feature/login-system`) | Created from `develop` and merged back after review. [Link to more details](https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Feature%20Branch/README.md) |
+| **Staging Branch**    | Pre-production testing environment.           | `staging`                    | Code from `develop` is merged for QA testing and reviews.                                              |
+| **Release Branch**    | Stabilization and final prep for deployment.  | `release/<version>` (e.g., `release/v1.0.0`) | Bug fixes are finalized, then merged into `main` and `develop`.                                        |
 
 ## Environment Branch Flow
 
-1. devlepment
+1. **Development**:
+   - Active development occurs on the `develop` branch.
+   - Feature branches are created from `develop` for new features or bug fixes.
+
 2. **Testing in Staging**:
    - Merge `develop` into `staging` for testing.
-   - Perform QA and stakeholder reviews.
+   - Perform QA and stakeholder reviews to ensure the code is stable and meets requirements.
 
 3. **Preparing for Release**:
-   - Create a `release/<version>` branch from `staging`.
-   - Perform final bug fixes and documentation updates.
-   - Merge `release` into `main` and `develop`.
-
-
+   - Create a `release/<version>` branch from `staging` for final preparation.
+   - Perform final bug fixes, quality checks, and documentation updates in the `release` branch.
+   - Once ready, merge the `release` branch into both `main` (for production) and `develop` (to ensure any changes are captured in future development).
 ---
 
 ## Branch Naming Conventions
@@ -107,20 +94,22 @@ Environment branching simplifies code management by isolating changes for develo
 ---
 
 ## Advantages
-|Advantage|Description|
-|---------|-----------|
-|Improved Code Quality|Early detection and fixing of bugs.|
-|Organized Releases| Systematic and less error-prone deployment process.|
-|Efficient Team Work|Teams can work on different features without stepping on each other's toes.|
-|Risk Reduction| Isolating changes helps prevent issues in the live environment.|
+| **Advantage**            | **Description**                                                    |
+|--------------------------|--------------------------------------------------------------------|
+| **Isolation**             | Ensures active development does not impact production stability.  |
+| **Scalability**           | Supports multiple developers working on different features.      |
+| **Improved Code Quality** | Early detection and fixing of bugs.                               |
+| **Organized Releases**    | Systematic and less error-prone deployment process.               |
+| **Efficient Team Work**   | Teams can work on different features without stepping on each other's toes. |
+| **Risk Reduction**        | Isolating changes helps prevent issues in the live environment.    |
 
 ## Disadvantages
-|Disadvantages|Description|
-|-------------|-----------|
-|Complexity| Managing multiple branches can be tricky.|
-|Merge Conflicts|Combining different branches can lead to conflicts that need resolving.|
-|Resource Intensive|Requires more resources for managing and testing various environments.|
-|Potential Delays|More stages can slow down the release process.|
+| **Disadvantage**          | **Description**                                                    |
+|--------------------------|--------------------------------------------------------------------|
+| **Complexity**            | Managing multiple branches can be tricky.                         |
+| **Merge Conflicts**       | Combining different branches can lead to conflicts that need resolving. |
+| **Resource Intensive**    | Requires more resources for managing and testing various environments. |
+| **Potential Delays**      | More stages can slow down the release process.                    |
 
 ## Conclusion
 Environment branching is a great way to manage software development, testing, and deployment. It helps maintain code quality and reduces risks, though it does come with some complexity. Understanding the flow and types of branches can help teams use this strategy effectively.
