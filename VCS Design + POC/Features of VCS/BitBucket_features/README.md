@@ -3,9 +3,10 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   15-11-24       | v1 | Mohit Saini          |     20-11-24            |    |      |     |
+| Mohit Saini      |   15-11-24       | v1 | Mohit Saini          |     20-11-24            | Khushi   |      |     |
 
----
+![image](https://github.com/user-attachments/assets/0684230f-6ae4-4b76-9d02-27554e1b02c9)
+
 
 ## Table of Contents
 
@@ -15,17 +16,21 @@
 
 3.  [**Architecture**](#bitbucket-architecture)
 
-4.  [**Features**](#features)
+4.  [**Plan and Pricing of Bitbucket**](#plan-and-pricing-of-bitbucket)
 
-5.  [**Advantages**](#advantages)
+5.  [**Security and complainces**](#security-and-complainces)
 
-6.  [**Disadvantages**](#disadvantages)
+6.  [**Features**](#features)
 
-7.  [**Conclusion**](#conclusion)
+7.  [**Advantages**](#advantages)
 
-8.  **[Contact](#conclusion)**
+8.  [**Disadvantages**](#disadvantages)
 
-9.  [**References**](#references)
+9.  [**Conclusion**](#conclusion)
+
+10.  **[Contact](#conclusion)**
+
+11.  [**References**](#references)
 
 ---
 
@@ -33,11 +38,6 @@
 
 Bitbucket is a tool where teams can work together on code, manage projects, and automate tasks. It is an online service by Atlassian for storing and sharing code, mainly for projects using Git. This document explains what Bitbucket can do and its features.
 
-![image](https://github.com/user-attachments/assets/487c32a5-c3a0-406e-a946-3e4f89ccc9a3)
-
-
-
----
 
 # Why Bitbucket?
 
@@ -53,20 +53,28 @@ Bitbucket is a tool where teams can work together on code, manage projects, and 
 
 Bitbucket is a Git-based system that lets developers keep a local copy of their code with all changes. It supports easy collaboration with features like branching, merging, and pull requests.
 
----
 ![image](https://github.com/user-attachments/assets/969adb19-bdd3-4714-8d6f-8a1a4d907b05)
-
 
 There are two main options for Bitbucket:
 
 Bitbucket Cloud, hosted by Atlassian for small to medium teams.
 Bitbucket Data Center/Server, a self-hosted option for larger companies needing more control.
 It works well with other tools like Jira for tracking tasks and Bamboo or Bitbucket Pipelines for automating code tasks. Bitbucket also focuses on security, offering features like two-factor authentication and control over who can access code.
+#
+
+## Plan and Pricing of Bitbucket
+
+![image](https://github.com/user-attachments/assets/8e4776cf-8783-427c-bed4-e40d6855ccff)
+#
+
+## Security and complainces
+![bb-1](https://github.com/user-attachments/assets/50ce1137-194e-4f1a-8194-dd5bb5d61415)
 
 
 # Features
 
 Bitbucket offers a rich set of features to facilitate efficient code management, collaboration, and security throughout the development lifecycle.
+
 
 ## Core Feature Set
 
