@@ -38,7 +38,9 @@ Feature Branch Flow is a simple yet effective branching strategy where each new 
   - Short-lived branches.
   - Ideal for small teams or projects with straightforward development needs.
   - Changes are merged back into the main branch once completed.
-
+```
+References-https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Feature%20Branch/README.md
+```
 ### Git Flow
 
 Git Flow is a more structured branching strategy with multiple branches for feature development, releases, and hotfixes. It is well-suited for projects with a formal release cycle.
