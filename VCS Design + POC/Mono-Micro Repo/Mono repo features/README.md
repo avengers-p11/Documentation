@@ -24,6 +24,8 @@
 Monorepo is a way of storing many projects or parts of a system in one big folder (repository). Big companies like Google, Facebook, and Microsoft use this method to manage their software. It helps developers work on different parts of the software in the same place, making it easier to keep things organized and work together.
 A **Monorepo** (short for "monolithic repository")
 
+![image](https://github.com/user-attachments/assets/49a076b6-2370-4241-bd19-702dac40adc5)
+
 
 ## Why Use a Mono Repo?
 
@@ -38,7 +40,7 @@ The monorepo approach provides several key advantages for large teams and organi
 
 
 
-![image](https://github.com/user-attachments/assets/49a076b6-2370-4241-bd19-702dac40adc5)
+
 
 
 ## Features
