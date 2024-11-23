@@ -3,7 +3,7 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   11-11-24       | v1 | Mohit Saini          |     15-11-24            | Khushi   |      |     |
+| Mohit Saini      |   11-11-24       | v1 | Mohit Saini          |     22-11-24            | Khushi   |      |     |
 
 
 
@@ -14,13 +14,13 @@
 
 -   [**Purpose**](#purpose)
 
--   [**System Requirements**](#system-requirements)
+-   [**System Requirements**](#related-resources)
 
--   [**Dependency**](#dependency)
+-   [**Dependency**](#related-resources)
 
--   **[Architecture](#architecture)**
+-   **[Architecture](#related-resources)**
 
--    [**Flow Diagram**](#flow-diagram)
+-    [**Flow Diagram**](#related-resources)
 
 -   **[Components](#components)**
 
@@ -59,42 +59,13 @@ configured to manage Python dependencies using **Poetry**.
 # Purpose
 
 This document provides detailed information about the Attendance Microservices, which is a Python-based API designed to manage attendance efficiently.
+#
 
-# Pre-requisites
-
-Before diving into application deployment, let’s ensure the following
-Hardware, Software and Security requirements are met.
-
-## System Requirements
-
-| **Hardware Specifications** | **Minimum**         | **Recommendation**              |
-|-----------------------------|---------------------|----------------------------------|
-| Processor                  | Dual-core          | Quad-core processor             |
-| RAM                        | 4GB                | 8GB or higher                   |
-| Disk                       | 20GB               | 50GB or higher                  |
-| OS                         | Ubuntu (22.04)     | Latest LTS version of Ubuntu    |
-| VM                         |  t2.medium         |  t3.large                       |
-
-
-
-
-## Dependency
-
-
-| **Name** | **Version** | **Description** |
-|-----------------|----------|---------------------------------------------|
-| **Python 3.11** | 3.10.12 | The programming language used to build the application. |
-| **Poetry** | 1.8.4 | Python dependency manager for managing packages and virtual environments. |
-| **PostgreSQL-devel** | 14.13 | Development libraries required for PostgreSQL interaction. |
-| **Liquibase** | 4.1.1 | Database schema versioning tool used for managing database migrations. |
-
-# Architecture
-
-![image](https://github.com/user-attachments/assets/3317237b-7508-4454-8648-67e5e12b80fe)
-
-# Flow Diagram
-
-![image](https://github.com/user-attachments/assets/1d64e9e6-7cfd-48fe-845c-ac29ad982dec)
+### Related Resources
+**For detailed information of system requirements, architecture, flow diagram, and installation steps, please refer to the following resources**
+| Link         | Description         |
+|--------------|------------------------|
+| [Attendance API](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Attendance/Attendance%20POC/README.md) |POC of Attendance records and data flow.| 
 
 
 # Components
@@ -109,86 +80,62 @@ Hardware, Software and Security requirements are met.
 
 ## PostgreSQL
 
-PostgreSQL is an open-source object relational database management
-system used for transactional and analytical workloads. It incorporates
-and expands upon the SQL programming language, offering an array of
-features designed to securely store and efficiently scale even the most
-complex data workloads.
+PostgreSQL is a great choice for managing attendance data because it handles organized data well, ensures the data is safe and correct through ACID (Atomicity, Consistency, Isolation, and Durability), and can grow as your project gets bigger. It also makes it easy to analyze attendance and create reports.
 
-**Use Cases**
+**Why?**
 
- | **Feature**                         | **Description**                                                                                          |
-|-------------------------------------|----------------------------------------------------------------------------------------------------------|
-| **Support for Complex Data Relationships** | Effectively manages relationships between entities (users, records) using foreign keys and constraints. |
-| **Advanced Querying and Data Retrieval** | Offers robust SQL features and indexing for efficient data access and reporting.                         |
-| **Scalability and Performance**      | Handles large datasets and multiple users without performance loss, supporting growth through indexing and replication. |
-| **Data Backup and Recovery**        | Provides reliable backup tools and quick recovery options to protect attendance data.                   |
+ | **Why It's Used**      | **Details**                                                                                              |
+|------------------------|----------------------------------------------------------------------------------------------------------|
+| Relational Database    | PostgreSQL is a free and safe database that keeps your data correct and organized.                        |
+| Handling Attendance    | It works well for storing things like users, dates, and events, and can do complicated searches easily.    |
+| Scalability            | It can grow with your project as more data comes in, making it perfect for big projects.                   |
+
 
 
 ## Redis
 
-Redis (**RE**mote **DI**ctionary **S**erver) is an open source,
-in-memory, NoSQL key/value store that is used primarily as an
-application cache or quick-response database. It stores data in memory,
-rather than on a disk or solid-state drive (SSD), which helps deliver
-unparalleled speed, reliability, and performance.
+Redis (**RE**mote **DI**ctionary **S**erver) is good for this project because it keeps data in memory, making the app faster by not needing to fetch it from the database every time. It helps quickly manage user sessions and send real-time updates, like when an attendance record is changed. Unlike other databases, Redis is much faster for handling temporary data like sessions or cached records
 
-**Use Cases**
+**Why?**
 
-| **Feature**                         | **Description**                                                                                           |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| **In-memory Storage**               | Redis stores data in memory, allowing for extremely fast read and write operations.                        |
-| **Data Structures**                 | Supports various data structures such as strings, hashes, lists, sets, and sorted sets.                   |
-| **Persistence Options**             | Provides multiple persistence mechanisms like snapshots and append-only files (AOF).                      |
-| **Scalability**                     | Redis supports horizontal scaling through clustering and partitioning.                                    |
+| **Why It's Used**      | **Details**                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| **Caching**            | Stores frequently accessed data, like attendance records, in memory to make the app faster. |
+| **Session Management** | Keeps track of user sessions quickly, so users stay logged in and their actions are stored. |
+| **Real-Time Updates**  | Sends instant updates to users, like notifying them when their attendance record is updated. |
+
 
 
 
 ## Poetry
 
-**What is Poetry**
-
-Poetry is a tool designed to handle dependency management and packaging
-in Python projects. It leverages the pyproject.toml file, introduced in
-PEP 518, to define project requirements, manage virtual environments,
-and package projects for distribution. Poetry’s goal is to make Python
-development more predictable, manageable, and efficient.
+Poetry is good for this project because it helps manage Python libraries easily, ensuring everything stays organized and works the same across different systems. It also makes it simple to package and share your Python app.
 
 ![image](https://github.com/user-attachments/assets/7dc99b98-b068-4147-9254-7bc50ca8a465)
 
 
-**Use cause**
+**Why?**
 
-| **Feature**                         | **Description**                                                                                           |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| **Dependency Management**           | Poetry handles dependencies in a simple and efficient way, ensuring the right versions are installed.     |
-| **Package Publishing**              | Allows easy publishing of Python packages to the Python Package Index (PyPI).                             |
-| **Virtual Environment Management**  | Automatically creates and manages virtual environments for each project to isolate dependencies.          |
-| **Version Management**              | Poetry helps manage and lock project dependencies with specific version numbers to ensure consistency.    |
+| **Why It's Used**          | **Details**                                                                  |
+|----------------------------|------------------------------------------------------------------------------|
+| **Dependency Management**   | Manages Python libraries for the project, ensuring everything is organized and works smoothly across all environments. |
+| **Project Packaging**       | Helps package and prepare the Python app for easy sharing and deployment.     |
+| **Version Control**         | Ensures that all team members use the same library versions, making the project run consistently on different machines. |
 
 ## 
 
 ## **Liquibase** 
 
-**What is Liquibase**
+In Attendance Application we used Liquibase helps to manage changes the database easily. It keeps track of all updates in a file so everyone uses the same version of the database. If something goes wrong, we can go back to an earlier version. Liquibase also updates the database automatically when we add new features, making it simple and safe to work as a team.
 
-Liquibase is an open-source database migration tool that allows
-developers to define and manage changes to their database schema in a
-declarative manner. Instead of writing manual SQL scripts to alter the
-database structure, Liquibase lets you describe the desired changes in
-XML, YAML, or JSON formats, making the process more human-readable and
-version-controllable.
+**Why?**
 
+| **Why It's Used**        | **Details**                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| **Database Management**   | Liquibase helps us track and manage changes to the attendance database, making sure everything stays up-to-date in all environments. |
+| **Version Control**       | Liquibase tracks database changes, just like Git tracks code changes, so the whole team uses the same version of the database. |
+| **CI/CD Integration**     | Liquibase automatically updates the attendance database whenever the app is updated, keeping both in sync. |
 
-**Use cause **
-
-| **Feature**                         | **Description**                                                                                           |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| **Database Version Control**        | Liquibase helps track, manage, and apply database changes in a version-controlled manner.                 |
-| **Database Schema Management**      | It provides tools for managing schema changes across different environments in a consistent way.          |
-| **Changelog Files**                 | Uses XML, YAML, JSON, or SQL-based changelogs to define database changes and maintain a clear history.     |
-| **Rollback Capability**             | Liquibase allows you to roll back changes to a previous state, ensuring safety and flexibility in database management. |
-| **Cross-Platform Support**          | Works across multiple database platforms such as MySQL, PostgreSQL, Oracle, SQL Server, and more.          |
 
 # Conclusion
 
@@ -206,7 +153,7 @@ The Attendance uses PostgreSQL for secure data storage, Redis for fast data acce
 
 | **Link** | **Description** |
 |------------------------------------------------------|------------------|
-| https://medium.com/devops-technical-notes-and-manuals/how-to-install-and-configure-postgresql-on-ubuntu-20-04-4fd3cf072d6f | PostgreSQL installation and configuration |
+| https://github.com/avengers-p11/Documentation/tree/main/OT%20MS%20Understanding/Redis/Redis%20Documentation| PostgreSQL installation and configuration |
 | https://chandrapurnimabhatnagar.medium.com/how-to-install-liquibase-database-devops-34ca9a6d9705 | Liquibase installation |
-| https://github.com/avengers-p11/Documentation/tree/main/OT%20MS%20Understanding/Redis/Redis%20Documentation| Redis|
+| https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/PostgresSQL/PostgresSQL-documentation.md| Redis|
 
