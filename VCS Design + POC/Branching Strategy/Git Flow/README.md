@@ -31,7 +31,8 @@ Git Flow is ideal for projects requiring:
 
 ## Git Flow Workflow
 
-![Screenshot from 2024-11-20 15-08-59](https://github.com/user-attachments/assets/19c7d561-28db-48dc-9fdc-8f1df741442c)
+![Screenshot from 2024-11-23 13-45-55](https://github.com/user-attachments/assets/7ae85a0b-5602-45de-8e33-4f4f80de405a)
+
 ---
 
 | **Branch**       | **Purpose**                                                                                  | **Origin**         | **Merge Into**         |
