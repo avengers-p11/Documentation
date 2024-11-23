@@ -26,12 +26,23 @@ This document explains two ways to manage code in software development: Monorepo
 ### **Monorepo**
 A **Monorepo** (short for **monolithic repository**) is a way to manage multiple projects or services in one single place. It makes it easier for teams to work together, share code, and handle dependencies. Big companies like Google, Microsoft, and Facebook use Monorepos to make working on large software projects simpler.
 
+#### Related Resources
+**Please refer to the reference link mentioned below**
+| Link         | Description         |
+|--------------|------------------------|
+| [Mono repo ](https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Mono-Micro%20Repo/Mono%20repo%20features) | Mono repo Features| 
 
-
+#
 ### **Micro Repo**
 A **Micro Repo** is when each project or part of a project is kept in its own separate place. This works well for small, independent projects that don't need to share a lot of code. It lets teams work on their own without dealing with a big shared codebase.
 
-
+#### Related Resources
+**Please refer to the reference link mentioned below**
+| Link         | Description         |
+|--------------|------------------------|
+| [Micro repo ](https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Mono-Micro%20Repo/Micro%20repo%20features/README.md) | Micro repo Features|
+#
+ 
 ## **Comparison: Monorepo vs Micro Repo**
 
 ![image](https://github.com/user-attachments/assets/8192f784-f789-4cf2-b0ad-318b91c05d70)
@@ -70,8 +81,8 @@ When choosing between a **Monorepo** and a **Micro Repo** strategy, teams must c
 ## References 
 | Links                                                                                                                      | Description |
 |----------------------------------------------------------------------------------------------------------------------------|-------------|
-| https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20+%20POC/Mono-Micro%20Repo/Mono%20repo%20features/README.md | For Mono    |
-| https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Mono-Micro%20Repo/Micro%20repo%20features/README.md | For Micro   |
+| https://www.linkedin.com/posts/alexxubyte_systemdesign-coding-interviewtips-activity-7103760747175768065-2GR6 |  Mono Vs Micro   |
+
 
 
 
