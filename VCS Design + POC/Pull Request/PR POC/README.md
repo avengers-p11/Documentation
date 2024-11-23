@@ -20,6 +20,8 @@
 [Step-by-Step of Create a Pull Request
 (PR)](#step-by-step-of-create-a-pull-request-pr)
 
+[Conclusion](#conclusion)
+
 [Contact Information](#contact-information)
 
 [References](#references)
@@ -169,6 +171,9 @@ git push --set-upstream origin new_branch
 
 ![image](https://github.com/user-attachments/assets/fc989c5d-c8e7-4560-ad27-5af4f85186d2)
 
+
+# Conclusion
+Pull Requests (PRs) are an important tool for teamwork in coding. They let you share your changes, get feedback, and merge them into the main code easily. This guide gives simple steps to help you create a PR, even if you’re new to it. By using these steps, you can work smoothly with others, keep your code organized, and improve your project together.
 
 # Contact Information
 
