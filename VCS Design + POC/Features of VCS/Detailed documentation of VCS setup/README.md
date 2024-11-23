@@ -1,8 +1,8 @@
 # **GitHub Setup installation guide**
 
-| **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **Reviewer** |
+| **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **L0 Reviewer** |
 |------------|-------------|-----------|--------------|-------------|-----------|
-| Mohit Saini | 18-11-24 | Version 1.1 | Mohit Saini | 21-11-24 |  |
+| Mohit Saini | 18-11-24 | Version 1.1 | Mohit Saini | 21-11-24 | Khushi  |
 
 ![image](https://github.com/user-attachments/assets/881977db-078d-4211-ab9a-a7e903b27413)
 
