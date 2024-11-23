@@ -43,12 +43,36 @@ Gunicorn operates using a **pre-fork worker model**, where it spawns multiple wo
 - **Master Process**: Manages the worker processes, receives incoming requests, and assigns them to available workers.
 - **Worker Processes**: Handle the actual processing of requests. Gunicorn supports various worker types (sync, async, gevent, etc.) depending on your needs.
 
-### Workflow:
-1. **Master process** listens for incoming HTTP requests.
-2. **Request** is passed to an available **worker process**.
-3. **Worker processes** handle the request and return a response to the client.
+```
+Client
+   |
+   v
+Gunicorn HTTP Server
+   |
+   v
+Gunicorn Worker
+   |
+   v
+WSGI Application (e.g., Django/Flask)
+   |
+   v
+Response
+```
+
+## Gunicorn Workflow
+
+| **Stage**            | **Description**                                                                                              |
+|-----------------------|-------------------------------------------------------------------------------------------------------------|
+| **Request Received**  | Gunicorn listens for HTTP requests on a configured port (default: `8000`) using its HTTP server.            |
+| **Worker Selection**  | Incoming requests are assigned to one of the Gunicorn workers for processing.                              |
+| **Application Call**  | The worker calls the WSGI application (e.g., Django, Flask) to handle the request.                         |
+| **Middleware Execution** | Any configured middleware in the WSGI application processes the request and prepares a response.         |
+| **Response Returned** | The WSGI application returns a response to the worker, which forwards it to the client via the HTTP server.|
+| **Worker Management** | Gunicorn monitors workers, restarting them if they crash or exceed resource limits.                        |
 
 ---
+
+
 
 ## Advantages
 | **Advantage**                         | **Description**                                                                  |
