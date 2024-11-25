@@ -57,7 +57,7 @@ git commit -m "Initial commit"
 ## Branches: 
 Branches in Git allow developers to create separate lines of development within a repository. Each branch is a lightweight pointer to a specific commit, enabling isolated work on features or fixes.
 ![image](https://github.com/user-attachments/assets/26c3df1b-9219-41f7-b866-aa484f297965)
-- **Main Branch** (main or master):
+- **Main Branch**:
 The default branch where the final, stable version of the code resides.
 
 - **Feature Branches**:
