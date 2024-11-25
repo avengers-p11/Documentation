@@ -46,7 +46,7 @@ Before setting up Jenkins, ensure your hardware, software, and security requirem
 
 
 ![image](https://github.com/user-attachments/assets/0dea6b5f-3b24-47eb-b0be-d64902221f88)
-
+### This image represents the Jenkins CI/CD pipeline. Developers commit code to a Git repository, triggering Jenkins to run automated tasks like build, test, stage, and deploy. Jenkins orchestrates these steps in a continuous integration and delivery process, ensuring the code is properly tested and deployed to production. 
 ## Features of Jenkins
 
 | **Feature**                | **Description**                                                                                           |
