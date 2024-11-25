@@ -9,6 +9,8 @@
 ## Table of Contents
 - [Purpose](#purpose)
 - [Introduction](#introduction)
+    - [What is Scylladb](what-is-scylladb)
+    - [Why we choose scylladb](why-we-choose-scylladb)
 - [Features](#features)
 - [System Requirements](#system-requirements)
 - [Important Ports](#important-ports)
@@ -33,6 +35,7 @@ ScyllaDB is a high-performance distributed NoSQL database that delivers  low-lat
 
 ## Why we choose Scylladb?
 We chose ScyllaDB for the Employee API because it’s a NoSQL database that can handle any type of data, whether structured or unstructured. It’s fast, reliable, and perfect for managing large employee records (Employee ID, Employee Name, Employee Email ID, Phone no., Job Role) and handling high traffic without delays. ScyllaDB easily integrates with Redis, allowing us to use Redis for caching frequently accessed data, which makes the API even faster. ScyllaDB scales easily and works well in real time, so our API stays quick and responsive.
+
 ## Features 
 
 |       Features     |             Description                     |
