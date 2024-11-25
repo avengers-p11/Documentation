@@ -8,16 +8,18 @@
 | Anjali Dhiman  | 21-11-24      | V1  | 22-11-24           | Khushi Malhotra|    |   |
 
 ## Table Of Content 
-- [Purpose](#purpose)
+- [Why we need VCS](#why-we-need-vcs)
 - [Introduction](#introduction)
 - [Comparison](#comparison)
 - [Conclusion](#conclusion)
 - [References](#references)
 - [Contacts](#contacts)
 
-## Purpose 
-This document evaluates and compares popular version control and collaboration platforms—GitHub, GitLab, and Bitbucket—to determine the best fit for our organization's needs. The assessment focuses on usability, features, integration, cost, and scalability.
+---
+## Why we need VCS
+We need a Version Control System (VCS) like Git for our project to track changes, manage multiple developers working on the code, and keep everything organized. It allows us to safely make updates without affecting the main codebase, and if something goes wrong, we can easily revert to a previous version. VCS also helps with code reviews, ensures better quality, and integrates with CI/CD tools for automated testing and deployment. Overall, it improves collaboration, makes development smoother, and helps maintain code integrity
 
+---
 ## Introduction 
 
 ### [GitHub](https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Features%20of%20VCS/GitHub%20features/README.md)
