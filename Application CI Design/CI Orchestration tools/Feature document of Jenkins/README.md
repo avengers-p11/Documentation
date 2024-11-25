@@ -4,7 +4,7 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|-------------------|---------------------|----------|---------------|---------------|
-| Anjali Dhiman  | 25-11-24      | V1  | 26-11-24           | Shreya Jaiswal | | |
+| Anjali Dhiman  | 25-11-24      | V1  | 26-11-24           |  | | |
 
 ## Table of Contents
 - [Introduction](#introduction)
