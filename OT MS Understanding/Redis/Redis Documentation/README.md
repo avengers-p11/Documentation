@@ -6,17 +6,18 @@
 
 ## Table of Contents
 1. [Redis: Remote Dictionary Server](#redis-remote-dictionary-server)
-2. [Why Use an In-Memory Database?](#why-use-an-in-memory-database)
-3. [What is Caching?](#what-is-caching)
-4. [How Does Caching in Redis Work?](#how-does-caching-in-redis-work)
-5. [Redis Persistence](#redis-persistence)
-6. [What are Key-Value Pairs?](#what-are-key-value-pairs)
-7. [Rich Data Structures](#rich-data-structures)
-8. [Benefits of Redis](#benefits-of-redis)
-9. [Best Practices of Redis](#best-practices-of-redis)
-10. [Conclusion](#conclusion)
-11. [Contact Information](#contact-information)
-12. [References](#references)
+2. [Why we choose redis](why-we-choose-redis)
+3. [Why Use an In-Memory Database?](#why-use-an-in-memory-database)
+4. [What is Caching?](#what-is-caching)
+5. [How Does Caching in Redis Work?](#how-does-caching-in-redis-work)
+6. [Redis Persistence](#redis-persistence)
+7. [What are Key-Value Pairs?](#what-are-key-value-pairs)
+8. [Rich Data Structures](#rich-data-structures)
+9. [Benefits of Redis](#benefits-of-redis)
+10. [Best Practices of Redis](#best-practices-of-redis)
+11. [Conclusion](#conclusion)
+12. [Contact Information](#contact-information)
+13. [References](#references)
 
 ---
 
@@ -28,7 +29,10 @@
 Redis, short for **Remote Dictionary Server**, is an open-source, in-memory data store developed by **Salvatore Sanfilippo** in 2009 while addressing real-time log management challenges at the Italian startup **Loggly**. Redis stores data directly in memory, which enables exceptionally fast data retrieval, making it ideal for use cases requiring high-speed access, like caching, session management, real-time analytics, and message brokering. Initially designed for handling basic key-value pairs, Redis has since evolved to support more complex data structures such as lists, sets, sorted sets, and hashes. This versatility allows Redis to function effectively as a cache, message broker, and even a primary database for applications needing efficient data access and atomic operations.
 
 ---
+## Why we choose Redis
+In the OT-Microservices application, all three APIs (Employee, Attendance, Salary) use a single Redis instance to speed up performance. Even though the front-end doesn’t connect to Redis directly, the APIs store frequently accessed data in Redis because it’s much faster than ScyllaDB for read-heavy tasks. This reduces the load on the database and helps the APIs respond quickly without querying the database every time. Redis also lets the APIs share data, so they don’t need to make the same calls over and over. It keeps the data updated in real-time, improving efficiency and reducing delays in the system.
 
+---
 ## Why Use an In-Memory Database?
 
 Redis operates as an **in-memory database** by storing data in **RAM**, which allows for much faster data access than disk-based storage. This optimization for speed is beneficial in applications requiring real-time data handling. Example use cases include:
@@ -152,8 +156,4 @@ Redis is a high-performance, in-memory data store suited for use cases requiring
 | [What is Redis and How Does it Work? - Medium](https://medium.com/@ayushsaxena823/what-is-redis-and-how-does-it-work-cfe2853eb9a9) | Overview of Redis' structure and functions.               |
 | [Redis: What It Is, What It Does, and Why You Should Care - Backendless](https://backendless.com/redis-what-it-is-what-it-does-and-why-you-should-care/) | Explanation of Redis' importance and common use cases.    |
 | [Redis Architecture Notes](https://architecturenotes.co/p/redis)                                              | Detailed architectural insights into Redis operations.    |
-
-## Redis in OT-Microservices Application
-
-In the OT-Microservices application, the three APIs (Employee, Attendance, Salary) use a single Redis instance to enhance performance, even though the front-end doesn’t connect directly to Redis. Each API stores commonly accessed data in Redis, allowing them to quickly retrieve information without repeatedly querying the database, which makes the response times faster. Redis also allows the APIs to share data with each other, so they don't have to make the same API calls repeatedly. Additionally, Redis helps keep the data up-to-date in real time, ensuring that the APIs provide consistent and accurate information to the front-end. This approach improves the overall efficiency of the system and reduces backend delays.
 
