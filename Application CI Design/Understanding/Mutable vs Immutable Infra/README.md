@@ -6,6 +6,19 @@
 
 ![image](https://github.com/user-attachments/assets/4f49341a-1816-4b38-b3f7-7fb09c119ebd)
 
+# Table of Contents
+
+1. [Introduction](#introduction)  
+2. [What is Mutable Infrastructure?](#what-is-mutable-infrastructure)  
+3. [What is Immutable Infrastructure?](#what-is-immutable-infrastructure)  
+4. [Why Does It Matter?](#why-does-it-matter)  
+5. [Detailed Comparison Table](#detailed-comparison-table)  
+6. [Advantages and Disadvantages](#advantages-and-disadvantages)  
+    - [Advantages and Disadvantages Table](#advantages-and-disadvantages-table)  
+7. [Conclusion](#conclusion)  
+8. [Contact Information](#contact-information)  
+9. [References](#references)
+
 
 ## Introduction  
 Infrastructure management plays a critical role in modern software development. As organizations adopt DevOps and cloud-based solutions, two distinct approaches to infrastructure management have emerged: **Mutable Infrastructure** and **Immutable Infrastructure**. Understanding these paradigms helps organizations make informed decisions about scalability, reliability, and operational efficiency.
