@@ -1,6 +1,10 @@
 ![image](https://github.com/user-attachments/assets/2c25eb7a-e64c-4949-a83a-67b2508fe521)
-
 # Feature Document of Jenkins
+
+### Description about this documentation
+
+This documentation provides an overview of Jenkins, a powerful CI/CD orchestration tool. It covers the pre-requisites and system requirements for setting up Jenkins, including necessary hardware, software, and dependencies like Java 17. Key features such as Continuous Integration, Pipeline as Code, plugin support, security, and monitoring are detailed, along with an explanation of its core components like the master, agents, jobs, and pipelines. The document highlights why Jenkins is essential for automating software development workflows and concludes with references and contact information for further assistance.
+
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|-------------------|---------------------|----------|---------------|---------------|
@@ -45,7 +49,6 @@ We chose GitHub for our OT microservices project because it’s simple, reliable
 
 ---
 
-
 ![image](https://github.com/user-attachments/assets/0dea6b5f-3b24-47eb-b0be-d64902221f88)
 **This image represents the Jenkins CI/CD pipeline. Developers commit code to a Git repository, triggering Jenkins to run automated tasks like build, test, stage, and deploy. Jenkins orchestrates these steps in a continuous integration and delivery process, ensuring the code is properly tested and deployed to production.**
 
@@ -69,9 +72,7 @@ We chose GitHub for our OT microservices project because it’s simple, reliable
 | **Build Triggers**          | Automates builds on events like commits, pull requests, or schedules. |
 | **Build and Artifact Management** | Manages built artifacts and integrates with repositories like Nexus or Artifactory. |
 
-These features make Jenkins an essential tool for automating the software development lifecycle, particularly in CI/CD workflows.
-
-
+---
 
 ## Core Components
 
@@ -86,11 +87,12 @@ These features make Jenkins an essential tool for automating the software develo
 | **SCM Integration**      | Integrates with Git, SVN, etc., to trigger jobs on code changes.                               |
 | **Notifications & Reporting** | Send alerts via email/Slack and generate reports on test results or code coverage.        |
 
+---
 
 ## Conclusion
-Jenkins stands out as a robust CI/CD orchestration tool due to its extensive plugin ecosystem, scalability through distributed builds, strong community support, and powerful Pipeline as Code capabilities. Despite its learning curve, Jenkins excels in automating complex software development workflows, making it a top choice for enhancing productivity and streamlining deployment processes effectively.
+GitHub is the preferred platform for our OT Microservices project as it offers essential features like version control, CI/CD with GitHub Actions, and project management tools in a user-friendly and cost-effective manner. With our team's existing expertise in GitHub, its integration with our current tools ensures a smooth workflow. While GitLab offers similar functionalities, migrating to it
 
-
+---
 
 ## Contacts
 
@@ -102,6 +104,7 @@ Jenkins stands out as a robust CI/CD orchestration tool due to its extensive plu
 |----------|---------|
 |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
 
+---
 ## References
 | Reference Source          | Description                                      | URL                                          |
 |---------------------------|--------------------------------------------------|----------------------------------------------|
