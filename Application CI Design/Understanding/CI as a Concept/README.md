@@ -1,4 +1,4 @@
-# README: Continuous Integration (CI) Concept
+# Continuous Integration (CI) Concept
 
   | Author        | Created on | Version | Last updated by | Last edited on |
   |-------------|---------|-------------|-------------|---------|
