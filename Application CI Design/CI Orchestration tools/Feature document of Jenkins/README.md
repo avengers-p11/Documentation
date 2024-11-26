@@ -13,10 +13,9 @@
 - [System Requirements](#system-requirements)
 - [Dependencies and Important Ports](#dependencies-and-important-ports)
 - [Features of Jenkins](#features-of-jenkins)
-- [Advanced Features](#advanced-features)
 - [Core Components](#core-components)
 - [Conclusion](#conclusion)
-- [Contact Information](#contact-information)
+- [Contacts](#contacts)
 - [References](#references)
 
 ## Introduction
@@ -37,7 +36,7 @@ Before setting up Jenkins, ensure your hardware, software, and security requirem
 ## Dependencies and Important Ports
 | Dependency/Port | Version | Description           |
 |-----------------|---------|-----------------------|
-| Java            | 11      | Needed to run Jenkins |
+| Java            | 17     | Needed to run Jenkins |
 | Port 8080       | N/A     | Jenkins web interface |
 
 ---
@@ -47,28 +46,28 @@ We chose GitHub for our OT microservices project because it’s simple, reliable
 ---
 
 
-
 ![image](https://github.com/user-attachments/assets/0dea6b5f-3b24-47eb-b0be-d64902221f88)
-### This image represents the Jenkins CI/CD pipeline. Developers commit code to a Git repository, triggering Jenkins to run automated tasks like build, test, stage, and deploy. Jenkins orchestrates these steps in a continuous integration and delivery process, ensuring the code is properly tested and deployed to production. 
+**This image represents the Jenkins CI/CD pipeline. Developers commit code to a Git repository, triggering Jenkins to run automated tasks like build, test, stage, and deploy. Jenkins orchestrates these steps in a continuous integration and delivery process, ensuring the code is properly tested and deployed to production.**
+
 ## Features of Jenkins
 
 | **Feature**                | **Description**                                                                                           |
 |----------------------------|-----------------------------------------------------------------------------------------------------------|
-| **Continuous Integration (CI)** | Automates the process of building, testing, and integrating code changes into a shared repository. Ensures software is always in a deployable state. |
-| **Pipeline as Code**        | Allows the creation of complex CI/CD pipelines using declarative or scripted syntax, which can be versioned in source control. |
-| **Plugins**                 | Jenkins has a vast ecosystem of plugins (over 1,500), supporting integration with various tools and technologies like Docker, Git, AWS, and Maven. |
-| **Distributed Builds**      | Supports running builds on multiple machines (Jenkins agents) for scalability, speeding up CI/CD processes. |
-| **Automated Testing**       | Enables automated execution of tests (unit, integration, etc.) ensuring code changes don’t break functionality. Integrates with frameworks like JUnit, Selenium, TestNG. |
-| **Freestyle Projects**      | Simple jobs for straightforward CI/CD tasks without the need for complex scripting. Ideal for smaller projects. |
-| **Declarative Pipelines**   | Provides an easy-to-read, structured way to define CI/CD pipelines, making it accessible for users without advanced scripting knowledge. |
-| **Version Control Integration** | Integrates with various version control systems like Git, SVN, and Mercurial. Supports webhooks to trigger jobs automatically on code changes. |
-| **Monitoring and Reporting** | Provides real-time feedback on build and deployment statuses with detailed logs, test results, and build history accessible via the web interface. |
-| **Security**                | Supports role-based access control (RBAC) to manage user permissions. Integrates with LDAP and Active Directory for user authentication. |
-| **Integration with Other Tools** | Seamlessly integrates with tools like Docker, Kubernetes, AWS, and Azure for scalable deployments and containerized builds. |
-| **Extensible API**          | Exposes a REST API to manage Jenkins jobs programmatically and integrate with other systems. |
-| **Pipeline Visualization**  | Provides graphical visualizations of pipelines to track task flows in real-time and identify issues quickly. |
-| **Build Triggers**          | Trigger builds based on events like code commits, pull requests, scheduled times, or manually via the UI. |
-| **Build and Artifact Management** | Stores built artifacts (JARs, WARs, Docker images) and integrates with artifact repositories like Nexus or Artifactory for versioning and sharing. |
+| **Continuous Integration (CI)** | Automates code building, testing, and integration to ensure the software is always deployable. |
+| **Pipeline as Code**        | Defines CI/CD pipelines using code, versioned in source control for consistency. |
+| **Plugins**                 | Offers over 1,500 plugins to integrate with tools like Docker, Git, and AWS. |
+| **Distributed Builds**      | Runs builds on multiple machines for faster and scalable processes. |
+| **Automated Testing**       | Executes tests automatically to ensure code changes don’t break functionality. |
+| **Freestyle Projects**      | Simple jobs for straightforward CI/CD tasks without complex scripting. |
+| **Declarative Pipelines**   | Structured, easy-to-read pipelines for users with minimal scripting knowledge. |
+| **Version Control Integration** | Integrates with systems like Git and SVN, triggering jobs on code changes. |
+| **Monitoring and Reporting** | Provides real-time feedback, logs, and build history via a web interface. |
+| **Security**                | Supports role-based access and integrates with LDAP/Active Directory for authentication. |
+| **Integration with Other Tools** | Works with Docker, Kubernetes, AWS, and more for scalable deployments. |
+| **Extensible API**          | Offers a REST API to manage Jenkins jobs and integrations programmatically. |
+| **Pipeline Visualization**  | Displays graphical views of pipelines for tracking and troubleshooting. |
+| **Build Triggers**          | Automates builds on events like commits, pull requests, or schedules. |
+| **Build and Artifact Management** | Manages built artifacts and integrates with repositories like Nexus or Artifactory. |
 
 These features make Jenkins an essential tool for automating the software development lifecycle, particularly in CI/CD workflows.
 
@@ -76,16 +75,16 @@ These features make Jenkins an essential tool for automating the software develo
 
 ## Core Components
 
-| Component           | Description                                                                                 |
-|---------------------|---------------------------------------------------------------------------------------------|
-| **Jenkins Master**  | The central server that manages the overall Jenkins environment, scheduling jobs, and collecting results. It runs the web interface and orchestrates the CI/CD process. |
-| **Jenkins Agent**   | Machines that perform the actual build tasks assigned by the Jenkins Master. They can run on various platforms and can be added or removed dynamically based on load. |
-| **Jobs and Builds** | - **Job**: A defined task, such as building a project or running tests. <br>- **Build**: An execution instance of a job, with logs and results. |
-| **Pipelines**       | - **Declarative Pipeline**: Easy-to-read syntax for defining CI/CD workflows. <br>- **Scripted Pipeline**: Flexible, Groovy-based syntax for more complex workflows. <br>- **Jenkinsfile**: A file in the source control repository that defines the pipeline. |
-| **Credentials**     | Securely store and manage passwords, tokens, and other sensitive data used in jobs and pipelines. |
-| **Views & Dashboards** | Create custom views to organize and monitor jobs. Real-time dashboards display job statuses and metrics. |
-| **SCM Integration** | Integrate with source code management tools like Git, SVN, and Mercurial. Supports triggering jobs based on code changes. |
-| **Notifications & Reporting** | - **Notifications**: Send alerts via email, Slack, and other channels upon job completion or failure. <br>- **Reports**: Generate and view reports on test results, code coverage, and more. |
+| **Component**           | **Description**                                                                                 |
+|--------------------------|-------------------------------------------------------------------------------------------------|
+| **Jenkins Master**       | Central server managing jobs, scheduling tasks, and running the web interface for CI/CD.       |
+| **Jenkins Agent**        | Machines performing build tasks assigned by the master, scalable based on workload.            |
+| **Jobs and Builds**      | - **Job**: Defined task like building or testing. <br> - **Build**: A job's execution instance. |
+| **Pipelines**            | - **Declarative**: Simple, structured pipeline syntax. <br> - **Scripted**: Flexible, Groovy-based syntax. <br> - **Jenkinsfile**: Pipeline definition stored in source control. |
+| **Credentials**          | Secure storage for passwords, tokens, and sensitive data used in jobs.                        |
+| **Views & Dashboards**   | Custom views to organize jobs and dashboards to monitor job statuses and metrics.              |
+| **SCM Integration**      | Integrates with Git, SVN, etc., to trigger jobs on code changes.                               |
+| **Notifications & Reporting** | Send alerts via email/Slack and generate reports on test results or code coverage.        |
 
 
 ## Conclusion
