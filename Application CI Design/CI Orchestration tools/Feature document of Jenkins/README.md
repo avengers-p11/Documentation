@@ -8,8 +8,8 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [why Jenkins](#why-jenkins)
 - [Pre-requisites](#pre-requisites)
+- [why Jenkins](#why-jenkins)
 - [System Requirements](#system-requirements)
 - [Dependencies and Important Ports](#dependencies-and-important-ports)
 - [Features of Jenkins](#features-of-jenkins)
@@ -21,10 +21,6 @@
 
 ## Introduction
 Continuous Integration (CI) orchestration tools are essential for modern software development. Jenkins is one of the most popular CI orchestration tools. It helps teams automate building, testing, and deploying code. This document provides an overview of Jenkins, including its key features, setup, and configuration.
-
----
-## why Jenkins
-We chose GitHub for our OT microservices project because it’s simple, reliable, and packed with useful features. It acts as a central place to store all our code, making it easy for the team to collaborate. With GitHub, we can track every change, work on different features using branches, and merge everything smoothly without messing up the main code. GitHub’s issue tracking helps us manage tasks and bugs, while its security features ensure our code stays safe. This is why it’s the best choice for our project.
 
 ---
 ## Pre-requisites
@@ -43,6 +39,13 @@ Before setting up Jenkins, ensure your hardware, software, and security requirem
 |-----------------|---------|-----------------------|
 | Java            | 11      | Needed to run Jenkins |
 | Port 8080       | N/A     | Jenkins web interface |
+
+---
+## why Jenkins
+We chose GitHub for our OT microservices project because it’s simple, reliable, and packed with useful features. It acts as a central place to store all our code, making it easy for the team to collaborate. With GitHub, we can track every change, work on different features using branches, and merge everything smoothly without messing up the main code. GitHub’s issue tracking helps us manage tasks and bugs, while its security features ensure our code stays safe. This is why it’s the best choice for our project.
+
+---
+
 
 
 ![image](https://github.com/user-attachments/assets/0dea6b5f-3b24-47eb-b0be-d64902221f88)
