@@ -8,6 +8,8 @@
 ![image](https://github.com/user-attachments/assets/297dbba6-a64b-4c3f-a76f-3efc3c194a79)
 
 
+**Table of Contents**
+
 1. [**Introduction**](#introduction)
 2. [**What**](#what-is-unit-testing)
 3. [**Why**](#why)
@@ -37,9 +39,21 @@ Unit testing is a way to test small pieces of code to make sure they work correc
 
 
 # Different Tools
-Static analysis tools are important for checking the quality of code. These tools look at the code without running it, helping to find problems like simple mistakes or more complex design issues. Here's a look at some popular static analysis tools used in Java.
+The list of several relevant testing frameworks for Java is mentioned below
+
+![image](https://github.com/user-attachments/assets/ed78bd7c-e10e-4a84-98bf-2f616b3552b7)
 
 
+
+| Tool | What It Does | Key Features | Pros | Cons |
+|---|---|---|---|---|
+| JUnit | Used for testing small parts of Java programs. | Simple test annotations like @Test, @Before. Works well with IDEs like IntelliJ and Eclipse. | Easy to learn and use. Lots of community help available. | Can't run tests in parallel. Not great for very complex test setups. |
+| TestNG | A testing tool for all types of tests (unit, integration, etc.). | Extra features like @BeforeSuite, @DataProvider. Runs tests in parallel. Test configuration using XML. | Great for managing big test suites. Runs tests faster with parallel execution. | Harder to learn than JUnit. XML setup can be tricky. |
+| Mockito | Creates fake objects to test code. | Makes fake objects to replace real ones. Checks if fake objects are used correctly. Works with JUnit and TestNG. | Helps test without needing actual dependencies. Easy to use with clear syntax. | Doesn't support static methods without extra tools. Overuse can create bad test setups. |
+| Selenium | Automates browsers to test websites. | Works with Chrome, Firefox, Safari, and more. Can be used with JUnit and TestNG. | Tests work across browsers. Supports many languages like Java, Python. | Tests can be slow. Needs extra tools for advanced features. |
+| Spring Test | Tests apps built with Spring Framework. | Helps with integration testing. Supports Spring-specific features like @ContextConfiguration. | Perfect for testing Spring apps. Makes testing dependencies easier. | Only useful for Spring projects. Requires Spring knowledge. |
+| Spock | Tests Java and Groovy programs. | Uses Groovy for easy-to-read tests. Built-in mocking and data-driven tests. | Simple and clear test writing. Great for testing with lots of data. | Needs knowledge of Groovy language. May not suit non-BDD projects. |
+| Arquillian | Tests Java EE apps in real environments. | Runs tests inside containers like WildFly, JBoss. Handles test deployment. | Tests apps in real conditions. Works well with Java EE. | Setup can be complex. Slower because it uses real environments. |
 
 # Conclusion
 
@@ -57,6 +71,6 @@ The goal of unit testing is to make sure that any new functionality does not bre
 
 | **Link** | **Description** |
 |------------------------------------------------------|------------------|
-| https://www.bairesdev.com/blog/java-static-code-analysis-tools/| Static Code Anlyasis |
-| https://www.baeldung.com/java-static-code-analysis-tutorial| Static Code Analysis tool |
+|https://www.geeksforgeeks.org/7-best-testing-frameworks-for-java-developers/| Unit Testing |
+| https://www.freecodecamp.org/news/java-unit-testing/| Unit Testing tool |
 
