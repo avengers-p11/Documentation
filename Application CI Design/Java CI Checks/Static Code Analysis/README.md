@@ -28,7 +28,7 @@ Static code analysis in Java is a methodology for examining the source code. By 
 
 # Why
 
-| **Benefit**                   | **Description**                                                                                                    |
+| **Reasons**                   | **Description**                                                                                                    |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------|
 | **Improved Code Quality**     | Helps developers write cleaner, more maintainable, and reliable code.                                              |
 | **Increased Security**        | Detects security issues like weak encryption, unencrypted data, and vulnerabilities like SQL injection.            |
