@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/1291eda3-3468-49e6-81c2-804b6b2f202d)
 
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |**Reviwer L1** |**Reviwer L2** |
@@ -27,12 +28,13 @@ GitLab is a comprehensive DevOps platform that provides tools for version contro
 GitLab stands out as a powerful, all-in-one DevOps solution. Its integrated tools for version control, CI/CD pipelines, issue tracking, and monitoring streamline the development process. It offers flexibility for self-hosted or cloud deployments, making it suitable for teams of all sizes.  
 
 ---
+![image](https://github.com/user-attachments/assets/35587628-4854-4b7d-a9b6-181147f00f1a)
 
 ## Features of GitLab  
 
-| **Feature**                 | **Description**                                                                                       |  
-|-----------------------------|-------------------------------------------------------------------------------------------------------|  
-| **Version Control**         | Built-in Git repository management for tracking changes and collaboration.                           |  
+| **Feature**                 | **Description**                                                                                     |  
+|-----------------------------|-----------------------------------------------------------------------------------------------------|  
+| **Version Control**         | Built-in Git repository management for tracking changes and collaboration.                          |  
 | **CI/CD Pipelines**         | Automates build, test, and deploy processes with powerful CI/CD tools.                              |  
 | **Issue Tracking**          | Manage bugs, tasks, and projects with a built-in issue tracker.                                     |  
 | **Merge Requests**          | Enables code review and collaboration with structured approval processes.                           |  
@@ -90,3 +92,9 @@ GitHub is the preferred platform for our OT Microservices project due to its eas
 | GitHub | URL |
 |----------|---------|
 |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
+
+## References
+
+|       References          |   Descriptions               |
+|:-------------------:|:-----------:|
+|[Article](https://docs.gitlab.com/ee/ci/quick_start/index.html) | To create and run your first pipeline  |
