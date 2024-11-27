@@ -73,7 +73,7 @@ Response
 
 
 
-## Gunicorn Best Practices
+## Best Practices
 
 Below is a table outlining the best practices for configuring and using Gunicorn effectively:
 
