@@ -167,7 +167,7 @@ The recovery process for SonarQube involves restoring its critical components—
 - Notify stakeholders of the restored service.  
 - Conduct a test analysis on a project to ensure full functionality.  
 - Update the recovery documentation with any observations or changes during the process.  
-                                 |
+
 
 ### Key Recovery Tips:
 - Maintain documentation for recovery procedures.  
