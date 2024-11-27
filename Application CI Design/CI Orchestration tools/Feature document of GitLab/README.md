@@ -1,11 +1,14 @@
+## Description of this documention
+In this documentation, we provided a detailed comparison and analysis of GitLab as a DevOps platform. We outlined GitLab's features, advantages, and disadvantages to understand its suitability for our OT Microservices project. We also discussed the reasons why we decided not to use GitLab
+
 ![image](https://github.com/user-attachments/assets/1291eda3-3468-49e6-81c2-804b6b2f202d)
 
+# GitLab Documentation  
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|-------------------|---------------------|----------|---------------|---------------|
 | Anjali Dhiman  | 25-11-24      | V1  | 26-11-24           |  | | |
 
-# GitLab Documentation  
 
 ## Table of Contents  
 - [Introduction](#introduction)  
