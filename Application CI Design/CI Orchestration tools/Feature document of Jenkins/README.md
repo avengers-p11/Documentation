@@ -1,10 +1,9 @@
-![image](https://github.com/user-attachments/assets/2c25eb7a-e64c-4949-a83a-67b2508fe521)
-# Feature Document of Jenkins
-
 ### Description about this documentation
 
 This documentation provides an overview of Jenkins, a powerful CI/CD orchestration tool. It covers the pre-requisites and system requirements for setting up Jenkins, including necessary hardware, software, and dependencies like Java 17. Key features such as Continuous Integration, Pipeline as Code, plugin support, security, and monitoring are detailed, along with an explanation of its core components like the master, agents, jobs, and pipelines. The document highlights why Jenkins is essential for automating software development workflows and concludes with references and contact information for further assistance.
 
+![image](https://github.com/user-attachments/assets/2c25eb7a-e64c-4949-a83a-67b2508fe521)
+# Feature Document of Jenkins
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|-------------------|---------------------|----------|---------------|---------------|
