@@ -138,6 +138,9 @@ Continuous Integration is a cornerstone of modern software development, fosterin
 
 ## References
 
-1. [Martin Fowler: Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html)  
-2. [Jenkins Documentation](https://www.jenkins.io/doc/)   
+| **Reference**              | **Description**                                                                                   | **Link**                                                               |
+|-----------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| **Martin Fowler - CI**      | A comprehensive introduction to Continuous Integration, including practices and benefits.         | [Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html) |
+| **Jenkins Documentation**   | Official Jenkins documentation with details on CI workflows and plugin ecosystem.                | [Jenkins CI](https://www.jenkins.io/doc/)                              |
+
 
