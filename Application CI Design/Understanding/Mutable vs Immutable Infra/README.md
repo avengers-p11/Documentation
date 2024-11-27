@@ -139,6 +139,8 @@ By understanding the strengths and trade-offs of each approach, teams can effect
 
 ## References
 
-1. [HashiCorp: Immutable Infrastructure Guide](https://www.hashicorp.com/resources/immutable-infrastructure)
-2. [AWS: Infrastructure as Code](https://aws.amazon.com/infrastructure-as-code/)
+| **Title**                                           | **Description**                                          | **Link**                                                                                   |
+|-----------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| **HashiCorp: Immutable Infrastructure Guide**       | A comprehensive guide to Immutable Infrastructure by HashiCorp. | [HashiCorp Guide](https://www.hashicorp.com/resources/immutable-infrastructure)             |
+| **AWS: Infrastructure as Code**                     | AWS's documentation on managing infrastructure as code and leveraging immutable infrastructure. | [AWS Infrastructure as Code](https://aws.amazon.com/infrastructure-as-code/)               |
 
