@@ -1,4 +1,4 @@
-# README: SonarQube Log Files
+# SonarQube Log Files
 
   | Author        | Created on | Version | Last updated by | Last edited on |
   |-------------|---------|-------------|-------------|---------|
