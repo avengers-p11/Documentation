@@ -1,13 +1,19 @@
 # Comparison: GitLab, Jenkins, and BuildPiper  
+## Description of what we did in this documentation
+
+In this documentation, we compared GitLab, Jenkins, and BuildPiper to help decide which tool is best suited for our OT Microservices project. We discussed the features, advantages, and disadvantages of each tool. The documentation helps us understand which tool fits our needs based on our project requirements and team size.
 
 ---
 
 ## Table of Contents  
-1. [Introduction](#introduction)  
-2. [Features Comparison](#features-comparison)  
-3. [Advantages](#advantages)  
-4. [Disadvantages](#disadvantages)  
-5. [Conclusion Table](#conclusion-table)  
+1. [Introduction](#introduction)
+2. [Why we need ci/cd in our OT Microservice project](#why-we-need-ci/cd-in-our-ot-microservice-project)
+3. [Features Comparison](#features-comparison)  
+4. [Advantages](#advantages)  
+5. [Disadvantages](#disadvantages)  
+6. [Conclusion Table](#conclusion-table)
+7. [Contacts](#contacts)
+8. [References](#references)
 
 ---
 
@@ -15,7 +21,7 @@
 This document compares **GitLab**, **Jenkins**, and **BuildPiper** — three key tools in the DevOps ecosystem. Each offers unique functionalities for CI/CD, deployment, and orchestration, but their suitability depends on specific project needs and team expertise.
 
 ---
-## Why we need ci/cd in our OT Microserviice project
+## Why we need ci/cd in our OT Microservice project
 
 For our OT Microservices, we have three APIs: Employee API, Attendance API, and Salary API. The Employee API is a RESTful service built with Golang and Gin, integrating with ScyllaDB for the database. The Attendance API is developed in Python and uses PostgreSQL for data storage. The Salary API is Java and uses Golang and ScyllaDB for efficient data handling. With CI/CD in place for each API, we automate the workflow from code integration to testing and deployment. This ensures that every code change is automatically tested, validated, and deployed to the appropriate environment, significantly improving the speed, quality, and reliability of our development process.
 
@@ -71,7 +77,7 @@ For our OT Microservices, we have three APIs: Employee API, Attendance API, and 
 ### Jenkins  
 - Requires manual setup and plugin management.  
 - Lacks native Kubernetes focus without third-party plugins.  
-- Steeper learning curve for advanced configurations.  
+- The steeper learning curve for advanced configurations.  
 
 ### BuildPiper  
 - Narrow use case; not ideal for non-Kubernetes projects.  
@@ -97,6 +103,8 @@ Jenkins is a great choice because it offers a lot of customization, can integrat
 | Name| Email Address      | GitHub | URL |
 |-----|--------------------------|----------|---------|
 | Anjali Dhiman | anjali.dhiman.snaatak@mygurukulam.co |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
+
+---
 
 ## References
 
