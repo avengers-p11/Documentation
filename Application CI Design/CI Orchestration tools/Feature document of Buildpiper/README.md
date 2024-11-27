@@ -11,6 +11,7 @@ This documentation provides an overview of BuildPiper, its features, advantages 
 BuildPiper is designed to address the complexities of managing CI/CD pipelines in enterprise-level applications. It provides flexibility for scaling pipelines, automating tasks, and managing infrastructure-as-code. By supporting both cloud and on-premise configurations, BuildPiper offers a robust solution for teams looking for a customizable CI/CD tool that integrates well with a variety of development and deployment environments.
 
 ---
+![image](https://github.com/user-attachments/assets/2e878def-6db6-47d0-b63d-1a7780943d4f)
 
 ## Features of BuildPiper
 
