@@ -5,17 +5,18 @@
 
  | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviewer L0** |**Reviewer L1** |**Reviewer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 17-11-24      | Neelesh  Kumar             | 20-11-24           |  | | |
+| Neelesh kumar      | 17-11-24      | Neelesh  Kumar             | 27-11-24           |  | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Why Use Gunicorn?](#why-use-gunicorn)
 3. [Architecture](#architecture)
-4. [Advantages](#advantages)
-5. [Disadvantages](#disadvantages)
-6. [Conclusion](#conclusion)
-7. [Contact Information](#contact-information)
-8. [References](#references)
+4. [Best practices](#Best-practices)
+5. [Advantages](#advantages)
+6. [Disadvantages](#disadvantages)
+7. [Conclusion](#conclusion)
+8. [Contact Information](#contact-information)
+9. [References](#references)
 
 ---
 
@@ -69,6 +70,26 @@ Response
 | **Middleware Execution** | Any configured middleware in the WSGI application processes the request and prepares a response.         |
 | **Response Returned** | The WSGI application returns a response to the worker, which forwards it to the client via the HTTP server.|
 | **Worker Management** | Gunicorn monitors workers, restarting them if they crash or exceed resource limits.                        |
+
+
+
+## Gunicorn Best Practices
+
+Below is a table outlining the best practices for configuring and using Gunicorn effectively:
+
+| **Category**            | **Best Practice**                                                                                                                   | **Example/Details**                                                                                                                                                                                                 |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Worker Configuration** | Use the formula `workers = 2 x CPUs + 1` for optimal performance.                                                                    | For IO-bound apps, use `gevent` or `uvicorn.workers.UvicornWorker`. Example: `gunicorn -w 5 -k gevent app:app`.                                                                                                 |
+| **Worker Timeout**       | Set an appropriate `timeout` based on your app’s processing time.                                                                    | Example: `gunicorn --timeout 60 app:app`                                                                                                                                                                        |
+| **Keep-Alive**           | Configure `--keep-alive` for persistent connections.                                                                                 | Example: `gunicorn --keep-alive 2 app:app`                                                                                                                                                                      |
+| **Log Management**       | Enable access and error logs for monitoring and debugging.                                                                           | Example: `gunicorn --access-logfile logs/access.log --error-logfile logs/error.log app:app`                                                                                                                     |
+| **Security**             | Run Gunicorn as a non-root user using a process manager (e.g., systemd). Use HTTPS in production.                                     | Combine with a reverse proxy like Nginx or Traefik for SSL termination. Example Nginx snippet: See reverse proxy integration section below.                                                                         |
+| **Reverse Proxy**        | Deploy Gunicorn behind a reverse proxy for static file handling, SSL termination, and load balancing.                                 | Nginx example: <br>``` location / { proxy_pass http://127.0.0.1:8000; proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } ``` |
+| **Environment Configuration** | Manage Gunicorn settings with environment variables or config files.                                                             | Example with `.env`: <br> `GUNICORN_CMD_ARGS="--workers=3 --bind=0.0.0.0:8000"`                                                                                                                               |
+| **Health Monitoring**    | Implement health checks and use Gunicorn hooks for custom monitoring.                                                                | Use pre-fork and post-fork hooks to monitor worker status.                                                                                                                                                      |
+| **Scaling**              | Use load balancers for traffic distribution. Combine with orchestration tools for scalability.                                        | Example: Use Kubernetes or Docker Swarm for horizontal scaling.                                                                                                                                                 |
+| **Testing and Tuning**   | Perform regular load testing to identify bottlenecks and adjust configurations.                                                      | Use tools like `wrk` or `ab` (Apache Benchmark) for testing. Example: Tune worker numbers and timeout values based on test results.                                                                           |
+| **Upgrade Strategy**     | Use Gunicorn’s graceful restart feature to enable zero-downtime deployments.                                                         | Example: `kill -HUP $(cat gunicorn.pid)`                                                                                                                                                                        |
 
 ---
 
