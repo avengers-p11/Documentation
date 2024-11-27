@@ -1,13 +1,12 @@
 # Continuous Integration (CI) Concept
 
+![image](https://github.com/user-attachments/assets/6ec21aa5-1ce6-4d1b-b437-dd80dbe1150d)
+
+
   | Author        | Created on | Version | Last updated by | Last edited on |
   |-------------|---------|-------------|-------------|---------|
-  | Raman Tripathi | 25-11-24 | version 1 | Raman Tripathi | 25-11-24 |
+  | Raman Tripathi | 25-11-24 | version 1 | Raman Tripathi | 27-11-24 |
   
-   
-  <img width="366" alt="image" src="https://github.com/user-attachments/assets/a917dbdb-0a6a-4740-bb91-6b6e3d5547b6">
-
-
 ## Table of Contents
 
 1. [Introduction](#introduction)  
@@ -25,23 +24,42 @@
 
 ## Introduction
 
-Continuous Integration (CI) is a software development practice that requires developers to integrate code changes into a shared repository frequently, often multiple times a day. Each integration is verified by an automated build and test process, enabling early detection of defects and improving collaboration among teams.
+Continuous Integration (CI) is a development practice in software engineering that emphasizes frequent integration of code changes into a shared repository. The goal is to detect and address integration issues early in the development lifecycle, making the software development process more efficient, reliable, and collaborative.
 
 ---
 
-## Why Continuous Integration?
+# Why is Continuous Integration?
 
-Continuous Integration addresses common challenges in software development, such as:
+- **Early Bug Detection:**  
+  CI helps identify and fix integration issues and bugs early in the development cycle, reducing the cost and time required for debugging.
 
-- **Merge Conflicts**: Avoids the last-minute issues of merging large code changes.  
-- **Error Detection**: Catches bugs early, reducing the cost and effort of fixing them later.  
-- **Team Collaboration**: Ensures that all team members work on the latest version of the codebase, avoiding inconsistencies.  
+- **Faster Development:**  
+  Automated testing and builds ensure a smooth development process by quickly validating changes and minimizing manual intervention.
 
----
+- **Improved Collaboration:**  
+  CI encourages frequent communication and code sharing among team members, reducing the risk of code conflicts.
 
-## What is Continuous Integration?
+- **High-Quality Code:**  
+  By running automated tests and static analysis tools during the CI process, teams can enforce coding standards and improve overall code quality.
 
-Continuous Integration is a development practice where developers merge code changes into a shared repository frequently. Once merged, automated build and test processes validate the changes, ensuring that the application remains functional and reliable.
+- **Streamlined Release Cycles:**  
+  With CI, the software is always in a deployable state, enabling faster and more reliable release cycles.
+
+# What is Continuous Integration?
+
+At its core, **Continuous Integration (CI)** involves:
+
+- **Frequent Code Commits:**  
+  Developers commit changes to a shared version control system (e.g., GitHub, GitLab) multiple times a day.
+
+- **Automated Builds:**  
+  Every commit triggers an automated build process to compile the code and detect errors early.
+
+- **Automated Tests:**  
+  Unit tests, integration tests, and other automated tests are executed to ensure code quality.
+
+- **Feedback:**  
+  The CI system provides immediate feedback on the status of the build and tests, helping developers address issues quickly.
 
 ---
 
@@ -58,6 +76,9 @@ Continuous Integration is a development practice where developers merge code cha
 ---
 
 ## CI Workflow
+
+![image](https://github.com/user-attachments/assets/5a299358-a2f2-4b10-bc4d-eb32ba522db8)
+
 
 | **Step**                | **Description**                                                                 |
 |--------------------------|---------------------------------------------------------------------------------|
