@@ -10,13 +10,14 @@
 
 1. [Introduction](#introduction)  
 2. [What is Mutable Infrastructure?](#what-is-mutable-infrastructure)  
-3. [What is Immutable Infrastructure?](#what-is-immutable-infrastructure)  
-4. [Why Does It Matter?](#why-does-it-matter)  
-5. [Detailed Comparison Table](#detailed-comparison-table)  
-6. [Advantages and Disadvantages](#advantages-and-disadvantages)   
-7. [Conclusion](#conclusion)  
-8. [Contact Information](#contact-information)  
-9. [References](#references)
+3. [What is Immutable Infrastructure?](#what-is-immutable-infrastructure)
+4. [Problems Before Mutable and Immutable Infrastructure](#problems-before-mutable-and-immutable-infrastructure)
+5. [Why Does It Matter?](#why-does-it-matter)  
+6. [Detailed Comparison Table](#detailed-comparison-table)  
+7. [Advantages and Disadvantages](#advantages-and-disadvantages)   
+8. [Conclusion](#conclusion)  
+9. [Contact Information](#contact-information)  
+10. [References](#references)
 
 
 ## Introduction 
