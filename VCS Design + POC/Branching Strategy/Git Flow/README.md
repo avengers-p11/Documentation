@@ -46,17 +46,20 @@ Git Flow is ideal for projects requiring:
 
 ---
 
-### Key features 
-1. Dedicated Branches for Different Purposes
-2. Structured Workflow for Releases   
-3. Parallel Development
-4. Support for Continuous Delivery
-5. Clear Code History
-6. Rollback and Version Control
-7. Collaboration-Friendly
-8. Flexibility for Hotfixes
-9. Compatibility with Versioning
-10. Enhanced Stability    
+### Key Features
+
+| **Feature**                           | **Description**                                                                                 |
+|---------------------------------------|-------------------------------------------------------------------------------------------------|
+| **Dedicated Branches for Different Purposes** | Enables creation of branches for specific tasks like features, bug fixes, or releases.         |
+| **Structured Workflow for Releases**  | Facilitates release preparation and testing in dedicated branches for stable deployments.       |
+| **Parallel Development**              | Allows multiple developers or teams to work on different tasks simultaneously without conflicts.|
+| **Support for Continuous Delivery**   | Integrates with CI/CD pipelines for automated testing, building, and deployment.               |
+| **Clear Code History**                | Maintains an organized commit history, making it easy to track changes over time.              |
+| **Rollback and Version Control**      | Allows quick reversion to previous code versions if issues arise.                              |
+| **Collaboration-Friendly**            | Encourages teamwork with pull requests, code reviews, and conflict resolution workflows.        |
+| **Flexibility for Hotfixes**          | Handles urgent fixes in separate branches without affecting ongoing development.                |
+| **Compatibility with Versioning**     | Aligns with versioning systems (e.g., semantic versioning) for better release management.       |
+| **Enhanced Stability**                | Ensures the `main` branch is always stable and production-ready.                                |
 
 
 
