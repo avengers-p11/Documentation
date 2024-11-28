@@ -1,18 +1,17 @@
-### Description about this documentation
-
-This documentation provides an overview of Jenkins, a powerful CI/CD orchestration tool. It covers the pre-requisites and system requirements for setting up Jenkins, including necessary hardware, software, and dependencies like Java 17. Key features such as Continuous Integration, Pipeline as Code, plugin support, security, and monitoring are detailed, along with an explanation of its core components like the master, agents, jobs, and pipelines. The document highlights why Jenkins is essential for automating software development workflows and concludes with references and contact information for further assistance.
+# Feature Document of Jenkins
+### Description of this documentation
+This documentation provides an overview of Jenkins, a powerful CI/CD orchestration tool. It covers the prerequisites and system requirements for setting up Jenkins, including necessary hardware, software, and dependencies like Java 17. Key features such as Continuous Integration, Pipeline as Code, plugin support, security, and monitoring are detailed, along with an explanation of its core components like the master, agents, jobs, and pipelines. The document highlights why Jenkins is essential for automating software development workflows and concludes with references and contact information for further assistance.
 
 ![image](https://github.com/user-attachments/assets/2c25eb7a-e64c-4949-a83a-67b2508fe521)
-# Feature Document of Jenkins
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|-------------------|---------------------|----------|---------------|---------------|
-| Anjali Dhiman  | 25-11-24      | V1  | 26-11-24           |  | | |
+| Anjali Dhiman  | 25-11-24      | V1  | 28-11-24           | Khushi malhotra  | | |
 
 ## Table of Contents
 - [Introduction](#introduction)
 - [Pre-requisites](#pre-requisites)
-- [why Jenkins](#why-jenkins)
+- [Challenges Before and After Jenkins](#challenges-before-and-after-jenkins)
 - [System Requirements](#system-requirements)
 - [Dependencies and Important Ports](#dependencies-and-important-ports)
 - [Features of Jenkins](#features-of-jenkins)
@@ -22,7 +21,7 @@ This documentation provides an overview of Jenkins, a powerful CI/CD orchestrati
 - [References](#references)
 
 ## Introduction
-Continuous Integration (CI) orchestration tools are essential for modern software development. Jenkins is one of the most popular CI orchestration tools. It helps teams automate building, testing, and deploying code. This document provides an overview of Jenkins, including its key features, setup, and configuration.
+Continuous Integration (CI) orchestration tools play a critical role in modern software development by streamlining the processes of building, testing, and deploying code. Among the most widely used CI tools is Jenkins, an open-source platform that empowers teams to automate and manage their development pipelines efficiently. This document explores Jenkins, highlighting its key features, setup process, and configuration to help teams optimize their CI/CD workflows.
 
 ---
 ## Pre-requisites
@@ -43,8 +42,18 @@ Before setting up Jenkins, ensure your hardware, software, and security requirem
 | Port 8080       | N/A     | Jenkins web interface |
 
 ---
-## why Jenkins
-We chose GitHub for our OT microservices project because it’s simple, reliable, and packed with useful features. It acts as a central place to store all our code, making it easy for the team to collaborate. With GitHub, we can track every change, work on different features using branches, and merge everything smoothly without messing up the main code. GitHub’s issue tracking helps us manage tasks and bugs, while its security features ensure our code stays safe. This is why it’s the best choice for our project.
+
+# Challenges Before and After Jenkins
+
+| **Challenges Before Jenkins**                          | **How Jenkins Resolves Them**                                           |
+|--------------------------------------------------------|-------------------------------------------------------------------------|
+| **Manual code integration** leading to frequent errors.    | **Automates code integration** with CI pipelines.                          |
+| **Delayed feedback** on build and test results.            | Provides **real-time feedback** on builds and tests.                       |
+| **Time-consuming deployments** with manual processes.      | **Automates deployment** with CD pipelines.                                |
+| **Lack of standardization** in build and release processes.| **Ensures consistency** with defined pipelines and scripts.                |
+| Difficulty in **integrating with multiple tools**.         | **Offers a large plugin** ecosystem for seamless tool integrations.        |
+| **Scalability issues** for distributed builds.             | Supports **master-agent architecture** for distributed builds.             |
+| **Lack of visibility** into build and deployment status.   | **Provides dashboards and logs** for monitoring and troubleshooting.       |
 
 ---
 
@@ -87,9 +96,20 @@ We chose GitHub for our OT microservices project because it’s simple, reliable
 | **Notifications & Reporting** | Send alerts via email/Slack and generate reports on test results or code coverage.        |
 
 ---
+# Advantages and Disadvantages of Jenkins
+
+| **Advantages**                 | **Disadvantages**                              |
+|--------------------------------|-----------------------------------------------|
+| Open-source and free to use.   | Steep learning curve for beginners.           |
+| Large plugin ecosystem.        | High resource usage for complex pipelines.    |
+| Cross-platform compatibility.  | Requires frequent updates and maintenance.    |
+| Customizable pipelines.        | Outdated user interface.                      |
+| Scalable with distributed builds. | Security risks with third-party plugins.      |
+
+---
 
 ## Conclusion
-GitHub is the preferred platform for our OT Microservices project as it offers essential features like version control, CI/CD with GitHub Actions, and project management tools in a user-friendly and cost-effective manner. With our team's existing expertise in GitHub, its integration with our current tools ensures a smooth workflow. While GitLab offers similar functionalities, migrating to it
+GitHub is the preferred platform for our OT Microservices project because it is simple, reliable, and feature-rich. It provides a central repository for collaboration, enabling version control, branch management, and smooth code merging. Its built-in tools, such as issue tracking and GitHub Actions for CI/CD, streamline workflows while ensuring security and task management. Our team's expertise in GitHub and its seamless integration with our existing tools effectively meets our project needs without the complexities or migration challenges associated with alternatives like GitLab.
 
 ---
 
