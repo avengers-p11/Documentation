@@ -92,22 +92,15 @@ SonarQube produces log files in its installation directory, typically under the 
 
 ## Best Practices for Log Management
 
-1. **Log Retention**:  
-   - Configure log retention policies to avoid excessive disk usage.  
-   - Archive old logs for compliance or auditing purposes.  
-
-2. **Log Rotation**:  
-   - Use log rotation tools (e.g., `logrotate`) to manage log file sizes.  
-
-3. **Centralized Logging**:  
-   - Integrate with centralized logging tools like ELK Stack, Splunk, or Fluentd for better analysis.  
-
-4. **Monitoring and Alerts**:  
-   - Set up alerts for critical errors or warnings detected in the logs.  
-
-5. **Security**:  
-   - Ensure logs do not contain sensitive information like passwords or tokens.  
-   - Restrict access to log files to authorized personnel.  
+| **Best Practices for Log Management** | **Details**                                                                 |
+|---------------------------------------|-----------------------------------------------------------------------------|
+| **Log Retention**                     | - Configure log retention policies to avoid excessive disk usage.           |
+|                                       | - Archive old logs for compliance or auditing purposes.                     |
+| **Log Rotation**                      | - Use log rotation tools (e.g., `logrotate`) to manage log file sizes.      |
+| **Centralized Logging**               | - Integrate with centralized logging tools like ELK Stack, Splunk, or Fluentd for better analysis. |
+| **Monitoring and Alerts**             | - Set up alerts for critical errors or warnings detected in the logs.       |
+| **Security**                          | - Ensure logs do not contain sensitive information like passwords or tokens.|
+|                                       | - Restrict access to log files to authorized personnel.                     |  
 
 ---
 
