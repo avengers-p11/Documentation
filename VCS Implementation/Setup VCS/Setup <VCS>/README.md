@@ -90,10 +90,17 @@ This Poc demonstrates how to set up and use GitHub as a Version Control System. 
  git push sshorigin main
  
 ```
-
-
-
-
+![Screenshot from 2024-11-29 14-18-43](https://github.com/user-attachments/assets/c8977e0e-68a1-4459-b276-22deb2f4cecc)
+![Screenshot from 2024-11-29 14-18-52](https://github.com/user-attachments/assets/3b9d4f66-c610-4dbc-a5de-2ffcc450d874)
+![Screenshot from 2024-11-29 14-18-58](https://github.com/user-attachments/assets/96c7a3e2-872f-46f5-9ad9-9943409f2253)
+![Screenshot from 2024-11-29 14-21-55](https://github.com/user-attachments/assets/def53c9a-8f3e-4654-8eaa-4c9b47a40d6d)
+![Screenshot from 2024-11-29 14-22-16](https://github.com/user-attachments/assets/01ea0678-3b9c-47b4-9e23-baaa8d32cb48)
+![Screenshot from 2024-11-29 14-22-24](https://github.com/user-attachments/assets/a6b95bc6-3e7a-4080-8797-ef309bad9b81)
+![Screenshot from 2024-11-29 14-22-35](https://github.com/user-attachments/assets/b021eff6-a792-4c24-9bef-3df02c08f4e6)
+![Screenshot from 2024-11-29 14-22-59](https://github.com/user-attachments/assets/e7757b2a-5875-4d53-b6a5-bfc3513f42d4)
+![Screenshot from 2024-11-29 14-23-56](https://github.com/user-attachments/assets/cbaa5c9f-67e9-4ecc-aa77-9797262bf703)
+![Screenshot from 2024-11-29 14-25-37](https://github.com/user-attachments/assets/94508a9f-f6d7-485a-9d06-b665450e60f9)
+![Screenshot from 2024-11-29 14-26-12](https://github.com/user-attachments/assets/b0f89fb0-ab02-4843-be4b-f0e59e72a60f)
 
 ## Conclusion
 
