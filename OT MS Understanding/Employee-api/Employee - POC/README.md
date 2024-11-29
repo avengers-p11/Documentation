@@ -36,7 +36,7 @@ Welcome to the Employee-API POC. Employee REST API is a golang based microservic
 | **ScyllaDB**           | Primary database for storing all employee data; a high-performance NoSQL solution compatible with Cassandra, ensuring scalability and fast data access. |
 | **Redis (Optional)**   | Cache layer for storing frequently accessed employee data, reducing database load and improving response times. |
 | **Swagger/OpenAPI**    | Integrated API documentation, allowing for easier interaction with and understanding of endpoints, data structures, and testing. |
-| **Database Migrations**| Managed with the Migrate tool, enabling database schema changes and maintaining consistency across environments. |
+| **Database Migrations**| Managed with the Migrate, enabling database schema changes and maintaining consistency across environments. |
 
 ## Pre-requisites 
 The application doesn't have any specific pre-requisites except the database connectivity. Additionally, we can add Redis as cache system but it's not part of the mandatory setup and Migrate to setup table in ScyllaDB.
