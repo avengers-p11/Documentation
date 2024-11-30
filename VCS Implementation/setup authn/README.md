@@ -1,178 +1,127 @@
 
-#  Authentication in Jenkins
+# VCS Authentication Setup
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
 | Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 29-11-24           |  | | |     
 
 
-##  Table of Contents
+
+---
+
+## Table of Contents
+
 1. [Introduction](#introduction)
-2. [What is Authentication in Jenkins?](#what-is-authentication-in-jenkins)
-3. [Why is Authentication Important?](#why-is-authentication-important)
-4. [Authentication Methods](#authentication-methods)
-5. [Limitations](#limitations)
-6. [Best Practices](#best-practices)
-7. [Types of Authentication in Jenkins](#types-of-authentication-in-jenkins)
-8. [POC: Setting up Authentication](#poc-setting-up-authentication)
-9. [Conclusion](#conclusion)
-10. [Contact Information](#contact-information)
-11. [References](#references)
+2. [Prerequisites](#prerequisites)
+3. [Authentication Methods](#authentication-methods)
+4. [Setup Instructions](#setup-instructions)
+    - [SSH Key Authentication](#ssh-key-authentication)
+    - [Personal Access Tokens (PATs)](#personal-access-tokens-pats)
+    - [OAuth Authentication](#oauth-authentication)
+5. [Best Practices](#best-practices)
+6. [Troubleshooting](#troubleshooting)
+7. [References](#references)
 
 ---
 
-##  Introduction
+## Introduction
 
-This document gives an overview of how authentication works in Jenkins. Jenkins is an open-source server that helps automate building, testing, and deploying software. To keep Jenkins safe, it uses **authentication** (to verify user identity) and **authorization** (to control what users can do).
-
----
-
-##  What is Authentication in Jenkins?
-
-Authentication is about checking who a user is. In Jenkins, users must authenticate (prove who they are) to access or interact with the Jenkins server.
-
+Authentication in VCS ensures only authorized users can access or modify repositories. This document focuses on popular methods like SSH keys, Personal Access Tokens (PATs), and OAuth to secure repository access.
 
 ---
 
-##  Why is Authentication Important?
+## Prerequisites
 
-| Reason                          | Explanation |
-|----------------------------------|-------------|
-| **Security**                     | Makes sure only the right people access Jenkins. |
-| **Control Access**               | Ensures users can only see and do what they are allowed to. |
-| **Auditing and Tracking**        | Logs user actions for tracking and troubleshooting. |
-| **Integration with Other Tools** | Allows Jenkins to securely interact with external tools. |
-| **Compliance**                   | Helps meet security requirements and standards. |
+- A Git-based VCS (e.g., GitHub, GitLab, Bitbucket, etc.)
+- Git installed locally (`git --version` to check).
+- An active account on your VCS provider.
 
 ---
 
-##  Authentication Methods
+## Authentication Methods
 
-Jenkins has several ways to handle user login:
-
-| **Method**                         | **Description**                                                                                                                        |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **Jenkins Database**               | Jenkins manages usernames and passwords internally.                                                                                     |
-| **LDAP (e.g., Active Directory)**  | Jenkins integrates with corporate LDAP, allowing employees to use their existing work credentials.                                       |
-|                                    | *Example*: An employee logs into Jenkins with their company email and password (stored in the company’s Active Directory).               |
-| **Single Sign-On (SSO)**           | Allows users to log in once and access multiple systems using SAML or OAuth.                                                            |
-|                                    | *Example*: A user logs into Jenkins via their Google Workspace account, which also grants them access to other company services.         |
-| **API Token**                      | Jenkins users can generate API tokens for programmatic access, instead of using passwords.                                               |
-|                                    | *Example*: A user creates an API token in Jenkins and uses it to trigger Jenkins builds via a script or command-line tool.               |
-| **SSH Keys**                       | Used for secure logins, often with Git integration, bypassing passwords.                                                                |
-|                                    | *Example*: A developer configures Jenkins to log in using their public SSH key, which they also use for Git operations.                 |
-
+1. **SSH Key Authentication:** Securely authenticate using SSH keys.
+2. **Personal Access Tokens (PATs):** Use tokens instead of passwords for HTTPS.
+3. **OAuth Authentication:** Authenticate via third-party OAuth providers.
 
 ---
 
-##  Limitations
+## Setup Instructions
 
-| Limitation            | Explanation |
-|-----------------------|-------------|
-| **Limited Integration**| Jenkins’ built-in database is not always the best for large teams. |
-| **Scalability**        | Larger companies may need more scalable authentication methods like LDAP or SAML. |
-| **Security**           | External providers often offer stronger, centralized security. |
+### SSH Key Authentication
 
----
+ ## 1.Generate an SSH Key Pair:
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+Follow the prompts to save the key (default location: ~/.ssh/id_rsa).
 
-##  Best Practices
+   Add the SSH Key to Your VCS:
+       Copy the public key:
+     ```
+     cat ~/.ssh/id_rsa.pub
+       ```
+   Go to your VCS provider and add the key under SSH Keys in your profile settings.
 
-To keep Jenkins secure, follow these tips:
+Test SSH Connection:
+```
+    ssh -T git@github.com
+```
+   Replace github.com with your VCS provider's domain.
 
-| Practice                          | Description |
-|------------------------------------|-------------|
-| **Use Strong Passwords**           | Require complex passwords to improve security. |
-| **Enable Multi-Factor Authentication** | Add another layer of security with MFA. |
-| **Rotate Credentials Regularly**   | Change passwords and tokens frequently. |
-| **Limit User Privileges**          | Only give users the permissions they need. |
-| **Monitor User Activity**          | Keep an eye on logs for suspicious behavior. |
-| **Update Jenkins and Plugins**     | Regularly update Jenkins to keep it secure. |
+## 2.Personal Access Tokens (PATs)
 
+   Generate a Token:
+        Log in to your VCS provider.
+        Navigate to Settings > Developer Settings > Personal Access Tokens.
+        Create a token with the necessary scopes (e.g., repo access).
 
----
+   Use the Token: Replace your password with the token when cloning or pushing via HTTPS:
 
-##  POC: Setting up Authentication
+    git clone https://github.com/username/repository.git
 
-### 1. Install GitHub Authentication Plugin
-- Go to **Manage Jenkins** > **Manage Plugins**.
- 
-- Search for and install **GitHub Authentication Plugin**.
-  
-### 2. Configure GitHub Authentication
-After installing the plugin, go back to the Jenkins dashboard
-**Click on "Manage Jenkins" again**
+   Enter the token when prompted for the password.
 
-**Select "Configure Global Security**
+## 3.OAuth Authentication
+`
+    Enable OAuth Apps:
+        Go to Settings > Applications in your VCS provider account.
+        Register a new OAuth application.
 
+  `  Authenticate via Third-Party Tools:
+        Use tools like GitHub CLI or your IDE's built-in OAuth integration.
+        Example for GitHub CLI:
 
-**Setting Up an Application in GitHub**
+        gh auth login
 
-Once you have installed the GitHub authentication plugin, you need to set up an application within GitHub. Here’s how:
+## Best Practices
 
-*Log into your GitHub account.*
+   Use SSH for Automation: It's secure and avoids storing passwords.
+   Avoid Sharing Tokens: Treat tokens like passwords; do not expose them.
+   Rotate Tokens Regularly: Update PATs periodically to minimize security risks.
+   Enable Two-Factor Authentication (2FA): Add an extra layer of security.
+   Use Scoped Tokens: Limit the scope of PATs to specific operations.
 
+## Troubleshooting
+   SSH Permission Denied:
+        Ensure the correct key is added to your VCS.
+        Verify the SSH agent is running:
 
-**Scroll to the bottom of the page and click on “Developer settings”.**
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_rsa
+        
+   Token Expiry Issues:
+        Regenerate and replace expired tokens.
+        Use a credential manager to avoid re-entering tokens.
 
+## References
 
-
-
-
-**Click on “OAuth Apps” and then on “Register a new application”.**
-
-
-**Install the GitHub Authentication Plugin in Jenkins**
-
-A.Go to your Jenkins dashboard.
-
-B.Click on Manage Jenkins > Manage Plugins.
-
-
-C.Search for GitHub Authentication Plugin under the "Available" tab.
-
-D. Install the plugin and restart Jenkins if required.
-
-****3. Configure GitHub OAuth in Jenkins****
-
-**A.Go to Manage Jenkins > Configure Global Security**
-
-
-**B.Under Security Realm, select GitHub Authentication**
-
-
-**C.Enter the Client ID and Client Secret that you obtained from GitHub when creating the OAuth App.**
+   GitHub Authentication Guide
+   GitLab SSH Keys Setup
+   Bitbucket Authentication
 
 
-
-**D.For GitHub Web URI, set https://github.com and For GitHub API URI, set https://api.github.com.**
-
-
-
-
-
-****Save and Test the Integration:****
-
-**Save the settings and go to the Jenkins login page.**
-
-You should see the option to Login with GitHub.
-
-**Click on the button, and you will be redirected to GitHub to authorize Jenkins**
-
-
-After granting access, you will be logged into Jenkins using your GitHub credentials.
-
-
-
-
----
-
-##  Conclusion
-
-Jenkins offers many ways to authenticate users, from using its built-in database to integrating with external providers like LDAP or SAML. The best method depends on the size of your team and the security requirements of your organization.
-
----
-
-## 📧 Contact Information
+##  Contact Information
 
 | Name| Email Address      |
 |-----|--------------------------|
@@ -182,15 +131,7 @@ Jenkins offers many ways to authenticate users, from using its built-in database
 
 
 
----
 
-##  References
-
-| Link | Description |
-|------|-------------|
-| [Jenkins Documentation](https://github.com/OT-MICROSERVICES/documentation-template/wiki/Application-Template) | Jenkins Application Template |
-| [GitHub OAuth Setup](https://stackoverflow.com/questions/60559456/configuring-jenkins-with-github-authorization) | Guide to setting up GitHub OAuth |
-|[Authentication and Authorization in Jenkins](https://github.com/mygurukulam-p10/Documentation-P10-Snaatak/blob/main/Jenkins/Jenkins%20authn%20%26%20authz/README.md) |Authentication and Authorization in Jenkins|
 
 
 
