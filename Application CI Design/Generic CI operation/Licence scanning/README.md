@@ -1,4 +1,4 @@
-# Generic License Scanning Documentation
+# License Scanning Documentation
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
