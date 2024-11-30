@@ -12,14 +12,21 @@
 
 [Introduction](#introduction)
 
-[Purpose](#purpose)
+[What](#what)
 
-[Prerequisites](#prerequisites)
+[Why](#why)
 
-[Workflow Diagram](#workflow-diagram)
+[Java compilation process](#java-compilation-process)
 
-[Step-by-Step of Create a Pull Request
-(PR)](#step-by-step-of-create-a-pull-request-pr)
+[Different Tools](#different-tools)
+
+[Recmmendation Tool](#recommendation-tool)
+
+[Maven](#what)
+
+[Why Maven](#why-maven)
+
+[Installation Steps of Maven](#installation-steps-of-maven)
 
 [Conclusion](#conclusion)
 
@@ -73,338 +80,103 @@ Java Compiler (javac) generates Bytecode
 | **Maven**           | A build automation tool that also handles dependencies, project management, and compiling Java code. | - Manages dependencies. <br> - Centralizes build configuration.               | Used for automating the build and dependency management process, ensuring consistent and repeatable builds across environments.                           |
 | **Gradle**          | A flexible build tool that automates Java code compilation, testing, and packaging. | - Supports multiple languages. <br> - Offers faster builds with incremental compilation. | An advanced build automation tool known for its speed and flexibility, used in complex Java projects to manage dependencies and automate tasks efficiently. |
 
+# Recommendation Tool
 
-# Prerequisites 
+![image](https://github.com/user-attachments/assets/618806e9-7239-4f38-9b48-055a1544c574)
+
+## Maven
+Maven is a powerful build automation and project management tool primarily used for Java projects. It simplifies the build process by automating tasks like compiling source code, managing dependencies, running tests, and generating documentation.
+
+## Why Maven
+Maven has become a popular choice for Java projects due to several key advantages over other build tools like Ant and Gradle.
+
+
+| **Aspect**                | **Maven**                                      |
+|---------------------------|------------------------------------------------|
+| **Dependency Management**  | Central repo, auto-resolves dependencies.      |
+| **Project Structure**      | Standardized structure, easy setup.            |
+| **Build Lifecycle**        | Defined lifecycle (e.g., `compile`, `test`).   |
+| **Configuration**          | Minimal setup, "convention over configuration".|
+| **Community Support**      | Large community, frequent updates.             |
+| **Ease of Use**            | Simple for standard projects, complex for large. |
+
+
+# Installation Steps of Maven
+
+## Prerequisites 
 
 ## System Specifications
-
-| **Specification**      | **Details**         |
-|-------------------------|---------------------|
-| **Operating System**    | Ubuntu 22.04      |
-| **CPU**                | 2 vCPU             |
-| **Volume**             | 20 GB              |
-| **RAM**                | 4 GB               |
-
-
-# Security ports
-
-## System Specifications
-
-| **Specification**      | **Details**         |
-|-------------------------|---------------------|
-| **Operating System**    | Ubuntu 22.04 / 20.04 LTS |
-| **CPU**                | 2 vCPU             |
-| **Volume**             | 20 GB              |
-| **RAM**                | 4 GB               |
-| **Security Ports**     | (Shown below)      |
-
-### Security Ports
-
-| **Port** | **Protocol** | **Source Side**    | **Destination Side** | **Use Case**                     |
-|----------|--------------|--------------------|-----------------------|-----------------------------------|
-| 22       | TCP          | Any                | Server               | SSH Access for remote login      |
-| 80       | TCP          | Any                | Server               | HTTP traffic for web applications|
-| 443      | TCP          | Any                | Server               | Secure HTTPS web traffic         |
-| 5432     | TCP          | Application Server | Database Server      | PostgreSQL database access       |
-| 9000     | TCP          | Any                | Server               |  SonarQube |
+| **Specification**          | **Details**                                                      |
+|----------------------------|------------------------------------------------------------------|
+| **Operating System**        | Linux (Ubuntu, CentOS, Amazon Linux 2, etc.)                    |
+| **Java Version**            | Java 8 or higher (JDK). Set **JAVA_HOME** environment variable. |
+| **Memory**                  | Minimum 512 MB RAM (Recommended: 2 GB or more for larger projects). |
+| **Disk Space**              | Minimum 1 GB of free disk space for installation and dependencies. |
+| **Maven Version**           | Apache Maven 3.x (latest stable version).                       |
+| **Network**                 | Internet connection for downloading dependencies from Maven repositories. |
+| **IDE Support** (Optional)  | Eclipse, IntelliJ IDEA, or Visual Studio Code with Maven plugins. |
 
 
-## 1. First create the instance t2.medium or t3.large.
 
-## 2. Open the port
+## 1. First create the instance t2.micro or as per your bussiness needs.
 
-![image](https://github.com/user-attachments/assets/0d00a94e-47cd-4c37-b2fa-5ba2b58cfdf6)
-
-# Step-by-step installation on Ubuntu
-## **Step 1. Update and Upgrade System Packages**
+## **Step 2. Update and Upgrade System Packages**
 
 ```
 sudo apt update
 ```
 ![image](https://github.com/user-attachments/assets/9b9ae16e-6312-4826-aae7-27788803d1bf)
 
-
-```
-sudo apt upgrade -y
-```
-![image](https://github.com/user-attachments/assets/a648c53b-4753-47fd-b3a6-9800bb73a66f)
-
-## **Step 2. Java installation**
+## **Step 3. Java installation**
 
 ```
 sudo apt install -y openjdk-17-jdk
 ```
 ![image](https://github.com/user-attachments/assets/204ef06f-6d5a-40d4-beff-3c765702f5c1)
 
-##  **Step 3. verify the installed Java version**
+##  **Step 4. verify the installed Java version**
 ```
 java -version
 ```
 
-## **Step 4. install and configure PostgreSQL**
-
-#### 1. Adding the PostgreSQL repository.
-```
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" /etc/apt/sources.list.d/pgdg.list'
-```
-![image](https://github.com/user-attachments/assets/33ef266f-10e4-4e04-8f69-0bd4f0a71c82)
-
-#### 2. To proceed with installing and configuring PostgreSQL, add the PostgreSQL signing key.
+##  **Step 5. Maven installation**
 
 ```
-wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+sudo apt install maven
 ```
-![image](https://github.com/user-attachments/assets/655cbe26-173d-425c-abed-32fffe288e18)
+![image](https://github.com/user-attachments/assets/2b35ffaa-8da6-4d30-98a4-77509c0e1087)
 
-#### 3. To complete the PostgreSQL setup, proceed by installing PostgreSQL.
-```
-sudo apt install postgresql postgresql-contrib -y
-```
-![image](https://github.com/user-attachments/assets/3875f1ec-6e16-48c1-9329-30e824514193)
-
-#### 4. Ensure the database server starts automatically upon reboot for seamless operation
+##  **Step 6. Clone the repo from github**
 
 ```
-sudo systemctl enable postgresql
+sudo git clone OT-MICROSERVICES/salary-api
 ```
-![image](https://github.com/user-attachments/assets/c1ec225d-93e3-498f-9c2c-242d1ba0302d)
+![image](https://github.com/user-attachments/assets/ef93c8ec-79a9-4225-b60b-b089ce6beafd)
 
-#### 5. Initiate the database server to begin operations.
-```
-sudo systemctl start postgresql
-```
 
-#### 6. Verify the current status of the database server.
+##  **Step 7. Change the repo choose the github repo which is cloned already**
 ```
-sudo systemctl status postgresql
+cd salary-api
 ```
 
-#### 7. Switch to the Postgres user account for further configuration.
+##  **Step 7. compile the code**
 ```
-sudo -i -u postgres
+mvn compile 
 ```
-![image](https://github.com/user-attachments/assets/40bef5ea-2759-4bf4-97d4-9610a9d8c8ca)
-
-#### 8. Create a new database user to manage the sqube database
-```
-createuser sona
-```
-
-
-#### 9. Log in to the PostgreSQL database to proceed with database operations.
-```
-psql
-```
-
-![image](https://github.com/user-attachments/assets/9b2fb362-3a73-4009-b827-3fef92f2886b)
-
-
- 
-#### 10. Set a strong password for the “sona” user. Use a password
-
-
-ALTER USER sona WITH ENCRYPTED password 'Sona#123';
-
-#### 11. Create a sqube database and assign the ownership to the “sona” user.
-CREATE DATABASE sqube OWNER sona;
-
-Grant all privileges on the “sqube” database to the “sona” user
-GRANT ALL PRIVILEGES ON DATABASE sqube to sona;
-![image](https://github.com/user-attachments/assets/43a19949-613c-48ea-958f-aa41c4e644af)
-
-#### 12. To verify the creation of the database, use the following command
-
-\l
-To verify the creation of the database user, use the following command:
-
-\du
-
-![image](https://github.com/user-attachments/assets/0bea53d0-ed81-48ec-a55e-d99ca1ed0f26)
-
-#### 13. To exit the PostgreSQL command-line interface, use the following command:
-
-\q
-#### 13.  To return to your non-root sudo user account, use the following command:
-
-exit
-
-![image](https://github.com/user-attachments/assets/7abfa498-bd09-49af-8879-12b3437aed30)
-
-
-
-## **Step 5. Downloading and Installing SonarQube**
-
-Install the zip utility, required for extracting the SonarQube files
-```
-sudo apt install zip -y
-```
-![image](https://github.com/user-attachments/assets/b7a5db7b-9b05-487e-9092-0eff78c47532)
-
-
-
-## **Step 6. installing the latest version of SonarQube 10.4 Community Edition (free version)**
-
-```
-sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4.1.88267.zip
-```
-
-![image](https://github.com/user-attachments/assets/e8c2fd40-6589-4f0c-950e-da10bbf989bb)
-
-
-## **Step 7. Move the unzipped files to the /opt/sonarqube directory**
-
-```
-sudo mv sonarqube-10.4.1.88267 sonarqube
-sudo mv sonarqube /opt/
-```
-
-## **Step 8. Setting Up SonarQube: Adding Group and User**
-
-```
-sudo groupadd sona
-sudo useradd -d /opt/sonarqube -g sona sona
-```
-![image](https://github.com/user-attachments/assets/ca173ef6-0730-4100-a8b6-8a1a59e59b02)
-
-
-
-## **Step 9. Grant the “sona” user access to the /opt/sonarqube directory**
-
-```
-sudo chown -R sona:sona /opt/sonarqube
-```
-
-![image](https://github.com/user-attachments/assets/61b774fd-6e27-42e0-bb35-c4ebd6a03aa4)
-
-
-
-## **Step 10. Edit the SonarQube configuration file located**
-
-```
-sudo nano /opt/sonarqube/conf/sonar.properties
-```
-
-
-## **Step 11. Uncomment the following lines in the SonarQube configuration file**
-
-```
-sonar.jdbc.username=sona
-sonar.jdbc.password=password
-sonar.jdbc.url=jdbc:postgresql://localhost:5432/sqube
-```
-![image](https://github.com/user-attachments/assets/2d051074-3552-45fd-8e2b-5d13b8d45b27)
-
-
-## **Step 12. To edit the SonarQube script file**
-```
-sudo nano /opt/sonarqube/bin/linux-x86-64/sonar.sh
-```
-
-
-## **Step 13. Select the branch you want to merge**
-
-```
-RUN_AS_USER=sona
-```
-![image](https://github.com/user-attachments/assets/d74ff63b-e3c0-495b-8f83-5fe514fc4929)
-
-
-## **Step 14. Create a new service file using a text editor**
-```
-sudo nano /etc/systemd/system/sonar.service
-```
-
-
-## **Step 15. Check for merge conflicts after creating the pull request, It’s now ready for review**
-
-```
-[Unit]
-Description=SonarQube service
-After=syslog.target network.target
-[Service]
-Type=forking
-ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
-ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
-User=sona
-Group=sona
-Restart=always
-LimitNOFILE=65536
-LimitNPROC=4096
-[Install]
-WantedBy=multi-user.target
-```
-
-![image](https://github.com/user-attachments/assets/af10bcfb-cfdc-4bf1-8015-0304377c063a)
-
-
-## **Step 16. Enable the SonarQube service to start at boot**
-
-```
-sudo systemctl enable sonar
-```
-
-
-## **Step 17. start the SonarQube service**
-
-```
-sudo systemctl start sonar
-```
-
-```
-sudo systemctl status sonar
-```
-![image](https://github.com/user-attachments/assets/4f138b22-9d7b-460e-a7fb-50a4b8285a97)
-
-
-
-## **Step 18. To edit the sysctl configuration file**
-
-```
-sudo nano /etc/sysctl.conf
-```
-
-
-## **Step 18. Add the following lines to the sysctl configuration file (/etc/sysctl.conf)**
-
-```
-vm.max_map_count=262144
-fs.file-max=65536
-ulimit -n 65536
-ulimit -u 4096
-```
-
-![image](https://github.com/user-attachments/assets/7cfcf710-2856-4438-9e13-bcc278d37d63)
-
-
-## **Step 18. To apply the changes, reboot the system**
-sudo reboot
-
-
-
-## **Step 18. Access SonarQube in a web browser by entering your server’s IP address followed by port 9000**
-
-```
-http://100.26.240.39:9000
-```
-**Log in to SonarQube using the username “admin” and password “admin”**
-![image](https://github.com/user-attachments/assets/aceb6217-a3e7-474d-a903-3f9d3bfbba08)
-
-Once logged in, SonarQube will prompt you to change your password. Enter the current password “admin” and then enter your new password twice as prompted.
-![image](https://github.com/user-attachments/assets/658677aa-d66c-4b3d-8876-0e11ebf9bc6b)
-
+![image](https://github.com/user-attachments/assets/afa1daac-19f8-4eb5-b286-2715d90b3484)
 
 # Conclusion
-Pull Requests (PRs) are an important tool for teamwork in coding. They let you share your changes, get feedback, and merge them into the main code easily. This guide gives simple steps to help you create a PR, even if you’re new to it. By using these steps, you can work smoothly with others, keep your code organized, and improve your project together.
+Maven automates and simplifies Java code compilation, managing dependencies and build processes efficiently. Integrating Maven with CI/CD tools ensures consistent, error-free builds and streamlined development workflows.
 
 # Contact Information
 
 | **Name**    | **Email address**         |
 |-------------|---------------------------|
-| Mohit Saini | <it.mohitsaini@gmail.com> |
+| Mohit Saini | mohit.saini.snaatak@mygrurukulam.co |
 
 # References
 
 | **Link** | **Description** |
 |----------------------------------------------------|--------------------|
-| <https://www.pagerduty.com/resources/learn/what-is-a-pull-request/> | Pull Request |
-| <https://opensource.com/article/19/7/create-pull-request-github> | How create Pull Request |
+| https://www.geeksforgeeks.org/compilation-execution-java-program/ | Pull Request |
+| https://www.baeldung.com/maven-fast-build | How create Pull Request |
