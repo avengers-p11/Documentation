@@ -112,7 +112,8 @@ Setting up Jenkins for high availability is essential for ensuring that your CI/
 
 | **Name**       | **Email Address**      | **GitHub**         | **URL**                         |
 |----------------|------------------------|--------------------|---------------------------------|
-| Your Name     | your.email@example.com  | your-github-user   | https://github.com/your-github  |
+| Anjali Dhiman | anjali.dhiman.snaatak@mygurukulam.co |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
+
 
 ## References
 
