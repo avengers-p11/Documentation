@@ -192,21 +192,23 @@ GRANT ALL PRIVILEGES ON DATABASE sqube to sona;
 ![image](https://github.com/user-attachments/assets/43a19949-613c-48ea-958f-aa41c4e644af)
 
 #### 12. To verify the creation of the database, use the following command
-
+```
 \l
+```
 To verify the creation of the database user, use the following command:
-
+```
 \du
-
+```
 ![image](https://github.com/user-attachments/assets/0bea53d0-ed81-48ec-a55e-d99ca1ed0f26)
 
 #### 13. To exit the PostgreSQL command-line interface, use the following command:
-
+```
 \q
+```
 #### 13.  To return to your non-root sudo user account, use the following command:
-
+```
 exit
-
+```
 ![image](https://github.com/user-attachments/assets/7abfa498-bd09-49af-8879-12b3437aed30)
 
 
@@ -233,6 +235,7 @@ sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4
 ## **Step 7. Move the unzipped files to the /opt/sonarqube directory**
 
 ```
+sudo unzip sonarqube-10.4.1.88267.zip
 sudo mv sonarqube-10.4.1.88267 sonarqube
 sudo mv sonarqube /opt/
 ```
