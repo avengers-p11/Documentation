@@ -4,7 +4,7 @@
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
 | Pravesh kumar      | 01-12-24      | Pravesh Kumar             | 01-12-24           |  | | |     
 
-### This guide explains how to set up application code repos in a Version Control System (VCS).
+This guide explains how to set up application code repos in a Version Control System (VCS).
 
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
