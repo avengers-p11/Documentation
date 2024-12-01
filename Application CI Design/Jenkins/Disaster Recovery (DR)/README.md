@@ -7,7 +7,22 @@ This documentation covers how to set up Disaster Recovery (DR) for Jenkins to qu
 |------------|----------------|-------------------|---------------------|----------|
 | Anjali Dhiman  | 30-12-24      | V1  | 02-12-24           | Khushi Malhotra |
 
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Why is a Disaster Recovery Plan Important for Jenkins?](#why-is-a-disaster-recovery-plan-important-for-jenkins)
+3. [How Jenkins Works for Disaster Recovery](#how-jenkins-works-for-disaster-recovery)
+4. [Objectives](#objectives)
+5. [Backup Methods](#backup-methods)
+6. [How to Back Up, Recover and MTTR Jenkins Data](#how-to-back-up-recover-and-mttr-jenkins-data)
+    - [Backup Process](#backup-process)
+    - [Recovery Process](#recovery-process)
+7. [Jenkins Backup Plugins](#jenkins-backup-plugins)
+8. [Advantages and Disadvantages](#advantages-and-disadvantages)
+9. [Conclusion](#conclusion)
+10. [Contacts](#contacts)
+11. [References](#references)
 
+---
 # Introduction
 Disaster Recovery (DR) is a plan to restore important IT systems, data, and applications after events like hardware failures, cyberattacks, or natural disasters. The goal is to minimize downtime, protect data, and quickly get systems running again to maintain business operations. DR includes making regular backups, having duplicate systems for emergencies, and testing the recovery process to ensure it works. A good DR plan helps businesses recover quickly and reduce the impact of unexpected problems.
 
