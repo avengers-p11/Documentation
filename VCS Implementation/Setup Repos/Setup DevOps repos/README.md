@@ -18,7 +18,7 @@ This guide explains how to setup DevOps repos in a Version Control System (VCS).
 
 ## Introduction
 
-
+The DevOps repositories manage CI/CD pipelines, infrastructure as code, monitoring, and configuration management, ensuring streamlined and efficient workflows
 
 ---
 
@@ -28,12 +28,28 @@ This guide explains how to setup DevOps repos in a Version Control System (VCS).
 2. Admin or Owner access to your repositories.
 
 ---
+## Setup DevOps repos
 
+1. Go to GitHub and log in to your account.
+2. Click the + icon in the top-right corner and select New repository.
+3. Fill in the details:
+  - Repository Name: e.g., [DevOps-repo](https://github.com/Pravesh899/DevOps-Repo)
+  - Description: Add a brief description of the repository.
+  - Visibility: Choose either Public or Private.
+  - Check Initialize this repository with a README.
+4. Click Create repository.
+
+![Screenshot 2024-12-01 at 11 22 45 PM](https://github.com/user-attachments/assets/61af0a1c-fe77-47bc-aa0f-7997003127c8)
+
+5. After creating DevOps-repo, navigate to the repository
+6. Create folders:
+ - Click Add file → Create new file.
+ - For folders, type folder-name/ in the file name field, e.g.,
 
 ---
 ## Conclusion
 
-
+The structured DevOps repositories enhance collaboration, scalability, and efficiency by organizing CI/CD, infrastructure, monitoring, and configuration management into distinct workflows.
 
 ---
 # Contact Information
@@ -48,4 +64,9 @@ This guide explains how to setup DevOps repos in a Version Control System (VCS).
 
 | **Link** | **Description**            |
 |----------|-------------------------------|
+|[GitHub Documentation](https://docs.github.com/)| Comprehensive guide on repository creation and management.|
+|[Terraform Documentation](https://developer.hashicorp.com/terraform/docs) | Detailed reference for infrastructure as code setup using Terraform.|
+|[Ansible Documentation](https://docs.ansible.com/)| Official guide for configuration management with Ansible.|
+| [Prometheus Documentation](https://prometheus.io/docs/) | Resources for monitoring system setup and rules. |
+| [Grafana Documentation](https://grafana.com/docs/) | Insights on creating dashboards and integrating with Prometheus.|
 
