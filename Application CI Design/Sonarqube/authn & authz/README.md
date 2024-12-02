@@ -13,7 +13,7 @@
 **Table of Contents**
 
 1. [**Introduction**](#introduction)
-2. [**What**](#what-is-bugs-analysis)
+2. [**What**](#what-is-authentication-and-authorization)
 3. [**Why**](#why)
 4. [**Differnet type of Authentication Mehtods**](#different-types-of-authentication-methods)
 5. [**Differnet type of Authorization Mehtods**](#different-types-of-authorization-methods)
