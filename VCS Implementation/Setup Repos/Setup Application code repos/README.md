@@ -33,20 +33,13 @@ The OT-Microservices Project is a modular system designed to streamline organiza
 1. Go to GitHub and log in to your account.
 2. Click the + icon in the top-right corner and select New repository.
 3. Fill in the details:
-  - Repository Name: e.g., [OT-Microservices](https://github.com/Pravesh899/OT-Microservices)
+  - Repository Name: e.g., [OT-Microservices](https://github.com/Pravesh899/OT-Microservices), [Frontend/README.md](https://github.com/Pravesh899/OT-Microservices/), [employee-api/README.md](https://github.com/Pravesh899/OT-Microservices/), [attendance-api/README.md](https://github.com/Pravesh899/OT-Microservices/) & [salary-api/README.md](https://github.com/Pravesh899/OT-Microservices/)
   - Description: Add a brief description of the repository.
   - Visibility: Choose either Public or Private.
   - Check Initialize this repository with a README.
 4. Click Create repository.
 
    ![Screenshot 2024-12-01 at 10 13 27 PM](https://github.com/user-attachments/assets/f015a3e4-97c5-436d-b278-d9eb5c5d2735)
-
-5. After creating OT-Microservices repo, navigate to the repository
-6. Create folders:
- - Click Add file → Create new file.
- - For folders, type folder-name/ in the file name field, e.g., [Frontend/README.md](https://github.com/Pravesh899/OT-Microservices/tree/main/frontend), [employee-api/README.md](https://github.com/Pravesh899/OT-Microservices/tree/main/employee-api), [attendance-api/README.md](https://github.com/Pravesh899/OT-Microservices/tree/main/attendance-api) & [salary-api/README.md](https://github.com/Pravesh899/OT-Microservices/tree/main/salary-api)
-
-![Screenshot 2024-12-01 at 10 27 41 PM](https://github.com/user-attachments/assets/a1bcd220-decc-40a6-9690-20cdfd5e9d59)
 
 ---
 ## Conclusion
