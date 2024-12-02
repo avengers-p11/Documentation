@@ -39,12 +39,6 @@ The DevOps repositories manage CI/CD pipelines, infrastructure as code, monitori
   - Check Initialize this repository with a README.
 4. Click Create repository.
 
-![Screenshot 2024-12-01 at 11 22 45 PM](https://github.com/user-attachments/assets/61af0a1c-fe77-47bc-aa0f-7997003127c8)
-
-5. After creating DevOps-repo, navigate to the repository
-6. Create folders:
- - Click Add file → Create new file.
- - For folders, type folder-name/ in the file name field, e.g.,
 
 ---
 ## Conclusion
