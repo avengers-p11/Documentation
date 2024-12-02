@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **L0 Reviewer** |
 |------------|--------------|------------|-------------|------------|-----------|
-| Mohit Saini | 29-11-24 |  | Mohit Saini | 29-11-24 |  |
+| Mohit Saini | 29-11-24 |  | Mohit Saini | 29-11-24 | Khushi Malhotra |
 
 ![image](https://github.com/user-attachments/assets/8206a944-d9a6-47bc-bf4d-3a8cdacd64ea)
 
