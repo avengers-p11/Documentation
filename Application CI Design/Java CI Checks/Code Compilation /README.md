@@ -118,7 +118,7 @@ Maven has become a popular choice for Java projects due to several key advantage
 
 
 
-## 1. First create the instance t2.micro or as per your bussiness needs.
+## **Step 1. First create the instance t2.micro or as per your bussiness needs.**
 
 ## **Step 2. Update and Upgrade System Packages**
 
