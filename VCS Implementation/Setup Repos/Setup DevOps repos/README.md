@@ -39,6 +39,8 @@ The DevOps repositories manage CI/CD pipelines, infrastructure as code, monitori
   - Check Initialize this repository with a README.
 4. Click Create repository.
 
+![Screenshot 2024-12-03 at 10 43 08 PM](https://github.com/user-attachments/assets/7b9c29c9-49b3-4af1-aeae-c3da9af862b6)
+
 
 ---
 ## Conclusion
