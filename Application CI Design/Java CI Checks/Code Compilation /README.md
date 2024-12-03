@@ -10,29 +10,29 @@
 
 # Table of contents
 
-[Introduction](#introduction)
+1. [Introduction](#introduction)
 
-[What](#what)
+2. [What](#what)
 
-[Why](#why)
+3. [Why](#why)
 
-[Java compilation process](#java-compilation-process)
+4. [Java compilation process](#java-compilation-process)
 
-[Different Tools](#different-tools)
+5. [Different Tools](#different-tools)
 
-[Recmmendation Tool](#recommendation-tool)
+6. [Recmmendation Tool](#recommendation-tool)
 
-[Maven](#what)
+7. [Maven](#what)
 
-[Why Maven](#why-maven)
+8. [Why Maven](#why-maven)
 
-[Installation Steps of Maven](#installation-steps-of-maven)
+9. [Installation Steps of Maven](#installation-steps-of-maven)
 
-[Conclusion](#conclusion)
+10. [Conclusion](#conclusion)
 
-[Contact Information](#contact-information)
+11. [Contact Information](#contact-information)
 
-[References](#references)
+12. [References](#references)
 
 # Introduction
 
