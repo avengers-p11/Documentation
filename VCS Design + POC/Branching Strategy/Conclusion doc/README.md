@@ -38,8 +38,7 @@ Feature Branch Flow is a simple yet effective branching strategy where each new 
   - Short-lived branches.
   - Ideal for small teams or projects with straightforward development needs.
   - Changes are merged back into the main branch once completed.
-```
-
+```   
 * [Reference](https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Feature%20Branch/README.md) 
 
 ```
