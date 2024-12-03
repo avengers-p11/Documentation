@@ -14,9 +14,10 @@
 4. [Steps to Create a Pull Request](#steps-to-create-a-pull-request)
 5. [Advantages of Pull Requests](#advantages-of-pull-requests)
 6. [Disadvantages of Pull Requests](#disadvantages-of-pull-requests)
-7. [Conclusion](#conclusion)
-8. [Contact Information](#contact-information)
-9. [References](#references)
+7. [Best Practices](#best-practices)
+8. [Conclusion](#conclusion)
+9. [Contact Information](#contact-information)
+10. [References](#references)
 
 
 
@@ -77,6 +78,18 @@ A **Pull Request (PR)** is like asking permission to add your changes to a proje
 | **Low-Quality Reviews**        | Reviews can become superficial with disproportionate feedback on small versus large code changes. |
 | **Discouraged Refactoring**    | Engineers may avoid refactoring to keep pull requests smaller, leading to lower code quality.     |
 
+
+# Best Practices 
+
+
+| **Best Practice**                     | **Purpose**                                                                                          | **Key Practices**                                                                                                         |
+|---------------------------------------|------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| **Create Atomic and Focused Pull Requests** | Address one thing at a time for easier review.                                                      | - Break large tasks into smaller ones.<br> - Use a clear title describing the change.                                    |
+| **Write Descriptive Pull Request Descriptions** | Clearly explain what’s being changed and why.                                                        | - Describe the changes.<br> - Link to related issues.                                                                   |
+| **Request Code Reviews**             | Ask for feedback from team members to improve code.                                                  | - Tag reviewers to get their attention.                                                                                   |
+| **Run Automated Tests Before Submission** | Ensure your code works by running tests before submitting.                                           | - Run tests locally before pushing.<br> - Ensure CI checks pass before merging.                                          |
+| **Keep Pull Requests Updated**       | Sync your work with the latest code from the main branch to avoid conflicts.                          | - Update your branch regularly to stay in sync with the main branch.                                                     |
+| **Follow Coding Standards**          | Keep the code consistent and readable across the project.                                            | - Stick to the project's coding style.<br> - Use tools to automatically check code style.                                 |
 
 
  ### Conclusion
