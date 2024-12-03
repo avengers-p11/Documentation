@@ -1,8 +1,8 @@
-# **Pull Request in GitHub**
+# **POC of Pull Request in GitHub**
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **L0 Reviewer** |
 |------------|--------------|------------|-------------|------------|-----------|
-| Mohit Saini | 21-11-24 |  | Mohit Saini | 21-11-24 |  |
+| Mohit Saini | 21-11-24 | 1.0 | Mohit Saini | 03-12-24 |Khushi and Shreya |
 
 ![image](https://github.com/user-attachments/assets/708172a1-2871-4012-9d98-52ae56692e6d)
 
@@ -13,12 +13,11 @@
 
 [Purpose](#purpose)
 
-[Prerequisites](#prerequisites)
+[Pre-requisites](#pre-requisites)
 
 [Workflow Diagram](#workflow-diagram)
 
-[Step-by-Step of Create a Pull Request
-(PR)](#step-by-step-of-create-a-pull-request-pr)
+[Steps to Create a Pull Request (PR)](#steps-to-create-a-pull-request (PR))
 
 [Conclusion](#conclusion)
 
@@ -40,7 +39,7 @@ This document explains how to create a Pull Request (PR) step by step.
 It helps you understand why the changes are needed, how to make them
 properly, and how these changes will improve the project.
 
-# Prerequisites 
+# Pre-requisites 
 
 | Pre-requisite | Description |
 |------------------------------------|------------------------------------|
@@ -49,11 +48,12 @@ properly, and how these changes will improve the project.
 
 # Workflow Diagram
 
-![image](https://github.com/user-attachments/assets/7f2f4167-75c7-4506-8d45-5de47a2adef0)
+![image](https://github.com/user-attachments/assets/4df6589a-1bf1-4eba-a814-a185db3c371e)
 
-# Step-by-Step of Create a Pull Request (PR)
 
-## **Step 1. Create Repository in git and add New Repo**
+# Steps to Create a Pull Request (PR)
+
+## **Step 1. Create a Repository on GitHub**
 
 **Log in to GitHub**
 
@@ -66,7 +66,7 @@ Click Create Repository to set it up.
 ![image](https://github.com/user-attachments/assets/769cc267-ab26-4ef4-98f0-1945be97d207)
 
 
-## **Step 2. Clone the repository to your local system after adding project files**
+## **Step 2. Clone the repository to your local system**
 
 ```
 git clone https://github.com/mohitsainin/PR-demo.git
@@ -89,7 +89,7 @@ git checkout -b new_branch
 ![image](https://github.com/user-attachments/assets/41c19995-f6de-4b9a-acea-14a55da5bb19)
 
 
-## **Step 5. See a list of all branches in your repository**
+## **Step 5. View all branches in your repository**
 
 ```
 git branch
@@ -134,40 +134,40 @@ git push --set-upstream origin new_branch
 ```
 ![image](https://github.com/user-attachments/assets/e1b0e668-afe2-4b13-b863-eaf5a49316c4)
 
-## **Step 11. Go to your GitHub repo to see the new branch**
+## **Step 11. Navigate to your GitHub repository to view the new branch**
 
 ![image](https://github.com/user-attachments/assets/ba876aa4-d47a-4d32-be0f-710e1200ec09)
 
 
-## **Step 12. Go to the "Pull Requests" section and create a new pull request**
+## **Step 12. Access the "Pull Requests" section and initiate a new pull request**
 ![image](https://github.com/user-attachments/assets/899b8f26-146d-4413-90f3-00b6e9036bfc)
 
 
-## **Step 13. Select the branch you want to merge**
+## **Step 13. Select the branch you wish to merge with the base branch**
 
 ![image](https://github.com/user-attachments/assets/a9625890-84c3-415c-8566-071f819fb1d5)
 
 
-## **Step 14. Create the pull request and add a title and comments if needed**
+## **Step 14. Submit the pull request, providing a title and any necessary comments**
 ![image](https://github.com/user-attachments/assets/0caab22f-c68c-4aa1-804e-66c872da00d6)
 
 
-## **Step 15. Check for merge conflicts after creating the pull request, It’s now ready for review**
+## **Step 15. Review for merge conflicts after submission, and ensure it’s ready for review**
 
 ![image](https://github.com/user-attachments/assets/f6dc4dbf-a2cb-46b8-bd0f-7043f8d60135)
 
 
-## **Step 16. You can leave comments during the review process**
+## **Step 16. Engage in the review process, leaving comments as needed**
 
 ![image](https://github.com/user-attachments/assets/628f6726-6411-4549-965a-af123505a511)
 
 
-## **Step 17. Once the review is done, merge the pull request**
+## **Step 17. Once the review is complete, merge the pull request**
 
 
 ![image](https://github.com/user-attachments/assets/97c87329-363f-4939-b515-e1dadbb4e824)
 
-## **Step 18. Finally, delete the branch after merging the changes if it is no longer needed**
+## **Step 18. If the branch is no longer required, delete it after merging the changes**
 
 ![image](https://github.com/user-attachments/assets/fc989c5d-c8e7-4560-ad27-5af4f85186d2)
 
