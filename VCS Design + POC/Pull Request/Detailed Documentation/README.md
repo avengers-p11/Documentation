@@ -3,7 +3,7 @@
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **L0 Reviewer** |
 |------------|--------------|------------|-------------|------------|-----------|
-| Mohit Saini | 21-11-24 |  | Mohit Saini | 21-11-24 |  |
+| Mohit Saini | 21-11-24 | 1.0 | Mohit Saini | 21-11-24 |  |
 
 ![image](https://github.com/user-attachments/assets/708172a1-2871-4012-9d98-52ae56692e6d)
 
