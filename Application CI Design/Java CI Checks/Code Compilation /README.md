@@ -80,7 +80,7 @@ Java Compiler (javac) generates Bytecode
 | **Maven**           | A build automation tool that also handles dependencies, project management, and compiling Java code. | - Manages dependencies. <br> - Centralizes build configuration.               | Used for automating the build and dependency management process, ensuring consistent and repeatable builds across environments.                           |
 | **Gradle**          | A flexible build tool that automates Java code compilation, testing, and packaging. | - Supports multiple languages. <br> - Offers faster builds with incremental compilation. | An advanced build automation tool known for its speed and flexibility, used in complex Java projects to manage dependencies and automate tasks efficiently. |
 
-# Recommendation Tool
+# Recommendation Tool (POC Code Compilation)
 
 ![image](https://github.com/user-attachments/assets/618806e9-7239-4f38-9b48-055a1544c574)
 
