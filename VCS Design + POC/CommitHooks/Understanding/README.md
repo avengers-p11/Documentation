@@ -16,9 +16,10 @@
 5. [Types of Commit Hooks](#types-of-commit-hooks)
 6. [Notification & how it works](#notification-of-commit-hooks-and-how-it-works)
 7. [How to use Commit Hooks](#how-to-use-commit-hooks)
-8. [Conclusion](#conclusion-of-commit-hooks)
-9. [Contact Information](#contact-information)
-10. [References](#references)
+8. [Feature of Commit Hooks](#Feature-of-commit-hooks)
+9. [Conclusion](#conclusion-of-commit-hooks)
+10. [Contact Information](#contact-information)
+11. [References](#references)
   
 
 ## Introduction
@@ -69,6 +70,14 @@ A commit hook can be configured to send notifications whenever certain condition
 
 ## How to use Commit Hooks
 To use commit hooks in Git, first navigate to the .git/hooks directory within your repository, where Git stores sample hook scripts. Choose the appropriate hook (such as pre-commit or commit-msg), and create a script with the desired commands (e.g., running tests or checking code style). Make the script executable by using the chmod +x command. When a commit action is performed, Git will automatically execute the corresponding hook script. This helps enforce consistent practices, such as validating commit messages or preventing flawed code from being committed. Hooks can be customized to fit the specific needs of your project or workflow.
+
+## Feature of commit--hooks
+1. Automation of Tasks
+2. Pre-Commit and Post-Commit Support
+3. Quality Control
+4. Customization
+5. Error Prevention
+6. Lightweight Execution
 
 ## Conclusion of Commit Hooks
 Commit hooks (or Git hooks) are a powerful feature provided by Git that enables developers to automate tasks during various stages of the Git workflow. By providing custom scripts that execute automatically at key points in the commit lifecycle (like before or after a commit), commit hooks help enforce project standards, improve code quality, and streamline development processes.
