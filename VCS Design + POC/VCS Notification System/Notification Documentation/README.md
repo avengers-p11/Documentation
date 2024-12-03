@@ -76,7 +76,7 @@ Example:
 
 ### 4. Set Up Webhooks in VCS
 
-#### For GitHub:
+### For GitHub:
 
 i). **Go to the repository's settings**:
    - Navigate to your GitHub repository.
@@ -101,7 +101,7 @@ v). **Choose the events to trigger notifications**:
 vi). **Save the webhook**:
    - Once you've configured the webhook, click **Add webhook** to save your settings.
 
-#### For GitLab:
+### For GitLab:
 
 i). **Go to the project settings**:
    - Navigate to your GitLab project.
