@@ -17,8 +17,8 @@
 4. [Comparison of Branching Strategies](#comparison-of-branching-strategies)
 5. [When to Use Each Strategy](#when-to-use-each-strategy)
 6. [Conclusion](#conclusion)
-7. [References](#references)
-8. [Contact Information](#contact-information)
+7. [Contacts](#contacts)
+8. [References](#references)
 
 ## Purpose
 
@@ -38,10 +38,10 @@ Feature Branch Flow is a simple yet effective branching strategy where each new 
   - Short-lived branches.
   - Ideal for small teams or projects with straightforward development needs.
   - Changes are merged back into the main branch once completed.
-```   
-* [Reference](https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Feature%20Branch/README.md) 
+   
+[Reference](https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Feature%20Branch/README.md) 
 
-```
+
 ### Git Flow
 
 Git Flow is a more structured branching strategy with multiple branches for feature development, releases, and hotfixes. It is well-suited for projects with a formal release cycle.
@@ -50,9 +50,9 @@ Git Flow is a more structured branching strategy with multiple branches for feat
   - Long-lived branches for master, develop, and release.
   - Uses feature branches for new features and hotfix branches for urgent fixes.
   - Provides clear separation between development, testing, and production-ready code.
-```
-References-https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Git%20Flow
-```
+
+[References](https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Git%20Flow)
+
 ### GitLab Flow
 
 GitLab Flow combines aspects of Feature Branch Flow and Git Flow, focusing on deployment environments. It emphasizes continuous integration and deployment, making it suitable for modern DevOps practices.
@@ -61,9 +61,8 @@ GitLab Flow combines aspects of Feature Branch Flow and Git Flow, focusing on de
   - Integrates environment branches (e.g. production ,stagging) with feature branches.
   - Simplifies the merge and deployment process.
   - Supports continuous integration/continuous deployment (CI/CD) pipelines.
-```
-References-https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/GitLab%20flow
-```
+
+[References](https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/GitLab%20flow)
 
 ### Environment Branch Flow
 
@@ -73,9 +72,9 @@ Environment Branch Flow uses long-lived branches that correspond to deployment e
   - Long-lived branches represent different environments.
   - Code promotion flows upstream from less stable to more stable environments.
   - Supports complex deployment scenarios with multiple testing or staging environments.
-```
-References-https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Env%20branch%20flow
-```
+
+[References](https://github.com/avengers-p11/Documentation/tree/main/VCS%20Design%20%2B%20POC/Branching%20Strategy/Env%20branch%20flow)
+
 
 ## How to Choose a Branching Strategy
 
