@@ -13,9 +13,10 @@
 2. [**What**](#what-is-static-code)
 3. [**Why**](#why)
 4. [**Different Tools**](#different-tools)
-5. [**Conclusion**](#conclusion)
-6. [**Contact Information**](#contact-information)
-7. [**References**](#references)
+5. [**Tool POC**](#static-code-analysis-tools-sonarqube-poc)
+6. [**Conclusion**](#conclusion)
+7. [**Contact Information**](#contact-information)
+8. [**References**](#references)
 
 
 
@@ -52,8 +53,9 @@ Static analysis tools are important for checking the quality of code. These tool
 | **JArchitect**     | Structural code analysis   | Visualizes dependencies and validates architecture. | Refactoring large, complex codebases. | Great for architectural validation.           |  Expensive.                                      |
 | **Infer**          | Runtime bug detection      | Detects critical issues like thread safety problems. | Catching deep runtime bugs in large apps. |  Advanced runtime bug detection.               |  May produce false positives.                    |
 
+# Static Code Analysis Tools SonarQube POC
 
-# Prerequisites 
+## Pre-requisites 
 
 ## System Specifications
 
@@ -368,13 +370,53 @@ sudo reboot
 ```
 http://100.26.240.39:9000
 ```
-**Log in to SonarQube using the username “admin” and password “admin”**
+**Step 19. Log in to SonarQube using the username “admin” and password “admin”**
 ![image](https://github.com/user-attachments/assets/aceb6217-a3e7-474d-a903-3f9d3bfbba08)
 
 Once logged in, SonarQube will prompt you to change your password. Enter the current password “admin” and then enter your new password twice as prompted.
+
 ![image](https://github.com/user-attachments/assets/658677aa-d66c-4b3d-8876-0e11ebf9bc6b)
 
+**Step 20. Go to SonarQube and select the project**
 
+![image](https://github.com/user-attachments/assets/170adf86-92c9-48a0-b5b5-af15d1502929)
+
+**Step 21. Create a Local Project: Set up a new or existing project on your machine**
+
+![image](https://github.com/user-attachments/assets/0b49d923-61a7-4120-ae5f-7558dc8c0d3c)
+
+**Step 22. Configure the Project: Prepare your project for analysis by configuring the necessary files**
+![image](https://github.com/user-attachments/assets/76d79553-2d6a-41ab-852a-b4ee40d505be)
+
+**Step 23. Analysis your project which you want**
+
+![image](https://github.com/user-attachments/assets/1da40957-0508-43c9-89e7-3916c6dd4feb)
+
+**Step 24. Generate Token: Create an authentication token in SonarQube**
+
+![image](https://github.com/user-attachments/assets/8a2cc014-c67c-437c-b045-509adb3a0765)
+
+**Step 25. Copy the Token: Copy the generated SonarQube token to use for authentication when running the SonarScanner**
+
+![image](https://github.com/user-attachments/assets/90fde3fa-0b9e-46bc-9f9f-8e474637e604)
+
+**Step 26. Analyze your project** 
+
+![image](https://github.com/user-attachments/assets/8b835153-c969-4c89-b066-5789850c98ea)
+
+**Step 27.Run Analyze on your project**
+![image](https://github.com/user-attachments/assets/5ac3feea-4186-4935-a3a7-e41c2dd8eecb)
+
+**Step 28.Paste the scan command**
+
+![image](https://github.com/user-attachments/assets/2f271634-5d44-421f-b3f3-c6dc526932e3)
+
+**Step 29. After sucessfully run command**
+
+![image](https://github.com/user-attachments/assets/900d6aa0-946d-41cf-bb16-4ba997ca5039)
+
+**Step 26. Code anaylsis report**
+![image](https://github.com/user-attachments/assets/abcbbf30-ba80-4076-a239-17bf858ef516)
 
 
 # Conclusion
