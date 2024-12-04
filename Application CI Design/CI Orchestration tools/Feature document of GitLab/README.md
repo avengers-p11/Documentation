@@ -1,13 +1,14 @@
-## Description of this documention
+# GitLab Documentation 
+## Description of this documentation
 In this documentation, we provided a detailed comparison and analysis of GitLab as a DevOps platform. We outlined GitLab's features, advantages, and disadvantages to understand its suitability for our OT Microservices project. We also discussed the reasons why we decided not to use GitLab
 
 ![image](https://github.com/user-attachments/assets/1291eda3-3468-49e6-81c2-804b6b2f202d)
 
-# GitLab Documentation  
+ 
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|-------------------|---------------------|----------|---------------|---------------|
-| Anjali Dhiman  | 25-11-24      | V1  | 26-11-24           |  | | |
+| Anjali Dhiman  | 25-11-24      | V1  | 04-11-24           | Khushi Malhotra | | |
 
 
 ## Table of Contents  
@@ -15,7 +16,7 @@ In this documentation, we provided a detailed comparison and analysis of GitLab 
 - [Why GitLab](#why-gitlab)  
 - [Features of GitLab](#features-of-gitlab)
 - [Advantages and Disadvantages of Using GitLab](#advantages-and-disadvantages-of-using-gitlab)
-- [Why We Are Not Using GitLab in Our OT Microservice](#why-we-are-not-using-gitlab-in-our-ot-microservice)
+- [Best Practices](#best-practices)
 - [Conclusion](#conclusion)  
 - [Contacts](#contacts)  
 - [References](#references)  
@@ -32,6 +33,8 @@ GitLab stands out as a powerful, all-in-one DevOps solution. Its integrated tool
 
 ---
 ![image](https://github.com/user-attachments/assets/35587628-4854-4b7d-a9b6-181147f00f1a)
+
+**The image shows The Scientific Process in GitLab, which includes planning research, storing files in a repository, publishing and iterating on research, peer reviewing changes, and verifying results to ensure reproducibility. GitLab supports collaboration, version control, and execution, ensuring the transparency and integrity of the research process.**
 
 ## Features of GitLab  
 
@@ -70,32 +73,30 @@ GitLab stands out as a powerful, all-in-one DevOps solution. Its integrated tool
 
 ---
 
-## Why We Are Not Using GitLab in Our OT Microservice
+# Best Practices
 
-| **Reason**                        | **Description**                                                                                                                                   |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Existing Tool Preferences**     | We are already using GitHub for version control and CI/CD, so migrating to GitLab may not provide significant added value at this stage.         |
-| **Limited Expertise**             | Our team is more familiar with GitHub and other tools, and adopting GitLab would require additional training, causing a potential productivity delay. |
-| **Cost Concerns**                 | GitLab offers a free version, but to unlock advanced features, we would need a paid subscription, which might not align with our budget.          |
-| **Feature Overlap**               | The existing tools we use already provide the features GitLab would offer, leading to redundancy and no immediate need for GitLab.                  |
-| **Infrastructure Constraints**    | If we were to self-host GitLab, it would require additional infrastructure and maintenance, which isn't feasible for our current environment.      |
+| **Best Practice**              | **Description**                                                                |
+|---------------------------------|--------------------------------------------------------------------------------|
+| **Commit Messages**             | Use clear, descriptive commit messages.                                         |
+| **Branching Strategy**          | Follow a branching strategy like **GitFlow** or **GitHub Flow**.               |
+| **Merge Requests**              | Always use Merge Requests for code integration and reviews.                    |
+| **CI/CD Pipelines**             | Set up automated **CI/CD** for testing and deployment.                         |
+| **Branch Protection**           | Protect main branches with rules and approvals.                                |
 
-
+---
 ## Conclusion  
 
 GitHub is the preferred platform for our OT Microservices project due to its ease of use, cost-effectiveness, and seamless integration with our existing workflows. While GitLab offers similar features, GitHub meets our needs for version control, CI/CD, and project management without requiring additional migration or resources. The overlap in features and our team's familiarity with GitHub make it the best choice for our project.
 
-
+---
 ## Contacts
 
-| Name| Email Address      |
-|-----|--------------------------|
-| Anjali Dhiman | anjali.dhiman.snaatak@mygurukulam.co |
+| Name| Email Address      |  GitHub | URL |
+|-----|--------------------------|----------|---------|
+| Anjali Dhiman | anjali.dhiman.snaatak@mygurukulam.co |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
 
-| GitHub | URL |
-|----------|---------|
-|  Anjaliopstree  |  https://github.com/Anjaliopstree  |
 
+---
 ## References
 
 |       References          |   Descriptions               |
