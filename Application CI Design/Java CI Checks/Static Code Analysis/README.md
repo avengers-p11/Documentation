@@ -415,7 +415,7 @@ Once logged in, SonarQube will prompt you to change your password. Enter the cur
 
 ![image](https://github.com/user-attachments/assets/900d6aa0-946d-41cf-bb16-4ba997ca5039)
 
-**Step 26. Code anaylsis report**
+**Step 30. Code anaylsis report**
 ![image](https://github.com/user-attachments/assets/abcbbf30-ba80-4076-a239-17bf858ef516)
 
 
