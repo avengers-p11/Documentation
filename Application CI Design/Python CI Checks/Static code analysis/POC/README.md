@@ -114,9 +114,11 @@ SSSSSS
 ## Conclusion
 After conducting bug analysis using SonarQube, it is evident that SonarQube provides a comprehensive overview of code quality, including bugs, code smells, and vulnerabilities. SonarQube's extensive rule set and its ability to integrate with continuous integration pipelines make it a robust tool for maintaining and improving code quality. Therefore, I recommend adopting SonarQube as the primary tool for bug analysis in our attendance API to enhance our code's quality and maintainability.
 
-|NAME|	Email Address|
-|----|---------------|
-|Naresh Boyini| naresh.boyini.snaatak@mygurukulam.co|
+## Contacts
+
+| Name| Email Address      | GitHub | URL |
+|-----|--------------------------|----------|---------|
+| Anjali Dhiman | anjali.dhiman.snaatak@mygurukulam.co |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
 
 
 ## References
