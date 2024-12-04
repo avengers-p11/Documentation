@@ -75,7 +75,6 @@ Before setting up Jenkins, ensure your hardware, software, and security requirem
 | **Monitoring and Reporting** | Provides real-time feedback, logs, and build history via a web interface. |
 | **Security**                | Supports role-based access and integrates with LDAP/Active Directory for authentication. |
 | **Integration with Other Tools** | Works with Docker, Kubernetes, AWS, and more for scalable deployments. |
-| **Extensible API**          | Offers a REST API to manage Jenkins jobs and integrations programmatically. |
 | **Pipeline Visualization**  | Displays graphical views of pipelines for tracking and troubleshooting. |
 | **Build Triggers**          | Automates builds on events like commits, pull requests, or schedules. |
 | **Build and Artifact Management** | Manages built artifacts and integrates with repositories like Nexus or Artifactory. |
