@@ -13,7 +13,7 @@
 2. [**What**](#what-is-bugs-analysis)
 3. [**Why**](#why)
 4. [**Different Tools**](#different-tools)
-5. [**Tool POC**](#bugs-analysis-tools-sonarqube-poc)
+5. [**Tool POC**](#bugs-analysis-tool-sonarqube-poc)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
 8. [**References**](#references)
@@ -59,7 +59,7 @@ Here are some tools for analyzing bugs for Java program.
 | **FindBugs**           | This is used for to find bugs in Java programs, especially runtime bugs.                               | Detects a wide range of issues including performance and security bugs. | Wide range of bug detection. Integrates well with IDEs and build tools. | May produce false positives. Does not cover all bug types.           |
 
 
-# Bugs Analysis Tools SonarQube POC
+# Bugs Analysis Tool (SonarQube POC)
 
 ## Pre-requisites 
 
