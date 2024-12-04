@@ -1,4 +1,4 @@
-#    **Dependency Scanning**
+#    **Dependency Scanning Docmentation and POC**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
@@ -14,9 +14,10 @@
 2. [**What**](#what-is-dependency-scanning)
 3. [**Why**](#why)
 4. [**Different Tools**](#different-tools)
-5. [**Conclusion**](#conclusion)
-6. [**Contact Information**](#contact-information)
-7. [**References**](#references)
+5. [**Tool POC**](#dependency-scaning-tools-maven-poc)
+6. [**Conclusion**](#conclusion)
+7. [**Contact Information**](#contact-information)
+8. [**References**](#references)
 
 
 
@@ -51,6 +52,75 @@ The Dependency-Check tool provides checks for vulnerable components that can be 
 | **Black Duck**               | Identifies security vulnerabilities in open-source components.       | Automated scanning, vulnerability and license management.        | Comprehensive vulnerability database, strong reporting.         | Expensive, requires enterprise subscription for full features.   |
 | **FOSSA**                    | Provides dependency analysis and license compliance.                 | Real-time alerts, vulnerability scanning, integrates with GitHub. | Easy integration, good for managing licenses and vulnerabilities.| Can be costly, limited features in free version.                 |
 | **Semgrep**                  | Static analysis tool that supports dependency scanning for security flaws. | Code scanning, security vulnerabilities detection in dependencies. | Fast scanning, easy to integrate, customizable rules.           | Can require significant tuning for larger codebases.             |
+
+# Dependency Scaning Tools Maven POC
+
+## Prerequisites 
+
+## System Specifications
+| **Specification**          | **Details**                                                      |
+|----------------------------|------------------------------------------------------------------|
+| **Operating System**        | Linux (Ubuntu, CentOS, Amazon Linux 2, etc.)                    |
+| **Java Version**            | Java 8 or higher (JDK). Set **JAVA_HOME** environment variable. |
+| **Memory**                  | Minimum 512 MB RAM (Recommended: 2 GB or more for larger projects). |
+| **Disk Space**              | Minimum 1 GB of free disk space for installation and dependencies. |
+| **Maven Version**           | Apache Maven 3.x (latest stable version).                       |
+| **Network**                 | Internet connection for downloading dependencies from Maven repositories. |
+| **IDE Support** (Optional)  | Eclipse, IntelliJ IDEA, or Visual Studio Code with Maven plugins. |
+
+
+
+## **Step 1. First create the instance t2.micro or as per your bussiness needs.**
+
+## **Step 2. Update and Upgrade System Packages**
+
+```
+sudo apt update
+```
+![image](https://github.com/user-attachments/assets/9b9ae16e-6312-4826-aae7-27788803d1bf)
+
+## **Step 3. Java installation**
+
+```
+sudo apt install -y openjdk-17-jdk
+```
+![image](https://github.com/user-attachments/assets/204ef06f-6d5a-40d4-beff-3c765702f5c1)
+
+##  **Step 4. verify the installed Java version**
+```
+java -version
+```
+
+##  **Step 5. Maven installation**
+
+```
+sudo apt install maven
+```
+![image](https://github.com/user-attachments/assets/2b35ffaa-8da6-4d30-98a4-77509c0e1087)
+
+##  **Step 6. Clone the repo from github**
+
+```
+sudo git clone OT-MICROSERVICES/salary-api
+```
+![image](https://github.com/user-attachments/assets/ef93c8ec-79a9-4225-b60b-b089ce6beafd)
+
+
+##  **Step 7. Change the repo choose the github repo which is cloned already**
+```
+cd salary-api
+```
+
+##  **Step 7. Dependency checking**
+```
+mvn org.owasp:dependency-check-maven:check
+```
+![image](https://github.com/user-attachments/assets/69071e0a-34e6-47e4-a91e-e82601d7d79b)
+
+##  **Dependency Report**
+![image](https://github.com/user-attachments/assets/e2c935e2-b2e1-49d8-8048-5a0d726637da)
+
+
 
 
 # Conclusion
