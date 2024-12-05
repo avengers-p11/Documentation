@@ -26,9 +26,9 @@ GitLab Flow is a modern workflow for continuous integration and continuous deplo
 ---
 
 ## GitLab Flow
-
-GitLab Flow is typically structured into three main workflows:
 ---
+GitLab Flow is typically structured into three main workflows:
+
 ### Feature Branch Workflow:
 
 - Developers create feature branches based on an issue or user story from the GitLab issue tracker.
