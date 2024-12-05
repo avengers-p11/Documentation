@@ -79,10 +79,24 @@ sudo apt update
 ```
 sudo snap install zaproxy --classic
 ```
+![image](https://github.com/user-attachments/assets/ee3f6be2-2f44-4a2f-93d1-80ba231962ed)
+
+
 **Steps 3. Launch OWSAP ZAP**
 ```
 zaproxy
 ```
+**Steps 4. Open OWSAP ZAP and paster your api url in url address box**
+
+![image](https://github.com/user-attachments/assets/08480cbc-13a6-4d47-9239-e7e1db242f0a)
+
+**Steps 5. You can check the process and wait for final report**
+![image](https://github.com/user-attachments/assets/034011ce-c53e-439c-99c6-36c6c1f16d1e)
+
+
+**Steps 6. Result**
+
+![image](https://github.com/user-attachments/assets/3fac393c-5c80-4bfb-af4e-58c12c0d3096)
 
 
 # Conclusion
