@@ -1,4 +1,4 @@
-#    **Bugs Analysis Documentation and POC**
+#    **Documentation and POC of Bugs Analysis**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
