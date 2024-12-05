@@ -132,7 +132,7 @@ Authorization determines what actions a user can perform in Jenkins. Jenkins off
 
 ## Comparison of Methods
 
-|Feature	Built-in	LDAP	OAuth	SAML	Unix|
+|Feature	|Built-in|	LDAP	|OAuth	|SAML|	Unix|
 |---|---|---|---|----|----|
 |Centralized |Management	|No|	Yes	|Yes	|Yes	|No|
 |Multi-factor Authentication|	No	|Depends	|Yes|	Yes|	No|
