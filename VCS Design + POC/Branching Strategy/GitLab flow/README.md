@@ -3,6 +3,7 @@
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
 | Pravesh Kumar      | 16-11-24      | Pravesh Kumar             | 05-12-24           | Shreya | | |
+
 ---
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -61,6 +62,7 @@ GitLab Flow aims to simplify the development process by combining the best aspec
 |Faster Releases	|Automation and CI/CD pipelines enable quicker, more frequent, and confident deployments.|
 |Consistency	|Standardized environment and branch structures ensure uniform processes across stages.|
 |Quality| Control	Automated testing and peer code reviews before merging improve code quality.|
+
 ---
 ### Disadvantages of GitLab Flow
 
@@ -69,16 +71,19 @@ GitLab Flow aims to simplify the development process by combining the best aspec
 |Complexity for Small Teams|	May introduce unnecessary complexity for smaller teams or simple projects.|
 |Learning Curve	|Requires time to learn best practices for teams unfamiliar with GitLab or branching workflows.|
 |Integration Overhead	|Integrating with existing tools and workflows may require additional effort.|
+
 ---
  ### Conclusion
+ 
+GitLab Flow with feature branches offers a straightforward and efficient approach to managing code changes and deployments. By focusing on simplicity, CI/CD integration, and collaboration, it ensures a stable and productive development environment for our project.
 
-GitLab Flow is a powerful workflow that integrates Git, CI/CD, and issue tracking into a unified system, making it easier for teams to collaborate, develop, and deploy applications. It provides many advantages in terms of automation, code quality, and faster releases, but may not be ideal for all teams, especially smaller ones or those with simpler workflows.
 ---
 # Contact Information
 
 | **Name** | **Email address**            | **Github ID**
 |----------|-------------------------------|-------------------|
 | Pravesh Kumar    |  pravesh.kumar611@gmail.com           | Pravesh899 |
+
 ---
 # References
 
