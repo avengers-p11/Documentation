@@ -51,9 +51,34 @@ The list of several relevant testing frameworks for Java is mentioned below
 | TestNG | A testing tool for all types of tests (unit, integration, etc.). | Extra features like @BeforeSuite, @DataProvider. Runs tests in parallel. Test configuration using XML. | Great for managing big test suites. Runs tests faster with parallel execution. | Harder to learn than JUnit. XML setup can be tricky. |
 | Mockito | Creates fake objects to test code. | Makes fake objects to replace real ones. Checks if fake objects are used correctly. Works with JUnit and TestNG. | Helps test without needing actual dependencies. Easy to use with clear syntax. | Doesn't support static methods without extra tools. Overuse can create bad test setups. |
 | Selenium | Automates browsers to test websites. | Works with Chrome, Firefox, Safari, and more. Can be used with JUnit and TestNG. | Tests work across browsers. Supports many languages like Java, Python. | Tests can be slow. Needs extra tools for advanced features. |
-| Spring Test | Tests apps built with Spring Framework. | Helps with integration testing. Supports Spring-specific features like @ContextConfiguration. | Perfect for testing Spring apps. Makes testing dependencies easier. | Only useful for Spring projects. Requires Spring knowledge. |
-| Spock | Tests Java and Groovy programs. | Uses Groovy for easy-to-read tests. Built-in mocking and data-driven tests. | Simple and clear test writing. Great for testing with lots of data. | Needs knowledge of Groovy language. May not suit non-BDD projects. |
-| Arquillian | Tests Java EE apps in real environments. | Runs tests inside containers like WildFly, JBoss. Handles test deployment. | Tests apps in real conditions. Works well with Java EE. | Setup can be complex. Slower because it uses real environments. |
+
+
+# Tool POC (Maven)
+
+## Steps for unit test.
+
+### Related Resources
+**Steps 1. For maven installation steps, please refer to the following resources**
+| Link         | Description         |
+|--------------|------------------------|
+| [Maven](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Java%20CI%20Checks/Static%20Code%20Analysis#tool-poc-sonarqube ) |Tool POC| 
+
+
+**Steps 2. Go to app directory**
+
+![image](https://github.com/user-attachments/assets/9c573b49-aa23-4b8f-b6bb-796a6564d1be)
+
+**Steps 3. Run command for testing**
+
+```
+mvn test
+```
+![image](https://github.com/user-attachments/assets/fe1ebf4c-509c-4edd-bf31-702398c2e206)
+
+**Steps 4.Report output**
+
+![image](https://github.com/user-attachments/assets/a11d9a01-6369-436c-abfe-28080f641229)
+
 
 # Conclusion
 
