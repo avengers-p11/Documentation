@@ -13,7 +13,7 @@
 2. [**What**](#what-is-static-code)
 3. [**Why**](#why)
 4. [**Different Tools**](#different-tools)
-5. [**Tool POC**](#static-code-analysis-tools-sonarqube-poc)
+5. [**Tool POC**](#tool-poc-sonarqube)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
 8. [**References**](#references)
@@ -53,7 +53,7 @@ Static analysis tools are important for checking the quality of code. These tool
 | **JArchitect**     | Structural code analysis   | Visualizes dependencies and validates architecture. | Refactoring large, complex codebases. | Great for architectural validation.           |  Expensive.                                      |
 | **Infer**          | Runtime bug detection      | Detects critical issues like thread safety problems. | Catching deep runtime bugs in large apps. |  Advanced runtime bug detection.               |  May produce false positives.                    |
 
-# Static Code Analysis Tools SonarQube POC
+# Tool POC (SonarQube)
 
 ## Pre-requisites 
 
