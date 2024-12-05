@@ -1,4 +1,4 @@
-# **Code Compilation in Java CI Checks**
+# **Documentation and POC of Code Compilation in Java CI Checks**
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 |------------|--------------|------------|-------------|------------|-----------|-----------|-----------|
