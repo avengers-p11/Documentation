@@ -15,8 +15,9 @@
 1. [**Introduction**](#introduction)
 2. [**What**](#what)
 3. [**Why**](#why)
-4. Steps for creating Ansible role
-5. Steps for run playbook
+4. [**Steps for creating Ansible role**](#Steps-for-creating-ansible-role)
+5. [**Folder Structure**](#folder-structure)
+5. [**Steps to run playbook**](#steps-to-run-playbook)
 8. [**Conclusion**](#conclusion)
 9. [**Contact Information**](#contact-information)
 10. [**References**](#references)
@@ -43,7 +44,15 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 # Steps for creating Ansible role
 
 
+
+# Folder Structure
+
+
+
+
+
 # Conclusion
+
 
 
 
