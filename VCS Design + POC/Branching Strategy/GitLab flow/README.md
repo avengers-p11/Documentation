@@ -7,9 +7,6 @@
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [GitLab Flow](#gitlab-flow) 
- - [Feature Branch Workflow](#feature-branch-workflow)
- - [GitLab Flow with Environment Branches](#gitlab-flow-with-environment-branches)
- - [Release Branch Workflow](#release-branch-workflow)
 3. [Diagram](#diagram)
 4. [Why GitLab Flow](#why-gitlab-flow)
 5. [Advantages of GitLab Flow](#advantages-of-gitlab-flow)
