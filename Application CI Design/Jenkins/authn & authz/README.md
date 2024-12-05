@@ -158,8 +158,8 @@ Jenkins offers flexible authentication and authorization options, with external 
 
 # References
 
-[Jenkins Security Overview](https://www.jenkins.io/doc/book/security/)
-[Jenkins Authentication Methods](https://www.jenkins.io/doc/book/security/authentication/)
-[Jenkins Authorization Strategies](https://www.jenkins.io/doc/book/security/authorization/)
-[Role-based Authorization Strategy Plugin](https://plugins.jenkins.io/role-strategy/)
-[LDAP Plugin Documentation](https://plugins.jenkins.io/ldap/)
+|[Jenkins Security Overview](https://www.jenkins.io/doc/book/security/)|
+|[Jenkins Authentication Methods](https://www.jenkins.io/doc/book/security/authentication/)|
+|[Jenkins Authorization Strategies](https://www.jenkins.io/doc/book/security/authorization/)|
+|[Role-based Authorization Strategy Plugin](https://plugins.jenkins.io/role-strategy/)|
+|[LDAP Plugin Documentation](https://plugins.jenkins.io/ldap/)|
