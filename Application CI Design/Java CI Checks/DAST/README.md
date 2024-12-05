@@ -66,6 +66,24 @@ Here are some tools for DAST.
 | **Acunetix**                  | Automated security scanner for web applications.                                | Detects SQL injection, XSS, and other vulnerabilities.            | Great for quickly identifying common web vulnerabilities.       | Fast scanning, easy to use, covers a wide range of vulnerabilities. | Pricey, fewer customization options for advanced users.         |
 | **AppSpider**                 | Dynamic application security testing tool.                                      | Scanning for Java frameworks, automated vulnerability discovery. | Ideal for automating security testing across Java applications. | Customizable, automates complex scans, supports Java frameworks. | High cost, can generate false positives if not tuned correctly.  |
 
+# Tool POC (OWSAP ZAP)
+
+**Steps 1. Update your OS**
+```
+sudo apt update
+```
+![image](https://github.com/user-attachments/assets/25efe10a-a28c-43e0-93df-15433df596da)
+
+
+**Steps 2. Install OWSAP ZAP**
+```
+sudo snap install zaproxy --classic
+```
+**Steps 3. Launch OWSAP ZAP**
+```
+zaproxy
+```
+
 
 # Conclusion
 
