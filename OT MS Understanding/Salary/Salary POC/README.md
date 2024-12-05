@@ -5,17 +5,18 @@
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
 | Pravesh Kumar      | 11-11-24      | Pravesh Kumar             | 16-11-24           | Nikhil, Khushi, Shikha | | |
 
+---
 ## Table of Contents
 1. [Pre-Requisites](#pre-requisites)
 2. [System Requirements](#system-requirements)
 3. [Architecture](#architecture)
-4. [Step-by-step installation of application](#step-by-step-installation-of-application)
-5. [Clone the salary-api repo in your instance](#clone-the-salary-api-repo-in-your-instance)
-6. [Installation of prerequisites required for salary-api](#installation-of-prerequisites-required-for-salary-api)
-7. [Scylladb Installation and configuration](#scylladb-installation-and-configuration)
-8. [Redis Installation and Configuration](#redis-installation-and-configurtaion)
-9. [Install Maven & Java depndancy](#install-maven-java-depndancy)
-10. [Installation of swagger](#installation-of-swagger)
+4. [Installation of application](#Installation-of-application)
+5. [Installation of prerequisites required for salary-api](#installation-of-prerequisites-required-for-salary-api)
+6. [Scylladb Installation and configuration](#scylladb-installation-and-configuration)
+7. [Redis Installation and Configuration](#redis-installation-and-configurtaion)
+8. [Install Maven & Java depndancy](#install-maven-java-depndancy)
+9. [Installation of swagger](#installation-of-swagger)
+10. [Clone the salary-api repo in your instance](#clone-the-salary-api-repo-in-your-instance)
 11. [Install migration tool](install-migration-tool)
 12. [Run the java runtime command](#run-the-java-runtine-command)
 13. [Output](#output)
@@ -23,7 +24,7 @@
 15. [Conclusion](#conclusion)
 16. [Contact Information](#contact-information)
 17. [References](#references)
-  
+---  
 
 ## Pre-Requisites
 
@@ -35,7 +36,7 @@ The Salary API application have some database, cache manager and package depende
 - [Maven](https://maven.apache.org/)
 
 Maven will be used as package manager to down# Step1: Installation of software Dependenciesload specific version of dependencies to run the Salary API.
-
+---
 ## System Requirements
 
 | **Requirement**        | **Details**                  |
@@ -46,26 +47,22 @@ Maven will be used as package manager to down# Step1: Installation of software D
 | **Processor**          | Dual-core recommended        | 
 | **Instance_Type**    | t2.medium | 
 
-
+---
 ## Architecture
 
 ![Screenshot 2024-11-12 at 12 31 28 AM](https://github.com/user-attachments/assets/5e165de8-db61-4c61-a23d-c67027a0988e)
 
-# Step-by-step installation of [application]
+---
+# Installation of application
 
 ``` bash
 sudo apt update
 ```
-### Clone the salary-api repo in your instance
-``` bash
-git clone https://github.com/OT-MICROSERVICES/salary-api.git
-```
-![Screenshot 2024-11-11 at 10 31 42 PM](https://github.com/user-attachments/assets/37c08836-cf5d-4dc3-bf9f-99f5b2abe207)
-
+---
 # Installation of prerequisites required for salary-api
 
 ## Scylladb Installation and configuration
-
+---
 ### Install a repo file and add the ScyllaDB APT repository to your system:
 ``` bash
 sudo mkdir -p /etc/apt/keyrings
@@ -84,6 +81,7 @@ sudo wget -O /etc/apt/sources.list.d/scylla.list http://downloads.scylladb.com/d
   
 ![Screenshot 2024-11-11 at 10 32 02 PM](https://github.com/user-attachments/assets/3a882821-e761-47e4-bfba-851539d93080)
 
+---
 ### Install ScyllaDB packages.
 ``` bash
 sudo apt-get update
@@ -92,6 +90,7 @@ sudo apt-get install -y scylla
 ```
 ![Screenshot 2024-11-11 at 10 32 57 PM](https://github.com/user-attachments/assets/7226ce40-aabc-4f48-a682-878988c8ebed)
 
+---
 ### Configure I/O settings for ScyllaDB on your VM
 ``` bash
 sudo /opt/scylladb/scripts/scylla_io_setup
@@ -100,6 +99,7 @@ sudo /opt/scylladb/scripts/scylla_io_setup
 
 ![Screenshot 2024-11-11 at 10 33 25 PM](https://github.com/user-attachments/assets/c495a23a-fcf1-447f-a605-18957ceda9d9)
 
+---
 ### Update configuration file of scylla
 ``` bash
 sudo vi /etc/scylla/scylla.yaml
@@ -112,12 +112,12 @@ authorizer: CassandraAuthorizer
 ```
 - These settings enable password authentication and role-based access control in ScyllaDB or Cassandra.
   
-#### Updated the rpc_address with server's private IP:
+- Updated the rpc_address with server's private IP:
 
 rpc_address: <private_IP>
 
 - The setting rpc_address: <private_IP> configures ScyllaDB or Cassandra to listen for client requests on the specified private IP address, limiting access to internal or private network traffic.
-
+---
 ### Restart the scylla-server service and check the status
 ``` bash
 sudo systemctl restart scylla-server.service
@@ -127,6 +127,7 @@ sudo systemctl status scylla-server
 ```
 ![Screenshot 2024-11-11 at 10 45 27 PM](https://github.com/user-attachments/assets/516b67a6-c2eb-4ca9-94e9-c24d7fb1d7b5)
 
+---
 ### Used below command to get into scylladb
 ``` bash
 cqlsh <private_IP> 9042 -u cassandra -p cassandra
@@ -144,13 +145,15 @@ CREATE USER scylladb WITH PASSWORD 'password' SUPERUSER;
 CREATE KEYSPACE employee_db WITH REPLICATION = { 'class': 'SimpleStrategy', 'replication_factor': 1 };
 ```
 - The command creates a keyspace employee_db with a SimpleStrategy replication strategy and a replication factor of 1, meaning one replica of the data will be stored.
-  
+
+---
 #### Verify the employee_db
 ``` bash
 DESCRIBE KEYSPACES;
 ```
 ![Screenshot 2024-11-11 at 10 45 42 PM](https://github.com/user-attachments/assets/21686683-9817-40e8-9b24-117bb7f26ede)
 
+---
 ## Redis Installation and Configuration
 ``` bash
 sudo apt update
@@ -158,12 +161,14 @@ sudo apt install redis-server -y
 ```
 ![Screenshot 2024-11-11 at 11 10 37 PM](https://github.com/user-attachments/assets/4dba6c46-3416-4015-941f-e24468f128c0)
 
+---
 ## Configuration of redis : Enter into redis
 ``` bash
 redis-cli
 ```
 - The command redis-cli opens the Redis command-line interface to interact with a Redis server.
-  
+
+---
 #### Configure user permissions and authentication settings in redis
 ``` bash
 ACL SETUSER scylla on >password ~* +@all
@@ -183,6 +188,7 @@ ACL LIST
 ```
 - The command ACL LIST in Redis displays the list of all Access Control Lists (ACLs) and their associated rules, showing which users have which permissions for various Redis commands and keys.
 
+---
 ### Update the redis config file
 ``` bash
 sudo vi /etc/redis/redis.conf
@@ -196,6 +202,7 @@ redis-cli -h <private_IP> -p 6379 ping
 ```
 - The command connects to a Redis server at the specified IP and port, sending a PING to check if the server is responsive.
 
+---
 ## Install Maven & Java depndancy
 ``` bash
 sudo apt install openjdk-17-jre
@@ -204,6 +211,7 @@ sudo apt install maven -y
 ```
 ![Screenshot 2024-11-11 at 11 16 34 PM](https://github.com/user-attachments/assets/b6d0eba1-636a-48a2-9104-2ede131c7f97)
 
+---
 ## Installation of swagger
 ``` bash
 sudo apt  install jq -y
@@ -228,6 +236,14 @@ sudo chmod +x /usr/local/bin/swagger
   
 ![Screenshot 2024-11-11 at 11 41 22 PM](https://github.com/user-attachments/assets/65bc8d96-40d0-4904-a4d6-cce0100d19ac)
 
+---
+### Clone the salary-api repo in your instance
+``` bash
+git clone https://github.com/OT-MICROSERVICES/salary-api.git
+```
+![Screenshot 2024-11-11 at 10 31 42 PM](https://github.com/user-attachments/assets/37c08836-cf5d-4dc3-bf9f-99f5b2abe207)
+
+---
 ## Enter into salary-api directory
 ``` bash
 cd salary-api/
@@ -278,16 +294,18 @@ StandardError=journal
 WantedBy=multi-user.target
 
 ```
-
+---
 ### Enable and start the salary-api service
 ``` bash
 sudo systemctl enable salary-api.service
 sudo systemctl start salary-api.service
 ```
+---
 ### Restart the salary-api service
 ``` bash
 sudo systemctl restart salary-api.service
 ```
+---
 ## Install migration tool
 
 ### Download the zip file of the migration tool(migrate)
@@ -325,10 +343,12 @@ sudo vi src/test/java/com/opstree/microservice/salary/config/OpenAPIConfigTests.
 assertEquals("http://18.212.99.151:8080", server.getUrl());
 //
 
+---
 ## Update the migration.json with private IP
 ``` bash
 sudo vi migration.json
 ```
+---
 ## run the clean package inside the salary-api directory
 ``` bash
 mvn clean package
@@ -338,29 +358,32 @@ mvn clean package
 ![Screenshot 2024-11-11 at 11 45 01 PM](https://github.com/user-attachments/assets/c35b4369-96c8-4658-b3ba-0ff202da5c01)
 ![Screenshot 2024-11-11 at 11 45 12 PM](https://github.com/user-attachments/assets/200cd88b-f05f-4fa5-b62b-ee652faf1de7)
 
-
+---
 ### Install make command
 ``` bash
 sudo apt install make
 ```
 - The command installs the make utility, which automates the build process, using APT with superuser privileges.
-  
+
+---
 ## Run the migration command
 ``` bash
 make run-migrations
 ```
 - The command runs database migrations as defined in the Makefile under the run-migrations target.
-  
+
+  ---
 ## Run the java runtime command
 ``` bash
 java -jar target/salary-0.1.0-RELEASE.jar
 ```
 - The command runs the Java application packaged in the salary-0.1.0-RELEASE.jar file.
-  
+ --- 
 ## Output
 
 ![Screenshot 2024-11-11 at 11 52 13 PM](https://github.com/user-attachments/assets/a990c12e-2c05-4765-b7c3-86900693e22e)
 
+---
 ## Error ##
 
 ### Port is already is in use
@@ -374,17 +397,19 @@ Run the command again "java -jar target/salary-0.1.0-RELEASE.jar"
 
 ![Screenshot 2024-11-15 at 2 18 43 PM](https://github.com/user-attachments/assets/b2e7061f-bd2d-45e4-bf46-b8c4faaa5c78)
 
+---
 ## Conclusion
 
 The Salary API is an essential service in the OT-Microservices system, designed for efficient management of salary transactions. Using ScyllaDB for scalable storage, Redis for caching, Migrate for database version control, Swagger for interactive documentation, and Maven for streamlined builds, it offers high performance and reliability. The API integrates seamlessly with other microservices, supporting fast data access and scalability, which enhances user experience and supports continuous deployment in an enterprise environment.
 
-
+---
 # Contact Information
 
 | **Name** | **Email address**            | **Github ID**
 |----------|-------------------------------|-------------------|
 | Pravesh Kumar    |  pravesh.kumar611@gmail.com           | Pravesh899 |
 
+---
 # References
 
 | **Link** | **Description**            |
