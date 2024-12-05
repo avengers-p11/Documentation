@@ -1,4 +1,4 @@
-# Detailed documentation of SonarQube Setup & POC
+# Documentation on SonarQube Setup using Ansible role
 
 
 ![image](https://github.com/user-attachments/assets/a472ecb0-f5fb-4a4d-8077-c5dc45ef5ef3)
@@ -15,81 +15,33 @@
 1. [**Introduction**](#introduction)
 2. [**What**](#what)
 3. [**Why**](#why)
-4. SonarQube's Features
-5. Pros
-6. cons
-7. SonarQube Alternatives
+4. Steps for creating Ansible role
+5. Steps for run playbook
 8. [**Conclusion**](#conclusion)
 9. [**Contact Information**](#contact-information)
 10. [**References**](#references)
 
 # Introduction
-SonarQube is a powerful tool designed to continuously inspect your code quality and security. It performs automatic reviews through static code analysis, identifying bugs, vulnerabilities, and code smells in various programming languages.
+Ansible is a powerful automation tool that lets you manage and configure your infrastructure efficiently. It uses a simple language called YAML to define tasks and playbooks.
 
 # What 
-SonarQube (formerly known as Sonar) is an open-source platform developed by SonarSource for continuously checking the quality of code. It automatically reviews code by performing static analysis to detect bugs, code smells (issues that may not be bugs but could make the code harder to maintain), and other potential problems. SonarQube supports 29 programming languages.
+Ansible Roles are a powerful way to organize and reuse automation tasks. They provide a standardized structure for grouping related tasks, variables, files, templates, and handlers. This modular approach makes your playbooks more manageable, reusable, and easier to maintain.
 
 
 # Why ?
-SonarQube as a quality control inspector for your code. It helps you write better, more reliable, and more secure software.
+Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
 
-| **Aspect**                   | **Description**                                                                                                                                                   |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Code Quality**              | SonarQube checks your code for bugs and mistakes, helping you improve its quality by giving you reports and advice.                                                 |
-| **Code Security**             | It finds security problems in your code, like vulnerabilities or unsafe practices, to make sure your app is safe to use.                                            |
-| **Technical Debt**            | SonarQube helps you fix messy code and bad practices, making the code easier to read and maintain in the future.                                                     |
-| **Continuous Quality Management** | It works with your development process, checking code quality automatically at each stage, so issues are caught early.                                             |
-| **Developer Skills**          | SonarQube gives feedback to developers, helping them learn from mistakes and write better code next time.                                                          |
-| **Scalability**               | SonarQube can grow with your project and can be used either on your own servers or in the cloud.                                                                   |
-| **Language Support**          | It supports over 30 programming languages, like Java, Python, PHP, JavaScript, and more, so it works with many types of code.                                      |
+# Why Use Ansible Roles?
 
-## SonarQube's Features
+| **Reason**                     | **Description**                                                                                       |
+|--------------------------------|-------------------------------------------------------------------------------------------------------|
+| **Simplify Complex Deployments** | Organizes tasks into reusable, modular components, making complex setups easier to manage.           |
+| **Reduce Human Error**           | Ensures consistent execution of tasks through automation, reducing the chance of manual mistakes.     |
+| **Accelerate Deployment Times**  | Speeds up deployments by reusing predefined tasks and configurations.                                |
+| **Improve Consistency and Compliance** | Standardizes configurations, ensuring uniformity across environments and aiding regulatory compliance. |
+                                  |
+# Steps for creating Ansible role
 
-| **Feature**                  | **Description**                                                                                                        |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| **Built-in Rulesets**         | SonarQube provides predefined coding rules that help ensure consistency and best practices in your codebase.            |
-| **Plugins**                   | SonarQube supports plugins to extend its functionality and integrate with other tools, such as CI/CD systems.            |
-| **Sonar Quality Gate**        | A set of conditions that a project must meet before it is considered to be of good quality, such as no critical issues.  |
-| **Taint Analysis**            | Detects potential security vulnerabilities by analyzing how untrusted input is used in the application.                 |
-| **Code Coverage Insights**    | Provides insights into how much of the code is tested by unit tests, helping improve test coverage.                    |
-| **Code Smells Insights**      | Identifies areas in the code that are hard to maintain, making the codebase easier to refactor and improve.              |
-| **Detailed Reports**          | Offers comprehensive reports on code quality, security issues, test coverage, and more, helping teams take action.       |
-
-# Pros
-
-| **Pros**                         | **Description**                                                                                                                     |
-|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **Early Bug Detection**           | Identifies potential issues early in the development cycle, saving time and effort.                                                |
-| **Improved Code Quality**         | Enforces coding standards and best practices, leading to cleaner and more maintainable code.                                       |
-| **Enhanced Security**             | Detects security vulnerabilities, such as SQL injection and cross-site scripting (XSS).                                             |
-| **Increased Productivity**        | Automates code analysis, freeing up developer time for more creative tasks.                                                        |
-| **Better Collaboration**          | Provides a shared understanding of code quality and security issues within teams.                                                 |
-| **Reduced Technical Debt**        | Prioritizes code improvements and helps reduce the accumulation of technical debt.                                                |
-# Cons
-
-| **Cons**                          | **Description**                                                                                                                     |
-|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **Steep Learning Curve**          | Can be complex to set up and configure, especially for large-scale projects.                                                       |
-| **Performance Overhead**          | Analyzing large codebases can impact build times.                                                                                   |
-| **False Positives and Negatives** | May sometimes incorrectly flag issues or miss real problems.                                                                       |
-| **Integration Challenges**        | Integrating with existing development workflows can require effort and customization.                                              |
-| **Cost**                          | While there's a free version, enterprise features and large-scale usage might incur costs.                                         |
-
-
-## SonarQube Alternatives
-
-| **Tool**                | **Description**                                                                                                          |
-|-------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| **Checkmarx**            | A static application security testing (SAST) tool focused on identifying vulnerabilities in code during development.       |
-| **Codacy**               | Automated code review tool that provides static analysis to identify issues like code complexity, style violations, and bugs.|
-| **Coverity**             | A static analysis tool that helps identify and fix critical defects and security vulnerabilities in the codebase.          |
-| **DeepCode**             | AI-powered code review tool that uses machine learning to suggest improvements in code quality, security, and performance.  |
-| **Lint**                 | A static code analysis tool for detecting errors and enforcing coding standards, typically used for simpler projects.       |
-| **PMD**                  | Open-source tool that finds common programming flaws like unused variables and empty catch blocks in code.                 |
-| **VSCode Extensions**    | Extensions for Visual Studio Code that provide real-time static analysis and linting for various languages like JavaScript and Python. |
-| **GitLab CI/CD**         | Built-in static analysis and security scanning tools integrated into GitLab’s CI/CD pipelines for automated code checks.    |
-| **CodeClimate**          | A tool that helps monitor code quality, maintainability, and test coverage, with several analysis engines for detailed insights. |
-| **JSHint**               | A tool for detecting errors in JavaScript code and ensuring it follows a consistent style while catching potential issues.   |
 
 # Conclusion
 
