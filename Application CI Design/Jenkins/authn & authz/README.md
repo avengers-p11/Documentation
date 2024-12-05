@@ -1,5 +1,5 @@
 
-# Authn & Authz
+# Authentication & Authorization
 ---
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
@@ -8,16 +8,19 @@
 ---
 
 1. [Introduction](#introduction)
-2. 
-4. [Conclusion](#conclusion)
-5. [Contact Information](#contact-information)
-6. [References](#references)
+2. [Authentication in Jenkins](#authentication-in-jtnkins)
+3. [Authorization in Jenkins](#Authorization-in-Jenkins)
+4. [Securing Jenkins with AuthN & AuthZ](#Securing-Jenkins-with-AuthN-&-AuthZ)
+5. [Comparison of Methods](#Comparison-of-Methods)
+6. [Conclusion](#conclusion)
+7. [Contact Information](#contact-information)
+8. [References](#references)
 
 ---
 
 ## Introduction
 
-Authentication (AuthN) and Authorization (AuthZ) are essential components of Jenkins security, ensuring secure access and proper role-based permissions for users.
+Authentication and Authorization are essential components of Jenkins security, ensuring secure access and proper role-based permissions for users.
 
 ---
 ## Authentication in Jenkins
@@ -32,28 +35,28 @@ Authentication is the process of verifying the identity of a user. Jenkins provi
 - Suitable for small teams or simple setups.
 
 ### External Authentication Methods
-1. LDAP:
+#### 1. LDAP:
 
 - Integrates Jenkins with enterprise LDAP servers (e.g., Active Directory).
 - Ideal for organizations with centralized user management.
 - Requires configuring server details like server, root DN, and authentication credentials in Jenkins.
 
-2. Single Sign-On (SSO):
+#### 2. Single Sign-On (SSO):
 
 - Enables SSO through identity providers like Okta, Google, or Azure AD.
 - Configured using plugins like SAML 2.0 Plugin or OIDC Plugin.
 - Enhances user convenience and security by managing authentication externally.
 
-3. OAuth:
+#### 3. OAuth:
 
 - Jenkins supports OAuth via plugins to integrate with providers like GitHub, GitLab, and Google.
 - Simplifies authentication for teams already using these platforms.
 
-4. Unix User Accounts:
+#### 4. Unix User Accounts:
 
 - Jenkins can authenticate against local Unix user accounts on the Jenkins server.
 
-5. Other Methods:
+#### 5. Other Methods:
 
 - Plugins like Kerberos Authentication or Active Directory Plugin provide additional options.
   
@@ -71,59 +74,59 @@ Authentication is the process of verifying the identity of a user. Jenkins provi
 Authorization determines what actions a user can perform in Jenkins. Jenkins offers various strategies for access control.
 
 ### Authorization Strategies
-1. Matrix-based Security:
+#### 1. Matrix-based Security:
 
 - Fine-grained control over permissions for individual users or groups.
 - Permissions like Job Read, Build, Administer, etc., can be assigned to users/groups.
 
-2. Role-based Authorization Strategy:
+#### 2. Role-based Authorization Strategy:
 
 - Assign roles to users/groups with specific permissions.
 - Global roles, project roles, and agent roles are defined for managing access.
 - Requires installing the Role-based Authorization Strategy Plugin.
 
-3. Project-based Matrix Authorization:
+#### 3. Project-based Matrix Authorization:
 
 - Similar to Matrix-based Security but scoped to individual projects.
 - Useful for managing large teams with varying project permissions.
 
-4. Logged-in Users Can Do Anything:
+#### 4. Logged-in Users Can Do Anything:
 
 - Grants full access to all logged-in users.
 - Suitable for small teams with high trust levels.
 
-5. Anyone Can Do Anything:
+#### 5. Anyone Can Do Anything:
 
 - No restrictions on access.
 - NOT recommended for production environments.
 
-6. Custom Authorization Plugins:
+#### 6. Custom Authorization Plugins:
 
 - Plugins like Authorize Project Plugin or GitLab Commit Status Plugin allow further customization of permissions based on specific conditions.
 ---
 
 ## Securing Jenkins with AuthN & AuthZ
-1. Enable Security:
+#### 1. Enable Security:
 
 - Go to Manage Jenkins → Configure Global Security.
 - Enable security and choose appropriate authentication and authorization strategies.
 
-2. Use External Providers for Authentication:
+#### 2. Use External Providers for Authentication:
 
 - Reduces the need for local credential storage.
 - Ensures stronger password policies and 2FA enforcement.
 
-3. Role-based Authorization:
+#### 3. Role-based Authorization:
 
 - Define clear roles and responsibilities to prevent unauthorized actions.
 - Limit Administer permissions to a minimal set of users.
 
-4. Audit Logs:
+#### 4. Audit Logs:
 
 - Regularly review Jenkins audit logs for any suspicious activity.
 - Use plugins like Audit Trail Plugin for enhanced logging.
 
-5. Use Tokens for API Access:
+#### 5. Use Tokens for API Access:
 
 - Avoid hardcoding passwords in scripts.
 - Use personal access tokens or API tokens instead.
@@ -155,7 +158,7 @@ Jenkins offers flexible authentication and authorization options, with external 
 
 # References
 
-[Jenkins Security Overview(https://www.jenkins.io/doc/book/security/)
+[Jenkins Security Overview](https://www.jenkins.io/doc/book/security/)
 [Jenkins Authentication Methods](https://www.jenkins.io/doc/book/security/authentication/)
 [Jenkins Authorization Strategies](https://www.jenkins.io/doc/book/security/authorization/)
 [Role-based Authorization Strategy Plugin](https://plugins.jenkins.io/role-strategy/)
