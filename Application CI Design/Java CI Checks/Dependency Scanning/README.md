@@ -1,4 +1,4 @@
-#    **Dependency Scanning Docmentation and POC**
+#    **Docmentation and POC of Dependency Scanning**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
