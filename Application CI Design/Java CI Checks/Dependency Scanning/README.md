@@ -14,7 +14,7 @@
 2. [**What**](#what-is-dependency-scanning)
 3. [**Why**](#why)
 4. [**Different Tools**](#different-tools)
-5. [**Tool POC**](#dependency-scaning-tools-maven-poc)
+5. [**Tool POC**](owsap-dependency-check-using-maven)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
 8. [**References**](#references)
@@ -53,7 +53,7 @@ The Dependency-Check tool provides checks for vulnerable components that can be 
 | **FOSSA**                    | Provides dependency analysis and license compliance.                 | Real-time alerts, vulnerability scanning, integrates with GitHub. | Easy integration, good for managing licenses and vulnerabilities.| Can be costly, limited features in free version.                 |
 | **Semgrep**                  | Static analysis tool that supports dependency scanning for security flaws. | Code scanning, security vulnerabilities detection in dependencies. | Fast scanning, easy to integrate, customizable rules.           | Can require significant tuning for larger codebases.             |
 
-# Dependency Scaning Tools Maven POC
+# Tool POC (OWASP Dependency-Check using Maven)
 
 ## Prerequisites 
 
