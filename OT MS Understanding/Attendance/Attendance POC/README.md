@@ -1,9 +1,11 @@
 #    **Attendance API POC**
 #    **(OT-MICROSERVICES)**
-
-| **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
-|-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   11-11-24       | v1 | Mohit Saini          |     15-11-24            | Kushi   |      |     |
+| Created     |    Version   | Author | Comment | Reviewer | Date |
+|:------------------:|:-------------:|:-------------:|:-------------:|:------------------:|:--------:|
+| 11-11-2024   | V1   | Mohit Saini | Internal Review | Komal Jaiswal and Amit kumar Nagar| 15-11-24 |
+|   |  V2 | Mohit Saini | L0 | Kushi | 21-11-24 |
+|  | V3 | Mohit Saini | L1  | Parmod |21-11-24|
+| | V4 |  Mohit Saini | L2  | Piyush |5-12-2024 |
 
 
 ## **Table of Contents**
@@ -355,7 +357,7 @@ gunicorn app:app \--log-config log.conf -b 0.0.0.0:8080
 
 # Conclusion
 
-This API provides an efficient, scalable, and secure solution for managing attendance using modern technologies. It simplifies the setup process and ensures reliable performance, making it ideal for organizations looking to automate and streamline attendance management.
+This API is a tool that helps businesses keep track of their employees' attendance. It's designed to be easy to use, reliable, and secure. By using this API, we can automate the process of recording attendance, generating reports, and sending reminders.
 
 # Contact Information
 
