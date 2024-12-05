@@ -86,6 +86,11 @@ sudo snap install zaproxy --classic
 ```
 zaproxy
 ```
+
+Ensure that your application or api should be running before using this service.
+
+![image](https://github.com/user-attachments/assets/a371523d-95e0-4d8b-88c1-44e3f3024146)
+
 **Steps 4. Open OWSAP ZAP and paster your api url in url address box**
 
 ![image](https://github.com/user-attachments/assets/08480cbc-13a6-4d47-9239-e7e1db242f0a)
