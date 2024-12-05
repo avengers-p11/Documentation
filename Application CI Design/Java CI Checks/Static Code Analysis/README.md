@@ -46,12 +46,7 @@ Static analysis tools are important for checking the quality of code. These tool
 | **PMD**            | Detecting code inefficiencies | Highlights dead code, duplications, and unused variables. | Improving code efficiency and cleanup. | Predefined and custom rules.                  | Limited focus on runtime risks.                 |
 | **FindBugs/SpotBugs** | Detecting runtime risks    | Focuses on identifying actual bugs like null pointers. | Preventing common runtime issues. | Strong at finding runtime errors.             | Does not handle modern Java well (older syntax). |
 | **SonarQube**      | Comprehensive code analysis | Tracks technical debt, provides dashboards for trends. | Managing overall code quality at scale. | All-in-one solution for code quality.         | Resource-intensive.                             |
-| **Error Prone**    | Compile-time error detection | Integrates with Java compiler to catch bugs early. | Preventing bugs during compilation. | Immediate feedback during compilation.        |  Limited coverage beyond compile-time errors.    |
-| **Coverity**       | Enterprise-grade defect analysis | Detects critical bugs and security vulnerabilities. | High-risk or large-scale enterprise apps. |  Excellent for deep defect detection.          |  Expensive.                                      |
-| **Codacy**         | Cloud-based code reviews   | Provides instant feedback on pull requests.   | Automating code reviews in teams.  | Automates reviews efficiently.                | Requires internet connectivity.                 |
-| **Lint4j**         | Lightweight linting        | Simple and lightweight for logical error detection. | Small to medium projects.         |  Lightweight and fast.                         |  Limited scope; focuses only on simple issues.   |
-| **JArchitect**     | Structural code analysis   | Visualizes dependencies and validates architecture. | Refactoring large, complex codebases. | Great for architectural validation.           |  Expensive.                                      |
-| **Infer**          | Runtime bug detection      | Detects critical issues like thread safety problems. | Catching deep runtime bugs in large apps. |  Advanced runtime bug detection.               |  May produce false positives.                    |
+
 
 # Tool POC (SonarQube)
 
@@ -421,8 +416,7 @@ Once logged in, SonarQube will prompt you to change your password. Enter the cur
 
 # Conclusion
 
-Java is a complex language, and static code analysis tools can greatly aid the development process by identifying issues early in the code lifecycle. These tools help ensure code quality, security, and maintainability, ultimately reducing long-term costs and improving overall software reliability. However, static analysis should always be paired with dynamic analysis and other testing tools for a comprehensive approach to code quality. 
-
+Static code analysis tools in Java help identify issues early, improving code quality, security, and maintainability, which reduces long-term costs. However, they should be paired with dynamic analysis and other testing methods for comprehensive code quality.
 
 #  Contact Information
 
