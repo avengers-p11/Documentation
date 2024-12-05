@@ -30,18 +30,19 @@ GitLab Flow is typically structured into three main workflows:
 
 - Feature Branch Workflow:
 
-- Developers create feature branches based on an issue or user story from the GitLab issue tracker.
-- After development, the feature branch is merged into the main branch through a merge request (MR).
-- CI/CD pipelines are triggered upon merging, ensuring code quality through automated testing and deployment.
+  Developers create feature branches based on an issue or user story from the GitLab issue tracker.
+  After development, the feature branch is merged into the main branch through a merge request (MR).
+  CI/CD pipelines are triggered upon merging, ensuring code quality through automated testing and deployment.
 
 - GitLab Flow with Environment Branches (for Deployments):
 
-- Developers create feature branches for development and deploy these branches into different environments (e.g., development, staging, production).
-- Each environment is linked to a specific GitLab branch, ensuring consistency across various stages of the application.
+  Developers create feature branches for development and deploy these branches into different environments (e.g., development, staging, production).
+  Each environment is linked to a specific GitLab branch, ensuring consistency across various stages of the application.
 
 - Release Branch Workflow:
 
-- Release branches are used for preparing production releases. These branches are created from the main branch and go through testing and staging before being deployed to production.
+  Release branches are used for preparing production releases. These branches are created from the main branch and go through testing and staging before being deployed to production.
+
 ---
 
 ## Diagram
