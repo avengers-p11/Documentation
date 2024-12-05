@@ -2,21 +2,21 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Pravesh Kumar      | 16-11-24      | Pravesh Kumar             | 16-11-24           | Shreya | | |
+| Pravesh Kumar      | 16-11-24      | Pravesh Kumar             | 05-12-24           | Shreya | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [GitLab Flow](#gitlab-flow)  
+2. [GitLab Flow](#gitlab-flow) 
+ - [Feature Branch Workflow](#feature-branch-workflow)
+ - [GitLab Flow with Environment Branches](#gitlab-flow-with-environment-branches)
+ - [Release Branch Workflow](#release-branch-workflow)
 3. [Diagram](#diagram)
 4. [Why GitLab Flow](#why-gitlab-flow)
-5. [Feature Branch Workflow](#feature-branch-workflow)
-6. [GitLab Flow with Environment Branches](#gitlab-flow-with-environment-branches)
-7. [Release Branch Workflow](#release-branch-workflow)
-8. [Advantages of GitLab Flow](#advantages-of-gitlab-flow)
-09. [Disadvantages of GitLab Flow](#disadvantages-of-gitlab)
-10. [Conclusion](#conclusion)
-11. [Contact Information](#contact-information)
-12. [References](#references)
+5. [Advantages of GitLab Flow](#advantages-of-gitlab-flow)
+6. [Disadvantages of GitLab Flow](#disadvantages-of-gitlab)
+7. [Conclusion](#conclusion)
+8. [Contact Information](#contact-information)
+9. [References](#references)
 ---
 
 ## Introduction
