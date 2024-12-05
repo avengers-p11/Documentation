@@ -1,4 +1,4 @@
-#    **DAST**
+#    **Documentation and POC of DAST (Dynamic Application Security Testing)**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
