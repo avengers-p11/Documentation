@@ -1,4 +1,4 @@
-#    **Static Code Anaylysis Documentation and POC**
+#    **Documentation and POC of Static Code Anaylysis**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
