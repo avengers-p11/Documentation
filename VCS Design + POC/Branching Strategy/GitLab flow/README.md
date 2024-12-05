@@ -19,6 +19,13 @@
 ## Introduction
 
 The GitLab Flow is a branching and deployment strategy that emphasizes simplicity and flexibility while aligning with the CI/CD workflows of GitLab. It serves as an alternative to the more complex Git Flow and focuses on integrating continuous development, delivery, and deployment.
+
+---
+
+## Diagram
+
+![image](https://github.com/user-attachments/assets/21e6eca5-0291-4ab0-bb27-47c1a99f1b4e)
+
 ---
 
 ## GitLab Flow
@@ -34,11 +41,6 @@ Usage of feature branches for developing new features or bug fixes.
 - Code review and CI/CD validation.
 - Merge the branch after approval.
 
----
-
-## Diagram
-
-![image](https://github.com/user-attachments/assets/21e6eca5-0291-4ab0-bb27-47c1a99f1b4e)
 ---
 ## Why GitLab Flow?
 
