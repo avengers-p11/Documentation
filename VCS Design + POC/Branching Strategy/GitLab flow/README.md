@@ -7,32 +7,27 @@
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Diagram](#diagram)
-3. [Why GitLab Flow](#why-gitlab-flow)
-4. [GitLab Flow](#gitlab-flow)
+3. [GitLab Flow](#gitlab-flow)
+4. [Why GitLab Flow](#why-gitlab-flow)
 5. [Feature Branch Workflow](#feature-branch-workflow)
 6. [GitLab Flow with Environment Branches](#gitlab-flow-with-environment-branches)
 7. [Release Branch Workflow](#release-branch-workflow)
 8. [Advantages of GitLab Flow](#advantages-of-gitlab-flow)
-9. [Disadvantages of GitLab Flow](#disadvantages-of-gitlab)
+09. [Disadvantages of GitLab Flow](#disadvantages-of-gitlab)
 10. [Conclusion](#conclusion)
 11. [Contact Information](#contact-information)
 12. [References](#references)
+---
 
 ## Introduction
 
 GitLab Flow is a modern workflow for continuous integration and continuous deployment (CI/CD) that enhances collaboration, development, and code management processes in Git-based projects. It integrates source control management (SCM) with CI/CD pipelines, ensuring smoother workflows and faster delivery cycles.
+
+---
 ## Diagram
 
 ![image](https://github.com/user-attachments/assets/21e6eca5-0291-4ab0-bb27-47c1a99f1b4e)
-
-## Why GitLab Flow?
-
-GitLab Flow aims to simplify the development process by combining the best aspects of feature branching, issue tracking, and CI/CD practices into one unified approach. The primary reasons to adopt GitLab Flow include:
-
-- Seamless Integration with GitLab: GitLab Flow leverages GitLab's powerful features like CI/CD pipelines, issue tracking, and code review, making it a natural fit for GitLab users.
-- Simplified Workflow: By streamlining branching strategies and integrating issue tracking into the workflow, GitLab Flow makes it easier for teams to collaborate and stay on the same page.
-- Improved Automation: With CI/CD pipelines automatically triggered by GitLab Flow's branching model, deployments and tests become automated, reducing manual overhead.
-
+---
 ## GitLab Flow
 
 GitLab Flow is typically structured into three main workflows:
@@ -51,6 +46,17 @@ GitLab Flow is typically structured into three main workflows:
 ### Release Branch Workflow:
 
 - Release branches are used for preparing production releases. These branches are created from the main branch and go through testing and staging before being deployed to production.
+---
+
+## Why GitLab Flow?
+
+GitLab Flow aims to simplify the development process by combining the best aspects of feature branching, issue tracking, and CI/CD practices into one unified approach. The primary reasons to adopt GitLab Flow include:
+
+- Seamless Integration with GitLab: GitLab Flow leverages GitLab's powerful features like CI/CD pipelines, issue tracking, and code review, making it a natural fit for GitLab users.
+- Simplified Workflow: By streamlining branching strategies and integrating issue tracking into the workflow, GitLab Flow makes it easier for teams to collaborate and stay on the same page.
+- Improved Automation: With CI/CD pipelines automatically triggered by GitLab Flow's branching model, deployments and tests become automated, reducing manual overhead.
+
+---
 
 ### Advantages of GitLab Flow
 
