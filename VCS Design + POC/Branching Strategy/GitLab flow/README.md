@@ -21,27 +21,21 @@
 
 ## Introduction
 
-GitLab Flow is a modern workflow for continuous integration and continuous deployment (CI/CD) that enhances collaboration, development, and code management processes in Git-based projects. It integrates source control management (SCM) with CI/CD pipelines, ensuring smoother workflows and faster delivery cycles.
-
+The GitLab Flow is a branching and deployment strategy that emphasizes simplicity and flexibility while aligning with the CI/CD workflows of GitLab. It serves as an alternative to the more complex Git Flow and focuses on integrating continuous development, delivery, and deployment.
 ---
 
 ## GitLab Flow
-GitLab Flow is typically structured into three main workflows:
 
-- Feature Branch Workflow:
+The role of the main branch as a stable, deployable branch.
+Usage of feature branches for developing new features or bug fixes.
 
-  Developers create feature branches based on an issue or user story from the GitLab issue tracker.
-  After development, the feature branch is merged into the main branch through a merge request (MR).
-  CI/CD pipelines are triggered upon merging, ensuring code quality through automated testing and deployment.
+### Workflow steps:
 
-- GitLab Flow with Environment Branches (for Deployments):
-
-  Developers create feature branches for development and deploy these branches into different environments (e.g., development, staging, production).
-  Each environment is linked to a specific GitLab branch, ensuring consistency across various stages of the application.
-
-- Release Branch Workflow:
-
-  Release branches are used for preparing production releases. These branches are created from the main branch and go through testing and staging before being deployed to production.
+- Create a feature branch.
+- Commit and test changes locally.
+- Push the branch and open a merge request (MR).
+- Code review and CI/CD validation.
+- Merge the branch after approval.
 
 ---
 
