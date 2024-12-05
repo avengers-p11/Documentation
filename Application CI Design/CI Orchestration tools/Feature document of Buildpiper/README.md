@@ -1,11 +1,24 @@
+# BuildPiper Documentation
 # Description of this documentation 
-This documentation provides an overview of BuildPiper, its features, advantages and disadvantages, reasons for not using it in our OT Microservices project, and a conclusion on its suitability for our team.
+This documentation provides an overview of BuildPiper, its purpose, features, advantages, and best practices. It evaluates BuildPiper’s suitability for Kubernetes-based deployments and highlights its benefits like scalability and multi-cloud integration. Additionally, it discusses challenges such as a steep learning curve and self-hosting requirements. The document concludes with reasons for not adopting BuildPiper for our team, contact details for queries, and references for further reading.
 
 ![image](https://github.com/user-attachments/assets/81fe3533-59a4-4874-86d4-e3f81b92cf71)
 
 
-# BuildPiper Documentation
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Why BuildPiper](#why-buildpiper)
+- [Features of BuildPiper](#features-of-buildpiper)
+- [Advantages and Disadvantages](#advantages-and-disadvantages)
+  - [Advantages](#advantages)
+  - [Disadvantages](#disadvantages)
+- [Best Practices](#best-practices)
+- [Conclusion](#conclusion)
+- [Contacts](#contacts)
+- [References](#references)
+
+---
 ## Introduction
 BuildPiper is an open-source, self-hosted, and scalable CI/CD platform designed to simplify the DevOps process by streamlining code delivery. It is tailored to support cloud-native environments and large-scale software development, providing an easy way to manage builds and deployments across different environments.
 
@@ -31,7 +44,7 @@ If we are using Kubernetes in our project, BuildPiper becomes an excellent choic
 
 ---
 
-## Advantages and Disadvantages of Using BuildPiper
+## Advantages and Disadvantages
 
 ### Advantages
 
@@ -54,23 +67,25 @@ If we are using Kubernetes in our project, BuildPiper becomes an excellent choic
 
 ---
 
-## Why We Are Not Using BuildPiper in Our OT Microservice
+## Best Practices
 
-We decided not to use BuildPiper in our OT Microservices project for the following reasons:
+| **Category**            | **Best Practice**                                                  |
+|-------------------------|--------------------------------------------------------------------|
+| **Kubernetes**          | Use pre-configured pipelines for deployment and cluster management. |
+| **Security**            | Use secrets management and implement RBAC for access control.     |
+| **Monitoring**          | Monitor pipelines via dashboards and set up alerts for issues.    |
+| **Containerization**    | Run builds in containers for consistent environments.             |
+| **Multi-cloud**         | Configure multi-cloud setups for availability and disaster recovery. |
+| **Plugins**             | Use plugins for Docker, Jenkins, and Terraform for functionality. |
+| **Upgrades**            | Regularly update BuildPiper and test in staging before production. |
+| **Feedback**            | Collect feedback to improve workflows and configurations.         |
 
-| **Reason**                            | **Description**                                                                                                      |
-|---------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Existing Tool Preference**          | We are already using GitHub for version control and CI/CD, which provides sufficient features for our needs.         |
-| **Familiarity and Expertise**         | Our team has existing expertise with GitHub Actions, and switching to BuildPiper would require significant retraining. |
-| **Infrastructure Constraints**        | BuildPiper requires self-hosting, which would add additional infrastructure maintenance costs and effort.              |
-| **Cost and Resource Overhead**        | While BuildPiper is open-source, it would require additional resources to host and scale, which is not ideal for our current setup. |
-| **Feature Overlap**                   | GitHub Actions already provides the necessary CI/CD capabilities without the complexity of managing an additional tool. |
 
 ---
 
 ## Conclusion
 
-While BuildPiper offers a powerful set of features for CI/CD automation, including multi-cloud integration, scalable pipelines, and containerized builds, it does not align with the current infrastructure and expertise of our team. Given that we are already using GitHub for version control and CI/CD workflows, adopting BuildPiper would introduce unnecessary complexity, resource overhead, and a steep learning curve. Therefore, GitHub Actions remains the most suitable choice for our OT Microservices project.
+BuildPiper is a powerful CI/CD platform, but it is unsuitable for our team's current setup and expertise. We use Jenkins for our CI/CD workflows, which efficiently meets our needs. Adopting BuildPiper would introduce unnecessary complexity and additional costs, so we prefer to continue using Jenkins.
 
 ---
 
@@ -88,5 +103,5 @@ While BuildPiper offers a powerful set of features for CI/CD automation, includi
 | **Reference Source**              | **Description**                                                        | **URL**                                      |
 |-----------------------------------|------------------------------------------------------------------------|----------------------------------------------|
 | BuildPiper Official Website      | Official site for BuildPiper documentation and details.               | [BuildPiper](https://buildpiper.io)          |
-| GitHub Actions Documentation      | GitHub’s official documentation for CI/CD using GitHub Actions.       | [GitHub Actions](https://docs.github.com/en/actions) |
+
 
