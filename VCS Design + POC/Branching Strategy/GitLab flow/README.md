@@ -7,8 +7,8 @@
 ---
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [GitLab Flow](#gitlab-flow) 
-3. [Diagram](#diagram)
+2. [Diagram](#diagram)
+3. [GitLab Flow](#gitlab-flow) 
 4. [Why GitLab Flow](#why-gitlab-flow)
 5. [Advantages of GitLab Flow](#advantages-of-gitlab-flow)
 6. [Disadvantages of GitLab Flow](#disadvantages-of-gitlab)
