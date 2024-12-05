@@ -105,6 +105,9 @@ monorepo is—a single repository containing all the code for multiple projects 
 | **Versioning**             | Use a consistent versioning system, either for the whole repo or individual modules.              |
 
 
+![image](https://github.com/user-attachments/assets/11b5614c-96b8-4da4-9827-83774aa7bca9)
+
+
 ## Conclusion
 A monorepo offers significant benefits for large teams and organizations that rely on shared codebases and close collaboration between projects. By using best practices such as modularization, scalable tooling, and robust CI/CD pipelines, teams can manage the complexity of monorepos while benefiting from enhanced code reuse, visibility, and consistent deployment processes.
 
