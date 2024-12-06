@@ -4,24 +4,34 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
-| Anjali Dhiman  | 04-12-24      | V1  | 05-12-24           | Khushi Malhotra |
+| Anjali Dhiman  | 04-12-24      | V1  | 06-12-24           | Khushi Malhotra |
+
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Bug Analysis Steps](#bug-analysis-steps)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
 - [Conclusion](#conclusion)
-- [Contact Information](#contact-information)
+- [Contacts](#contacts)
 - [References](#references)
 
-
 ## Introduction
-In the process of analyzing bugs within our attendance API, Using Sonar have been utilized to provide comprehensive insights. This document outlines our approach to bug analysis using Sonar and Jenkins.
+Sonar has been utilized to provide comprehensive insights in the process of analyzing bugs within our attendance API. This document outlines our approach to bug analysis using Sonar and Jenkins.
+
+## Prerequisites
+
+|SOFTWARE|	VERSION|
+|----|---------------|
+|Python| 3.6 or later|
+| SonarQube | 5.0.0.2966    |
 
 
 ## Getting Started
 
-## Bug Analysis Steps By Using Sonar
-
+# Bug Analysis Steps By Using Sonar
+## Installation Steps
+Follow the detailed guide here:  
+[Installing and Configuring SonarQube](https://medium.com/@sugam.arora23/installing-and-configuring-sonarqube-on-aws-ec2-a-step-by-step-guide-defd8955eb30)
 ## Integrate jenkins with sonarqube
 
 - To integrate jenkins with SonarQube read this [BLOG](https://sunilhari.medium.com/how-to-integrate-sonarqube-and-jenkins-721d5efd3cb6)
@@ -47,7 +57,8 @@ Go to `Manage Jenkins` > `Manage Plugins`.
 - Go to the `Available` tab.
 - Search for "SonarQube Scanner".
 - Select the checkbox next to the plugin and click `Install without restart`.
-SSSSS
+![image](https://github.com/user-attachments/assets/e0199f99-935e-4141-92ca-05d8534a0998)
+
 
 #### Configure SonarQube in Jenkins
 
@@ -61,7 +72,8 @@ Navigate to `Manage Jenkins` > `Global Tool Configuration`.
 - Specify the installation method:
   - If you have already installed the scanner, provide the path to the executable.
   - Alternatively, let Jenkins install the scanner automatically by selecting the appropriate option.
-SSSSS
+![image](https://github.com/user-attachments/assets/0c2c7bec-8fcb-46eb-a63e-326fbc5e1cb8)
+
 
 
 
@@ -76,7 +88,11 @@ SSSSS
     - Add the token generated from your SonarQube instance.
   - Click `Save` to apply the changes.
 
-SSSSS
+![image](https://github.com/user-attachments/assets/94f4dbc5-bf11-41c8-9a46-1e195d79c2e6)
+
+
+![image](https://github.com/user-attachments/assets/047b9f85-f750-4a6d-927b-f76a48417b72)
+
 
 
 #### Configure Jenkins Job for SonarQube Analysis
@@ -104,15 +120,16 @@ SSSSS
   sonar.host.url=http://localhost:9000
   sonar.login=your_sonarqube_token
 
-SSSSSS
 
 ## Report
 
-SSSSSS
+![image](https://github.com/user-attachments/assets/dc0cf8ad-6557-4700-b8e0-1ce2f2926cc2)
+
 
 
 ## Conclusion
-After conducting bug analysis using SonarQube, it is evident that SonarQube provides a comprehensive overview of code quality, including bugs, code smells, and vulnerabilities. SonarQube's extensive rule set and its ability to integrate with continuous integration pipelines make it a robust tool for maintaining and improving code quality. Therefore, I recommend adopting SonarQube as the primary tool for bug analysis in our attendance API to enhance our code's quality and maintainability.
+After conducting bug analysis using SonarQube, it is evident that SonarQube provides a comprehensive overview of code quality, including bugs, code smells, and vulnerabilities. SonarQube's extensive rule set and its ability to integrate with continuous integration pipelines make it a robust tool for maintaining and improving code quality. Therefore, I think it's a good idea to adopt SonarQube as the primary tool for bug analysis in our attendance API to enhance our code's quality and maintainability.
+
 
 ## Contacts
 
@@ -127,4 +144,4 @@ After conducting bug analysis using SonarQube, it is evident that SonarQube prov
 |-----------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [Attendance API Repository](https://github.com/OT-MICROSERVICES/attendance-api)                           | Attendance API Repository            |
 | [SonarQube Documentation](https://docs.sonarqube.org/latest/)                                             | SonarQube Documentation              |
-| [Bug Analysis Documentation](https://github.com/mygurkulam-p9/documentation/blob/main/Application_CI_Design/Python%20CI%20Checks/BugAnalysis/BugAnalysis.md) | Documentation in Git                 |
+
