@@ -1,1 +1,26 @@
+---
+- import_tasks: dependencies.yml
+- import_tasks: CreateDatabaseUser.yml
+- import_tasks: InstallingSonar.yml
 
+- name: Configure Systemd service (for initd systems)
+  template:
+    dest: /etc/systemd/system/sonar.service
+    src: sonar.service.j2
+ 
+- name: Enable Sonar service
+  service:
+    name: sonar
+    enabled: yes
+
+- name: start Sonar service
+  service:
+    name: sonar
+    enabled: yes
+    state: started
+
+- name: add lines
+  lineinfile: 
+    dest: /etc/sysctl.conf
+    line: "{{ item }}"
+  loop: "{{ kernel_limit }}"
