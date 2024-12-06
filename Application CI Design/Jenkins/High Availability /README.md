@@ -45,7 +45,6 @@ In this docs, we will discuss the HA setup using autoscaling.
 | **Business Continuity**   | Ensure uninterrupted Jenkins services.                                                          |
 | **Minimize Downtime**     | Prevent system failures from affecting CI/CD pipelines.                                         |
 | **Scalability**           | Scale Jenkins to meet growing demands by distributing workloads.                                |
-| **Redundancy**            | Duplicate Jenkins instances to avoid service disruptions.                                        |
 | **Load Balancing**        | Distribute incoming traffic across multiple Jenkins instances to improve performance and resilience. |
 
 ---
