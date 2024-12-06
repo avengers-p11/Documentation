@@ -1,0 +1,39 @@
+---
+# tasks file for jenkins
+- name: Installing Jenkins in RedHat OS
+  ansible.builtin.import_tasks: RedHat-install.yml
+  when: ansible_os_family == "RedHat"
+  tags:
+    - install
+    - never
+# or (jenkins_install_both == "yes")
+- name: Mount EFS in Ubuntu OS
+  ansible.builtin.import_tasks: Debian-efs.yml
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - never
+
+- name: Installing Jenkins in Ubuntu OS
+  ansible.builtin.import_tasks: Debian-install.yml
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - never
+# or (jenkins_install_both == "yes")
+
+- name: Uninstalling Jenkins from Ubuntu OS
+  ansible.builtin.import_tasks: Debian-uninstall.yml
+  when: ansible_os_family == "Debian"
+  tags:
+    - uninstall
+    - never
+  # or (jenkins_install_both == "yes")
+
+- name: Uninstalling Jenkins from RedHat OS
+  ansible.builtin.import_tasks: RedHat-uninstall.yml
+  when: ansible_os_family == "RedHat"
+  tags:
+    - uninstall
+    - never
+  # or (jenkins_install_both == "yes")

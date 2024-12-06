@@ -1,0 +1,105 @@
+---
+- name: Include OS-Specific variables
+  ansible.builtin.include_vars:
+    file: "{{ ansible_os_family }}.yml"
+
+- name: Mount EFS in Ubuntu OS
+  ansible.builtin.import_tasks: RedHat-efs.yml
+
+- name: Installing Java package...
+  ansible.builtin.yum:
+    name: "{{ java_yum_package }}"
+    state: present
+    update_cache: true
+
+- name: Getting Jenkins.repo file...
+  ansible.builtin.get_url:
+    url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
+
+- name: Importing Jenkins key from a url...
+  ansible.builtin.rpm_key:
+    state: present
+    key:  https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+  
+- name: Updating cache
+  ansible.builtin.yum:
+    update_cache: true
+
+- name: Installing specific Jenkins version...
+  ansible.builtin.yum:
+    name: jenkins #-{{ jenkins_version }}
+    state: present
+    update_cache: true
+
+- name: Daemon reloading...
+  ansible.builtin.systemd_service:
+    name: jenkins.service
+    state: stopped
+
+- name: Check if the directory exists
+  stat:
+    path: "{{ jenkins_data_dir }}"
+  register: directory_stats
+
+- name: Print directory existence status
+  debug:
+    msg: "The directory exists"
+  when: not directory_stats.stat.isdir
+
+- name: Moving Jenkins data to new directory
+  copy: src=/var/lib/jenkins/ dest={{ jenkins_data_dir }} remote_src=yes directory_mode=yes
+  ignore_errors: true
+  when: not directory_stats.stat.isdir
+
+- name: Change directory owner
+  file:
+    path: "{{ jenkins_data_dir }}"
+    owner: jenkins
+    group: jenkins
+    recurse: yes
+
+- name: Remove old Jenkins data directory
+  file:
+    path: /var/lib/jenkins/
+    state: absent
+  ignore_errors: true
+
+- name: Create override directory for Jenkins service
+  become: true
+  file:
+    path: /etc/systemd/system/jenkins.service.d
+    state: directory
+
+- name: Add override file for Jenkins
+  template:
+    src: override.conf.j2
+    dest: /etc/systemd/system/jenkins.service.d/override.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Daemon reloading...
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+    name: jenkins.service
+    state: started
+
+- name: Registering passwd...
+  ansible.builtin.command:
+    cmd: cat /data/jenkins/secrets/initialAdminPassword
+  register: intialPasswd
+
+- name: Display passwd
+  ansible.builtin.debug:
+    var: intialPasswd.stdout
+# /var/lib/jenkins/secrets/initialAdminPassword
+# sudo wget -O /etc/yum.repos.d/jenkins.repo \
+#     https://pkg.jenkins.io/redhat-stable/jenkins.repo
+# /etc/yum.repos.d/jenkins.repo
+# sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+# sudo yum upgrade
+# # Add required dependencies for the jenkins package
+# sudo yum install fontconfig java-17-openjdk
+# sudo yum install jenkins
+# sudo systemctl daemon-reload

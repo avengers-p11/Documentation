@@ -1,0 +1,25 @@
+---
+- name: Stop the Jenkins service
+  ansible.builtin.service:
+    name: jenkins
+    state: stopped
+
+- name: Uninstall jenkins package
+  ansible.builtin.yum:
+    name: jenkins
+    state: absent
+    autoremove: true
+
+- name: Rmove jenkins repo
+  ansible.builtin.command:
+    cmd:  rm -rf /etc/yum.repos.d/jenkins.repo
+
+# sudo systemctl stop jenkins
+# Remove the Jenkins package
+# sudo yum remove jenkins
+# Remove the Jenkins repository file
+# sudo rm /etc/yum.repos.d/jenkins.repo
+# If needed, you can also remove the Jenkins GPG key
+# sudo rpm -e --allmatches gpg-pubkey-$(gpg --with-colons /etc/pki/rpm-gpg/RPM-GPG-KEY-jenkins | awk -F: '$1=="pub" {print $2}'):*
+# Clean up any residual configuration files (optional)
+# sudo rm -rf /var/lib/jenkins

@@ -1,0 +1,31 @@
+- name: Include OS-Specific variables
+  ansible.builtin.include_vars:
+    file: "efs.yml"
+
+- name: Update 
+  ansible.builtin.yum:
+    update_cache: yes
+
+- name: Install NFS client
+  ansible.builtin.yum:
+    name: nfs-utils 
+    state: present
+
+
+- name: Ensure mount directory exists.
+  file:
+    path: "{{ efs_mount_dir }}"
+    state: directory
+    mode: 0755
+
+- name: Ensure EFS volume is mounted.
+  mount:
+    name: "{{ efs_mount_dir }}"
+    src: "{{ efs_mount_point }}:/"
+    fstype: nfs4
+    opts: nfsvers=4.1
+    state: mounted
+
+- command: "ls -lah {{ efs_mount_dir }}"
+  register: efs_contents
+- debug: var=efs_contents.stdout_lines
