@@ -47,7 +47,7 @@ Before diving into the Installation of scyllaDB, let’s ensure the following pr
 ### Two Methods to Install ScyllaDB on a Linux Machine
 ![Screenshot 2024-11-18 170054](https://github.com/user-attachments/assets/25da80d4-4f36-41c4-bc0a-0a8374e91ff3)
 
-# Instalation of ScyllaDB with basic Method
+# Installation of ScyllaDB with basic Method
 ### The quickest way to install ScyllaDB is by using the provided script.
 
 ## 1. Run the installation script:
