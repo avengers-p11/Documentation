@@ -34,10 +34,38 @@ Ansible roles are basically playbooks broken up into a known file structure.
 
 ## Steps for ansible role
 
-Create ansible role 
+**Steps 1. Update your OS**
+```
+sudo apt update
+```
+![image](https://github.com/user-attachments/assets/d7736006-9474-4307-8cc3-a7eb3bdd07d5)
+
+**Steps 3. Ansbilbe installed**
+```
+sudo apt install ansible
+```
+
+**Steps 4. Verify ansible version**
+
+```
+ansible --version
+```
+![image](https://github.com/user-attachments/assets/43195b42-50e8-4912-b9b9-2e30f619ecf5)
 
 
-asible-galazy init sonar-setup
+**Steps 5. Create ansible role** 
+
+```
+ansible-galaxy init sonar
+```
+![image](https://github.com/user-attachments/assets/35fffe9d-783a-43d3-9083-042c1377bfa0)
+
+**Steps 6. Verify the role**
+```
+cd sonar
+```
+![image](https://github.com/user-attachments/assets/99e5a27c-1bf5-4f73-8a6a-70cd7a9624b6)
+
 
 ## Run the ansible role**
 ```
