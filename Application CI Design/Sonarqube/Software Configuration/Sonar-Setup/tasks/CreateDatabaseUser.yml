@@ -1,1 +1,25 @@
+- name: Check if Sonar user exists(error handling)
+  shell: su - postgres -c "psql -tAc \"SELECT 1 FROM pg_roles WHERE rolname='{{ sonar_pgsql_username }}'\""
+  register: sonar_user_exists
+  
+- name: Create Sonar user if it doesn't exist
+  shell: su - postgres -c "psql -c \"CREATE USER {{ sonar_pgsql_username }} SUPERUSER;\""
+  when: sonar_user_exists.stdout == ""
+  
+- name: Set password for Sonar user
+  shell: su - postgres -c "psql -c \"ALTER USER {{ sonar_pgsql_username }} WITH PASSWORD '{{ sonar_pgsql_password }}';\""
+  when: sonar_user_exists.stdout == ""
 
+
+- name: Check if Sonar database exists(error handling)
+  shell: su - postgres -c "psql -lqt | cut -d \| -f 1 | grep -qw '{{ sonar_pgsql_database }}'"
+  register: sonar_db_exists
+  ignore_errors: true
+
+- name: Create Sonar database if it doesn't exist
+  shell: su - postgres -c "psql -c \"CREATE DATABASE {{ sonar_pgsql_database }} OWNER {{ sonar_pgsql_username }};\""
+  when: sonar_db_exists.rc == 1
+
+- name: Change owner of Sonar database if user exists and database exists
+  shell: su - postgres -c "psql -c \"ALTER DATABASE {{ sonar_pgsql_database }} OWNER TO {{ sonar_pgsql_username }};\""
+  when: sonar_db_exists.rc == 1
