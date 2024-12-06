@@ -72,6 +72,20 @@ tree
 ```
 ![image](https://github.com/user-attachments/assets/2ea509a9-c7b9-426d-9155-369833f717ff)
 
+
+**Steps 8. pip and boto3 installation**
+```
+sudo apt install python3-pip
+```
+![image](https://github.com/user-attachments/assets/3619b1aa-9259-4be3-80dc-14ff4015cc2d)
+
+```
+pip install boto
+```
+
+![image](https://github.com/user-attachments/assets/382c2609-6922-4e77-8ae0-306803add6d0)
+
+
 ## Run the ansible role**
 ```
 ansible-playbook -i <inventory-name> <playbook-name>
