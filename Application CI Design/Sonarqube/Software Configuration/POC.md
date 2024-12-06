@@ -60,12 +60,17 @@ ansible-galaxy init sonar
 ```
 ![image](https://github.com/user-attachments/assets/35fffe9d-783a-43d3-9083-042c1377bfa0)
 
-**Steps 6. Verify the role**
+**Steps 6. Change the direcotry current to my role**
 ```
 cd sonar
 ```
 ![image](https://github.com/user-attachments/assets/99e5a27c-1bf5-4f73-8a6a-70cd7a9624b6)
 
+**Steps 7. After configure my role direcorty structure**
+```
+tree
+```
+![image](https://github.com/user-attachments/assets/2ea509a9-c7b9-426d-9155-369833f717ff)
 
 ## Run the ansible role**
 ```
