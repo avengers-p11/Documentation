@@ -57,13 +57,14 @@ ansible --version
 **Steps 5. Create ansible role** 
 
 ```
-ansible-galaxy init sonar
+ansible-galaxy init Jenkins_role
 ```
-![image](https://github.com/user-attachments/assets/35fffe9d-783a-43d3-9083-042c1377bfa0)
+![Screenshot 2024-12-06 at 6 56 41 PM](https://github.com/user-attachments/assets/84231192-8d62-480d-978c-39bcf1d8a3ba)
+
 
 **Steps 6. Change the direcotry current to my role**
 ```
-cd sonar
+cd Jenkins_role
 ```
 ![image](https://github.com/user-attachments/assets/99e5a27c-1bf5-4f73-8a6a-70cd7a9624b6)
 
