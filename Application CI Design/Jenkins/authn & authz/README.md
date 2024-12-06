@@ -10,7 +10,7 @@
 1. [Introduction](#introduction)
 2. [Authentication in Jenkins](#authentication-in-jtnkins)
 3. [Authorization in Jenkins](#Authorization-in-Jenkins)
-4. [Securing Jenkins with AuthN & AuthZ](#Securing-Jenkins-with-AuthN-&-AuthZ)
+4. [Securing Jenkins with Authentication & Authorization](#Securing-Jenkins-with-Authentication-Authorization)
 5. [Comparison of Methods](#Comparison-of-Methods)
 6. [Conclusion](#conclusion)
 7. [Contact Information](#contact-information)
