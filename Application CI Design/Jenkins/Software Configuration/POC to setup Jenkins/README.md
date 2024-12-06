@@ -51,7 +51,8 @@ sudo apt install ansible
 ```
 ansible --version
 ```
-![image](https://github.com/user-attachments/assets/43195b42-50e8-4912-b9b9-2e30f619ecf5)
+![Screenshot 2024-12-06 at 7 11 11 PM](https://github.com/user-attachments/assets/4a49dfd9-2041-46f7-bb47-6a972e524275)
+
 
 
 **Steps 5. Create ansible role** 
