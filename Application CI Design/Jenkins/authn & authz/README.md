@@ -109,15 +109,15 @@ Authorization determines what actions a user can perform in Jenkins. Jenkins off
 
 | Topic	|Details|
 |-----|-----|
-|Enable Security|	- Navigate to Manage Jenkins → Configure Global Security.
+|Enable Security|	- Navigate to Manage Jenkins → Configure Global Security.|
 - Enable security and select appropriate authentication and authorization strategies.|
-|Use External Providers|	- Use external providers for authentication to minimize local credential storage.
+|Use External Providers|	- Use external providers for authentication to minimize local credential storage.|
 - Enforce stronger password policies and 2FA (Two-Factor Authentication).|
-|Role-based Authorization	|- Define clear roles and responsibilities to prevent unauthorized actions.
+|Role-based Authorization	|- Define clear roles and responsibilities to prevent unauthorized actions.|
 - Limit Administer permissions to a minimal set of users.|
-|Audit Logs	|- Regularly review Jenkins audit logs for suspicious activity.
+|Audit Logs	|- Regularly review Jenkins audit logs for suspicious activity.|
 - Use plugins like Audit Trail Plugin for enhanced logging.|
-|Use Tokens for API Access	|- Avoid hardcoding passwords in scripts.
+|Use Tokens for API Access	|- Avoid hardcoding passwords in scripts.|
 - Use personal access tokens or API tokens instead.|
 
 
