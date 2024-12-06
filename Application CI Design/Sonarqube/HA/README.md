@@ -1,7 +1,6 @@
 
 # Detailed documentation of SonarQube High Availability 
 
-![image](https://github.com/user-attachments/assets/9976aff3-8dc7-47a9-ad7f-a39f91707fd5)
 
 
 | **Author**          | **Created on** | **Version** | **Last edited on** | **L0 Reviewer**  | **L1 Reviewer** | **L2 Reviewer** |
@@ -52,7 +51,8 @@ SonarQube High Availability (HA) architecture is designed to ensure continuous o
 | **Backup Mechanisms**       | Regular backups of the database, Elasticsearch, and configuration files are taken to avoid data loss during failures. |
 | **Autoscaling Groups**      | In cloud environments, autoscaling groups can be used to automatically add or remove frontend and backend instances based on load. |
 
-![image](https://github.com/user-attachments/assets/790fd234-dbbb-4ee0-870f-a83fe19ead9a)
+![image](https://github.com/user-attachments/assets/32375397-66a3-492a-ac77-dccebe4200b1)
+
 
 
 
