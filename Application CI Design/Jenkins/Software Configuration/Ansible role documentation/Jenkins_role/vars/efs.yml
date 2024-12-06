@@ -1,0 +1,3 @@
+---
+efs_mount_dir: "/data"
+efs_mount_point: "fs-06376e9ec082fde96.efs.us-west-2.amazonaws.com"
