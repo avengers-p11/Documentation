@@ -1,1 +1,52 @@
+---
+- name: Download sonar
+  get_url:
+    url: "{{sonar_download_url}}-{{sonar_version}}.zip"
+    dest: /home/ubuntu/
+  
+- name: Create group sonarqube
+  group:
+    name: sonarqube
+    state: present
 
+- name: Create user sonarqube for running SonarQube services
+  user:
+    name: sonarqube
+    group: sonarqube
+    state: present
+
+- name: Check if sonarqube directory exists(errror handling)
+  stat:
+    path: /opt/sonarqube
+  register: sonarqube_dir    
+
+- name: unzip sonarqube zip
+  unarchive:
+    src: "/home/ubuntu/sonarqube-{{sonar_version}}.zip"
+    dest: /opt/
+    owner: sonarqube
+    group: sonarqube
+    remote_src: yes
+  when: not sonarqube_dir.stat.exists
+
+- name: rename zipped directory to sonarqube
+  command: mv /opt/sonarqube-{{sonar_version}} /opt/sonarqube
+  when: not sonarqube_dir.stat.exists
+
+- name: Update jdbc connection username
+  lineinfile:
+    path: /opt/sonarqube/conf/sonar.properties
+    regexp: '^#sonar.jdbc.username='
+    line: 'sonar.jdbc.username={{ sonar_pgsql_username }}'
+  
+- name: Update jdbc connection passwd
+  lineinfile:
+    path: /opt/sonarqube/conf/sonar.properties
+    regexp: '^#sonar.jdbc.password='
+    line: 'sonar.jdbc.password={{ sonar_pgsql_password }}'
+
+- name: Adding lines in sonar.properties
+  ansible.builtin.lineinfile:
+    path: /opt/sonarqube/conf/sonar.properties
+    insertafter: 'sonar.jdbc.password={{ sonar_pgsql_password }}'
+    line: 'sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonar'
