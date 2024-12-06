@@ -20,7 +20,7 @@ This documentation provides an overview of BuildPiper, its purpose, features, ad
 
 ---
 ## Introduction
-BuildPiper is an open-source, self-hosted, and scalable CI/CD platform designed to simplify the DevOps process by streamlining code delivery. It is tailored to support cloud-native environments and large-scale software development, providing an easy way to manage builds and deployments across different environments.
+BuildPiper is a platform designed to streamline Kubernetes and microservices application delivery. It offers features like secure CI/CD pipelines, simplified Kubernetes management, real-time monitoring, and seamless integration with tools like JIRA, Slack, and Prometheus.
 
 ---
 
