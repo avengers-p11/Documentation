@@ -17,7 +17,8 @@
 SonarQube is a powerful tool designed to continuously inspect your code quality and security. It performs automatic reviews through static code analysis, identifying bugs, vulnerabilities, and code smells in various programming languages. This documentation give details of infra.
 
 # infra
-![image](https://github.com/user-attachments/assets/969ec6e4-37ca-4737-8d87-149c04302e39)
+![image](https://github.com/user-attachments/assets/ab0aa036-ff63-431a-b8a5-805ce5a9537b)
+
 
 
 # Conclusion
