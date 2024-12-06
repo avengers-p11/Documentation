@@ -74,7 +74,7 @@ Operating a Jenkins master on a single machine creates a significant Single Poin
 
 ---
 
-# How to Back Up, Recover and MTTR Jenkins Data
+# How to Back Up, Recover 
 ## Backup Process
 
 **Backup** is crucial to ensure that Jenkins data, configurations, jobs, and plugins are preserved and can be restored when needed. There are two types of backups you can set up for Jenkins:
@@ -118,21 +118,7 @@ The **recovery** process restores Jenkins services using the most recent backup.
 
 ---
 
-## Mean Time to Recovery (MTTR)
 
-**MTTR** is the average time it takes to recover from a failure. Minimizing MTTR ensures that Jenkins downtime is reduced and business operations continue smoothly.
-
-### 1. **Automation for Faster Recovery**
-- Automate recovery steps using tools like Ansible, Terraform, or Jenkins pipelines. This reduces manual intervention and speeds up recovery.
-- For example, automate the restoration of Jenkins jobs and configurations.
-
-### 2. **Monitoring and Alerts**
-- Set up monitoring for Jenkins and backup systems using tools like Prometheus and Grafana. This helps detect failures early, minimizing the time to recovery.
-
-### 3. **Disaster Recovery Drills**
-- Regularly test your backup and recovery process with **DR drills**. This will ensure that the recovery process is effective and reduce MTTR in case of an actual disaster.
-
----
 # Jenkins Backup Plugins
 
 | Plugin                         | Description                                                                                         |
