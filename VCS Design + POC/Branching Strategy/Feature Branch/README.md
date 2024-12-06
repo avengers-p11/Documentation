@@ -32,7 +32,10 @@ The Feature Branch Workflow is a Git-based development model designed to streaml
 
 ## Feature Branch Workflow
 
-![Screenshot from 2024-11-20 20-02-30](https://github.com/user-attachments/assets/4ed8a92a-5994-49f3-9386-fd46d7249208)
+![Screenshot from 2024-12-06 15-09-17](https://github.com/user-attachments/assets/9223cc75-f670-488d-a4ff-69e710aab322)
+
+
+![Screenshot from 2024-12-06 15-07-52](https://github.com/user-attachments/assets/b204ace1-4818-4092-b577-3512faf65fe6)
 
 
   1. Create a New Branch for Each Feature    
