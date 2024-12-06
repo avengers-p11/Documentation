@@ -59,20 +59,23 @@ ansible --version
 ```
 ansible-galaxy init Jenkins_role
 ```
-![Screenshot 2024-12-06 at 6 56 41 PM](https://github.com/user-attachments/assets/84231192-8d62-480d-978c-39bcf1d8a3ba)
+![Screenshot 2024-12-06 at 6 59 21 PM](https://github.com/user-attachments/assets/75b3f8ce-4251-4f9c-9ae4-c79a469837e8)
+
 
 
 **Steps 6. Change the direcotry current to my role**
 ```
 cd Jenkins_role
 ```
-![image](https://github.com/user-attachments/assets/99e5a27c-1bf5-4f73-8a6a-70cd7a9624b6)
+![Screenshot 2024-12-06 at 7 00 36 PM](https://github.com/user-attachments/assets/ca46cc2a-bf3b-4a25-8ee0-71c5e745c984)
+
 
 **Steps 7. After configure my role direcorty structure**
 ```
 tree
 ```
-![image](https://github.com/user-attachments/assets/2ea509a9-c7b9-426d-9155-369833f717ff)
+![Screenshot 2024-12-06 at 6 56 41 PM](https://github.com/user-attachments/assets/7bcc2a48-c45e-43ce-bb62-815769064168)
+
 
 
 **Steps 8. pip and boto3 installation**
