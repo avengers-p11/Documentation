@@ -91,7 +91,12 @@ sudo apt install python3-pip
 pip install boto
 ```
 
-![image](https://github.com/user-attachments/assets/382c2609-6922-4e77-8ae0-306803add6d0)
+```
+sudo apt install python3-boto
+```
+
+![Screenshot 2024-12-06 at 7 21 07 PM](https://github.com/user-attachments/assets/05cf6b57-9a20-494c-a9fe-3ecc28eba1b4)
+
 
 
 ## Run the ansible role**
