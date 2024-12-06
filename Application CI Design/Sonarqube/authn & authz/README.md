@@ -24,7 +24,7 @@
 
 
 # Introduction
- SonarQube is a code quality analysis tool that can act as a security guard for your code by identifying bugs, vulnerabilities, and other issues. It makes sure only the right people can see and change your code.
+ This documentation provides a comprehensive guide to implementing and managing secure access controls in SonarQube through authentication and authorization mechanisms.
 
 # What is Authentication and Authorization
 **Authentication** is proving who you are (like with a password).
@@ -52,12 +52,10 @@ SonarQube is a powerful tool for analyzing code quality and security. To protect
 | **Password-Based Authentication**| Users provide a username and password to authenticate.                                                                                                 |
 | **Two-Factor Authentication (2FA)**| Combines something you know (password) with something you have (e.g., smartphone for a code) for added security.                                          |
 | **Biometric Authentication**    | Uses physical characteristics like fingerprints, facial recognition, or retinal scans to authenticate users.                                           |
-| **Token-Based Authentication**  | Users log in once to receive a token (e.g., JWT), used for future requests without re-entering credentials.                                             |
-| **Certificate-Based Authentication**| Uses a digital certificate (often with public/private key pairs) to authenticate users or devices.                                                       |
+| **Token-Based Authentication**  | Users log in once to receive a token (e.g., JWT), used for future requests without re-entering credentials.                                                   
 | **OAuth (Open Authorization)**   | A token-based standard that allows third-party apps to access a user's resources without exposing their password (used by Google, Facebook, etc.).      |
 | **LDAP Authentication**         | Uses Lightweight Directory Access Protocol (LDAP) to authenticate users, common in enterprise environments with centralized user directories.          |
 | **SAML (Security Assertion Markup Language)**| A protocol used for Single Sign-On (SSO), where an identity provider (IdP) authenticates the user and passes a token to the service provider.            |
-| **Kerberos Authentication**     | A network authentication protocol that uses secret-key cryptography for strong authentication in client-server applications.                         |
 | **Social Media Authentication** | Users authenticate using their social media accounts (e.g., Google, Facebook, LinkedIn) to access other services.                                       |
 | **Smart Card Authentication**   | Uses a smart card with authentication data (often combined with a PIN) to authenticate a user.                                                         |
 
@@ -69,19 +67,15 @@ SonarQube is a powerful tool for analyzing code quality and security. To protect
 
 | **Authorization Method**           | **Description**                                                                 |
 |------------------------------------|---------------------------------------------------------------------------------|
-| **Internal Authentication**        | Uses SonarQube's built-in authentication system for user and role management.    |
-| **LDAP/Active Directory**          | Integrates with LDAP or Active Directory for user authentication and synchronization. |
-| **OAuth Authentication**           | Allows authentication via third-party services like Google, GitHub, or Bitbucket. |
-| **SAML Authentication**            | Integrates with SAML for Single Sign-On (SSO), typically used in enterprise environments. |
-| **Google Authenticator (2FA)**     | Supports two-factor authentication (2FA) using Google Authenticator for added security. |
-| **Delegated Authentication**       | Allows delegating authentication to an external system or custom provider.     |
-| **HTTP-Header Authentication**     | Authenticates users by passing credentials in HTTP headers, often used in API integrations. |
-| **DevOps Integration (GitHub, Bitbucket, etc.)** | Allows authentication via DevOps platforms like GitHub or Bitbucket for seamless integration with source control. |
+| **Built-in Roles**         | Predefined roles like Admin, User, and Codeviewer with specific permissions.                                 |
+| **Custom Permissions**     | Admins can define and assign custom permissions for more control over actions.                               |
+| **Project-Level Permissions** | Set permissions for different projects, e.g., admin rights for one project, viewing rights for another.    |
+| **Group Management**       | Group users and assign permissions to groups for easier management.                                           |
+
 
 
 # Conclusion
-
-SonarQube is a powerful tool that combines authentication and authorization to safeguard your codebase. By implementing robust security measures, SonarQube ensures that only authorized individuals can access and modify your code, mitigating risks and protecting your intellectual property.
+SonarQube provides flexible authorization options to control user access. It includes predefined roles, custom permissions, and project-level settings to manage who can do what. Group management makes it easier to handle permissions for multiple users at once. These features help ensure secure and organized access to SonarQube.
 
 #  Contact Information
 
