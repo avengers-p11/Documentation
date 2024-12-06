@@ -3,7 +3,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Pravesh kumar      | 05-12-24      | Pravesh Kumar             | 05-12-24           |  | | |     
+| Pravesh kumar      | 05-12-24      | Pravesh Kumar             | 06-12-24           | Khushi, shreya | | |     
 
 ---
 
@@ -105,7 +105,7 @@ Authorization determines what actions a user can perform in Jenkins. Jenkins off
 - Plugins like Authorize Project Plugin or GitLab Commit Status Plugin allow further customization of permissions based on specific conditions.
 ---
 
-## Securing Jenkins with AuthN & AuthZ
+## Securing Jenkins with Authentication & Authorization
 
 | Topic	|Details|
 |-----|-----|
@@ -136,7 +136,7 @@ Authorization determines what actions a user can perform in Jenkins. Jenkins off
 ---
 ## Conclusion
 
-Jenkins offers flexible authentication and authorization options, with external methods like LDAP, SSO, or OAuth recommended for production environments. Using a Role-based Authorization Strategy ensures precise access control, while regular audits help maintain security. The choice of methods depends on team size, infrastructure, and security needs.
+Jenkins offers flexible authentication and authorization options, with external methods like LDAP, SSO, or OAuth recommended for production environments. Using a Role-based Authorization Strategy, which we will implement in our project, ensures precise access control, assigning roles to restrict or grant permissions based on responsibilities. Regular audits further help maintain security. The choice of methods ultimately depends on team size, infrastructure, and security requirements.
 
 ---
 # Contact Information
