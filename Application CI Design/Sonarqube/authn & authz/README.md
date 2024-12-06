@@ -75,7 +75,7 @@ SonarQube is a powerful tool for analyzing code quality and security. To protect
 
 
 # Conclusion
-SonarQube provides flexible authorization options to control user access. It includes predefined roles, custom permissions, and project-level settings to manage who can do what. Group management makes it easier to handle permissions for multiple users at once. These features help ensure secure and organized access to SonarQube.
+SonarQube provides flexible authorization options to control user access. It includes predefined roles, custom permissions, and project-level settings to manage who can do what. Group management makes it easier to handle permissions for multiple users at once. These features help ensure secure and organized access to SonarQube. We are going with role-based authorization for sonarqube server.
 
 #  Contact Information
 
