@@ -84,7 +84,8 @@ tree
 ```
 sudo apt install python3-pip
 ```
-![image](https://github.com/user-attachments/assets/3619b1aa-9259-4be3-80dc-14ff4015cc2d)
+![Screenshot 2024-12-06 at 7 15 15 PM](https://github.com/user-attachments/assets/652086e5-9b1f-4dd5-85c4-472366767beb)
+
 
 ```
 pip install boto
