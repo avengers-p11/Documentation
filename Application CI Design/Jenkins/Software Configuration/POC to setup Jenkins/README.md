@@ -39,7 +39,8 @@ Ansible roles are basically playbooks broken up into a known file structure.
 ```
 sudo apt update
 ```
-![image](https://github.com/user-attachments/assets/d7736006-9474-4307-8cc3-a7eb3bdd07d5)
+![Screenshot 2024-12-06 at 7 12 34 PM](https://github.com/user-attachments/assets/25d580c3-3065-4dee-8b33-5ff39691554d)
+
 
 **Steps 3. Ansbilbe installed**
 ```
