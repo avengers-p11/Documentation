@@ -29,10 +29,9 @@ This document focuses on bug analysis within Python CI checks, explaining what i
 
 ## What is Bug Analysis in Python CI Checks?
 
-Bug analysis in Python CI checks involves examining the code for defects, vulnerabilities, and potential issues that could lead to runtime errors or unexpected behavior. This analysis is conducted automatically as part of the CI pipeline to ensure the codebase remains stable and high-quality. The key aspects of bug analysis include:
+Bug analysis in Python CI checks involves examining the code for defects, vulnerabilities, and potential issues that could lead to runtime errors or unexpected behavior. This analysis is conducted automatically as part of the CI pipeline to ensure the codebase remains stable and high-quality.
 
-- **Static Code Analysis**: Identifying potential issues in the code without executing it.
-- **Security Analysis**: Identifying vulnerabilities and security issues in the code.
+
 
 ## Why is Bug Analysis Important?
 
@@ -51,54 +50,43 @@ Various tools are available for conducting bug analysis in Python CI checks. The
 2. **PyChecker**:
    - PyChecker is a static analysis tool for Python source code. It helps find bugs in Python source code and warns about code complexity and style issues.
 
-3. **Prospector**:
-   - Prospector is a tool that inspects Python code and provides recommendations based on various code analysis tools, including PyLint, McCabe, and others. It aims to improve code quality and maintainability by aggregating results from multiple linters and static analysis tools.
 
-4. **Codacy**:
-   - Codacy is an automated code review tool that helps developers ship better software, faster. It provides static analysis, code coverage, and code quality metrics. It integrates well with CI/CD pipelines and supports multiple languages, including Python.
-
-5. **SonarQube**:
+3. **SonarQube**:
    - SonarQube is a code quality and security tool that performs static analysis on source code. It identifies bugs, code smells, security vulnerabilities, and technical debt. SonarQube provides detailed reports and integrates well with CI/CD pipelines, offering extensive customization and plugin support.
 
 ## Comparison of Different Tools
 
-| Feature                      | Python Bandit                    | PyChecker                          | Prospector                         | Codacy                             | SonarQube                          |
-|------------------------------|----------------------------------|------------------------------------|------------------------------------|------------------------------------|------------------------------------|
-| **Language Compatibility**   | Python 2.x and Python 3.x        | Python 2.x and Python 3.x          | Python 2.x and Python 3.x          | Python 2.x and Python 3.x          | Python 2.x and Python 3.x          |
-| **Type**                     | Static Analysis Tool             | Static Analysis Tool               | Code Linter                        | Static Analysis and Code Review    | Code Quality and Security Tool     |
-| **Security Checks**          | Focuses on security vulnerabilities | Limited focus on security issues   | Limited focus on security issues   | Extensive focus on security issues | Extensive focus on security issues |
-| **Code Quality Checks**      | Limited                          | Yes                                | Yes                                | Yes                                | Yes                                |
-| **Customization**            | Limited customization options    | Customizable through configuration | Customizable through configuration | Customizable through configuration | Highly customizable through plugins and configuration |
-| **Integration with CI/CD**   | Yes                              | Yes                                | Yes                                | Yes                                | Excellent                          |
-| **Performance**              | High                             | High                               | Moderate                           | High                               | High                               |
-| **Ease of Use**              | Easy                             | Easy                               | Moderate                           | Easy                               | Moderate to High                   |
-| **Reporting**                | Basic                            | Basic                              | Detailed                           | Very Detailed                      | Very Detailed                      |
-| **Community and Support**    | Good                             | Good                               | Good                               | Excellent                          | Excellent                          |
-| **Open Source**              | Yes                              | Yes                                | Yes                                | No                                 | Yes                                |
+| Feature                      | Python Bandit                    | PyChecker                          | SonarQube                          |
+|------------------------------|----------------------------------|------------------------------------|------------------------------------|
+| **Type**                     | Static Analysis Tool             | Static Analysis Tool               | Code Quality and Security Tool     |
+| **Security Checks**          | Focuses on security vulnerabilities | Limited focus on security issues   | Extensive focus on security issues |
+| **Code Quality Checks**      | Limited                          | Yes                                | Yes                                |
+| **Customization**            | Limited customization options    | Customizable through configuration | Highly customizable through plugins and configuration |
+| **Integration with CI/CD**   | Yes                              | Yes                                | Excellent                          |
+| **Performance**              | High                             | High                               | High                               |
+| **Ease of Use**              | Easy                             | Easy                               | Moderate to High                   |
+| **Reporting**                | Basic                            | Basic                              | Very Detailed                      |
+| **Community and Support**    | Good                             | Good                               | Excellent                          |
+| **Open Source**              | Yes                              | Yes                                | Yes                                |
+
 
 ## Advantages of Bug Analysis in CI Checks
 
-| **Advantage**              | **Description**                                                                 |
-|----------------------------|---------------------------------------------------------------------------------|
-| **Automated Detection**    | Reduces manual effort and human error by automating bug detection.             |
-| **Consistent Quality**     | Ensures consistent application of coding standards and practices.              |
-| **Early Resolution**       | Allows for early detection and resolution of bugs, reducing impact on timelines.|
-| **Comprehensive Coverage** | Ensures thorough analysis covering code quality, functionality, and security.  |
+- **Automated Detection**: Reduces manual effort and human error by automating bug detection.
+- **Consistent Quality**: Ensures consistent application of coding standards and practices.
+- **Early Resolution**: Allows for early detection and resolution of bugs, reducing the impact on development timelines.
+- **Comprehensive Coverage**: Ensures thorough analysis covering various aspects of code quality, functionality, and security.
 
 ## Best Practices
 
-| **Practice**                   | **Description**                                                                           |
-|--------------------------------|------------------------------------------------------------------------------------------|
-| **Modular CI Configuration**   | Keep CI configuration modular for ease of maintenance.                                   |
-| **Regular Updates**            | Regularly update dependencies and CI tools to incorporate the latest features and patches.|
-| **Detailed Reporting**         | Ensure CI tools provide detailed and actionable reports.                                 |
-| **Fail Fast**                  | Configure CI to fail fast on critical issues to save time and resources.                 |
-| **Integration with Issue Tracking** | Integrate CI tools with issue tracking systems to automate bug reporting and tracking.    |
-
+- **Modular CI Configuration**: Keep CI configuration modular for ease of maintenance.
+- **Regular Updates**: Regularly update dependencies and CI tools to incorporate the latest features and security patches.
+- **Detailed Reporting**: Ensure CI tools provide detailed and actionable reports.
+- **Integration with Issue Tracking**: Integrate CI tools with issue tracking systems to automate bug reporting and tracking.
 
 ## Conclusion
 
-Implementing comprehensive bug analysis within CI pipelines is essential for maintaining high-quality Python code. Tools like Codacy, Bandit, and SonarQube provide robust capabilities for detecting various types of issues.
+Implementing comprehensive bug analysis within CI pipelines is essential for maintaining high-quality Python code. Tools like Codacy, Bandit, and SonarQube provide robust capabilities for detecting various issues.
 
 ## Contacts
 
@@ -110,8 +98,6 @@ Implementing comprehensive bug analysis within CI pipelines is essential for mai
 
 | Link                                         | Description                                          |
 |----------------------------------------------|------------------------------------------------------|
-| [Bandit Documentation](https://bandit.readthedocs.io/en/latest/) | Security analyzer for Python code.                    |
 | [PyChecker Documentation](https://pychecker.sourceforge.net/) | Static analysis tool to find bugs in Python source code. |
 | [Prospector](https://prospect.readthedocs.io/en/latest/) | Tool that analyzes Python projects and provides recommendations based on various code analysis tools, including PyLint and McCabe. |
-| [Codacy](https://www.codacy.com/)            | Automated code review tool that provides static analysis, code coverage, and code quality metrics. |
 | [SonarQube](https://www.sonarqube.org/)      | Detect bugs, code smells, security vulnerabilities, and technical debt. |
