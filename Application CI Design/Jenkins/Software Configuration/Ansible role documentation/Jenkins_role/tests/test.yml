@@ -4,4 +4,4 @@
   gather_facts: yes
 
   roles:
-    - jenkins-role
+    - Jenkins-role
