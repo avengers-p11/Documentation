@@ -1,4 +1,4 @@
-# **Sonarqube infra Setup**
+# **Sonarqube infra Setup on AWS Cloud**
 
 | **Author**          | **Created on** | **Version** | **Last edited on** | **L0 Reviewer**  | **L1 Reviewer** | **L2 Reviewer** |
 |---------------------|----------------|-------------|--------------------|------------------|-----------------|-----------------|
