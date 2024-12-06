@@ -7,14 +7,6 @@ installing_dependencies:
        - postgresql
        - postgresql-contrib
 
-#downloading dependencies for red-hat
-installingredhat_dependencies:
-       - openjdk-17-jdk
-       - unzip
-       - postgresql
-       - postgresql-contrib
-
-
 # postgresql db user settings
 sonar_pgsql_username: admin
 sonar_pgsql_password: password
