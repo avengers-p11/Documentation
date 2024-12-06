@@ -53,7 +53,6 @@ If we are using Kubernetes in our project, BuildPiper becomes an excellent choic
 | **Customizable Pipelines**            | Offers flexibility to define custom workflows for various use cases and environments.                                 |
 | **Multi-cloud and Hybrid Support**    | Supports integration with multiple cloud providers and hybrid environments.                                          |
 | **Scalability**                       | Ideal for growing teams, offering scalable resources and managing large pipelines efficiently.                        |
-| **Open-source**                       | Completely open-source, which means no license fees and full control over configurations and features.                |
 | **Container Support**                 | Native support for Docker and Kubernetes ensures seamless containerized builds and deployments.                       |
 
 ### Disadvantages
