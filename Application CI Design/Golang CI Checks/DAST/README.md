@@ -72,7 +72,7 @@ Several DAST tools are available that cater to GoLang applications. Some of the 
 
 ## POC
 
-For detailed insights into how to perform DAST for GoLang application, you can view our Proof of Concept (POC) document. Click [here](https://github.com/MyGurukulam-p11/Documentation/tree/main/Application-CI-Design/GoLang-CI-Checks/DAST/POC)
+For detailed insights into how to perform DAST for GoLang application, you can view our Proof of Concept (POC) document. Click [here](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Golang%20CI%20Checks/DAST/POC.md)
 
 
 ## Conclusion
