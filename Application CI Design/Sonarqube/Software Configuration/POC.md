@@ -1,19 +1,19 @@
-# **Documentation of Micro repo**
+# **Documentation of Ansible role**
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **Reviewer L0** |
 |------------|-------------|-----------|--------------|-------------|-----------|
-| Mohit Saini | 19-11-24 | Version 1.1 | Mohit Saini | 22-11-24 | Khushi |
+| Mohit Saini | 05-12-24 | Version 1.1 | Mohit Saini | 06-12-24 | Khushi |
 
 
 # **Table of Contents**
 
 1.  [Introduction](#introduction)
 
-2.  [Pre-requsities](#micro-repo)
+2.  [Pre-requsities](#pre-requisties)
 
-3.  [Steps for Ansible role](#why-micro-repo)
+3.  [Steps for Ansible role](#steps-for-ansible-role)
 
-4.  [Conclusion](#best-practices)
+4.  [Conclusion](#conculsion)
 
 5.  [Contact Information](#contact-information)
 
@@ -23,20 +23,38 @@
  
  # Introduction
 
-This documentation provides the details on how to install SonarQube on Ubuntu using an Ansible role.
-
+Ansible roles are basically playbooks broken up into a known file structure.
 
 
  # Pre-requisties
- 1. Ansible Insallaion
+ 1. Ansible Insalled
  2. Pip and boto3 installed
-3. install aws cli should be configured
+ 3. install aws cli should be configured
 
 
-# Steps for ansible role
+## Steps for ansible role
 
-Create ansible role and configure
+Create ansible role 
+
+
 asible-galazy init sonar-setup
 
+## Run the ansible role**
+```
+ansible-playbook -i <inventory-name> <playbook-name>
+``` 
+# Conclusion
+Roles are a way to make code in playbooks reusable by putting the functionality into generalized libraries that can be then used in any playbook as needed.
 
- 
+# Contact Information
+
+| **Name**    | **Email address**         |
+|-------------|---------------------------|
+| Mohit Saini | mohit.saini.snaatak@mygrurukulam.co |
+
+# References
+
+| **Link** | **Description** |
+|----------------------------------------------------|--------------------|
+| https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html | Ansible Installation |
+| https://medium.com/@mattpwest/setting-up-sonarqube-with-ansible-fcabadee6953 | Ansible role for Sonar |
