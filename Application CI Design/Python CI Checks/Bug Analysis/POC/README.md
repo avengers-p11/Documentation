@@ -22,8 +22,8 @@ Sonar has been utilized to provide comprehensive insights in the process of anal
 
 |SOFTWARE|	VERSION|
 |----|---------------|
-|Python| 3.6 or later|
-| SonarQube | 5.0.0.2966    |
+|Python| |
+| SonarQube |   |
 
 
 ## Getting Started
