@@ -72,7 +72,6 @@ Navigate to `Manage Jenkins` > `Global Tool Configuration`.
 - Specify the installation method:
   - If you have already installed the scanner, provide the path to the executable.
   - Alternatively, let Jenkins install the scanner automatically by selecting the appropriate option.
-![image](https://github.com/user-attachments/assets/0c2c7bec-8fcb-46eb-a63e-326fbc5e1cb8)
 
 
 
