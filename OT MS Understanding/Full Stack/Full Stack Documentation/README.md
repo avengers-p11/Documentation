@@ -36,7 +36,7 @@ Full Stack Development is the process of creating a complete web application tha
 
 Front-end development focuses on the part of a web application that users see and interact with. It's all about designing how the app looks (user interface) and how it feels to use (user experience). Front-end developers use languages like HTML, CSS, and JavaScript to build this visual part of the website, making sure it's easy to use and works smoothly.
 
-Pre-Requisites
+## Pre-Requisites
 The frontend application have dependencies on other REST API of OT-Microservices.
 
 <img width="656" alt="image" src="https://github.com/user-attachments/assets/c1e1609d-7c6d-4093-b05e-4a18a37562cf">
