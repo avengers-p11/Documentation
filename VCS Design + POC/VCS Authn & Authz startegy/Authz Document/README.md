@@ -55,83 +55,36 @@ There are Various Authorization strategies in VCS to control access to repositor
 
 Below mentioned are some of the common techniques: 
 
-### User Authentication
+| **Method**                               | **Description**                                                                                                                                                 | **Security Level**      | **Use Case**                                                                                                          |
+|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **User Authentication**                  |                                                                                                                                                                 |                         |                                                                                                                      |
+| - Username/Password                      | The basic method where users provide a valid username and password.                                                                                             | Low                     | Typically used in less secure environments or when other methods are not feasible.                                   |
+| - SSH Keys                               | A more secure method for authentication, especially for distributed systems like Git.                                                                            | Medium                   | Used for secure access, particularly for systems like Git.                                                           |
+| - OAuth/OpenID                           | Allows users to log in via third-party services like GitHub, Google, or other accounts.                                                                         | Medium                   | Common for applications that need to allow users to authenticate with popular third-party services.                   |
+| **Role-Based Access Control (RBAC)**     | Assigns users specific roles that define their access permissions to repositories or branches.                                                                  | High                     | Managing user access to repositories or actions based on predefined roles (e.g., restrict write access to developers). |
+| - Administrator                          | Full access to all repositories and administrative features.                                                                                                     | High                     | Administering repository settings and managing user permissions.                                                     |
+| - Contributor                            | Can push changes to repositories but cannot modify settings or user permissions.                                                                                | Medium                   | For developers working on repositories, but without administrative control.                                           |
+| - Viewer/Read-Only                       | Can view repositories but cannot make changes.                                                                                                                   | Low                      | Used for stakeholders who only need access to view the codebase.                                                      |
+| **Access Control Lists (ACLs)**          | Provides more granular control over who can access specific files or directories. Permissions are granted to individual users or groups.                        | Medium to High           | Defines permissions at a more granular level (e.g., on specific directories, files, or branches).                    |
+| **Branch Protection Rules**              | Controls how critical branches (e.g., main, develop) can be updated.                                                                                             | High                     | Restricts actions on specific branches (e.g., requires pull request reviews before merging).                         |
+| - Require Pull Requests                  | Prevent direct commits to protected branches, forcing code reviews.                                                                                             | High                     | Used to enforce a code review process before allowing changes to important branches.                                  |
+| - Status Checks                          | Enforce checks (e.g., passing tests) before code can be merged.                                                                                                  | High                     | Ensures that code passes necessary tests before merging into critical branches.                                        |
+| - Code Review Approvals                  | Require peer reviews and approval before merging changes.   
 
-- Before any authorization can happen, users must first be authenticated. The following methods are commonly used for user authentication:
+| **Method**                             | **Description**                                                                                                                                                                      | **Security Level** | **Use Case**                                                                                           |
+|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|------------------------------------------------------------------------------------------------------|
+| **Token-Based Authentication (PATs)**  | Personal Access Tokens (PATs) are an alternative to passwords, often used for API access or when interacting with VCS through CLI tools.                                             | High                | Uses access tokens for API authentication and Git operations.                                        |
+|                                        | - More secure than passwords.                                                                                                                                                         |                     |                                                                                                      |
+|                                        | - Scoped to limit access to specific repositories or actions.                                                                                                                       |                     |                                                                                                      |
+|                                        | - Useful in automation scripts and CI/CD pipelines.                                                                                                                                   |                     |                                                                                                      |
+| **Two-Factor Authentication (2FA)**    | Adds an extra layer of security by requiring a second form of verification, such as a code sent via SMS or an authenticator app (e.g., Google Authenticator).                        | Very High           | Requires users to provide two forms of authentication (password + second factor).                    |
+|                                        | - Enforces stronger security for user accounts.                                                                                                                                      |                     |                                                                                                      |
+| **IP Whitelisting or Geo-Restrictions**| Limits repository access to specific IP addresses or geographic regions. Can be used to enforce security for private repositories.                                                  | Very High           | Restricts access to trusted networks or regions, adding an extra layer of security for private repos. |
+| **Repository-Level Permissions**       | Determines who can access specific repositories and what actions they can perform.                                                                                                  | High                | Grants or restricts access to specific repositories within a VCS, allowing users to be assigned different levels of access (e.g., Admin, Write, Read). |
+|                                        | - Read access: View the repository's code and history.                                                                                                                                 |                     |                                                                                                      |
+|                                        | - Write access: Push changes to the repository.                                                                                                                                      |                     |                                                                                                      |
+|                                        | - Admin access: Manage repository settings, permissions, and more.                                                                                                                 |                     |                                                                                                      |
 
-  - **Username/Password**: The basic method where users provide a valid username and password.
-  - **SSH Keys**: A more secure method for authentication, especially for distributed systems like Git.
-  - **OAuth/ OpenID**: Allows users to log in via third-party services like GitHub, Google, or other accounts.
-- **Security Level**: Low. Passwords can be easily compromised if not managed securely.
-- **Use Case**: Typically used in less secure environments or when other methods are not feasible.
-
-
-### Role-Based Access Control (RBAC)
-
-- RBAC involves assigning users specific roles that define their access permissions to repositories or branches. Platforms like **GitHub**, **GitLab**, and **Bitbucket** provide role-based access to help manage these permissions.
-Common roles include:
-
-  - **Administrator**: Full access to all repositories and administrative features.
-  - **Contributor**: Can push changes to repositories but cannot modify settings or user permissions.
-  - **Viewer/Read-Only**: Can view repositories but cannot make changes.
--  **Security Level**: High (strong role-based separation)
--  **Use Case**: Managing user access to repositories or actions based on predefined roles (e.g., restrict write access to developers).
-
-
-### Access Control Lists (ACLs)
-
-- ACLs provide more granular control over who can access specific files or directories. Permissions are granted to individual users or groups.
-
-- **Read, Write, Delete** permissions can be set at the file or directory level.
-- Used by systems like **Perforce**, **SVN**, and Git (via extensions or server-side configuration).
--  **Security Level**: Medium to High
--  **Use Case**: Defines permissions at a more granular level (e.g., on specific directories, files, or branches)
-
-### Branch Protection Rules
-
-- Branch protection rules control how critical branches (e.g., `main`, `develop`) can be updated:
-
-- **Require Pull Requests**: Prevent direct commits to protected branches, forcing code reviews.
-- **Status Checks**: Enforce checks (e.g., passing tests) before code can be merged.
-- **Code Review Approvals**: Require peer reviews and approval before merging changes.
--  **Security Level**: High
--  **Use Case**: Restricts actions on specific branches (e.g., requires pull request reviews before merging).
-
-### Token-Based Authentication (Personal Access Tokens)
-
-Personal Access Tokens (PATs) are an alternative to passwords, often used for API access or when interacting with VCS through CLI tools. Key features include:
-
-- More secure than passwords.
-- Scoped to limit access to specific repositories or actions.
-- Useful in automation scripts and CI/CD pipelines.
--  **Security Level**: High
--  **Use Case**: Uses access tokens for API authentication and Git operations.
-
-### Two-Factor Authentication (2FA)
-
-- Two-Factor Authentication adds an extra layer of security by requiring a second form of verification, such as a code sent via SMS or an authenticator app (e.g., Google Authenticator).
--  Enforces stronger security for user accounts.
--  **Security Level**: Very High
--  **Use Case**: Requires users to provide two forms of authentication (password + second factor)
-
-### IP Whitelisting or Geo-Restrictions
-
-- This technique limits repository access to specific **IP addresses** or geographic regions. It can add an additional layer of security by restricting access to trusted networks.
-
-- Can be used to enforce security for **private repositories**.
--  **Security Level**: Very High
--  **Use Case**
-
-### Repository-Level Permissions
-
-- Repository-level permissions determine who can access specific repositories and what actions they can perform:
-
-  - **Read** access: View the repository's code and history.
-  - **Write** access: Push changes to the repository.
-  - **Admin** access: Manage repository settings, permissions, and more.
-
--  **Security Level**: High
--  **Use Case**: Grants or restricts access to specific repositories within a VCS, allowing users to be assigned different levels of access (e.g., Admin, Write, Read) for individual repositories
 
 ---
 
