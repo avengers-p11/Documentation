@@ -86,10 +86,15 @@ pip install boto
 ![image](https://github.com/user-attachments/assets/382c2609-6922-4e77-8ae0-306803add6d0)
 
 
-## Run the ansible role**
+**Run the ansible role**
 ```
 ansible-playbook -i <inventory-name> <playbook-name>
-``` 
+```
+![image](https://github.com/user-attachments/assets/34a1077c-6c4d-4987-b64d-d49ea1b65773)
+![image](https://github.com/user-attachments/assets/1e76698b-65b2-424e-b40c-fdd5e2f8caf1)
+
+
+
 # Conclusion
 Roles are a way to make code in playbooks reusable by putting the functionality into generalized libraries that can be then used in any playbook as needed.
 
