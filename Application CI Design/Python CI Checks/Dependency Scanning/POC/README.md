@@ -127,14 +127,11 @@ After installing `safety`, you can run a security scan to identify any vulnerabi
 ```bash
 safety check
 ```
-![Screenshot (50)](https://github.com/user-attachments/assets/450019e9-7f8b-42c7-a79f-23156a43b6f3)
 
-![Screenshot (51)](https://github.com/user-attachments/assets/a236ec9f-5f63-414e-a8ce-de477d5bab5f)
-![Screenshot (52)](https://github.com/user-attachments/assets/08ce4f09-a639-4fce-bcf8-3f538d40803b)
 
 After running Safety check i got a vulenerability that my pip version is not updated so we can upgrade the pip and run safety scan again and we got these results .
 
-![Screenshot (53)](https://github.com/user-attachments/assets/335eefc3-97e2-4429-90fa-ba55f0f9ac63)
+
 
 It states that there is no vulenrabilities reported .This ensure that your Python project dependencies are up-to-date, secure, and compatible.
 
