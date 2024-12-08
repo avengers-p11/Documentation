@@ -59,14 +59,11 @@ GoLang CI Code Compilation means automatically checking and building your Go cod
 
 ## Best Practices
 
-1. **Use Go Modules:**
-Always use Go Modules (go mod) to manage dependencies. This ensures that your project dependencies.
-
-2. **Automate Builds:**
-Automate your build process with scripts (e.g., Makefile or Taskfile) to handle compilation, testing, and other tasks.
-
-3. **Use go fmt for Code Formatting:**
-Before compiling, run go fmt to automatically format your code. This ensures consistent style across your codebase.
+| **Best Practice**                    | **Description**                                                                                                      |
+|--------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **Use Go Modules**                   | Always use Go Modules (`go mod`) to manage dependencies. This ensures that your project dependencies are consistent.    |
+| **Automate Builds**                  | Automate your build process with scripts (e.g., Makefile or Taskfile) to handle compilation, testing, and other tasks.  |
+| **Use go fmt for Code Formatting**   | Before compiling, run `go fmt` to automatically format your code. This ensures consistent style across your codebase.   |
 
 
 ## Recommendations
