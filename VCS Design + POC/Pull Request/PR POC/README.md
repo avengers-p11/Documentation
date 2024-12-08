@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **L0 Reviewer** |
 |------------|--------------|------------|-------------|------------|-----------|
-| Mohit Saini | 21-11-24 | 1.0 | Mohit Saini | 03-12-24 |Khushi and Shreya |
+| Mohit Saini | 21-11-24 | 1.0 | Mohit Saini | 08-12-24 |Khushi and Shreya |
 
 ![image](https://github.com/user-attachments/assets/708172a1-2871-4012-9d98-52ae56692e6d)
 
@@ -17,7 +17,7 @@
 
 [Workflow Diagram](#workflow-diagram)
 
-[Steps to Create a Pull Request (PR)](#steps-to-create-a-pull-request (PR))
+[Steps to Create a Pull Request (PR)](#steps-to-create-a-pull-request (PR))   
 
 [Conclusion](#conclusion)
 
@@ -57,11 +57,11 @@ properly, and how these changes will improve the project.
 
 **Log in to GitHub**
 
-Go to Repositories and click New.
+ * Go to Repositories and click New.
 
- Enter a name for your repository, choose public or private, and add a description if you want.
+ * Enter a name for your repository, choose public or private, and add a description if you want.
 
-Click Create Repository to set it up.
+* Click Create Repository to set it up.
 
 ![image](https://github.com/user-attachments/assets/769cc267-ab26-4ef4-98f0-1945be97d207)
 
@@ -81,7 +81,7 @@ cd PR-demo
 ```
 ![image](https://github.com/user-attachments/assets/6c845481-dfcc-49b0-a0c0-09395d1f0153)
 
-## **Step 4. Create a new branch for your changes**
+## **Step 4. Create a new branch and switch to the branch at the same time**
 
 ```
 git checkout -b new_branch
@@ -105,7 +105,7 @@ vi pr(file name)
 ![image](https://github.com/user-attachments/assets/f779d15b-9c32-4f73-8abd-389f844fea81)
 
 
-## **Step 7. Check the changes you made**
+## **Step 7. Check the status**
 
 ```
 git status
@@ -157,17 +157,12 @@ git push --set-upstream origin new_branch
 ![image](https://github.com/user-attachments/assets/f6dc4dbf-a2cb-46b8-bd0f-7043f8d60135)
 
 
-## **Step 16. Engage in the review process, leaving comments as needed**
-
-![image](https://github.com/user-attachments/assets/628f6726-6411-4549-965a-af123505a511)
-
-
-## **Step 17. Once the review is complete, merge the pull request**
+## **Step 16. Once the review is complete, merge the pull request**
 
 
 ![image](https://github.com/user-attachments/assets/97c87329-363f-4939-b515-e1dadbb4e824)
 
-## **Step 18. If the branch is no longer required, delete it after merging the changes**
+## **Step 17. If the branch is no longer required, delete it after merging the changes**
 
 ![image](https://github.com/user-attachments/assets/fc989c5d-c8e7-4560-ad27-5af4f85186d2)
 
