@@ -12,9 +12,9 @@
 
 1. [Introduction](#introduction)
 
-2. [What](#what)
+2. [What is Compiler](#what-is-compiler)
 
-3. [Why](#why)
+3. [Why compiler](#why-compiler)
 
 4. [Java compilation process](#java-compilation-process)
 
@@ -38,12 +38,12 @@
 
 Code Compilation is like Translation. it's the process of converting human-readable code into machine-readable code. A software program called a compiler performs this translation
 
-# What
+# What is Compiler
 
 A compiler is a special software program that acts like a translator. It takes your code, written in a human-readable language like Python or Java, and translates it into machine language. This process is called compilation.
 
 
-# Why
+# Why Compiler
 
 Code compilation is necessary because computers can only understand machine code. Code compilation in Java is the bridge between human-readable code and machine-executable instructions, enabling Java programs to run seamlessly on various platforms.
 
