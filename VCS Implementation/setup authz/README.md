@@ -62,22 +62,10 @@ Use your VCS's built-in RBAC to assign roles and permissions.
    - Write
    - Read
 
-#### GitLab:
-1. Navigate to **Settings** > **Members**.
-2. Add users or groups and assign roles:
-   - Owner
-   - Developer
-   - Reporter
-   - Guest
+![Screenshot from 2024-12-08 21-29-40](https://github.com/user-attachments/assets/0a419724-57f9-4177-8624-6e471034c997)
+![Screenshot from 2024-12-08 21-29-49](https://github.com/user-attachments/assets/883308f0-c1c7-4ef2-8543-6d8ed9eaed42)
+![Screenshot from 2024-12-08 21-29-54](https://github.com/user-attachments/assets/fb369093-ded8-41e3-998f-24a3c74d1cc1)
 
-#### Bitbucket:
-1. Go to **Repository Settings** > **User and Group Access**.
-2. Assign permissions:
-   - Admin
-   - Write
-   - Read
-
----
 
 ### Step 3: Protect Branches
 
@@ -90,17 +78,6 @@ Set up branch protection rules to enforce authorization policies.
    - Restrict who can push to the branch.
    - Require status checks to pass before merging.
 
-#### GitLab:
-1. Navigate to **Settings** > **Repository** > **Protected Branches**.
-2. Protect branches:
-   - Set roles allowed to push and merge.
-   - Require approvals.
-
-#### Bitbucket:
-1. Go to **Repository Settings** > **Branch Permissions**.
-2. Add permissions:
-   - Restrict push to specific branches.
-   - Require pull request approval.
 
 ---
 
@@ -112,11 +89,7 @@ Set up branch protection rules to enforce authorization policies.
 #### GitHub Audit Logs:
 Access logs from your **organization settings** to monitor changes.
 
-#### GitLab Audit Events:
-Navigate to **Admin Area** > **Audit Events** to track activities.
 
-#### Bitbucket Audit Logs:
-View activity logs in the **Workspace Settings**.
 
 ---
 
