@@ -51,7 +51,8 @@ SonarQube High Availability (HA) architecture is designed to ensure continuous o
 | **Backup Mechanisms**       | Regular backups of the database, Elasticsearch, and configuration files are taken to avoid data loss during failures. |
 | **Autoscaling Groups**      | In cloud environments, autoscaling groups can be used to automatically add or remove frontend and backend instances based on load. |
 
-![image](https://github.com/user-attachments/assets/32375397-66a3-492a-ac77-dccebe4200b1)
+![image](https://github.com/user-attachments/assets/30c5eb37-bf07-47f6-957b-adaa595a026a)
+
 
 
 
