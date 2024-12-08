@@ -40,16 +40,17 @@ This process ensures that Go projects are optimized for performance and portabil
 ## Different Tools
 There are several tools available that assist with GoLang compilation, each offering unique features for different use cases.
 
-1. **Go Build**: The standard Go tool for compiling and building Go applications.
-2. **Go Run**: Compiles and runs the Go code in a single step. Ideal for testing and rapid development.
-3. **Go Install**: Installs compiled binaries into the `$GOPATH/bin` directory for easy access.
-4. **Go Cross-Compilation**: Allows building executables for different operating systems and architectures from a single machine.
-5. **Gox**: A tool for cross-compiling Go applications to different platforms in a single command.
+| **Tool**               | **Description**                                                                                                      |
+|------------------------|----------------------------------------------------------------------------------------------------------------------|
+| **Go Build**           | The standard Go tool for compiling and building Go applications.                                                      |
+| **Go Run**             | Compiles and runs the Go code in a single step. Ideal for testing and rapid development.                               |
+| **Go Install**         | Installs compiled binaries into the `$GOPATH/bin` directory for easy access.                                          |
+| **Go Cross-Compilation**| Allows building executables for different operating systems and architectures from a single machine.                  |
+| **Gox**                | A tool for cross-compiling Go applications to different platforms in a single command.                               |
+
 
 ## Recommended Tool
 The recommended tool for most GoLang compilation tasks is the built-in `go build` command, which is simple to use and supports most Go project requirements. It’s integrated into the Go toolchain and is optimized for performance.
-
-For more advanced use cases such as cross-compiling, **Gox** is a great alternative. It enables you to build Go applications for various platforms (Linux, macOS, Windows, etc.) from one command, reducing the complexity of managing separate builds for each platform.
 
 ## Conclusion
 Understanding the GoLang compilation process and using the right tools can significantly improve your development workflow. The built-in `go build` tool is sufficient for most cases, but for more complex requirements like cross-compilation, tools like **Gox** offer great flexibility and efficiency.
