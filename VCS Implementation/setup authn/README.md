@@ -19,8 +19,7 @@
     - [Personal Access Tokens (PATs)](#personal-access-tokens-pats)
     - [OAuth Authentication](#oauth-authentication)
 5. [Best Practices](#best-practices)
-6. [Troubleshooting](#troubleshooting)
-7. [References](#references)
+6. [References](#references)
 
 ---
 
@@ -67,7 +66,15 @@ Test SSH Connection:
 ```
     ssh -T git@github.com
 ```
-   Replace github.com with your VCS provider's domain.
+  
+ Replace github.com with your VCS provider's domain.
+ ![Screenshot from 2024-11-29 14-22-16](https://github.com/user-attachments/assets/ffb69990-396a-4561-8edb-bdbf0ff41c06)
+![Screenshot from 2024-11-29 14-22-24](https://github.com/user-attachments/assets/5c355f31-023a-4379-aece-933e85846095)
+![Screenshot from 2024-11-29 14-22-35](https://github.com/user-attachments/assets/55db4e84-001b-4935-8cf3-f7b24593e2f8)
+![Screenshot from 2024-11-29 14-22-59](https://github.com/user-attachments/assets/d1cf378a-93ca-48b4-b469-34fce553a30a)
+![Screenshot from 2024-11-29 14-23-56](https://github.com/user-attachments/assets/889089c2-08d3-417f-af27-98dc1724285f)
+
+![Screenshot from 2024-11-29 14-25-37](https://github.com/user-attachments/assets/4a87e0a5-d964-4b84-bde7-404e4652bb3d)
 
 ## 2.Personal Access Tokens (PATs)
 
@@ -102,17 +109,6 @@ Test SSH Connection:
    Enable Two-Factor Authentication (2FA): Add an extra layer of security.
    Use Scoped Tokens: Limit the scope of PATs to specific operations.
 
-## Troubleshooting
-   SSH Permission Denied:
-        Ensure the correct key is added to your VCS.
-        Verify the SSH agent is running:
-
-        eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_rsa
-        
-   Token Expiry Issues:
-        Regenerate and replace expired tokens.
-        Use a credential manager to avoid re-entering tokens.
 
 ## References
 
