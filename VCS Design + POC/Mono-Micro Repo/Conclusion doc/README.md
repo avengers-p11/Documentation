@@ -64,11 +64,7 @@ A **Micro Repo** is when each project or part of a project is kept in its own se
 
 
 ## **Conclusion**
-When choosing between a **Monorepo** and a **Micro Repo** strategy, teams must consider the **size**, **complexity**, and **collaboration needs** of their projects.
-
-- Monorepo is best for big companies where many different projects need to work together in one place. It helps teams work together and manage shared code better, but it can be harder to grow and manage because it needs special tools.
-  
-- Micro Repo is good for teams that want independence for each project, have small projects that don’t depend on each other, and need faster development. But having lots of separate repositories can cause issues with dependencies and keeping things consistent across projects.
+We're using a **micro-repository** architecture to streamline development. This approach lets our teams work on individual projects without relying on each other. This makes development faster and more efficient.
 
 ## Contact Information 
 | Name         | Email Address                              |
