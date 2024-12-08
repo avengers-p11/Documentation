@@ -59,6 +59,9 @@ Step 2: Create a Pre-Commit Hook
 ```
 touch pre-commit
 ```
+![Screenshot from 2024-12-08 21-48-55](https://github.com/user-attachments/assets/d3d78ed2-96ce-43cd-a67c-408f485ed846)
+
+
 ### Step 3: Configure the Hook
 
 Edit the pre-commit file with your preferred script. For example, to enforce code linting:
@@ -78,10 +81,14 @@ fi
 echo "✅ Linting passed. Proceeding with commit."
 exit 0
 ```
+![Screenshot from 2024-12-08 21-48-24](https://github.com/user-attachments/assets/a58fd405-d029-4767-b9ec-2b6124ba6f0a)
+
 Make the script executable:
 ```
 chmod +x pre-commit
 ```
+![Screenshot from 2024-12-08 21-49-24](https://github.com/user-attachments/assets/04ee8ae3-d93b-430b-9d69-e2d9d07764b3)
+
 ## Examples of Commit Hooks
 Enforce Commit Message Format
 
