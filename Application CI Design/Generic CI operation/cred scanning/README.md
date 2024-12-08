@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 29-11-24           |  | | |     
+| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 8-12-24           |  | | |     
 
 ### Purpose 
 
@@ -74,6 +74,8 @@ If any of these are found in the code, they could be a security risk because att
 | **Avoid Data Leaks**  | By removing sensitive data before code is published, you avoid exposing it to hackers.               |
 
 ### Proof of Concept (POC)
+![Screenshot from 2024-12-08 12-23-42](https://github.com/user-attachments/assets/09cd825b-cf69-49cf-93e1-b3100d104463)
+![Screenshot from 2024-12-08 12-23-52](https://github.com/user-attachments/assets/2a53e3d2-e3b4-4b47-ae8d-9b7824a4da0e)
 
 
 
