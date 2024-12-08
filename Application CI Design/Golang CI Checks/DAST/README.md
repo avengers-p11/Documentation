@@ -32,7 +32,7 @@ GoLang is widely used for developing high-performance, secure applications. Howe
 - **Enhance Security Posture:** Provide real-time security assessments.
 - **Complement Code Analysis:** Uncover vulnerabilities missed by static analysis tools.
 
-## Different DAST Tools for Java
+## Different DAST Tools for Golang
 Several DAST tools are available that cater to GoLang applications. Some of the prominent ones include:
 |Tool|Description|
 |------|---------|
@@ -60,15 +60,14 @@ Several DAST tools are available that cater to GoLang applications. Some of the 
 |No Source Code Required| Since DAST is a black-box testing method, it does not require access to the source code, making it suitable for testing third-party applications.|
 |Compliance|Helps in meeting various regulatory requirements by ensuring the application is secure from common vulnerabilities.|
 
-## Best Practices 
+## Best Practices
 
-**Integrate Early and Often**: Integrate DAST into your CI/CD pipeline to ensure continuous security testing throughout the development lifecycle.
-
-**Complement with SAST**: Use DAST in conjunction with SAST to cover both static code vulnerabilities and runtime issues.
-
-**Regular Updates**: Keep the DAST tools updated to ensure they can detect the latest vulnerabilities and threats.
-
-**Automate Scans**: Automate regular scans to catch vulnerabilities as soon as they are introduced.
+| **Best Practice**                     | **Description**                                                                                         |
+|---------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Integrate Early and Often**         | Integrate DAST into your CI/CD pipeline to ensure continuous security testing throughout the development lifecycle. |
+| **Complement with SAST**              | Use DAST in conjunction with SAST to cover both static code vulnerabilities and runtime issues.          |
+| **Regular Updates**                   | Keep the DAST tools updated to ensure they can detect the latest vulnerabilities and threats.            |
+| **Automate Scans**                    | Automate regular scans to catch vulnerabilities as soon as they are introduced.                          |
 
 ## POC
 
