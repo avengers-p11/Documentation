@@ -14,9 +14,10 @@
 5. [Comparison of Dependency Scanning Tools](#comparison-of-dependency-scanning-tools)
 6. [Advantages of Dependency Scanning in CI](#advantages-of-dependency-scanning-in-ci)
 7. [Best Practices for Dependency Scanning](#best-practices-for-dependency-scanning)
-8. [Recommendations and Conclusion](#recommendations-and-conclusion)
-9. [Contact Information](#contact-information)
-10. [References](#references)
+8. [Recommendations](#recommendations)
+9. [Conclusion](#conclusion)
+10. [Contact Information](#contact-information)
+11. [References](#references)
 ---
 ## Introduction
 Continuous Integration (CI) practices have become integral to modern software development, allowing teams to deliver software more efficiently. Among various checks included in a CI pipeline, **dependency scanning** is crucial for maintaining secure, stable, and up-to-date codebases.
@@ -69,14 +70,17 @@ Several tools are available to perform dependency scanning for Golang projects. 
 | **Handle Vulnerabilities Promptly**| When a vulnerability is detected, address it as quickly as possible by updating the affected dependencies or applying patches. |
 | **Limit Dependency Scope**         | Reduce the number of dependencies to minimize the attack surface and maintain cleaner code. |
 
-## Recommendations and Conclusion
+## Recommendations 
 | Recommendation                   | Description                                                                 |
 |-----------------------------------|-----------------------------------------------------------------------------|
 | **Security First**                | Always prioritize security by regularly scanning dependencies for vulnerabilities to prevent potential security breaches. |
 | **Automation**                    | Automate the scanning process to ensure dependencies are checked continuously throughout development and integrated into your CI pipeline. |
 | **Tool Selection**                | Choose the right tool based on your project requirements, considering factors like ease of use, integration options, and specific features that meet your needs. |
 | **Regular Maintenance**           | Keep your dependencies up-to-date and avoid dependency bloat. This ensures long-term health of your project and minimizes the risk of vulnerabilities. |
-By following the above practices, you can enhance your Go projects' security, stability, and maintainability.
+
+## Conclusion
+
+We will be using Gosec tool for dependency scanning for our golang project which is used in our Employee API in OT-Microservice. By using Gosec we can easily scan our dependencies of our project. 
 
 ## Contact Information
 |    NAME           |   Email Address                       |
