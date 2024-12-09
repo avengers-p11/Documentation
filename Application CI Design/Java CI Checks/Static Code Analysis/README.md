@@ -2,7 +2,7 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   26-11-24       | v1 | Mohit Saini          |     26-11-24            |    |      |     |
+| Mohit Saini      |   26-11-24       | v1 | Mohit Saini          |     02-12-24            |  Khushi  |      |     |
 
 ![image](https://github.com/user-attachments/assets/aa106778-c90e-4e17-9d03-7f61bdf672a2)
 
@@ -10,8 +10,8 @@
 **Table of Contents**
 
 1. [**Introduction**](#introduction)
-2. [**What**](#what-is-static-code)
-3. [**Why**](#why)
+2. [**What is Static Code Anaylysis?**](#what-is-static-code-analysis?)
+3. [**Why?**](#why?)
 4. [**Different Tools**](#different-tools)
 5. [**Tool POC**](#tool-poc-sonarqube)
 6. [**Conclusion**](#conclusion)
@@ -23,11 +23,11 @@
 # Introduction
 Static code analysis in Java is a powerful technique used to examine the source code without executing it. This process helps developers identify errors, potential bugs, and maintain coding standards by analyzing code against predefined rules and patterns.
 
-# What is Static Code
+# What is Static Code Anaylysis?
 
 Static code analysis in Java is a methodology for examining the source code. By using SCA tools, developers can identify any potential performance or security issues, even when the program is not running.
 
-# Why
+# Why?
 
 | **Reasons**                   | **Description**                                                                                                    |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -48,33 +48,20 @@ Static analysis tools are important for checking the quality of code. These tool
 | **SonarQube**      | Comprehensive code analysis | Tracks technical debt, provides dashboards for trends. | Managing overall code quality at scale. | All-in-one solution for code quality.         | Resource-intensive.                             |
 
 
-# Tool POC (SonarQube)
+# SonarQube Static Code Analysis
 
 ## Pre-requisites 
 
-## System Specifications
 
 | **Specification**      | **Details**         |
 |-------------------------|---------------------|
 | **Operating System**    | Ubuntu 22.04      |
 | **CPU**                | 2 vCPU             |
-| **Volume**             | 20 GB              |
+| **Hard Disk**             | 20 GB              |
 | **RAM**                | 4 GB               |
 
 
 # Security ports
-
-## System Specifications
-
-| **Specification**      | **Details**         |
-|-------------------------|---------------------|
-| **Operating System**    | Ubuntu 22.04 / 20.04 LTS |
-| **CPU**                | 2 vCPU             |
-| **Volume**             | 20 GB              |
-| **RAM**                | 4 GB               |
-| **Security Ports**     | (Shown below)      |
-
-### Security Ports
 
 | **Port** | **Protocol** | **Source Side**    | **Destination Side** | **Use Case**                     |
 |----------|--------------|--------------------|-----------------------|-----------------------------------|
@@ -85,14 +72,18 @@ Static analysis tools are important for checking the quality of code. These tool
 | 9000     | TCP          | Any                | Server               |  SonarQube |
 
 
-## 1. First create the instance t2.medium or t3.large.
+# Step-by-step installation on Ubuntu
 
-## 2. Open the port
+## Step 1. First create the instance t2.medium or t3.large.
+
+![image](https://github.com/user-attachments/assets/7b66a70c-8cba-48e0-acc0-c98fb993b061)
+
+## Step 2. Open the port
 
 ![image](https://github.com/user-attachments/assets/0d00a94e-47cd-4c37-b2fa-5ba2b58cfdf6)
 
-# Step-by-step installation on Ubuntu
-## **Step 1. Update and Upgrade System Packages**
+
+## **Step 3. Update and Upgrade System Packages**
 
 ```
 sudo apt update
@@ -105,19 +96,20 @@ sudo apt upgrade -y
 ```
 ![image](https://github.com/user-attachments/assets/a648c53b-4753-47fd-b3a6-9800bb73a66f)
 
-## **Step 2. Java installation**
+## **Step 4. Java installation**
 
 ```
 sudo apt install -y openjdk-17-jdk
 ```
 ![image](https://github.com/user-attachments/assets/204ef06f-6d5a-40d4-beff-3c765702f5c1)
 
-##  **Step 3. verify the installed Java version**
+##  **Step 5. verify the installed Java version**
 ```
 java -version
 ```
 
-## **Step 4. install and configure PostgreSQL**
+## **Step 6. install and configure PostgreSQL**
+
 
 #### 1. Adding the PostgreSQL repository.
 ```
@@ -133,10 +125,12 @@ wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key a
 ![image](https://github.com/user-attachments/assets/655cbe26-173d-425c-abed-32fffe288e18)
 
 #### 3. To complete the PostgreSQL setup, proceed by installing PostgreSQL.
+
 ```
 sudo apt install postgresql postgresql-contrib -y
 ```
 ![image](https://github.com/user-attachments/assets/3875f1ec-6e16-48c1-9329-30e824514193)
+
 
 #### 4. Ensure the database server starts automatically upon reboot for seamless operation
 
@@ -178,14 +172,19 @@ psql
  
 #### 10. Set a strong password for the “sona” user. Use a password
 
-
+```
 ALTER USER sona WITH ENCRYPTED password 'Sona#123';
+```
 
 #### 11. Create a sqube database and assign the ownership to the “sona” user.
+```
 CREATE DATABASE sqube OWNER sona;
-
+```
 Grant all privileges on the “sqube” database to the “sona” user
+
+```
 GRANT ALL PRIVILEGES ON DATABASE sqube to sona;
+```
 ![image](https://github.com/user-attachments/assets/43a19949-613c-48ea-958f-aa41c4e644af)
 
 #### 12. To verify the creation of the database, use the following command
@@ -202,7 +201,7 @@ To verify the creation of the database user, use the following command:
 ```
 \q
 ```
-#### 13.  To return to your non-root sudo user account, use the following command:
+#### 14.  To return to your non-root sudo user account, use the following command:
 ```
 exit
 ```
@@ -210,7 +209,7 @@ exit
 
 
 
-## **Step 5. Downloading and Installing SonarQube**
+## **Step 7. Downloading and Installing SonarQube**
 
 Install the zip utility, required for extracting the SonarQube files
 ```
@@ -220,7 +219,7 @@ sudo apt install zip -y
 
 
 
-## **Step 6. installing the latest version of SonarQube 10.4 Community Edition (free version)**
+## **Step 8. installing the latest version of SonarQube 10.4 Community Edition (free version)**
 
 ```
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4.1.88267.zip
@@ -229,7 +228,7 @@ sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4
 ![image](https://github.com/user-attachments/assets/e8c2fd40-6589-4f0c-950e-da10bbf989bb)
 
 
-## **Step 7. Move the unzipped files to the /opt/sonarqube directory**
+## **Step 9. Move the unzipped files to the /opt/sonarqube directory**
 
 ```
 sudo unzip sonarqube-10.4.1.88267.zip
@@ -237,7 +236,7 @@ sudo mv sonarqube-10.4.1.88267 sonarqube
 sudo mv sonarqube /opt/
 ```
 
-## **Step 8. Setting Up SonarQube: Adding Group and User**
+## **Step 10. Setting Up SonarQube: Adding Group and User**
 
 ```
 sudo groupadd sona
@@ -247,7 +246,7 @@ sudo useradd -d /opt/sonarqube -g sona sona
 
 
 
-## **Step 9. Grant the “sona” user access to the /opt/sonarqube directory**
+## **Step 11. Grant the “sona” user access to the /opt/sonarqube directory**
 
 ```
 sudo chown -R sona:sona /opt/sonarqube
@@ -257,14 +256,14 @@ sudo chown -R sona:sona /opt/sonarqube
 
 
 
-## **Step 10. Edit the SonarQube configuration file located**
+## **Step 12. Edit the SonarQube configuration file located**
 
 ```
 sudo nano /opt/sonarqube/conf/sonar.properties
 ```
 
 
-## **Step 11. Uncomment the following lines in the SonarQube configuration file**
+## **Step 13. Uncomment the following lines in the SonarQube configuration file**
 
 ```
 sonar.jdbc.username=sona
@@ -274,13 +273,13 @@ sonar.jdbc.url=jdbc:postgresql://localhost:5432/sqube
 ![image](https://github.com/user-attachments/assets/2d051074-3552-45fd-8e2b-5d13b8d45b27)
 
 
-## **Step 12. To edit the SonarQube script file**
+## **Step 14. To edit the SonarQube script file**
 ```
 sudo nano /opt/sonarqube/bin/linux-x86-64/sonar.sh
 ```
 
 
-## **Step 13. Select the branch you want to merge**
+## **Step 15. Select the branch you want to merge**
 
 ```
 RUN_AS_USER=sona
@@ -288,13 +287,13 @@ RUN_AS_USER=sona
 ![image](https://github.com/user-attachments/assets/d74ff63b-e3c0-495b-8f83-5fe514fc4929)
 
 
-## **Step 14. Create a new service file using a text editor**
+## **Step 16. Create a new service file using a text editor**
 ```
 sudo nano /etc/systemd/system/sonar.service
 ```
 
 
-## **Step 15. Check for merge conflicts after creating the pull request, It’s now ready for review**
+## **Step 17. Check for merge conflicts after creating the pull request, It’s now ready for review**
 
 ```
 [Unit]
@@ -316,14 +315,14 @@ WantedBy=multi-user.target
 ![image](https://github.com/user-attachments/assets/af10bcfb-cfdc-4bf1-8015-0304377c063a)
 
 
-## **Step 16. Enable the SonarQube service to start at boot**
+## **Step 18. Enable the SonarQube service to start at boot**
 
 ```
 sudo systemctl enable sonar
 ```
 
 
-## **Step 17. start the SonarQube service**
+## **Step 19. start the SonarQube service**
 
 ```
 sudo systemctl start sonar
@@ -336,14 +335,14 @@ sudo systemctl status sonar
 
 
 
-## **Step 18. To edit the sysctl configuration file**
+## **Step 20. To edit the sysctl configuration file**
 
 ```
 sudo nano /etc/sysctl.conf
 ```
 
 
-## **Step 18. Add the following lines to the sysctl configuration file (/etc/sysctl.conf)**
+## **Step 21. Add the following lines to the sysctl configuration file (/etc/sysctl.conf)**
 
 ```
 vm.max_map_count=262144
@@ -355,62 +354,62 @@ ulimit -u 4096
 ![image](https://github.com/user-attachments/assets/7cfcf710-2856-4438-9e13-bcc278d37d63)
 
 
-## **Step 18. To apply the changes, reboot the system**
+## **Step 22. To apply the changes, reboot the system**
 sudo reboot
 
 
 
-## **Step 18. Access SonarQube in a web browser by entering your server’s IP address followed by port 9000**
+## **Step 23. Access SonarQube in a web browser by entering your server’s IP address followed by port 9000**
 
 ```
 http://100.26.240.39:9000
 ```
-**Step 19. Log in to SonarQube using the username “admin” and password “admin”**
+**Step 24. Log in to SonarQube using the username “admin” and password “admin”**
 ![image](https://github.com/user-attachments/assets/aceb6217-a3e7-474d-a903-3f9d3bfbba08)
 
 Once logged in, SonarQube will prompt you to change your password. Enter the current password “admin” and then enter your new password twice as prompted.
 
 ![image](https://github.com/user-attachments/assets/658677aa-d66c-4b3d-8876-0e11ebf9bc6b)
 
-**Step 20. Go to SonarQube and select the project**
+**Step 25. Go to SonarQube and select the project**
 
 ![image](https://github.com/user-attachments/assets/170adf86-92c9-48a0-b5b5-af15d1502929)
 
-**Step 21. Create a Local Project: Set up a new or existing project on your machine**
+**Step 26. Create a Local Project: Set up a new or existing project on your machine**
 
 ![image](https://github.com/user-attachments/assets/0b49d923-61a7-4120-ae5f-7558dc8c0d3c)
 
-**Step 22. Configure the Project: Prepare your project for analysis by configuring the necessary files**
+**Step 27. Configure the Project: Prepare your project for analysis by configuring the necessary files**
 ![image](https://github.com/user-attachments/assets/76d79553-2d6a-41ab-852a-b4ee40d505be)
 
-**Step 23. Analysis your project which you want**
+**Step 28. Analysis your project which you want**
 
 ![image](https://github.com/user-attachments/assets/1da40957-0508-43c9-89e7-3916c6dd4feb)
 
-**Step 24. Generate Token: Create an authentication token in SonarQube**
+**Step 29. Generate Token: Create an authentication token in SonarQube**
 
 ![image](https://github.com/user-attachments/assets/8a2cc014-c67c-437c-b045-509adb3a0765)
 
-**Step 25. Copy the Token: Copy the generated SonarQube token to use for authentication when running the SonarScanner**
+**Step 30. Copy the Token: Copy the generated SonarQube token to use for authentication when running the SonarScanner**
 
 ![image](https://github.com/user-attachments/assets/90fde3fa-0b9e-46bc-9f9f-8e474637e604)
 
-**Step 26. Analyze your project** 
+**Step 31. Analyze your project** 
 
 ![image](https://github.com/user-attachments/assets/8b835153-c969-4c89-b066-5789850c98ea)
 
-**Step 27.Run Analyze on your project**
+**Step 32.Run Analyze on your project**
 ![image](https://github.com/user-attachments/assets/5ac3feea-4186-4935-a3a7-e41c2dd8eecb)
 
-**Step 28.Paste the scan command**
+**Step 33.Paste the scan command**
 
 ![image](https://github.com/user-attachments/assets/2f271634-5d44-421f-b3f3-c6dc526932e3)
 
-**Step 29. After sucessfully run command**
+**Step 34. After sucessfully run command**
 
 ![image](https://github.com/user-attachments/assets/900d6aa0-946d-41cf-bb16-4ba997ca5039)
 
-**Step 30. Code anaylsis report**
+**Step 35. Code anaylsis report**
 ![image](https://github.com/user-attachments/assets/abcbbf30-ba80-4076-a239-17bf858ef516)
 
 
