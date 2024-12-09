@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 |------------|--------------|------------|-------------|------------|-----------|-----------|-----------|
-| Mohit Saini | 29-11-24 |  | Mohit Saini | 29-11-24 | Khushi Malhotra | | |
+| Mohit Saini | 29-11-24 |  | Mohit Saini | 29-11-24 | Rohit | | |
 
 ![image](https://github.com/user-attachments/assets/8206a944-d9a6-47bc-bf4d-3a8cdacd64ea)
 
@@ -20,19 +20,21 @@
 
 5. [Different Tools](#different-tools)
 
-6. [Maven Java Compiler Tool](#maven-java-compiler-tool)  
+6. [Comparison Table](comparison-table)
 
-7. [Maven](#what)
+7. [Maven Java Compiler Tool](#maven-java-compiler-tool)  
 
-8. [Why Maven?](#why-maven?)
+8. [Maven](#what)
 
-9. [Installation Steps of Maven](#installation-steps-of-maven)
+9. [Why Maven?](#why-maven?)
 
-10. [Conclusion](#conclusion)
+10. [Installation Steps of Maven](#installation-steps-of-maven)
 
-11. [Contact Information](#contact-information)
+11. [Conclusion](#conclusion)
 
-12. [References](#references)
+12. [Contact Information](#contact-information)
+
+13. [References](#references)
 
 # Introduction
 
@@ -76,6 +78,17 @@ Java Compiler (javac) generates Bytecode
 | **Maven**           | A build automation tool that also handles dependencies, project management, and compiling Java code. | - Manages dependencies. <br> - Centralizes build configuration.               | Used for automating the build and dependency management process, ensuring consistent and repeatable builds across environments.                           |
 | **Gradle**          | A flexible build tool that automates Java code compilation, testing, and packaging. | - Supports multiple languages. <br> - Offers faster builds with incremental compilation. | An advanced build automation tool known for its speed and flexibility, used in complex Java projects to manage dependencies and automate tasks efficiently. |
 
+# Comparison Sheet
+
+| **Feature**               | **Maven** | **Gradle** | **Ant** | 
+|---------------------------|-----------|------------|---------|
+| **Easy to Use**           | Yes       | No         | No      |
+| **Standard Structure**    | Yes       | No         | No      | 
+| **Handles Dependencies**  | Yes       | Yes        | No      | 
+| **Well-Established**      | Yes       | No         | Yes     | 
+| **Quick to Learn**        | Yes       | No         | No      | 
+| **Works with Other Tools**| Yes       | Yes        | No      |
+
 # Maven Java Compiler Tool
 
 ![image](https://github.com/user-attachments/assets/618806e9-7239-4f38-9b48-055a1544c574)
@@ -99,9 +112,8 @@ Maven has become a popular choice for Java projects due to several key advantage
 
 # Installation Steps of Maven
 
-## Prerequisites 
+## Pre-requisites 
 
-## System Specifications
 | **Specification**          | **Details**                                                      |
 |----------------------------|------------------------------------------------------------------|
 | **Operating System**        | Linux (Ubuntu, CentOS, Amazon Linux 2, etc.)                    |
