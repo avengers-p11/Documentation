@@ -14,7 +14,7 @@
 2. [**What is Dependency Scanning?**](#what-is-dependency-scanning?)
 3. [**Why?**](#why?)
 4. [**Different Tools**](#different-tools)
-5. [**Tool POC**](owsap-dependency-check-using-maven)
+5. [**OWASP Dependency-Check using Maven**](owsap-dependency-check-using-maven)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
 8. [**References**](#references)
@@ -53,14 +53,14 @@ The Dependency-Check tool provides checks for vulnerable components that can be 
 # OWASP Dependency-Check using Maven
 
 
-### Related Resources
-# For maven installation steps, please refer to the following resources
+## Related Resources
+#### For maven installation steps, please refer to the following resources
 | Link         | Description         |
 |--------------|------------------------|
 | [Maven](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Java%20CI%20Checks/Static%20Code%20Analysis#tool-poc-sonarqube ) |Tool POC| 
 
 
-#  Step 1. Clone the repo from github
+##  Step 1. Clone the repo from github
 
 ```
 sudo git clone OT-MICROSERVICES/salary-api
@@ -79,7 +79,7 @@ mvn org.owasp:dependency-check-maven:check
 ```
 ![image](https://github.com/user-attachments/assets/69071e0a-34e6-47e4-a91e-e82601d7d79b)
 
-# Step 4. Dependency Report
+## Step 4. Dependency Report
 ![image](https://github.com/user-attachments/assets/e2c935e2-b2e1-49d8-8048-5a0d726637da)
 
 
