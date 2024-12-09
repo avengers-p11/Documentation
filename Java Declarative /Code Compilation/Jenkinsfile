@@ -1,1 +1,19 @@
+pipeline {
+    agent any
+    
+    stages {    
+        stage('Clone Repository') {
+            steps {
+                git main: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
+            }    
+        } 
+        
+        stage('Code Compilation') {
+            steps {
+                // Compile the code using Maven
+                sh "mvn compile"
+            }      
+        }   
+    }
+}
 
