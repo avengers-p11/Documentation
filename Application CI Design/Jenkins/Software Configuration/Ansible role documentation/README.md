@@ -19,7 +19,7 @@
 3. [**Why**](#why)
 4. [**Steps for creating Ansible role**](#Steps-for-creating-ansible-role)
 5. [**Folder Structure**](#folder-structure)
-5. [**Steps to run playbook**](#steps-to-run-playbook)
+5. [**Command to run playbook**](#command-to-run-playbook)
 8. [**Conclusion**](#conclusion)
 9. [**Contact Information**](#contact-information)
 10. [**References**](#references)
@@ -53,7 +53,7 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 
 
 
-# Steps to run playbook
+# Command to run playbook
 
 ``` sh
 ansible-playbook -i <inventory-file> <playbook-name>
