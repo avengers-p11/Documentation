@@ -15,8 +15,8 @@
 **Table of Contents**
 
 1. [**Introduction**](#introduction)
-2. [**What**](#what)
-3. [**Why**](#why)
+2. [**What is ansible**](#what-is-ansible)
+3. [**Why ansible**](#why-ansible)
 4. [**Steps for creating Ansible role**](#Steps-for-creating-ansible-role)
 5. [**Folder Structure**](#folder-structure)
 5. [**Command to run playbook**](#command-to-run-playbook)
@@ -27,11 +27,11 @@
 # Introduction
 Ansible is a powerful automation tool that lets you manage and configure your infrastructure efficiently. It uses a simple language called YAML to define tasks and playbooks.
 
-# What 
+# What is ansible
 Ansible Roles are a powerful way to organize and reuse automation tasks. They provide a standardized structure for grouping related tasks, variables, files, templates, and handlers. This modular approach makes your playbooks more manageable, reusable, and easier to maintain.
 
 
-# Why ?
+# Why ansible?
 Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
 
 # Why Use Ansible Roles?
@@ -45,7 +45,7 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
                                   |
 # Steps for creating Ansible role
 
-
+[Reffer the POC for jenkins setup](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Jenkins/Software%20Configuration/POC%20to%20setup%20Jenkins)
 
 # Folder Structure
 
