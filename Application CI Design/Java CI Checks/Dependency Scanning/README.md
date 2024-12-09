@@ -11,8 +11,8 @@
 **Table of Contents**
 
 1. [**Introduction**](#introduction)
-2. [**What**](#what-is-dependency-scanning)
-3. [**Why**](#why)
+2. [**What is Dependency Scanning?**](#what-is-dependency-scanning?)
+3. [**Why?**](#why?)
 4. [**Different Tools**](#different-tools)
 5. [**Tool POC**](owsap-dependency-check-using-maven)
 6. [**Conclusion**](#conclusion)
@@ -25,11 +25,11 @@
 A situation in which you need something or someone and are unable to continue normally without them.Dependency is when one thing needs to happen before another thing can happen. It describes the relationship among activities and specifies the particular order in which they need to be performed. 
 
 
-# What is Dependency Scanning 
+# What is Dependency Scanning?
 
 Dependency scanning is a tool that analyzes an application's dependencies for known vulnerabilities. Dependency scanning can help you identify and address security risks in your application during development and testing.
 
-# Why
+# Why?
 
 | **Reason**                   | **Explanation**                                                                 |
 |------------------------------|---------------------------------------------------------------------------------|
@@ -50,52 +50,17 @@ The Dependency-Check tool provides checks for vulnerable components that can be 
 | **WhiteSource**              | Provides open-source security management, including dependency scanning. | Real-time security alerts, license compliance, detailed reporting. | Easy to integrate with build tools, great for enterprise use.   | Can be expensive for smaller teams, complexity in configuration. |
 | **Sonatype Nexus Lifecycle** | Provides full lifecycle management for open-source dependencies.     | Vulnerability scanning, license compliance, detailed analytics.  | Strong integration with CI/CD pipelines, enterprise-ready.      | High cost, may be complex for small teams.                       |
 
-# Tool POC (OWASP Dependency-Check using Maven)
-
-## Prerequisites 
-
-## System Specifications
-| **Specification**          | **Details**                                                      |
-|----------------------------|------------------------------------------------------------------|
-| **Operating System**        | Linux (Ubuntu, CentOS, Amazon Linux 2, etc.)                    |
-| **Java Version**            | Java 8 or higher (JDK). Set **JAVA_HOME** environment variable. |
-| **Memory**                  | Minimum 512 MB RAM (Recommended: 2 GB or more for larger projects). |
-| **Disk Space**              | Minimum 1 GB of free disk space for installation and dependencies. |
-| **Maven Version**           | Apache Maven 3.x (latest stable version).                       |
-| **Network**                 | Internet connection for downloading dependencies from Maven repositories. |
-| **IDE Support** (Optional)  | Eclipse, IntelliJ IDEA, or Visual Studio Code with Maven plugins. |
+# OWASP Dependency-Check using Maven
 
 
+### Related Resources
+# For maven installation steps, please refer to the following resources
+| Link         | Description         |
+|--------------|------------------------|
+| [Maven](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Java%20CI%20Checks/Static%20Code%20Analysis#tool-poc-sonarqube ) |Tool POC| 
 
-## **Step 1. First create the instance t2.micro or as per your bussiness needs.**
 
-## **Step 2. Update and Upgrade System Packages**
-
-```
-sudo apt update
-```
-![image](https://github.com/user-attachments/assets/9b9ae16e-6312-4826-aae7-27788803d1bf)
-
-## **Step 3. Java installation**
-
-```
-sudo apt install -y openjdk-17-jdk
-```
-![image](https://github.com/user-attachments/assets/204ef06f-6d5a-40d4-beff-3c765702f5c1)
-
-##  **Step 4. verify the installed Java version**
-```
-java -version
-```
-
-##  **Step 5. Maven installation**
-
-```
-sudo apt install maven
-```
-![image](https://github.com/user-attachments/assets/2b35ffaa-8da6-4d30-98a4-77509c0e1087)
-
-##  **Step 6. Clone the repo from github**
+#  Step 1. Clone the repo from github
 
 ```
 sudo git clone OT-MICROSERVICES/salary-api
@@ -103,18 +68,18 @@ sudo git clone OT-MICROSERVICES/salary-api
 ![image](https://github.com/user-attachments/assets/ef93c8ec-79a9-4225-b60b-b089ce6beafd)
 
 
-##  **Step 7. Change the repo choose the github repo which is cloned already**
+##  Step 2. Change the repo choose the github repo which is cloned already
 ```
 cd salary-api
 ```
 
-##  **Step 7. Dependency checking**
+##  Step 3. Dependency checking
 ```
 mvn org.owasp:dependency-check-maven:check
 ```
 ![image](https://github.com/user-attachments/assets/69071e0a-34e6-47e4-a91e-e82601d7d79b)
 
-##  **Dependency Report**
+# Step 4. Dependency Report
 ![image](https://github.com/user-attachments/assets/e2c935e2-b2e1-49d8-8048-5a0d726637da)
 
 
