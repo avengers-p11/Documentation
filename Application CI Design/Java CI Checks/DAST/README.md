@@ -2,7 +2,7 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   27-11-24       | v1 | Mohit Saini          |     27-11-24            |    |      |     |
+| Mohit Saini      |   27-11-24       | v1 | Mohit Saini          |     09-12-24            |Kushi     |      |     |
 
 ![image](https://github.com/user-attachments/assets/4aa0c132-1fbb-45bc-ad5f-2a631586676a)
 
