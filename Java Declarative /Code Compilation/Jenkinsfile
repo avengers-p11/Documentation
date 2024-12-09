@@ -4,7 +4,7 @@ pipeline {
     stages {    
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
+                git branch: 'Java', url: 'https://github.com/mohitsainin/Salary-api.git'
             }    
         } 
         
