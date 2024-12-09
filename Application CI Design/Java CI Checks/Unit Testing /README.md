@@ -58,7 +58,7 @@ The list of several relevant testing frameworks for Java is mentioned below
 ## Steps for unit test.
 
 ### Related Resources
-# Steps 1. For maven installation steps, please refer to the following resources
+# For maven installation steps, please refer to the following resources
 | Link         | Description         |
 |--------------|------------------------|
 | [Maven](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Java%20CI%20Checks/Static%20Code%20Analysis#tool-poc-sonarqube ) |Tool POC| 
