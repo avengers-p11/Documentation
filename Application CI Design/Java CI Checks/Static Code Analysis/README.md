@@ -13,7 +13,7 @@
 2. [**What is Static Code Anaylysis?**](#what-is-static-code-analysis?)
 3. [**Why?**](#why?)
 4. [**Different Tools**](#different-tools)
-5. [**Tool POC**](#tool-poc-sonarqube)
+5. [**SonarQube Static Code Analysis**](#sonarqube-static-code-analysis)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
 8. [**References**](#references)
