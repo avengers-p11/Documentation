@@ -108,7 +108,7 @@ Here are some tools for analyzing bugs for Java program.
 # Step 12. Bugs anaylsis report
 ![image](https://github.com/user-attachments/assets/f2a2c5ad-d3d7-4410-83fb-945dc15e8a87)
 
-**Artifact**
+# Artifact File
 | Link         | Description         |
 |--------------|------------------------|
 | [Artifact](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Bugs%20Analysis/salary-0.1.0-RELEASE.jar.original)           |File |
