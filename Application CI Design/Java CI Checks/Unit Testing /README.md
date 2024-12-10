@@ -3,7 +3,7 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   26-11-24       | v1 | Mohit Saini          |     26-11-24            |    |      |     |
+| Mohit Saini      |   26-11-24       | v1 | Mohit Saini          |     09-12-24            | Khushi & Shreya   |      |     |
 
 ![image](https://github.com/user-attachments/assets/297dbba6-a64b-4c3f-a76f-3efc3c194a79)
 
