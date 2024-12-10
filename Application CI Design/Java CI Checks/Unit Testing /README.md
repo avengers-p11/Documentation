@@ -12,11 +12,12 @@
 
 1. [**Introduction**](#introduction)
 2. [**What is Unit Testing?**](#what-is-unit-testing?)
-3. [**Why?**](#why?)
+3. [**Why Unit Testing?**](#why-unit-testing?)
 4. [**Different Tools**](#different-tools)
-5. [**Conclusion**](#conclusion)
-6. [**Contact Information**](#contact-information)
-7. [**References**](#references)
+5. [**Maven Unit Testing**](#maven-unit-testing)
+6. [**Conclusion**](#conclusion)
+7. [**Contact Information**](#contact-information)
+8. [**References**](#references)
 
 
 
@@ -27,7 +28,7 @@ Unit testing is like checking each piece to make sure it fits correctly and work
 
 Unit testing is a way to test small pieces of code to make sure they work correctly. It's like testing each brick in a wall to make sure it's strong and fits properly.
 
-# Why?
+# Why Unit Testing?
 
 | **Reasons**               | **Description**                                                                                      |
 |---------------------------|------------------------------------------------------------------------------------------------------|
@@ -55,27 +56,27 @@ The list of several relevant testing frameworks for Java is mentioned below
 
 # Maven Unit Testing 
 
-## Steps for unit test.
+**Before starting unit testing, ensure that you have Maven installed on your system. If not, please follow the instructions in the following resource**
 
-### Related Resources
-# For maven installation steps, please refer to the following resources
+## Related Resources
 | Link         | Description         |
 |--------------|------------------------|
 | [Maven](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Java%20CI%20Checks/Static%20Code%20Analysis#tool-poc-sonarqube ) |Tool POC| 
 
+## Steps for unit test.
 
-# Steps 2. Go to app directory
+## Steps 2. Go to app directory
 
 ![image](https://github.com/user-attachments/assets/9c573b49-aa23-4b8f-b6bb-796a6564d1be)
 
-# Steps 3. Run command for testing
+## Steps 3. Run command for testing
 
 ```
 mvn test
 ```
 ![image](https://github.com/user-attachments/assets/fe1ebf4c-509c-4edd-bf31-702398c2e206)
 
-# Steps 4.Report output
+## Steps 4. Report output
 
 ![image](https://github.com/user-attachments/assets/a11d9a01-6369-436c-abfe-28080f641229)
 
