@@ -42,7 +42,7 @@ SonarQube is a powerful tool for analyzing code quality and security. To protect
 | **Auditing & Compliance** | Tracks user activity to meet security rules.          |
 
 
-# Differnet type of Authentication is Mehtods
+# Different types of Authentication methods
 
 ![image](https://github.com/user-attachments/assets/aab40b69-2d6f-43d3-9939-f32bae64c8d8)
 
@@ -60,9 +60,9 @@ SonarQube is a powerful tool for analyzing code quality and security. To protect
 | **Smart Card Authentication**   | Uses a smart card with authentication data (often combined with a PIN) to authenticate a user.                                                         |
 
 
-# Differnet type of Authorization Mehtods
+# Different types of Authorization methods
 
-![image](https://github.com/user-attachments/assets/7258c805-5665-4fbe-b128-6ed6d9c8f1d1)
+![image](https://github.com/user-attachments/assets/bcf4f305-bd58-49e3-ae2f-a7021f8c7db5)
 
 
 | **Authorization Method**           | **Description**                                                                 |
@@ -72,10 +72,12 @@ SonarQube is a powerful tool for analyzing code quality and security. To protect
 | **Project-Level Permissions** | Set permissions for different projects, e.g., admin rights for one project, viewing rights for another.    |
 | **Group Management**       | Group users and assign permissions to groups for easier management.                                           |
 
+#
+![image](https://github.com/user-attachments/assets/5897766f-65a7-42d1-b473-33efad1bbd9f)
 
 
 # Conclusion
-SonarQube provides flexible authorization options to control user access. It includes predefined roles, custom permissions, and project-level settings to manage who can do what. Group management makes it easier to handle permissions for multiple users at once. These features help ensure secure and organized access to SonarQube. We are going with role-based authorization for sonarqube server.
+ In our project, we use Built-in Authentication for user management, Project-based Permissions for assigning roles and access levels based on responsibilities, and SonarQube User Tokens for secure integration and API access. SonarQube user tokens are versatile and used across various scenarios. They are commonly employed in CI/CD pipelines for authenticating tasks in Jenkins, GitLab, or GitHub to run code analysis seamlessly. Tokens also enable secure API access, allowing automation of tasks like project creation, fetching quality metrics, and managing permissions.
 
 #  Contact Information
 
@@ -89,8 +91,8 @@ SonarQube provides flexible authorization options to control user access. It inc
 
 | **Link** | **Description** |
 |------------------------------------------------------|------------------|
-| https://www.sonarsource.com/blog/sonarqube-ldap-sso/| Sonar authentication and authorization |
-| https://docs.sonarsource.com/sonarqube-server/9.9/instance-administration/authentication/overview/#:~:text=SonarQube%20comes%20with%20an%20onboard,for%20Bitbucket)%2C%20and%20authentication.| Sonar authentication and authorization|
+| [Authentication](https://www.sonarsource.com/blog/sonarqube-ldap-sso/)| Sonar authentication and authorization |
+| [Authentication and Authorization](https://docs.sonarsource.com/sonarqube-server/9.9/instance-administration/authentication/overview/#:~:text=SonarQube%20comes%20with%20an%20onboard,for%20Bitbucket%2C%20and%20authentication.)| Sonar authentication and authorization|
 
 
 
