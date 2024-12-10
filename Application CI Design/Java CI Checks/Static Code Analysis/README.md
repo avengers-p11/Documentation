@@ -12,7 +12,7 @@
 1. [**Introduction**](#introduction)
 2. [**What is Static Code Anaylysis?**](#what-is-static-code-analysis?)
 3. [**Why Static Code Anaylysis**](#why-static-code-anaylysis?)
-4. [**Different Tools**](#different-tools)
+4. [**Different Tools Static Code Anaylysis**](#different-tools-static-code-anaylysis)
 5. [**SonarQube Static Code Analysis**](#sonarqube-static-code-analysis)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
@@ -37,7 +37,7 @@ Static code analysis in Java is a methodology for examining the source code. By 
 | **Improved Team Collaboration** | Consistent code style and fewer errors make teamwork easier and more effective.                                    |
 | **Increased Productivity**    | Automates code analysis, streamlining the development process and boosting productivity.                           |
 
-# Different Tools
+# Different Tools Static Code Anaylysis
 Static analysis tools are important for checking the quality of code. These tools look at the code without running it, helping to find problems like simple mistakes or more complex design issues. Here's a look at some popular static analysis tools used in Java.
 
 | Tool               | Primary Focus              | Why                                           | Features                          | Pros                                             | Cons                                                |
@@ -103,12 +103,12 @@ sudo apt install -y openjdk-17-jdk
 ```
 ![image](https://github.com/user-attachments/assets/204ef06f-6d5a-40d4-beff-3c765702f5c1)
 
-##  **Step 5. verify the installed Java version**
+##  **Step 5. Verify the installed Java version**
 ```
 java -version
 ```
 
-## **Step 6. install and configure PostgreSQL**
+## **Step 6. Install and configure PostgreSQL**
 
 
 #### 1. Adding the PostgreSQL repository.
@@ -355,8 +355,9 @@ ulimit -u 4096
 
 
 ## **Step 22. To apply the changes, reboot the system**
+```
 sudo reboot
-
+```
 
 
 ## **Step 23. Access SonarQube in a web browser by entering your server’s IP address followed by port 9000**
@@ -364,55 +365,55 @@ sudo reboot
 ```
 http://100.26.240.39:9000
 ```
-**Step 24. Log in to SonarQube using the username “admin” and password “admin”**
+## **Step 24. Log in to SonarQube using the username “admin” and password “admin”**
 ![image](https://github.com/user-attachments/assets/aceb6217-a3e7-474d-a903-3f9d3bfbba08)
 
 Once logged in, SonarQube will prompt you to change your password. Enter the current password “admin” and then enter your new password twice as prompted.
 
 ![image](https://github.com/user-attachments/assets/658677aa-d66c-4b3d-8876-0e11ebf9bc6b)
 
-**Step 25. Go to SonarQube and select the project**
+## **Step 25. Go to SonarQube and select the project**
 
 ![image](https://github.com/user-attachments/assets/170adf86-92c9-48a0-b5b5-af15d1502929)
 
-**Step 26. Create a Local Project: Set up a new or existing project on your machine**
+## **Step 26. Create a Local Project: Set up a new or existing project on your machine**
 
 ![image](https://github.com/user-attachments/assets/0b49d923-61a7-4120-ae5f-7558dc8c0d3c)
 
-**Step 27. Configure the Project: Prepare your project for analysis by configuring the necessary files**
+## **Step 27. Configure the Project: Prepare your project for analysis by configuring the necessary files**
 ![image](https://github.com/user-attachments/assets/76d79553-2d6a-41ab-852a-b4ee40d505be)
 
-**Step 28. Analysis your project which you want**
+## **Step 28. Analysis your project which you want**
 
 ![image](https://github.com/user-attachments/assets/1da40957-0508-43c9-89e7-3916c6dd4feb)
 
-**Step 29. Generate Token: Create an authentication token in SonarQube**
+## **Step 29. Generate Token: Create an authentication token in SonarQube**
 
 ![image](https://github.com/user-attachments/assets/8a2cc014-c67c-437c-b045-509adb3a0765)
 
-**Step 30. Copy the Token: Copy the generated SonarQube token to use for authentication when running the SonarScanner**
+## **Step 30. Copy the Token: Copy the generated SonarQube token to use for authentication when running the SonarScanner**
 
 ![image](https://github.com/user-attachments/assets/90fde3fa-0b9e-46bc-9f9f-8e474637e604)
 
-**Step 31. Analyze your project** 
+## **Step 31. Analyze your project** 
 
 ![image](https://github.com/user-attachments/assets/8b835153-c969-4c89-b066-5789850c98ea)
 
-**Step 32.Run Analyze on your project**
+## **Step 32.Run Analyze on your project**
 ![image](https://github.com/user-attachments/assets/5ac3feea-4186-4935-a3a7-e41c2dd8eecb)
 
-**Step 33.Paste the scan command**
+## **Step 33.Paste the scan command**
 
 ![image](https://github.com/user-attachments/assets/2f271634-5d44-421f-b3f3-c6dc526932e3)
 
-**Step 34. After sucessfully run command**
+## **Step 34. After sucessfully run command**
 
 ![image](https://github.com/user-attachments/assets/900d6aa0-946d-41cf-bb16-4ba997ca5039)
 
-**Step 35. Result**
+## **Step 35. Result**
 ![image](https://github.com/user-attachments/assets/abcbbf30-ba80-4076-a239-17bf858ef516)
 
- **Steps 36. Report** 
+ ## **Steps 36. Report** 
 | Link         | Description         |
 |--------------|------------------------|
 | [Artifact](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Bugs%20Analysis/salary-0.1.0-RELEASE.jar.original)           |File |
