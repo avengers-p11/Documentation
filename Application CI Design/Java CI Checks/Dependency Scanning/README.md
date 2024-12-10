@@ -1,8 +1,8 @@
-#    **Docmentation and POC of Dependency Scanning**
+#    **Docmentation and POC of Java Dependency Scanning**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
-| Mohit Saini      |   27-11-24       | v1 | Mohit Saini          |     27-11-24            |    |      |     |
+| Mohit Saini      |   27-11-24       | v1 | Mohit Saini          |     27-11-24            | Khushi   |      |     |
 
 
 ![image](https://github.com/user-attachments/assets/71afe6e0-2f2f-4ea9-8d74-7ed95a6248d7)
@@ -13,7 +13,7 @@
 1. [**Introduction**](#introduction)
 2. [**What**](#what-is-dependency-scanning)
 3. [**Why**](#why)
-4. [**Different Tools**](#different-tools)
+4. [**Different Tools used in Dependency Scanning**](#different-tools-dependency-scanning)
 5. [**Tool POC**](owsap-dependency-check-using-maven)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
@@ -41,7 +41,7 @@ Dependency scanning is a tool that analyzes an application's dependencies for kn
 | **Maintain Software Quality** | Keeps dependencies up-to-date and free from vulnerabilities to maintain safe and reliable software. |
 
 
-# Different Tools
+# Different Tools used in Dependency Scanning
 The Dependency-Check tool provides checks for vulnerable components that can be run from the command line. Here is the list of tools. 
 | **Tool Name**               | **Description**                                                      | **Features**                                                     | **Pros**                                                         | **Cons**                                                          |
 |-----------------------------|----------------------------------------------------------------------|------------------------------------------------------------------|------------------------------------------------------------------|------------------------------------------------------------------|
