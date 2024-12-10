@@ -91,7 +91,7 @@ Ensure that your application or api should be running before using this service.
 
 ![image](https://github.com/user-attachments/assets/a371523d-95e0-4d8b-88c1-44e3f3024146)
 
-# Steps 4. Open OWSAP ZAP and paster your api url in url address box
+# Steps 4. Open OWSAP ZAP and paste api url in address box
 
 ![image](https://github.com/user-attachments/assets/08480cbc-13a6-4d47-9239-e7e1db242f0a)
 
@@ -102,6 +102,9 @@ Ensure that your application or api should be running before using this service.
 # Steps 6. Result
 
 ![image](https://github.com/user-attachments/assets/3fac393c-5c80-4bfb-af4e-58c12c0d3096)
+
+
+
 
 
 # Conclusion
