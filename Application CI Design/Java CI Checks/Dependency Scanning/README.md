@@ -12,7 +12,7 @@
 
 1. [**Introduction**](#introduction)
 2. [**What is Dependency Scanning?**](#what-is-dependency-scanning?)
-3. [**Why?**](#why?)
+3. [**Why Dependency Scanning?**](#why-dependency-scanning?)
 4. [**Different Tools**](#different-tools)
 5. [**OWASP Dependency-Check using Maven**](owsap-dependency-check-using-maven)
 6. [**Conclusion**](#conclusion)
