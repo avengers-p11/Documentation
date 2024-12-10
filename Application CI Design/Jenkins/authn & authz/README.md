@@ -3,7 +3,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Pravesh kumar      | 05-12-24      | Pravesh Kumar             | 06-12-24           | Khushi, shreya | | |     
+| Pravesh kumar      | 05-12-24      | Pravesh Kumar             | 10-12-24           | Khushi, shreya | | |     
 
 ---
 
@@ -136,7 +136,7 @@ Authorization determines what actions a user can perform in Jenkins. Jenkins off
 ---
 ## Conclusion
 
-Jenkins offers flexible authentication and authorization options, with external methods like LDAP, SSO, or OAuth recommended for production environments. Using a Role-based Authorization Strategy, which we will implement in our project, ensures precise access control, assigning roles to restrict or grant permissions based on responsibilities. Regular audits further help maintain security. The choice of methods ultimately depends on team size, infrastructure, and security requirements.
+Jenkins supports various authentication and authorization methods, including external options like LDAP, SSO, or OAuth. In our project, we use Built-in Authentication for user management and Role-based Authorization Strategy for assigning permissions based on responsibilities. Regular audits will ensure secure and efficient access control, aligning with our team size, infrastructure, and security needs.
 
 ---
 # Contact Information
