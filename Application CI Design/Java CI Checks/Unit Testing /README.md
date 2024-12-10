@@ -76,11 +76,11 @@ mvn test
 ```
 ![image](https://github.com/user-attachments/assets/fe1ebf4c-509c-4edd-bf31-702398c2e206)
 
-## Steps 3. Report output
+## Steps 3. Result
 
 ![image](https://github.com/user-attachments/assets/a11d9a01-6369-436c-abfe-28080f641229)
 
-# Artifact File
+## Steps 4. Report 
 | Link         | Description         |
 |--------------|------------------------|
 | [Artifact](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Bugs%20Analysis/salary-0.1.0-RELEASE.jar.original)           |File |
