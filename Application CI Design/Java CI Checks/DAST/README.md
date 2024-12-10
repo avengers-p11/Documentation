@@ -15,7 +15,7 @@
 2. [**What is DAST?**](#what-is-dast)
 3. [**Types of AST**](#types-of-ast)
 4. [**Why DAST?**](#why-dast)
-5. [**Different Tools**](#different-tools)
+5. [**Different Tools  used in  DAST**](#different-tools-dast)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
 8. [**References**](#references)
@@ -56,7 +56,7 @@ Dynamic Application Security Testing (DAST) is a method of testing a web app by 
 | **DAST reduces human error**        | Helps reduce mistakes made during the Software Development Life Cycle (SDLC).  |
 
 
-# Different Tools
+# Different Tools used DAST
 Here are some tools for DAST. 
 
 | **Tool Name**                | **Description**                                                                 | **Features**                                                  | **Why**                                                   | **Pros**                                                            | **Cons**                                                            |
