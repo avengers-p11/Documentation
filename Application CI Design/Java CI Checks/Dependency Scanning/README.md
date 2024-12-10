@@ -29,7 +29,7 @@ A situation in which you need something or someone and are unable to continue no
 
 Dependency scanning is a tool that analyzes an application's dependencies for known vulnerabilities. Dependency scanning can help you identify and address security risks in your application during development and testing.
 
-# Why?
+# Why Dependency Scanning?
 
 | **Reason**                   | **Explanation**                                                                 |
 |------------------------------|---------------------------------------------------------------------------------|
