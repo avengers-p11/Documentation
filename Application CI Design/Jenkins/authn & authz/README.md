@@ -25,8 +25,16 @@ Authentication and Authorization are essential components of Jenkins security, e
 ---
 ## Authentication in Jenkins
 
-Authentication is the process of verifying the identity of a user. Jenkins provides multiple methods for user authentication, ranging from basic in-built solutions to integrations with external identity providers.
+### What is Authentication
 
+Authentication in Jenkins verifies the identity of users, ensuring only authorized individuals can access the system.
+
+### Why Authentication
+
+Authentication is crucial to prevent unauthorized access and protect sensitive data.
+
+---
+## Authentication Methods in Jenkins
 ### Built-in Authentication
 
 1. Default User Database
@@ -71,9 +79,14 @@ Authentication is the process of verifying the identity of a user. Jenkins provi
 
 ## Authorization in Jenkins
 
-Authorization determines what actions a user can perform in Jenkins. Jenkins offers various strategies for access control.
+### What is Authorization
+Authorization controls what actions authenticated users can perform within Jenkins, based on their roles and permissions.
+
+## Why Authorization
+Authorization ensures users can only perform actions within their allowed scope, maintaining security and adhering to the principle of least privilege.
 
 ### Authorization Strategies
+
 #### 1. Matrix-based Security
 
 - Fine-grained control over permissions for individual users or groups.
@@ -121,7 +134,6 @@ Authorization determines what actions a user can perform in Jenkins. Jenkins off
 || Use personal access tokens or API tokens instead.|
 
 
-
 ---
 
 ## Comparison of Authentication Methods
@@ -138,6 +150,20 @@ Authorization determines what actions a user can perform in Jenkins. Jenkins off
 |Recommended for	|Small Teams	|Enterprises|	Developers	|Enterprises with SSO infrastructure|	Unix-Based Systems|
 
 ---
+
+## Comparison of Authorization Strategies
+
+| Feature	|Matrix-based Security	|Role-based Authorization	|Project-based Matrix	|Logged-in Users Can Do Anything	|Anyone Can Do Anything|
+|-----|-----|-----|-----|-----|-----|
+|Granularity	|High (per-user or per-group permissions)	|High (role-level permissions for groups/users)|	High (permissions scoped to individual projects)	|Low (broad permissions for all users)	|None|
+|Ease of Management	|Moderate (manual permission assignment)	|Easy (assign roles once, reuse for groups/users)|	Moderate (permissions must be configured per project)	|High (minimal configuration needed)	|High (no configuration needed)|
+|Scalability|	Moderate|	High|	High|	Low	|Low|
+|Security	|High (fine-grained access control)|	High (customizable and role-specific)	|High (project-specific but potentially complex)|	Low (risky if team grows or changes)	|None (not secure, avoid in production)|
+|Team Size Suitability	|Medium to Large Teams	|Small to Large Teams	|Large Teams with multiple project scopes|	Small, Highly Trusted Teams	Testing Environments Only|
+|Integration |Complexity	|Low to Moderate	|Low|	Moderate	|Low	|None|
+|Customization Flexibility	|Moderate (limited to permission granularity)	|High (custom roles for various requirements)|	High (projects can have unique configurations)|	None|	None|
+|Recommended for|	Enterprises, Complex Teams	|Medium to Large Teams, Scalable Environments|	Large Teams, Multi-Project Scenarios	|Small Trusted Teams	|Non-Production Use Cases|
+
 ## Conclusion
 
 Jenkins supports various authentication and authorization methods, including external options like LDAP, SSO, or OAuth. In our project, we use Built-in Authentication for user management and Role-based Authorization Strategy for assigning permissions based on responsibilities. Regular audits will ensure secure and efficient access control, aligning with our team size, infrastructure, and security needs.
