@@ -68,21 +68,21 @@ Here are some tools for DAST.
 
 # OWSAP ZAP DAST
 
-# Steps 1. Update your OS
+## Steps 1. Update your OS
 ```
 sudo apt update
 ```
 ![image](https://github.com/user-attachments/assets/25efe10a-a28c-43e0-93df-15433df596da)
 
 
-# Steps 2. Install OWSAP ZAP
+## Steps 2. Install OWSAP ZAP
 ```
 sudo snap install zaproxy --classic
 ```
 ![image](https://github.com/user-attachments/assets/ee3f6be2-2f44-4a2f-93d1-80ba231962ed)
 
 
-# Steps 3. Launch OWSAP ZAP
+## Steps 3. Launch OWSAP ZAP
 ```
 zaproxy
 ```
@@ -91,15 +91,15 @@ Ensure that your application or api should be running before using this service.
 
 ![image](https://github.com/user-attachments/assets/a371523d-95e0-4d8b-88c1-44e3f3024146)
 
-# Steps 4. Enter the API URL into the 'Attack' input field for scanning
+## Steps 4. Enter the API URL into the 'Attack' input field for scanning
 
 ![image](https://github.com/user-attachments/assets/08480cbc-13a6-4d47-9239-e7e1db242f0a)
 
-# Steps 5. Wait for result
+## Steps 5. Wait for result
 ![image](https://github.com/user-attachments/assets/034011ce-c53e-439c-99c6-36c6c1f16d1e)
 
 
-# Steps 6. Result
+## Steps 6. Result
 
 ![image](https://github.com/user-attachments/assets/3fac393c-5c80-4bfb-af4e-58c12c0d3096)
 
