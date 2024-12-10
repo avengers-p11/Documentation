@@ -1,0 +1,24 @@
+{
+  "task": {
+    "id": "91a7d2dc-9c26-4e96-a364-32ba1050fa32",
+    "type": "REPORT",
+    "componentId": "bd478bd3-0129-47e9-aa3c-89e21cc31771",
+    "componentKey": "salary",
+    "componentName": "salary",
+    "componentQualifier": "TRK",
+    "analysisId": "bb724fc0-ebb2-4433-a39d-7a68d6447f5c",
+    "status": "SUCCESS",
+    "submittedAt": "2024-12-10T08:37:31+0000",
+    "submitterLogin": "admin",
+    "startedAt": "2024-12-10T08:37:32+0000",
+    "executedAt": "2024-12-10T08:37:39+0000",
+    "executionTimeMs": 6366,
+    "hasScannerContext": true,
+    "warningCount": 2,
+    "warnings": [
+      "The property 'sonar.login' is deprecated and will be removed in the future. Please use the 'sonar.token' property instead when passing a token.",
+      "Missing blame information for 4 files. This may lead to some features not working correctly. Please check the analysis logs and refer to \u003Ca href=\"https://docs.sonarsource.com/sonarqube/10.4/analyzing-source-code/scm-integration/\" rel=\"noopener noreferrer\" target=\"_blank\"\u003Ethe documentation\u003C/a\u003E."
+    ],
+    "infoMessages": []
+  }
+}
