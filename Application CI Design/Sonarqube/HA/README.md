@@ -24,9 +24,6 @@ This documentation provides a detailed guide to implementing High Availability (
 ## Why High Availability?
 SonarQube high availability is a feature of the Data Center Edition that allows a SonarQube instance to stay operational even if a node in the cluster fails or crashes.
 
-
-# Why High Availability is Necessary for SonarQube
-
 | **Reason**                          | **Description**                                                                                  |
 |-------------------------------------|--------------------------------------------------------------------------------------------------|
 | **Eliminate Downtime**    | Ensures SonarQube remains operational with minimal or no interruptions.                          |
