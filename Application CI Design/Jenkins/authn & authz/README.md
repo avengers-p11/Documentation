@@ -11,7 +11,7 @@
 2. [Authentication in Jenkins](#authentication-in-jtnkins)
 3. [Authorization in Jenkins](#Authorization-in-Jenkins)
 4. [Securing Jenkins with Authentication & Authorization](#Securing-Jenkins-with-Authentication-&-Authorization)
-5. [Comparison of Methods](#Comparison-of-Methods)
+5. [Comparison of Authentication Methods](#Comparison-of-Authentication-Methods)
 6. [Conclusion](#conclusion)
 7. [Contact Information](#contact-information)
 8. [References](#references)
@@ -124,14 +124,18 @@ Authorization determines what actions a user can perform in Jenkins. Jenkins off
 
 ---
 
-## Comparison of Methods
+## Comparison of Authentication Methods
 
-|Feature	|Built-in|	LDAP	|OAuth	|SAML|	Unix|
-|---|---|---|---|----|----|
-|Centralized |Management	|No|	Yes	|Yes	|Yes	|No|
-|Multi-factor Authentication|	No	|Depends	|Yes|	Yes|	No|
-|Ease of Use	|Easy	|Moderate|	Easy|	Moderate|	Moderate|
-|Recommended for	|Small Teams|	Enterprises|	Developers	|Enterprises	|Unix| Servers|
+| Feature	|Built-in	LDAP	|OAuth	|SAML (SSO)	|Unix Accounts|
+|---|---|----|-----|-----|-----|
+|Centralized Management|	No	|Yes	|Yes	|Yes|	No|
+|Multi-Factor Authentication|	No|	Depends on provider	|Yes|	Yes|	No|
+|Ease of Use	|Easy|	Moderate	|Easy	|Moderate	|Moderate|
+|Integration Complexity	|Low	|High (requires LDAP server configuration)	|Moderate (via plugins)|	High (requires SAML plugin and setup)|	Low (uses existing Unix accounts)|
+|Security	|Moderate (local credentials only)	|High (centralized authentication policies)	|High (provider-managed security policies)	|High (external identity provider security)	|Moderate (local Unix security policies)|
+|Scalability|	Low	|High	|High	|High	|Low|
+|User Convenience	|Basic (manual account management)|	Seamless for enterprise users	|Convenient for developers using OAuth apps	|Single-sign-on simplifies access	|Limited to Unix users on the server|
+|Recommended for	|Small Teams	|Enterprises|	Developers	|Enterprises with SSO infrastructure|	Unix-Based Systems|
 
 ---
 ## Conclusion
