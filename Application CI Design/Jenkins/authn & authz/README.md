@@ -138,7 +138,7 @@ Authorization ensures users can only perform actions within their allowed scope,
 
 ## Comparison of Authentication Methods
 
-| Feature	|Built-in	LDAP	|OAuth	|SAML (SSO)	|Unix Accounts|
+| Feature	|Built-in	|LDAP	|OAuth	|SAML (SSO)	|Unix Accounts|
 |---|---|----|-----|-----|-----|
 |Centralized Management|	No	|Yes	|Yes	|Yes|	No|
 |Multi-Factor Authentication|	No|	Depends on provider	|Yes|	Yes|	No|
