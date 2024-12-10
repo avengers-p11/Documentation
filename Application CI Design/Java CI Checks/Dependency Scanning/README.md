@@ -52,9 +52,9 @@ The Dependency-Check tool provides checks for vulnerable components that can be 
 
 # OWASP Dependency-Check using Maven
 
+## **Before starting dependency test, ensure that you have Maven installed on your system. If not, please follow the instructions in the following resource**
 
 ## Related Resources
-#### For maven installation steps, please refer to the following resources
 | Link         | Description         |
 |--------------|------------------------|
 | [Maven](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Java%20CI%20Checks/Static%20Code%20Analysis#tool-poc-sonarqube ) |Tool POC| 
@@ -79,9 +79,16 @@ mvn org.owasp:dependency-check-maven:check
 ```
 ![image](https://github.com/user-attachments/assets/69071e0a-34e6-47e4-a91e-e82601d7d79b)
 
-## Step 4. Dependency Report
+## Step 4. Dependency Result
 ![image](https://github.com/user-attachments/assets/e2c935e2-b2e1-49d8-8048-5a0d726637da)
 
+
+## Steps 5. Report Link
+| Link         | Description         |
+|--------------|------------------------|
+| [Artifact](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Bugs%20Analysis/salary-0.1.0-RELEASE.jar.original)           |File |
+| [Dependency Scanning](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Unit%20Testing%20/report)| Report |
+#
 
 
 
