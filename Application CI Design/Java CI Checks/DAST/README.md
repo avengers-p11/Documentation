@@ -91,11 +91,11 @@ Ensure that your application or api should be running before using this service.
 
 ![image](https://github.com/user-attachments/assets/a371523d-95e0-4d8b-88c1-44e3f3024146)
 
-# Steps 4. Open OWSAP ZAP and paste api url in address box
+# Steps 4. Enter the API URL into the 'Attack' input field for scanning
 
 ![image](https://github.com/user-attachments/assets/08480cbc-13a6-4d47-9239-e7e1db242f0a)
 
-# Steps 5. You can check the process and wait for final report
+# Steps 5. Wait for result
 ![image](https://github.com/user-attachments/assets/034011ce-c53e-439c-99c6-36c6c1f16d1e)
 
 
