@@ -101,14 +101,14 @@ Here are some tools for analyzing bugs for Java program.
 
 ![image](https://github.com/user-attachments/assets/2f271634-5d44-421f-b3f3-c6dc526932e3)
 
-# Step 11. After sucessfully run command
+# Step 11. Execution was successful
 
 ![image](https://github.com/user-attachments/assets/900d6aa0-946d-41cf-bb16-4ba997ca5039)
 
-# Step 12. Bugs anaylsis report
+# Step 12. Bugs anaylsis Result
 ![image](https://github.com/user-attachments/assets/f2a2c5ad-d3d7-4410-83fb-945dc15e8a87)
 
-# Artifact File
+# Step 13. Report
 | Link         | Description         |
 |--------------|------------------------|
 | [Artifact](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Bugs%20Analysis/salary-0.1.0-RELEASE.jar.original)           |File |
