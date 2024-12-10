@@ -12,9 +12,10 @@
 3. [Authorization in Jenkins](#Authorization-in-Jenkins)
 4. [Securing Jenkins with Authentication & Authorization](#Securing-Jenkins-with-Authentication-&-Authorization)
 5. [Comparison of Authentication Methods](#Comparison-of-Authentication-Methods)
-6. [Conclusion](#conclusion)
-7. [Contact Information](#contact-information)
-8. [References](#references)
+6. [Comparison of Authorization Strategies](#Comparison-of-Authorization-Strategies)
+7. [Conclusion](#conclusion)
+8. [Contact Information](#contact-information)
+9. [References](#references)
 
 ---
 
@@ -169,7 +170,7 @@ Authorization ensures users can only perform actions within their allowed scope,
 Jenkins supports various authentication and authorization methods, including external options like LDAP, SSO, or OAuth. In our project, we use Built-in Authentication for user management and Role-based Authorization Strategy for assigning permissions based on responsibilities. Regular audits will ensure secure and efficient access control, aligning with our team size, infrastructure, and security needs.
 
 ---
-# Contact Information
+## Contact Information
 
 | **Name** | **Email address**            | **Github ID**
 |----------|-------------------------------|-------------------|
@@ -177,7 +178,7 @@ Jenkins supports various authentication and authorization methods, including ext
 
 ---
 
-# References
+## References
 
 |[Jenkins Security Overview](https://www.jenkins.io/doc/book/security/)|
 |[Jenkins Authentication Methods](https://www.jenkins.io/doc/book/security/authentication/)|
