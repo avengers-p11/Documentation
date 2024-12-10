@@ -80,6 +80,14 @@ mvn test
 
 ![image](https://github.com/user-attachments/assets/a11d9a01-6369-436c-abfe-28080f641229)
 
+# Artifact File
+| Link         | Description         |
+|--------------|------------------------|
+| [Artifact](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Bugs%20Analysis/salary-0.1.0-RELEASE.jar.original)           |File |
+| [Unit Test](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Unit%20Testing%20/report)| Report |
+#
+
+
 
 # Conclusion
 
