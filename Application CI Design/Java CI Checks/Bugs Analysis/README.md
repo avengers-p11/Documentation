@@ -12,7 +12,7 @@
 1. [**Introduction**](#introduction)
 2. [**What is Bugs Analysis?**](#what-is-bugs-analysis?)
 3. [**Why Bugs Analysis?**](#why-bugs-analysis?)
-4. [**Different Tools**](#different-tools)
+4. [**Different Tools**](#different-tools-bugs-analysis)
 5. [**SonarQube Bugs Anaylysis**](#sonarqube-bugs-anaylysis)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
@@ -41,7 +41,7 @@ Bug analysis is like finding and fixing the mistakes for example your software i
 | **Support Scalability**    | Helps the software grow and handle more users.         |
 
 
-# Different Tools
+# Different Tools Bugs Analysis
 Here are some tools for analyzing bugs for Java program. 
 
 | **Tool Name**          | **Description**                                                                                           | **Why**                                                                | **Pros**                                                                 | **Cons**                                                                |
