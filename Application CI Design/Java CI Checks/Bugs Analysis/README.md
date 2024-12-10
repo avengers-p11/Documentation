@@ -11,7 +11,7 @@
 
 1. [**Introduction**](#introduction)
 2. [**What is Bugs Analysis?**](#what-is-bugs-analysis?)
-3. [**Why?**](#why?)
+3. [**Why Bugs Analysis?**](#why-bugs-analysis?)
 4. [**Different Tools**](#different-tools)
 5. [**SonarQube Bugs Anaylysis**](#sonarqube-bugs-anaylysis)
 6. [**Conclusion**](#conclusion)
@@ -29,7 +29,7 @@ In software testing, a software bug can also be issue, error, fault, or failure.
 
 Bug analysis is like finding and fixing the mistakes for example your software is a cake. Sometimes, there can be mistakes in the recipe or the baking process, which can make the cake taste bad or look funny. These mistakes are like bugs in software. After fixing those mistakes in the cake recipe. We look for the problem, figure out why it happened, and then fix it so the next cake is perfect.
 
-# Why?
+# Why Bugs Analysis?
 
 | **Reason**                 | **Description**                                  |
 |----------------------------|--------------------------------------------------------|
@@ -107,6 +107,12 @@ Here are some tools for analyzing bugs for Java program.
 
 # Step 12. Bugs anaylsis report
 ![image](https://github.com/user-attachments/assets/f2a2c5ad-d3d7-4410-83fb-945dc15e8a87)
+
+**Artifact**
+| Link         | Description         |
+|--------------|------------------------|
+| [Artifact](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Bugs%20Analysis/salary-0.1.0-RELEASE.jar.original)           |File |
+#
 
 
 
