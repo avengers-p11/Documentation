@@ -1,8 +1,8 @@
-# **Sonarqube infra Setup on AWS Cloud**
+# **Sonarqube Infra Setup on AWS Cloud**
 
 | **Author**          | **Created on** | **Version** | **Last edited on** | **L0 Reviewer**  | **L1 Reviewer** | **L2 Reviewer** |
 |---------------------|----------------|-------------|--------------------|------------------|-----------------|-----------------|
-| Mohit Saini         | 04-12-2024     | V1          | 04-12-2024         | Khushi Malhotra  |                 |                 |
+| Mohit Saini         | 04-12-2024     | V1          | 10-12-2024         | Khushi Malhotra  |                 |                 |
 
 
 ## Table of Contents
@@ -16,8 +16,9 @@
 # Introduction
 SonarQube is a powerful tool designed to continuously inspect your code quality and security. It performs automatic reviews through static code analysis, identifying bugs, vulnerabilities, and code smells in various programming languages. This documentation give details of infra.
 
-# infra
-![image](https://github.com/user-attachments/assets/d429e8e8-01ba-46e9-a815-00858556d0e8)
+# Infra
+![image](https://github.com/user-attachments/assets/96156ef4-e0dc-4155-af7c-4bc7039b14ca)
+
 
 
 
