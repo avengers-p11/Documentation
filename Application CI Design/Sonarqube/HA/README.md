@@ -5,7 +5,7 @@
 
 | **Author**          | **Created on** | **Version** | **Last edited on** | **L0 Reviewer**  | **L1 Reviewer** | **L2 Reviewer** |
 |---------------------|----------------|-------------|--------------------|------------------|-----------------|-----------------|
-| Mohit Saini         | 01-12-2024     | V1          | 02-12-2024         | Khushi Malhotra  |                 |                 |
+| Mohit Saini         | 01-12-2024     | V1          | 10-12-2024         | Khushi Malhotra  |                 |                 |
 
 
 ## Table of Contents
@@ -25,13 +25,14 @@ This documentation provides a detailed guide to implementing High Availability (
 SonarQube high availability is a feature of the Data Center Edition that allows a SonarQube instance to stay operational even if a node in the cluster fails or crashes.
 
 
-| **Reasons**               | **Description**                                                                                      |  
-|---------------------------|------------------------------------------------------------------------------------------------------|  
-| **No Downtime**            | If one part of SonarQube stops working, other parts can take over, ensuring uninterrupted workflow.  |  
-| **Handles Big Projects**  | As projects grow, SonarQube can manage the additional load by using multiple machines.               |  
-| **Smooth Operations**     | Maintenance and upgrades can be done without stopping the service, ensuring continuous operation.    |  
-| **Faster and Reliable**    | By using multiple machines, SonarQube becomes faster and more reliable.                              |  
-| **Better for CI/CD**       | SonarQube integrates seamlessly with automated build and testing processes, ensuring a smooth workflow.|
+# Why High Availability is Necessary for SonarQube
+
+| **Reason**                          | **Description**                                                                                  |
+|-------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Eliminate Downtime**    | Ensures SonarQube remains operational with minimal or no interruptions.                          |
+| **No Single Point of Failure**      | Distributes workloads to prevent total failure in critical IT infrastructure.                    |
+| **Load Balancing Across Nodes**     | Efficiently distributes traffic to maintain performance and avoid overload.                      |
+
 
 # Architecture Overview
 By following these guidelines, you can establish a highly available SonarQube architecture that minimizes downtime and maximizes performance.
@@ -51,22 +52,7 @@ SonarQube High Availability (HA) architecture is designed to ensure continuous o
 | **Backup Mechanisms**       | Regular backups of the database, Elasticsearch, and configuration files are taken to avoid data loss during failures. |
 | **Autoscaling Groups**      | In cloud environments, autoscaling groups can be used to automatically add or remove frontend and backend instances based on load. |
 
-![image](https://github.com/user-attachments/assets/bbe388a6-c46a-4c4f-aaa4-0a29d7098b31)
-
-
-
-
-
-
-### Key Features:
-
-| **Feature**         | **Description**                                                                 |
-|---------------------|---------------------------------------------------------------------------------|
-| **Load Balancing**   | Distributes traffic across multiple frontend and backend instances.            |
-| **Fault Tolerance**  | Ensures system remains available even when parts of the system fail.            |
-| **Scalability**      | Adds more instances to handle larger projects and teams.                        |
-| **Redundancy**       | Provides backup resources to prevent any single point of failure.              |
-
+![image](https://github.com/user-attachments/assets/ef306d1b-fda7-47a7-84f4-c145f118c81f)
 
 
 # High Availability Setup Steps for SonarQube
@@ -110,11 +96,7 @@ Setting up SonarQube for High Availability (HA) involves multiple steps to ensur
 | **Test Failover**                | Simulate the failure of a frontend, backend, or database node to ensure traffic is automatically routed to healthy instances. |
 | **Monitor Performance**          | Use monitoring tools (e.g., Prometheus, Grafana) to track the health and performance of all SonarQube components. |
 
-### 6. **Configure Continuous Integration (CI) with HA Setup**
 
-| **Step**                        | **Description**                                                              |
-|----------------------------------|------------------------------------------------------------------------------|
-| **Integrate SonarQube with CI/CD** | Ensure that SonarQube is properly integrated into your CI/CD pipeline (e.g., Jenkins, GitLab). Make sure the CI tools can connect to SonarQube even during failover. |
 
 
 # Conclusion
