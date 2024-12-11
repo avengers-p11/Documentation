@@ -160,7 +160,7 @@ Authorization ensures users can only perform actions within their allowed scope,
 |Ease of Management	|Moderate (manual permission assignment)	|Easy (assign roles once, reuse for groups/users)|	Moderate (permissions must be configured per project)	|High (minimal configuration needed)	|High (no configuration needed)|
 |Scalability|	Moderate|	High|	High|	Low	|Low|
 |Security	|High (fine-grained access control)|	High (customizable and role-specific)	|High (project-specific but potentially complex)|	Low (risky if team grows or changes)	|None (not secure, avoid in production)|
-|Team Size Suitability	|Medium to Large Teams	|Small to Large Teams	|Large Teams with multiple project scopes|	Small, Highly Trusted Teams	Testing Environments Only|
+|Team Size Suitability	|Medium to Large Teams	|Small to Large Teams	|Large Teams with multiple project scopes|	Small, Highly Trusted Teams	|Testing Environments Only|
 |Integration |Complexity	|Low to Moderate	|Low|	Moderate	|Low	|None|
 |Customization Flexibility	|Moderate (limited to permission granularity)	|High (custom roles for various requirements)|	High (projects can have unique configurations)|	None|	None|
 |Recommended for|	Enterprises, Complex Teams	|Medium to Large Teams, Scalable Environments|	Large Teams, Multi-Project Scenarios	|Small Trusted Teams	|Non-Production Use Cases|
@@ -179,9 +179,10 @@ Jenkins supports various authentication and authorization methods, including ext
 ---
 
 ## References
-
-|[Jenkins Security Overview](https://www.jenkins.io/doc/book/security/)|
-|[Jenkins Authentication Methods](https://www.jenkins.io/doc/book/security/authentication/)|
-|[Jenkins Authorization Strategies](https://www.jenkins.io/doc/book/security/authorization/)|
-|[Role-based Authorization Strategy Plugin](https://plugins.jenkins.io/role-strategy/)|
-|[LDAP Plugin Documentation](https://plugins.jenkins.io/ldap/)|
+| Link| Discription|
+|---|---|
+|[Jenkins Security](https://www.jenkins.io/doc/book/security/)|Jenkins Security Overview|
+|[Jenkins Authentication](https://www.jenkins.io/doc/book/security/authentication/)|Jenkins Authentication Methods|
+|[Jenkins Authorization](https://www.jenkins.io/doc/book/security/authorization/)|Jenkins Authorization Strategies|
+|[Role-based Authorization](https://plugins.jenkins.io/role-strategy/)|Role-based Authorization Strategy Plugin|
+|[LDAP Plugin ](https://plugins.jenkins.io/ldap/)|LDAP Plugin Documentation|
