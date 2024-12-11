@@ -56,8 +56,8 @@ Dynamic Application Security Testing (DAST) is a method of testing a web app by 
 | **DAST reduces human error**        | Helps reduce mistakes made during the Software Development Life Cycle (SDLC).  |
 
 
-# Different Tools used DAST
-Here are some tools for DAST. 
+# Different Tools used in DAST
+
 
 | **Tool Name**                | **Description**                                                                 | **Features**                                                  | **Why**                                                   | **Pros**                                                            | **Cons**                                                            |
 |------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------|------------------------------------------------------------------|------------------------------------------------------------------|------------------------------------------------------------------|
@@ -104,7 +104,11 @@ Ensure that your application or api should be running before using this service.
 ![image](https://github.com/user-attachments/assets/3fac393c-5c80-4bfb-af4e-58c12c0d3096)
 
 
-
+ ## **Steps 36. Report** 
+| Link         | Description         |
+|--------------|------------------------|
+| [DAST](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Unit%20Testing%20/report)| Report |
+#
 
 
 # Conclusion
