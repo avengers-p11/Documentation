@@ -10,31 +10,31 @@
 
 # Table of contents
 
-1. [Introduction](#introduction)
+1. [**Introduction**](#introduction)
 
-2. [What is Compiler?](#what-is-compiler?)
+2. [**What is Compiler?**](#what-is-compiler?)
 
-3. [Why compiler?](#why-compiler?)
+3. [**Why compiler?**](#why-compiler?)
 
-4. [Java compilation process](#java-compilation-process)
+4. [**Java compilation process**](#java-compilation-process)
 
-5. [Different Tools](#different-tools)
+5. [**Different Tools used in Java Code Compilation**](#different-tools-used-in-java-code-compilation)
 
-6. [Comparison Table](comparison-table)
+6. [**Comparison Table**](comparison-table)
 
-7. [Maven Java Compiler Tool](#maven-java-compiler-tool)  
+7. [**Maven Java Compiler Tool**](#maven-java-compiler-tool)  
 
-8. [Maven](#what)
+8. [**Maven**](#what)
 
-9. [Why Maven?](#why-maven?)
+9. [**Why Maven?**](#why-maven?)
 
-10. [Installation Steps of Maven](#installation-steps-of-maven)
+10. [**Installation Steps of Maven**](#installation-steps-of-maven)
 
-11. [Conclusion](#conclusion)
+11. [**Conclusion**](#conclusion)
 
-12. [Contact Information](#contact-information)
+12. [**Contact Information**](#contact-information)
 
-13. [References](#references)
+13. [**References**](#references)
 
 # Introduction
 
@@ -69,7 +69,7 @@ Java Compiler (javac) generates Bytecode
 
 ![image](https://github.com/user-attachments/assets/c920303d-eaae-43b7-bd50-52bdf31d8951)
 
-# Different Tools
+# Different Tools used in Java Code Compilation
 
 | **Tool**            | **Description**                                                                 | **Advantages**                                                                 | **Why**                                                                                                                                           |
 |---------------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
