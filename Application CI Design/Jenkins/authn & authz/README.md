@@ -83,7 +83,7 @@ Authentication is crucial to prevent unauthorized access and protect sensitive d
 ### What is Authorization
 Authorization controls what actions authenticated users can perform within Jenkins, based on their roles and permissions.
 
-## Why Authorization
+### Why Authorization
 Authorization ensures users can only perform actions within their allowed scope, maintaining security and adhering to the principle of least privilege.
 
 ### Authorization Strategies
