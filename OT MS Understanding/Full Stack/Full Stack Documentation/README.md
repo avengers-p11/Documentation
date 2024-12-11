@@ -52,7 +52,7 @@ For Refrence Links Below
 
 ### Backend Management
 
-#### 1 .Employee-API
+#### 1. Employee-API
 The Employee REST API is a Go-based microservice that manages all employee-related transactions within the OT-Microservices stack. It is fully platform-independent, meaning it can run on any type of operating system or platform.
 
 <img width="656" alt="image" src="https://github.com/user-attachments/assets/79e8d9d9-0f77-4dee-9abe-dd2aff3018fb">
@@ -80,7 +80,7 @@ For Refrence Link are below
 * [Redis](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Redis/Redis%20Documentation/README.md)
 * [Java](https://maven.apache.org/)
 
-#### 3 .The Attendance api
+#### 3. The Attendance api
 The Attendance REST API is a Python-based microservice that manages all attendance-related transactions within the OT-Microservices stack. This application is cross-platform, meaning it can run on different operating systems. The only requirement to run it is the Python runtime environment.
 
 <img width="656" alt="image" src="https://github.com/user-attachments/assets/2d440cc3-520d-4d35-998f-a525744cb533">
