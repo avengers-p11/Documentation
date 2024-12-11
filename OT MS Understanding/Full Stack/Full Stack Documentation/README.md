@@ -111,7 +111,7 @@ For Refrence Links Below
 
 ---
 
-| **User Registration Flow* |                
+| **User Registration Flow** |                
 |---------------|
 | 1. User submits the registration form. |     
 | 2. Frontend validates the input. |                                     
