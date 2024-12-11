@@ -12,7 +12,7 @@
 1. [**Introduction**](#introduction)
 2. [**What is Static Code Anaylysis?**](#what-is-static-code-analysis?)
 3. [**Why Static Code Anaylysis**](#why-static-code-anaylysis?)
-4. [**Different Tools Static Code Anaylysis**](#different-tools-static-code-anaylysis)
+4. [**Different Tools used in Static Code Anaylysis**](#different-tools-used-in-static-code-anaylysis)
 5. [**SonarQube Static Code Analysis**](#sonarqube-static-code-analysis)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
@@ -37,7 +37,7 @@ Static code analysis in Java is a methodology for examining the source code. By 
 | **Improved Team Collaboration** | Consistent code style and fewer errors make teamwork easier and more effective.                                    |
 | **Increased Productivity**    | Automates code analysis, streamlining the development process and boosting productivity.                           |
 
-# Different Tools Static Code Anaylysis
+# Different Tools used in Static Code Anaylysis
 Static analysis tools are important for checking the quality of code. These tools look at the code without running it, helping to find problems like simple mistakes or more complex design issues. Here's a look at some popular static analysis tools used in Java.
 
 | Tool               | Primary Focus              | Why                                           | Features                          | Pros                                             | Cons                                                |
