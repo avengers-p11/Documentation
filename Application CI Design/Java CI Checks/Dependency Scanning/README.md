@@ -1,4 +1,4 @@
-#    **Docmentation and POC of Dependency Scanning**
+#    **Docmentation and POC of Java Dependency Scanning**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
@@ -13,7 +13,7 @@
 1. [**Introduction**](#introduction)
 2. [**What is Dependency Scanning?**](#what-is-dependency-scanning?)
 3. [**Why Dependency Scanning?**](#why-dependency-scanning?)
-4. [**Different Tools**](#different-tools-dependency-scanning)
+4. [**Different Tools used in Dependency Scanning**](#different-tools-used-in-dependency-scanning)
 5. [**OWASP Dependency-Check using Maven**](owsap-dependency-check-using-maven)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
@@ -41,7 +41,7 @@ Dependency scanning is a tool that analyzes an application's dependencies for kn
 | **Maintain Software Quality** | Keeps dependencies up-to-date and free from vulnerabilities to maintain safe and reliable software. |
 
 
-# Different Tools Dependency Scanning
+# Different Tools used in Dependency Scanning
 The Dependency-Check tool provides checks for vulnerable components that can be run from the command line. Here is the list of tools. 
 | **Tool Name**               | **Description**                                                      | **Features**                                                     | **Pros**                                                         | **Cons**                                                          |
 |-----------------------------|----------------------------------------------------------------------|------------------------------------------------------------------|------------------------------------------------------------------|------------------------------------------------------------------|
