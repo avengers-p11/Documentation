@@ -1,7 +1,7 @@
 
 # Detailed documentation of SonarQube Authentication and Authorization
 
-![image](https://github.com/user-attachments/assets/dd227152-b1cf-4da0-a001-a3887bb2b68f)
+#### ![image](https://github.com/user-attachments/assets/dd227152-b1cf-4da0-a001-a3887bb2b68f)
 
 
 
