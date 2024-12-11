@@ -10,23 +10,26 @@
 | Mohit Saini         | 01-12-2024     | V1          | 02-12-2024         | Khushi Malhotra  |                 |                 |
 
 
-**Table of Contents**
+# **Table of Contents**
 
-1. [**Introduction**](#introduction)
-2. [**What**](#what-is-authentication-and-authorization)
-3. [**Why**](#why)
-4. [**Differnet type of Authentication Mehtods**](#different-types-of-authentication-methods)
-5. [**Differnet type of Authorization Mehtods**](#different-types-of-authorization-methods)
-6. [**Conclusion**](#conclusion)
-7. [**Contact Information**](#contact-information)
-8. [**References**](#references)
+| **S. No.** | **Section**                                                                |
+|------------|----------------------------------------------------------------------------|
+| 1          | [**Introduction**](#introduction)                                         |
+| 2          | [**What is Authentication and Authorization?**](#what-is-authentication-and-authorization?) |
+| 3          | [**Why ?**](#why?)                                                           |
+| 4          | [**Different Types of Authentication Methods**](#different-types-of-authentication-methods) |
+| 5          | [**Different Types of Authorization Methods**](#different-types-of-authorization-methods) |
+| 6          | [**Conclusion**](#conclusion)                                             |
+| 7          | [**Contact Information**](#contact-information)                           |
+| 8          | [**References**](#references)                                             |
+
 
 
 
 # Introduction
  This documentation provides a comprehensive guide to implementing and managing secure access controls in SonarQube through authentication and authorization mechanisms.
 
-# What is Authentication and Authorization
+# What is Authentication and Authorization?
 **Authentication** is proving who you are (like with a password).
 \
 **Authorization** is deciding what you can do (like access certain files or run specific programs).
