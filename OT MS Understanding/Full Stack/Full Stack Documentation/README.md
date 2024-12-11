@@ -44,7 +44,7 @@ The frontend application have dependencies on other REST API of OT-Microservices
 
 To run the application successfully, These things should be configured
 For Refrence Links Below
-* [POC](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Frontend%20/Frontend%20POC/README.md) 
+* [Frontend POC](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Frontend%20/Frontend%20POC/README.md) 
 * [Employee API](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Employee-api/Employee%20detailed%20documentation/README.md)
 * [Attendance API](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Attendance/Attendance%20POC/README.md)
 * [Salary API](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Salary/Salary%20Documentation/README.md)
@@ -63,7 +63,7 @@ Pre-Requisites
 For running the application, we need following things configured:
 For Refrence Links Below
 * [Documentation](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Employee-api/Employee%20detailed%20documentation/README.md) 
-* [POC](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Employee-api/Employee%20-%20POC/README.md) 
+* [Employee POC](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Employee-api/Employee%20-%20POC/README.md) 
 * [ScyllaDB](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/ScyllaDB/ScyllaDB%20Documentation/README.md)
 * [Redis](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Redis/Redis%20Documentation/README.md)
 
@@ -75,7 +75,7 @@ The Salary API is a Java-based microservice that handles all salary-related tran
 We only need maven as build tool, but for running the application following things are required
 For Refrence Link are below 
 * [Documentation](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Salary/Salary%20Documentation/README.md)
-* [POC](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Salary/Salary%20POC/README.md)
+* [Salary POC](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Salary/Salary%20POC/README.md)
 * [ScyllaDB](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/ScyllaDB/ScyllaDB%20Documentation/README.mda)
 * [Redis](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Redis/Redis%20Documentation/README.md)
 * [Java](https://maven.apache.org/)
@@ -91,7 +91,7 @@ PostgresSQL as a primary database for storing all the attendance records
 Redis as cache management middleware for storing all API response
 Below Have Refrence Links in detail
 * [Documentation](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Attendance/Attendance%20Documentation/README.md) 
-* [POC](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Attendance/Attendance%20POC/README.md) 
+* [Attendance POC](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Attendance/Attendance%20POC/README.md) 
 * [PostgresSQL](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/PostgresSQL/PostgresSQL-documentation.md) 
 * [Redis](https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/Redis/Redis%20Documentation/README.md)
 * [Poetry](https://www.digitalocean.com/community/tutorials/how-to-install-poetry-to-manage-python-dependencies-on-ubuntu-22-04)
@@ -113,29 +113,29 @@ For Refrence Links Below
 
 | **User Registration Flow* |                
 |---------------|
-| User submits the registration form. |     
-| Frontend validates the input. |                                     
-| The request is sent to the backend. |                       
-| The backend processes the registration and stores the data in the database. |        
-| A response is sent back to the frontend. |                                      
+| 1. User submits the registration form. |     
+| 2. Frontend validates the input. |                                     
+| 3. The request is sent to the backend. |                       
+| 4. The backend processes the registration and stores the data in the database. |        
+| 5. A response is sent back to the frontend. |                                      
 ---
 
 | **User Login Flow** |                                                  
 |---------------------|                                      
-| User submits the login form. |                                       
-| Frontend validates the input. |                                           
-| The request is sent to the backend. |                                     
-| The backend authenticates the user. |                                    
-| A response is sent back to the frontend with a token. |            
+| 1. User submits the login form. |                                       
+| 2. Frontend validates the input. |                                           
+| 3. The request is sent to the backend. |                                     
+| 4. The backend authenticates the user. |                                    
+| 5. A response is sent back to the frontend with a token. |            
 ---
 
 | **Data Processing Flow** |                                                                                        
 |---------------------------|
-| Data is submitted from the frontend. |                                                               
-| The backend processes the data. |                                                                         
-| Data is validated and transformed. |                                                                
-| Processed data is stored in the database. |                                                           
-| Confirmation is sent back to the frontend. |      
+| 1. Data is submitted from the frontend. |                                                               
+| 2. The backend processes the data. |                                                                         
+| 3. Data is validated and transformed. |                                                                
+| 4. Processed data is stored in the database. |                                                           
+| 5. Confirmation is sent back to the frontend. |      
                                                  
 ---
 ### Conclusion
