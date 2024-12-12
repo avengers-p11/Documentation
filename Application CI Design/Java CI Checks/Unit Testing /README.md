@@ -14,7 +14,7 @@
 2. [**What is Unit Testing?**](#what-is-unit-testing?)
 3. [**Why Unit Testing?**](#why-unit-testing?)
 4. [**Different Tools used in Unit Testing**](#different-tools-used-in-unit-testing)
-5. [**Maven Unit Testing**](#maven-unit-testing)
+5. [**Java Unit Testing using Maven**](#java-unit-testing-using-maven)
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
 8. [**References**](#references)
@@ -48,13 +48,13 @@ The list of several relevant testing frameworks for Java is mentioned below
 
 | Tool | What It Does | Key Features | Pros | Cons |
 |---|---|---|---|---|
-| JUnit | Used for testing small parts of Java programs. | Simple test annotations like @Test, @Before. Works well with IDEs like IntelliJ and Eclipse. | Easy to learn and use. Lots of community help available. | Can't run tests in parallel. Not great for very complex test setups. |
-| TestNG | A testing tool for all types of tests (unit, integration, etc.). | Extra features like @BeforeSuite, @DataProvider. Runs tests in parallel. Test configuration using XML. | Great for managing big test suites. Runs tests faster with parallel execution. | Harder to learn than JUnit. XML setup can be tricky. |
-| Mockito | Creates fake objects to test code. | Makes fake objects to replace real ones. Checks if fake objects are used correctly. Works with JUnit and TestNG. | Helps test without needing actual dependencies. Easy to use with clear syntax. | Doesn't support static methods without extra tools. Overuse can create bad test setups. |
-| Selenium | Automates browsers to test websites. | Works with Chrome, Firefox, Safari, and more. Can be used with JUnit and TestNG. | Tests work across browsers. Supports many languages like Java, Python. | Tests can be slow. Needs extra tools for advanced features. |
+| **JUnit** | Used for testing small parts of Java programs. | Simple test annotations like @Test, @Before. Works well with IDEs like IntelliJ and Eclipse. | Easy to learn and use. Lots of community help available. | Can't run tests in parallel. Not great for very complex test setups. |
+| **TestNG** | A testing tool for all types of tests (unit, integration, etc.). | Extra features like @BeforeSuite, @DataProvider. Runs tests in parallel. Test configuration using XML. | Great for managing big test suites. Runs tests faster with parallel execution. | Harder to learn than JUnit. XML setup can be tricky. |
+| **Mockito** | Creates fake objects to test code. | Makes fake objects to replace real ones. Checks if fake objects are used correctly. Works with JUnit and TestNG. | Helps test without needing actual dependencies. Easy to use with clear syntax. | Doesn't support static methods without extra tools. Overuse can create bad test setups. |
+| **Selenium** | Automates browsers to test websites. | Works with Chrome, Firefox, Safari, and more. Can be used with JUnit and TestNG. | Tests work across browsers. Supports many languages like Java, Python. | Tests can be slow. Needs extra tools for advanced features. |
+| **Maven**     | Automates builds and manages dependencies. | Manages dependencies (e.g., JUnit, TestNG) using `pom.xml`. Plugins for testing (e.g., Surefire). Generates reports. | Simplifies dependency management. Automates test execution. Integrates easily with CI/CD tools. | Requires proper configuration to work effectively. Not a standalone testing tool.          |
 
-
-# Maven Unit Testing 
+# Java Unit Testing using Maven 
 
 **Before starting unit testing, ensure that you have Maven installed on your system. If not, please follow the instructions in the following resource**
 
