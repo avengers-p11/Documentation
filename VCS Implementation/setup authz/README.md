@@ -3,7 +3,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 29-11-24           |  | | |     
+| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 11-12-24           | shreya/shikha | | |     
 
 This guide explains how to set up authorization for a Version Control System (VCS) to control access to repositories, branches, and specific actions like pull requests and merges.
 
@@ -43,10 +43,15 @@ Authorization in a VCS ensures that only authorized users or roles can access an
 ### Step 1: Define Access Policies
 
 Identify the access levels required for your users and teams:
-- **Admin:** Full access to repositories, branches, and settings.
-- **Developer:** Can push to feature branches but requires approval for merges.
-- **Reviewer:** Can review pull requests but cannot push code.
-- **Read-Only:** Can only view code but cannot make changes.
+
+
+| **Role**        | **Description**                                                                 |
+|------------------|---------------------------------------------------------------------------------|
+| **Admin**        | Full access to repositories, branches, and settings.                           |
+| **Developer**    | Can push to feature branches but requires approval for merges.                 |
+| **Reviewer**     | Can review pull requests but cannot push code.                                 |
+| **Read-Only**    | Can only view code but cannot make changes.                                    |
+
 
 ---
 
@@ -95,11 +100,15 @@ Access logs from your **organization settings** to monitor changes.
 
 ## Best Practices
 
-- **Enforce Least Privilege:** Assign the minimum permissions required for each role.
-- **Enable Two-Factor Authentication (2FA):** Ensure all users have 2FA enabled for added security.
-- **Use Groups:** Manage permissions via user groups instead of individual users.
-- **Enable Code Owners:** Automatically request reviews from designated users for specific files or directories.
-- **Periodic Audits:** Regularly review and update permissions.
+
+| **Best Practice**                  | **Description**                                                                                   |
+|------------------------------------|---------------------------------------------------------------------------------------------------|
+| **Enforce Least Privilege**        | Assign the minimum permissions required for each role.                                            |
+| **Enable Two-Factor Authentication (2FA)** | Ensure all users have 2FA enabled for added security.                                            |
+| **Use Groups**                     | Manage permissions via user groups instead of individual users.                                   |
+| **Enable Code Owners**             | Automatically request reviews from designated users for specific files or directories.            |
+| **Periodic Audits**                | Regularly review and update permissions to ensure compliance and security.                        |
+
 
 ---
 
