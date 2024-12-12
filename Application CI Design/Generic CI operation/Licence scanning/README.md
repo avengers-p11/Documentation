@@ -71,6 +71,14 @@
 ---
 
 ## Proof of Concept: FOSSA
+![Screenshot from 2024-12-12 12-42-53](https://github.com/user-attachments/assets/d1d6a5db-8ec3-4809-85da-4eafa0cfbf00)
+
+![Screenshot from 2024-12-12 12-43-22](https://github.com/user-attachments/assets/cc25f00a-10eb-411c-933a-1f88a73d3edc)
+
+![Screenshot from 2024-12-12 12-43-58](https://github.com/user-attachments/assets/930026a8-cb83-492a-a5c5-863f0afce522)
+
+![Screenshot from 2024-12-12 12-38-49](https://github.com/user-attachments/assets/3260c4bd-eb57-46b6-82c8-a4630761d89b)
+![Screenshot from 2024-12-12 12-37-48](https://github.com/user-attachments/assets/9ff1c51f-88e3-439c-9e4b-7d7369a850d9)
 
 ---
 ## Advantages and Disadvantages
