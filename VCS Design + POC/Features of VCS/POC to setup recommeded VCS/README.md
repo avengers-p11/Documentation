@@ -3,7 +3,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 29-11-24           |  | | |     
+| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 29-11-24           |shreya jaiswal  | | |     
 
 ## Table of Contents
 1. [Purpose](#purpose)
@@ -14,6 +14,7 @@
 4. [Step-by-step installation of GitHub](#step-by-step-installation-of-github)
 5. [Conclusion](#Conclusion)
 6. [Contact Information](#contact-information)
+7. [References](#References)
 
 
 ## Purpose
@@ -37,6 +38,7 @@ This Poc demonstrates how to set up and use GitHub as a Version Control System. 
 
 
 ## Architecture
+![Screenshot from 2024-12-12 11-44-36](https://github.com/user-attachments/assets/145bc08a-3e22-40d4-ab8b-12b06be04a17)
 
 
 
