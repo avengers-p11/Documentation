@@ -8,9 +8,8 @@
 
 # Table of Content 
 - [Introduction](#Introduction)
-- [What is DAST](#What-is-DAST)
 - [Why DAST](#Why-DAST)
-- [ Different DAST Tools for Java](#Different-DAST-Tools-for-Java)
+- [Different DAST Tools for Java](#Different-DAST-Tools-for-Java)
 - [Comparison of DAST Tools](#Comparison-of-DAST-Tools)
 - [Advantages of DAST](#Advantages-of-DAST)
 - [ Best Practices ](#Best-Practices)
@@ -22,43 +21,57 @@
 ## Introduction
 This documentation provides a comprehensive overview of Dynamic Application Security Testing (DAST) for GoLang applications, including its definition, tools, best practices, and a Proof of Concept (POC). DAST analyzes running applications to identify vulnerabilities and ensure robust security.
 
-## What is DAST?
-DAST is a black-box testing approach that simulates external threats by analyzing an application's runtime behavior. Unlike SAST, which examines source code, DAST interacts with the application to detect vulnerabilities without requiring access to its codebase.
-
 ## Why DAST?
-GoLang is widely used for developing high-performance, secure applications. However, runtime issues such as misconfigurations and improper input validation can compromise security. DAST is crucial for GoLang applications to:
 
-- **Identify Runtime Vulnerabilities:** Detect flaws in live environments.
-- **Enhance Security Posture:** Provide real-time security assessments.
-- **Complement Code Analysis:** Uncover vulnerabilities missed by static analysis tools.
+| **Purpose**                   | **Explanation**                                                                                           |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Identify Runtime Vulnerabilities** | Detect flaws in live environments that may not be visible during development or static analysis. |
+| **Enhance Security Posture**   | Provide real-time security assessments to identify potential risks and improve the security stance of the application. |
+| **Complement Code Analysis**  | Uncover vulnerabilities that static analysis tools may miss by testing the application in its runtime environment. |
+
 
 ## Different DAST Tools for Golang
 Several DAST tools are available that cater to GoLang applications. Some of the prominent ones include:
+
 |Tool|Description|
 |------|---------|
-|OWASP ZAP (Zed Attack Proxy)| A free and open-source tool widely used for finding vulnerabilities in web applications. It supports automation and integration with CI/CD pipelines.|
-|Burp Suite| A popular tool among security professionals, offering both free and paid versions. It provides extensive features for web vulnerability scanning and is highly customizable.|
-|Acunetix| A commercial web vulnerability scanner known for its comprehensive coverage and ease of use. It offers deep scanning capabilities and integrates well with various development environments.|
-|Netsparker| Another commercial tool that provides automated security testing for web applications. It is known for its accuracy in identifying vulnerabilities.|
-|AppSpider| A tool by Rapid7 that offers dynamic analysis and integrates with various DevOps tools to provide continuous security testing.|
+|**OWASP ZAP (Zed Attack Proxy)**| A free and open-source tool widely used for finding vulnerabilities in web applications. It supports automation and integration with CI/CD pipelines.|
+|**Burp Suite**| A popular tool among security professionals, offering both free and paid versions. It provides extensive features for web vulnerability scanning and is highly customizable.|
+|**Acunetix**| A commercial web vulnerability scanner known for its comprehensive coverage and ease of use. It offers deep scanning capabilities and integrates well with various development environments.|
+|**Netsparker**| Another commercial tool that provides automated security testing for web applications. It is known for its accuracy in identifying vulnerabilities.|
+|**AppSpider**| A tool by Rapid7 that offers dynamic analysis and integrates with various DevOps tools to provide continuous security testing.|
 
 ## Comparison of DAST Tools
 
 |Tool|	Free/Paid	|Ease of Use|	Integration|	Customizability|	Accuracy|
 |---|----|------|-----|-----|------|
-|OWASP ZAP|	Free|	Moderate|	High|	High|	High|
-|Burp Suite	|Free/Paid	|Moderate	|High	|High|	High|
-|Acunetix|	Paid|	High|	High|	Moderate|	Very High|
-|Netsparker	|Paid	|High	|High	|Moderate	|Very High|
-|AppSpider	|Paid	|High	|High	|High	|High|
+|**OWASP ZAP**|	Free|	Moderate|	High|	High|	High|
+|**Burp Suite**	|Free/Paid	|Moderate	|High	|High|	High|
+|**Acunetix**|	Paid|	High|	High|	Moderate|	Very High|
+|**Netsparker**	|Paid	|High	|High	|Moderate	|Very High|
+|**AppSpider**	|Paid	|High	|High	|High	|High|
 
 ## Advantages of DAST
+
 |Advantages|Description|
 |------|--------------|
-|Real-Time Testing| DAST identifies vulnerabilities during the actual running state of the application.|
-|Broad Coverage|It can detect a wide range of vulnerabilities, including configuration issues and runtime problems.|
-|No Source Code Required| Since DAST is a black-box testing method, it does not require access to the source code, making it suitable for testing third-party applications.|
-|Compliance|Helps in meeting various regulatory requirements by ensuring the application is secure from common vulnerabilities.|
+|**Real-Time Testing**| DAST identifies vulnerabilities during the actual running state of the application.|
+|**Broad Coverage**|It can detect a wide range of vulnerabilities, including configuration issues and runtime problems.|
+|**No Source Code Required**| Since DAST is a black-box testing method, it does not require access to the source code, making it suitable for testing third-party applications.|
+|**Compliance**|Helps in meeting various regulatory requirements by ensuring the application is secure from common vulnerabilities.|
+
+---
+
+## Disadvantages of DAST
+
+| **Disadvantage**               | **Explanation**                                                                                           |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Limited Coverage**           | DAST primarily focuses on the application's runtime behavior and may miss vulnerabilities in the underlying code or architecture. |
+| **False Positives**            | DAST tools can sometimes flag false positives, reporting issues that are not actual vulnerabilities, leading to unnecessary remediation efforts. |
+| **Time-Consuming**             | DAST typically requires a fully deployed application to scan, which can make testing slower compared to static analysis methods. |
+| **Requires Running Application** | Since DAST requires the application to be up and running, it cannot be used for static code or environments without a live instance. |
+
+---
 
 ## Best Practices
 
