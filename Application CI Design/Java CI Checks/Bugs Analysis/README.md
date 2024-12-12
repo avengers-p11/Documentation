@@ -13,7 +13,7 @@
 2. [**What is Bugs Analysis?**](#what-is-bugs-analysis?)
 3. [**Why Bugs Analysis?**](#why-bugs-analysis?)
 4. [**Different Tools used in Bugs Analysis**](#different-tools-used-in-bugs-analysis)
-5. [**SonarQube Bugs Anaylysis**](#sonarqube-bugs-anaylysis)
+5. [**Bugs Anaylysis using SonarQube**](#bugs-anaylysis-using-sonarqube )
 6. [**Conclusion**](#conclusion)
 7. [**Contact Information**](#contact-information)
 8. [**References**](#references)
@@ -53,7 +53,7 @@ Here are some tools for analyzing bugs for Java program.
 
 
 
-# SonarQube Bugs Anaylysis 
+# Bugs Anaylysis using SonarQube 
 
 # Steps to Create a Sonarqube Server
 
