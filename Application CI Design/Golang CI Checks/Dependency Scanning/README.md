@@ -8,11 +8,11 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [What is Dependency Scanning?](#what-is-dependency-scanning)
-3. [Why Dependency Scanning is Important](#why-dependency-scanning-is-important)
-4. [Different Tools for Dependency Scanning](#different-tools-for-dependency-scanning)
-5. [Comparison of Dependency Scanning Tools](#comparison-of-dependency-scanning-tools)
-6. [Advantages of Dependency Scanning in CI](#advantages-of-dependency-scanning-in-ci)
+2. [Why Dependency Scanning is Important](#why-dependency-scanning-is-important)
+3. [Different Tools for Dependency Scanning](#different-tools-for-dependency-scanning)
+4. [Comparison of Dependency Scanning Tools](#comparison-of-dependency-scanning-tools)
+5. [Advantages of Dependency Scanning in CI](#advantages-of-dependency-scanning-in-ci)
+6. [Disadvanates of Dependency Scanning in CI](#disadvantages-of-dependency-scanning-in-ci)
 7. [Best Practices for Dependency Scanning](#best-practices-for-dependency-scanning)
 8. [Recommendations](#recommendations)
 9. [Conclusion](#conclusion)
@@ -22,17 +22,15 @@
 ## Introduction
 Continuous Integration (CI) practices have become integral to modern software development, allowing teams to deliver software more efficiently. Among various checks included in a CI pipeline, **dependency scanning** is crucial for maintaining secure, stable, and up-to-date codebases.
 
-## What is Dependency Scanning?
-Dependency scanning refers to the process of checking the dependencies in your project (e.g., libraries and packages) for issues like:
-- **Vulnerabilities**: Identifying known security vulnerabilities in dependencies.
-- **Outdated Packages**: Finding packages that are outdated or no longer maintained.
-- **License Issues**: Ensuring that dependencies comply with licensing requirements.
-For Go, dependency management is usually handled using tools like `go mod` and `go get`, and scanning can help identify risks and improve overall software quality.
 ## Why Dependency Scanning is Important
-1. **Security**: Dependencies can introduce security vulnerabilities if they are outdated or have known issues. Scanning helps identify and mitigate these vulnerabilities.
-2. **Stability**: Outdated or incompatible dependencies can break your application. Scanning ensures that all dependencies are compatible and up-to-date.
-3. **Compliance**: Many organizations require open-source projects to comply with specific licenses. Dependency scanning helps ensure that you’re not violating any licenses.
-4. **Quality Assurance**: Prevent issues in production by catching dependency-related problems early in the CI pipeline.
+
+| **Reason**             | **Explanation**                                                                                           |
+|------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Security**           | Dependencies can introduce security vulnerabilities if they are outdated or have known issues. Scanning helps identify and mitigate these vulnerabilities. |
+| **Stability**          | Outdated or incompatible dependencies can break your application. Scanning ensures that all dependencies are compatible and up-to-date. |
+| **Compliance**         | Many organizations require open-source projects to comply with specific licenses. Dependency scanning helps ensure that you’re not violating any licenses. |
+| **Quality Assurance**  | Prevent issues in production by catching dependency-related problems early in the CI pipeline. |
+
 
 ## Different Tools for Dependency Scanning
 Several tools are available to perform dependency scanning for Golang projects. Below is a comparison of some commonly used tools:
@@ -44,6 +42,8 @@ Several tools are available to perform dependency scanning for Golang projects. 
 | **GolangCI-Lint**   | A Go linting tool that checks for dependency issues as part of broader static analysis. | - Can include checks for outdated or vulnerable dependencies. <br> - Supports multiple linters. |
 | **Trivy**           | A vulnerability scanner that scans Go modules for known vulnerabilities in dependencies. | - Integrates with container scanning. <br> - Supports a wide range of operating systems and languages. |
 
+---
+
 ## Comparison of Dependency Scanning Tools
 | Tool                | Key Feature                               | Integration         | Free Tier     | Ease of Use      |
 |---------------------|-------------------------------------------|---------------------|---------------|------------------|
@@ -53,6 +53,8 @@ Several tools are available to perform dependency scanning for Golang projects. 
 | **GolangCI-Lint**   | Broad static analysis with dependency checks| GitHub, GitLab      | Yes           | Medium           |
 | **Trivy**           | Vulnerability scanning for modules & containers | CI/CD, Containerized Apps | Yes | Medium           |
 
+---
+
 ## Advantages of Dependency Scanning in CI
 | Advantage                | Description                                                              |
 |--------------------------|--------------------------------------------------------------------------|
@@ -60,6 +62,16 @@ Several tools are available to perform dependency scanning for Golang projects. 
 | **Improved Security**         | By identifying vulnerabilities in dependencies, scanning helps prevent exploitation and data breaches, enhancing the security of your software. |
 | **Simplified Maintenance**    | Automatic alerts and updates for outdated dependencies reduce manual tracking and updates, making maintenance easier and more efficient. |
 | **Regulatory Compliance**     | Dependency scanning helps ensure your software complies with licensing and legal requirements, preventing potential compliance issues. |
+
+---
+
+## Disadvanatage of Dependency Scanning in CI
+| **Disadvantage**             | **Explanation**                                                                                           |
+|-----------------------------|-----------------------------------------------------------------------------------------------------------|
+| **False Positives**         | Dependency scanners might sometimes flag issues that aren't actually vulnerabilities, leading to unnecessary alerts and potentially wasting time on non-issues. |
+| **Overhead in CI/CD Pipeline** | Running dependency scans as part of the Continuous Integration/Continuous Deployment (CI/CD) pipeline can introduce extra time and resource consumption, especially if the scans are comprehensive. |
+| **Limited Coverage**        | Dependency scanning typically focuses on known vulnerabilities in libraries or dependencies. It may not detect issues in custom code or configuration problems that can also pose risks. |
+| **Complexity in Fixing Issues** | When vulnerabilities are found, resolving them can be complicated. Updates might introduce breaking changes, require significant refactoring, or cause compatibility issues with other dependencies. |
 
 ## Best Practices for Dependency Scanning
 | Best Practice                     | Description                                                                 |
@@ -80,7 +92,7 @@ Several tools are available to perform dependency scanning for Golang projects. 
 
 ## Conclusion
 
-We will be using Gosec tool for dependency scanning for our golang project which is used in our Employee API in OT-Microservice. By using Gosec we can easily scan our dependencies of our project. 
+We will be using Gosec tool for dependency scanning for our golang project which is used in our Employee API in OT-Microservice. By using Gosec we can easily scan our dependencies of our project. When integrated into a GoLang project, gosec can provide significant value in terms of security by scanning your codebase, libraries, and dependencies for potential risks.
 
 ## Contact Information
 |    NAME           |   Email Address                       |
