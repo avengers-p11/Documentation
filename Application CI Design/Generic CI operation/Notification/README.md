@@ -65,14 +65,14 @@ This guide will walk you through setting up Slack and Jenkins to collaborate, pr
 
 
 
-3. After installation, configure the Slack credentials:
+ 3. After installation, configure the Slack credentials:
    - Go to **Manage Jenkins** > **Credentials** > **Global** > **Add Credentials**.
    - Select **Secret Text**, then enter the Slack integration token copied earlier.
 ![Screenshot from 2024-12-12 20-22-36](https://github.com/user-attachments/assets/fed4ec2e-0476-4d16-baa7-77a96e487a8f)
 ![Screenshot from 2024-12-12 20-22-50](https://github.com/user-attachments/assets/395a52b7-9608-455f-8e0c-cceed447797e)
 
 
-4. **Configure the Slack settings in Jenkins:**
+ 4. **Configure the Slack settings in Jenkins:**
    - Go to **Manage Jenkins** > **Configure System**.
    - In the **Slack** section:
      - Set **Workspace** to your Slack team subdomain.
@@ -83,17 +83,16 @@ This guide will walk you through setting up Slack and Jenkins to collaborate, pr
  ![Screenshot from 2024-12-12 19-33-24](https://github.com/user-attachments/assets/946dce6e-af28-4e0f-a92c-2423d6a7721e)
 
 ## Step 4: Run a Sample Test   
-` 
-      -Trigger a build 
-      -Check the Slack channel you configured to ensure you receive build status notifications.
+
+   1.Trigger a build             
+   2.Check the Slack channel you configured to ensure you receive build status notifications.
  
  ![Screenshot from 2024-12-12 19-48-42](https://github.com/user-attachments/assets/e794af0b-caf7-45bf-bc18-73d21e40ba9e)
 
  ![Screenshot from 2024-12-12 19-48-34](https://github.com/user-attachments/assets/2a28a245-6209-41fb-8fe6-7203d82e5521)
 
 
-
-## Contacts
+ ## Contacts
 
 | Name| Email Address      |
 |-----|--------------------------|
