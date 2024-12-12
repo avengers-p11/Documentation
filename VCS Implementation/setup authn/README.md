@@ -3,7 +3,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 29-11-24           |  | | |     
+| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 29-11-24           |shreya jaiswal  | | |     
 
 
 
@@ -82,6 +82,9 @@ Test SSH Connection:
         Log in to your VCS provider.
         Navigate to Settings > Developer Settings > Personal Access Tokens.
         Create a token with the necessary scopes (e.g., repo access).
+![Screenshot from 2024-12-12 12-01-54](https://github.com/user-attachments/assets/e8a145cb-6442-4954-9270-5c47f2ff784f)
+![Screenshot from 2024-12-12 12-02-05](https://github.com/user-attachments/assets/9cd740cb-c63c-4ad7-aafc-e5e95d2a4998)
+![Screenshot from 2024-12-12 12-02-12](https://github.com/user-attachments/assets/6a1eca1a-fdf4-4eea-b0c7-dbcd71108cc8)
 
    Use the Token: Replace your password with the token when cloning or pushing via HTTPS:
 
@@ -100,21 +103,29 @@ Test SSH Connection:
         Example for GitHub CLI:
 
         gh auth login
+![Screenshot from 2024-12-12 12-02-24](https://github.com/user-attachments/assets/adf6e4cb-3134-4c85-b4d2-451a358d15d7)
 
 ## Best Practices
 
-   Use SSH for Automation: It's secure and avoids storing passwords.
-   Avoid Sharing Tokens: Treat tokens like passwords; do not expose them.
-   Rotate Tokens Regularly: Update PATs periodically to minimize security risks.
-   Enable Two-Factor Authentication (2FA): Add an extra layer of security.
-   Use Scoped Tokens: Limit the scope of PATs to specific operations.
+# Security Best Practices for Automation
+
+| Best Practice                     | Description                                                                  |
+|-----------------------------------|------------------------------------------------------------------------------|
+| **Use SSH for Automation**        | Secure method that avoids storing passwords.                                 |
+| **Avoid Sharing Tokens**          | Treat tokens like passwords; ensure they are not exposed.                    |
+| **Rotate Tokens Regularly**       | Periodically update Personal Access Tokens (PATs) to minimize security risks. |
+| **Enable Two-Factor Authentication (2FA)** | Add an additional layer of security for better protection.                   |
+| **Use Scoped Tokens**             | Limit the scope of PATs to specific operations for enhanced security.         |
+
 
 
 ## References
 
-   GitHub Authentication Guide
-   GitLab SSH Keys Setup
-   Bitbucket Authentication
+| Platform          | Guide                                                                 |
+|--------------------|----------------------------------------------------------------------|
+| **GitHub**         | [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github](#https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)                                    |
+
+
 
 
 ##  Contact Information
