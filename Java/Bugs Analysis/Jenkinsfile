@@ -1,1 +1,63 @@
+pipeline {
+    agent any
+
+    environment {
+        scannerHome = tool 'Sonar'  
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning the repository...'
+                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+            }
+        }
+
+        stage('Compile Project') {
+            steps {
+                echo 'Compiling the project using Maven...'
+                sh 'mvn compile'
+            }
+        }
+
+        stage('Bug Analysis') {
+            steps {
+                echo 'Running SonarQube analysis for bugs...'
+                script {
+                    withSonarQubeEnv('Sonar') {
+                        sh """
+                          ${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=salary \
+                            -Dsonar.projectName=Salary-api \
+                            -Dsonar.host.url=http://3.90.82.155:9000 \
+                            -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                            -Dsonar.java.binaries=target/classes \
+                            -Dsonar.issue.types=BUG \
+                            -Dsonar.report.export.path=target/sonar-bugs-report.txt
+                        """
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline completed.'
+            archiveArtifacts artifacts: 'target/sonar-bugs-report.txt', allowEmptyArchive: true
+        }
+        success {
+            echo 'Bug analysis completed successfully!'
+            mail to: 'it.mohitsaini@gmail.com', 
+                 subject: 'SonarQube Bug Analysis: Salary-api', 
+                 body: 'The Jenkins pipeline has successfully completed. Please check the SonarQube report for bug analysis.'
+        }
+        failure {
+            echo 'Bug analysis failed.'
+            mail to: 'it.mohitsaini@gmail.com', 
+                 subject: 'Jenkins Pipeline Failure: Salary-api', 
+                 body: 'The Jenkins pipeline has failed. Please check the logs for details.'
+        }
+    }
+}
 
