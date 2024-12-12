@@ -1,24 +1,39 @@
 pipeline {
     agent any
 
-    stages {    
+    environment {
+        scannerHome = tool 'Sonar'  // Ensure this matches the SonarQube tool name in Jenkins configuration
+    }
+
+    stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
-            }    
+                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+            }
+        }
+
+        stage('Compile Project') {
+            steps {
+                echo 'Compiling the project using Maven...'
+                sh 'mvn compile'
+            }
         }
 
         stage('Static Code Analysis') {
             steps {
                 echo 'Running Static Code Analysis using SonarQube...'
-                // Example of running SonarQube analysis (ensure SonarQube is set up)
-                sh '''
-                    mvn sonar:sonar \
-                        -Dsonar.projectKey=salary \
-                        -Dsonar.host.url=http://100.26.238.100:9000 \
-                        -Dsonar.login=sqp_710983f17039139163cfe1c16cf6ad137f956af8
-                    echo "Static Code Analysis completed."
-                '''
+                script {
+                    withSonarQubeEnv('Sonar') {
+                        sh """
+                          ${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=salary \
+                            -Dsonar.projectName=Salary-api \
+                            -Dsonar.host.url=http://3.90.82.155:9000 \
+                            -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                            -Dsonar.java.binaries=target/classes
+                        """
+                    }
+                }
             }
         }
     }
@@ -26,23 +41,15 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            // Archive the SonarQube analysis report (adjust path as needed)
             archiveArtifacts artifacts: 'target/sonar-report.html', allowEmptyArchive: true
         }
         success {
             echo 'Pipeline finished successfully!'
-            // Send success email
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Java Static Code Analysis: Salary-api',
-                 body: 'The Jenkins pipeline has successfully completed.'
+            mail to: 'it.mohitsaini@gmail.com', subject: 'Java Static Code Analysis: Salary-api', body: 'The Jenkins pipeline has successfully completed.'
         }
         failure {
             echo 'Pipeline failed.'
-            // Send failure email
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Jenkins Pipeline Failure: Salary-api',
-                 body: 'The Jenkins pipeline has failed. Please check the logs.'
+            mail to: 'it.mohitsaini@gmail.com', subject: 'Jenkins Pipeline Failure: Salary-api', body: 'The Jenkins pipeline has failed. Please check the logs.'
         }
     }
 }
-
