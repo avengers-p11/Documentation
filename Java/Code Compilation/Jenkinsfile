@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -29,17 +28,21 @@ pipeline {
         }
         success {
             echo 'Pipeline finished successfully!'
-            // Send success email
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Java CI Declarative Code Compilation Salary-api',
-                 body: 'The Jenkins pipeline has successfully completed.'
+            // Send success email with the compilation report attached
+            emailext attachmentsPattern: 'compilation-report.txt',
+                     to: 'it.mohitsaini@gmail.com',
+                     subject: 'Java CI Declarative Code Compilation Salary-api',
+                     body: '''The Jenkins pipeline has successfully completed.
+                              Please find the compilation report attached.'''.stripIndent()
         }
         failure {
             echo 'Pipeline failed.'
             // Send failure email
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Jenkins Pipeline Failure: Salary-api',
-                 body: 'The Jenkins pipeline has failed. Please check the logs.'
+            emailext attachmentsPattern: 'compilation-report.txt',
+                     to: 'it.mohitsaini@gmail.com',
+                     subject: 'Jenkins Pipeline Failure: Salary-api',
+                     body: '''The Jenkins pipeline has failed.
+                              Please check the logs and the compilation report for more details.'''.stripIndent()
         }
     }
 }
