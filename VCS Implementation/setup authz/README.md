@@ -136,8 +136,11 @@ Access logs from your **organization settings** to monitor changes.
 
 ## References
 
-- [GitHub Branch Protection Rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)
-- [GitLab Protected Branches](https://docs.gitlab.com/ee/user/project/protected_branches.html)
-- [Bitbucket Branch Permissions](https://support.atlassian.com/bitbucket-cloud/docs/enforce-branch-permissions/)
+
+| **Platform**   | **Description**                                     | **Reference Link**                                                                                 |
+|-----------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| **GitHub**      | Information about configuring and using branch protection rules in GitHub repositories. | [GitHub Branch Protection Rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches) |
+| **GitLab**      | Guide to managing and configuring protected branches in GitLab.                   | [GitLab Protected Branches](https://docs.gitlab.com/ee/user/project/protected_branches.html)      |
+| **Bitbucket**   | Documentation for enforcing branch permissions in Bitbucket Cloud.                | [Bitbucket Branch Permissions](https://support.atlassian.com/bitbucket-cloud/docs/enforce-branch-permissions/) |
 
 ---
