@@ -5,7 +5,7 @@ pipeline {
     stages {    
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
+                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
             }    
         }
 
