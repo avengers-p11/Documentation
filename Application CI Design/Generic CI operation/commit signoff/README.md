@@ -25,27 +25,32 @@ This document provides comprehensive guidance on implementing a **commit signoff
 
 ## Introduction
 
-Commit signoff is a process where contributors add a "signoff" line to their commit messages to confirm adherence to the project's guidelines. This is commonly required for open-source projects following the Developer Certificate of Origin (DCO).
+Commit sign-off is a way to certify that you adhere to the rules and guidelines of the project you are contributing to. By signing off on your commits, you acknowledge that you have the right to submit the work under the project's license.
 
-Example commit message:
-
-Fix: Update API endpoint
-
-Signed-off-by: Your Name your.email@example.com
+This mechanism is commonly used in open-source projects to ensure compliance with licensing requirements, such as the **Developer Certificate of Origin (DCO)**.
 
 ---
 
 ## What is Commit Signoff?
 
-Commit signoff involves appending a `Signed-off-by` line to every commit message. This line acts as a certification by the contributor that they have the right to submit the work under the project's license.
+A commit sign-off is a line at the end of the commit message that follows this format:
 
----
+```
+Signed-off-by: Your Name <your.email@example.com>
+```
+
+This line can be added automatically using the `--signoff` (`-s`) flag when creating a commit.
+
+The sign-off indicates:
+- You wrote the patch or have the right to submit it under the open-source license.
+- You comply with the Developer Certificate of Origin (DCO).
+
 
 ## Why Use Commit Signoff?
 
-1. Ensures contributors acknowledge their responsibility for the changes.
-2. Maintains compliance with licensing requirements.
-3. Simplifies tracking of contributions in open-source projects.
+1. **Licensing Compliance**: Ensures contributions are made with an agreement to the licensing terms.
+2. **Accountability**: Tracks the authorship and approval of changes.
+3. **Transparency**: Facilitates better project governance by documenting consent for contributions.
 
 ---
 
@@ -128,16 +133,11 @@ Step 3: Create a Pull Request
 
 ## Best Practices
 
- 1. Enforce Signoff in Git Hooks: Use a prepare-commit-msg hook to add the Signed-off-by line automatically:
-```
-    #!/bin/sh
-    if ! grep -q "Signed-off-by:" "$1"; then
-        echo "Signed-off-by: $(git config user.name) <$(git config user.email)>" >> "$1"
-    fi
-```
-  2.  Document Contribution Guidelines: Include instructions for commit signoff in your repository's CONTRIBUTING.md.
+ 1. Always sign off your commits to maintain compliance with licensing requirements.
+ 2. Use tools like the DCO app or pre-commit hooks to enforce sign-off policies.
+ 3. Double-check your commit messages to ensure proper formatting and sign-off inclusion.
 
-  3. Regularly Audit Commits: Use tools like Probot DCO to automate signoff validation.
+---
 
 
 ## Contacts
@@ -150,7 +150,5 @@ Step 3: Create a Pull Request
 
 ## References
 
-  Developer Certificate of Origin (DCO)
-  GitHub Actions Documentation
-  Probot DCO Bot
+-----------------------------------------------------
 
