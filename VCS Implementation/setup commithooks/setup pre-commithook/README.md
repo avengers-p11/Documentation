@@ -1,4 +1,4 @@
-# Setup Commit Hooks in Git
+# Setup Commit Hooks (pre-commithook)in Git
 
 This guide explains how to set up and configure commit hooks in Git to enforce best practices and automate pre-commit checks.
 
