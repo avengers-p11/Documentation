@@ -13,6 +13,7 @@
 4. [Step-by-step installation of GitHub](#step-by-step-installation-of-github)
 5. [Conclusion](#Conclusion)
 6. [Contact Information](#contact-information)
+7. [References](#References)
 
 
 ## Purpose
@@ -37,7 +38,7 @@ This Poc demonstrates how to set up and use GitHub as a Version Control System. 
 
 ## Architecture
 
-
+![Screenshot from 2024-12-12 11-44-36](https://github.com/user-attachments/assets/5b5af6b5-47db-4c7e-887d-04d5439ebc9f)
 
 
 ## Step-by-step installation of GitHub
