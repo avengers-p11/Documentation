@@ -22,7 +22,7 @@
 
 6. [**Comparison Table**](comparison-table)
 
-7. [**Maven Java Compiler Tool**](#maven-java-compiler-tool)  
+7. [**Code Compilation using Maven**](#code-compilation-using-maven)  
 
 8. [**Maven**](#what)
 
@@ -89,7 +89,7 @@ Java Compiler (javac) generates Bytecode
 | **Quick to Learn**        | Yes       | No         | No      | 
 | **Works with Other Tools**| Yes       | Yes        | No      |
 
-# Maven Java Compiler Tool
+# Code Compilation using Maven
 
 ![image](https://github.com/user-attachments/assets/618806e9-7239-4f38-9b48-055a1544c574)
 
