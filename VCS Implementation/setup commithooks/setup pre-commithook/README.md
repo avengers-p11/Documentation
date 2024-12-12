@@ -13,10 +13,9 @@ This guide explains how to set up and configure commit hooks in Git to enforce b
     - [Step 1: Locate the Hooks Directory](#step-1-locate-the-hooks-directory)
     - [Step 2: Create a Pre-Commit Hook](#step-2-create-a-pre-commit-hook)
     - [Step 3: Configure the Hook](#step-3-configure-the-hook)
-5. [Examples of Commit Hooks](#examples-of-commit-hooks)
-6. [Using Tools for Managing Hooks](#using-tools-for-managing-hooks)
-7. [contacts](#contacts)
-8. [References](#references)
+5. [Using Tools for Managing Hooks](#using-tools-for-managing-hooks)
+6. [contacts](#contacts)
+6. [References](#references)
 
 ---
 
@@ -88,45 +87,11 @@ Make the script executable:
 chmod +x pre-commit
 ```
 ![Screenshot from 2024-12-08 21-49-24](https://github.com/user-attachments/assets/04ee8ae3-d93b-430b-9d69-e2d9d07764b3)
+![Screenshot from 2024-12-08 12-08-48](https://github.com/user-attachments/assets/e33e82b2-efeb-4d17-b9cb-de5a36af67cb)
 
-## Examples of Commit Hooks
-Enforce Commit Message Format
 
-A commit-msg hook to ensure commit messages reference a JIRA ticket (e.g., PROJECT-123):
-```
-#!/bin/bash
 
-JIRA_PATTERN="^[A-Z]+-[0-9]+: .+$"
-COMMIT_MSG=$(cat "$1")
 
-if [[ ! $COMMIT_MSG =~ $JIRA_PATTERN ]]; then
-    echo "❌ Commit message must include a JIRA ticket (e.g., PROJECT-123: Description)."
-    exit 1
-fi
-
-echo "✅ Commit message is valid."
-exit 0
-```
-### Prevent Large Files
-
-A pre-commit hook to prevent committing files larger than 5MB:
-```
-#!/bin/bash
-
-MAX_SIZE=5242880
-
-for file in $(git diff --cached --name-only); do
-    FILE_SIZE=$(wc -c <"$file")
-
-    if [ $FILE_SIZE -gt $MAX_SIZE ]; then
-        echo "❌ File $file exceeds the size limit of 5MB."
-        exit 1
-    fi
-done
-
-echo "✅ All files are within the size limit."
-exit 0
-```
 ## Using Tools for Managing Hooks
 
 Instead of manually managing hooks, you can use tools like:
@@ -159,9 +124,14 @@ Commit the changes:
 
 ## References
 
-   Git Hooks Documentation
-   Husky Documentation
-   Pre-commit Framework
+| **Topic**                   | **Description**                                                                                       | **Reference Link**                                      |
+|-----------------------------|-------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| **What is Pre-commit?**      | Pre-commit is a framework for managing and maintaining multi-language pre-commit hooks.               | [Pre-commit Official](https://pre-commit.com/)          |
+| **Setting up Pre-commit**    | You can configure pre-commit hooks by adding a `.pre-commit-config.yaml` file to your repository.      | [Pre-commit Setup](https://pre-commit.com/#install)     |
+| **Common Hooks Examples**    | Pre-commit provides hooks for tasks like linting, formatting, and security checks.                   | [Pre-commit Hooks List](https://pre-commit.com/hooks.html) |
+
+---
+
 
 
 
