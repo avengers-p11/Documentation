@@ -123,7 +123,7 @@ Test SSH Connection:
 
 | Platform          | Guide                                                                 |
 |--------------------|----------------------------------------------------------------------|
-| **GitHub**         | [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github](#https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)                                    |
+| **GitHub**         | (https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)                                    |
 
 
 
