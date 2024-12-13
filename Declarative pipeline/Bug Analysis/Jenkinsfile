@@ -1,0 +1,109 @@
+pipeline {
+    agent any
+
+    environment {
+        scannerHome = tool 'Sonar'  // Ensure this matches the SonarQube tool name in Jenkins configuration
+        VENV_DIR = "venv" // Directory for the virtual environment
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning the repository...'
+                git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing required dependencies...'
+                sh '''
+                    # Update and install dependencies without prompting for password
+                    echo "Installing python3-venv and pip3..."
+                    DEBIAN_FRONTEND=noninteractive sudo apt-get update -y
+                    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y python3-venv python3-pip
+                '''
+            }
+        }
+
+        stage('Setup Python Virtual Environment') {
+            steps {
+                echo 'Setting up the Python virtual environment...'
+                sh '''
+                    # Create a virtual environment if it doesn't exist
+                    if [ ! -d "$VENV_DIR" ]; then
+                        python3 -m venv $VENV_DIR
+                    fi
+
+                    # Install required Python packages
+                    ${VENV_DIR}/bin/pip install --upgrade pip
+                    ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
+                    
+                    # Ensure pytest is installed
+                    ${VENV_DIR}/bin/pip install pytest
+                '''
+            }
+        }
+
+        stage('Bug Analysis') {
+            steps {
+                echo 'Running SonarQube analysis for bugs...'
+                script {
+                    withSonarQubeEnv('Sonar') {
+                        sh """
+                          ${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=salary \
+                            -Dsonar.projectName=Salary-api \
+                            -Dsonar.host.url=http://52.91.145.192:9000 \
+                            -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                            -Dsonar.java.binaries=target/classes \
+                            -Dsonar.issue.types=BUG \
+                            -Dsonar.report.export.path=compilation-report.txt
+                        """
+                    }
+                }
+            }
+        }
+    } // Closing the 'stages' block
+
+    post {
+        always {
+            echo 'Pipeline completed.'
+            // Archive the compilation report file
+            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+        }
+        success {
+            emailext(
+                attachmentsPattern: 'compilation-report.txt',
+                mimeType: 'text/html',
+                body: """<html>
+                            <body>
+                                <h2>Jenkins Build ${currentBuild.currentResult}</h2>
+                                <p>Job: ${env.JOB_NAME}</p>
+                                <p>Build Number: ${env.BUILD_NUMBER}</p>
+                                <p>Status: ${currentBuild.currentResult}</p>
+                                <p>More details at: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                            </body>
+                         </html>""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        }
+        failure {
+            echo 'Pipeline failed.'
+            emailext(
+                mimeType: 'text/html',
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: """<html>
+                            <body>
+                                <h2>Pipeline Failure</h2>
+                                <p>Hello,</p>
+                                <p>The Jenkins pipeline has failed. Please check the logs for details.</p>
+                            </body>
+                         </html>"""
+            )
+        }
+    }
+}
