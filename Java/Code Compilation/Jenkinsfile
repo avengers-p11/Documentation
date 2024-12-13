@@ -1,11 +1,11 @@
 pipeline {
     agent any
 
-    stages {    
+    stages {
         stage('Clone Repository') {
             steps {
                 git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
-            }    
+            }
         }
 
         stage('Code Compilation') {
@@ -16,7 +16,7 @@ pipeline {
                     echo "Report generated:"
                     ls -l compilation-report.txt
                 '''
-            }      
+            }
         }
     }
 
@@ -27,22 +27,25 @@ pipeline {
             archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         }
         success {
-            echo 'Pipeline finished successfully!'
-            // Send success email with the compilation report attached
-            emailext attachmentsPattern: 'compilation-report.txt',
-                     to: 'it.mohitsaini@gmail.com',
-                     subject: 'Java CI Declarative Code Compilation Salary-api',
-                     body: '''The Jenkins pipeline has successfully completed.
-                              Please find the compilation report attached.'''.stripIndent()
+            emailext(
+                attachmentsPattern: 'compilation-report.txt',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
         }
         failure {
             echo 'Pipeline failed.'
-            // Send failure email
-            emailext attachmentsPattern: 'compilation-report.txt',
-                     to: 'it.mohitsaini@gmail.com',
-                     subject: 'Jenkins Pipeline Failure: Salary-api',
-                     body: '''The Jenkins pipeline has failed.
-                              Please check the logs and the compilation report for more details.'''.stripIndent()
+           
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+            )
         }
     }
 }
