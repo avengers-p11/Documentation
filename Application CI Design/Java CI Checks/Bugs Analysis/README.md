@@ -1,4 +1,4 @@
-#    **Documentation and POC of Java Bugs Analysis**
+#    **Documentation and POC of Bugs Analysis in Java CI Checks**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
