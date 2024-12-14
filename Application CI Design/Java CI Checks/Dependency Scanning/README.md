@@ -1,4 +1,4 @@
-#    **Docmentation and POC of Java Dependency Scanning**
+#    **Docmentation and POC of Dependency Scanning in Java CI Checks**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
