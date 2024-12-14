@@ -1,4 +1,4 @@
-#    **Documentation and POC of Static Code Anaylysis**
+#    **Documentation and POC of Static Code Anaylysis in Java CI Checks**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
