@@ -108,7 +108,7 @@ Ensure that your application or api should be running before using this service.
  ## **Steps 7. Report** 
 | Link         | Description         |
 |--------------|------------------------|
-| [DAST](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/Unit%20Testing%20/report)| Report |
+| [DAST](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Java%20CI%20Checks/DAST/JAVA-DAST.pdf)| Report |
 #
 
 
