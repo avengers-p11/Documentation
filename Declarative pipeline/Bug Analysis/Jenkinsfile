@@ -54,7 +54,7 @@ pipeline {
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                            -Dsonar.host.url=http://52.91.145.192:9000 \
+                            -Dsonar.host.url=http://18.235.248.38:9000 \
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG \
@@ -87,14 +87,14 @@ pipeline {
                          </html>""",
                 recipientProviders: [developers(), requestor()],
                 subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                to: 'it.mohitsaini@gmail.com'
+                to: 'anjalidhiman.as@gmail.com'
             )
         }
         failure {
             echo 'Pipeline failed.'
             emailext(
                 mimeType: 'text/html',
-                to: 'it.mohitsaini@gmail.com',
+                to: 'anjalidhiman.as@gmail.com',
                 subject: 'Jenkins Pipeline Failure: Salary-api',
                 body: """<html>
                             <body>
