@@ -1,4 +1,4 @@
-#    **Documentation and POC of DAST (Dynamic Application Security Testing)**
+#    **Documentation and POC of DAST (Dynamic Application Security Testing) in Java CI Checks**
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer L0**  | **Reviewer L1**   | **Reviewer L2**   |
 |-----------------------|----------------|-------------|---------------------------|---------------------|------------------|-------------------|----------------|
@@ -67,7 +67,7 @@ Dynamic Application Security Testing (DAST) is a method of testing a web app by 
 | **Acunetix**                  | Automated security scanner for web applications.                                | Detects SQL injection, XSS, and other vulnerabilities.            | Great for quickly identifying common web vulnerabilities.       | Fast scanning, easy to use, covers a wide range of vulnerabilities. | Pricey, fewer customization options for advanced users.         |
 | **AppSpider**                 | Dynamic application security testing tool.                                      | Scanning for Java frameworks, automated vulnerability discovery. | Ideal for automating security testing across Java applications. | Customizable, automates complex scans, supports Java frameworks. | High cost, can generate false positives if not tuned correctly.  |
 
-# DAST using OWSAP ZAP
+# DAST using OWASP ZAP
 
 ## Steps 1. Update your OS
 ```
