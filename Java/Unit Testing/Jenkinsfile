@@ -8,14 +8,21 @@ pipeline {
             }    
         }
 
-        stage('Unit Tests') {
+        stage('Unit Tests & Coverage') {
             steps {
-                // Run Maven unit tests and capture the output
+                // Run Maven tests and generate JaCoCo reports
                 sh '''
-                    mvn test | tee unit-test-report.txt
-                    echo "Unit test report generated:"
-                    ls -l unit-test-report.txt
+                    mvn clean test jacoco:report | tee unit-test-report.txt
+                    echo "JaCoCo coverage report generated."
+                    ls -l target/site/jacoco
                 '''
+            }
+        }
+
+        stage('Archive Reports') {
+            steps {
+                // Archive JaCoCo HTML report
+                archiveArtifacts artifacts: 'target/site/jacoco/**', allowEmptyArchive: true
             }
         }
     }
@@ -31,7 +38,7 @@ pipeline {
             // Send success email
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
-                 body: 'The Jenkins pipeline has successfully completed.'
+                 body: 'The Jenkins pipeline has successfully completed. Code coverage and unit test reports are archived.'
         }
         failure {
             echo 'Pipeline failed.'
