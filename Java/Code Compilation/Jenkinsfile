@@ -10,7 +10,7 @@ pipeline {
 
         stage('Code Compilation') {
             steps {
-                // Capture Maven compilation output and save it to a report file
+               
                 sh '''
                     mvn compile | tee compilation-report.txt
                     echo "Report generated:"
@@ -23,7 +23,7 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            // Archive the compilation report file
+            
             archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         }
         success {
