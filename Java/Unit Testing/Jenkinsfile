@@ -10,8 +10,7 @@ pipeline {
 
         stage('Unit Tests & Coverage') {
             steps {
-                // Run Maven tests and generate JaCoCo reports
-                sh '''
+               sh '''
                     mvn clean test jacoco:report | tee unit-test-report.txt
                     echo "JaCoCo coverage report generated."
                     ls -l target/site/jacoco
@@ -21,7 +20,7 @@ pipeline {
 
         stage('Archive Reports') {
             steps {
-                // Archive JaCoCo HTML report
+              
                 archiveArtifacts artifacts: 'target/site/jacoco/**', allowEmptyArchive: true
             }
         }
@@ -30,19 +29,19 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            // Archive the unit test report file
+            
             archiveArtifacts artifacts: 'unit-test-report.txt', allowEmptyArchive: true
         }
         success {
             echo 'Pipeline finished successfully!'
-            // Send success email
+           
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
                  body: 'The Jenkins pipeline has successfully completed. Code coverage and unit test reports are archived.'
         }
         failure {
             echo 'Pipeline failed.'
-            // Send failure email
+         
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Jenkins Pipeline Failure: Salary-api',
                  body: 'The Jenkins pipeline has failed. Please check the logs.'
