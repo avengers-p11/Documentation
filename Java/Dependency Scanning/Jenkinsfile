@@ -10,7 +10,6 @@ pipeline {
 
         stage('Dependency Check') {
             steps {
-                // Run OWASP Maven dependency check and capture the output
                 sh '''
                     mvn org.owasp:dependency-check-maven:check | tee dependency-check-report.txt
                     echo "Dependency check report generated:"
@@ -23,19 +22,17 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            // Archive the dependency check report file
+          
             archiveArtifacts artifacts: 'dependency-check-report.txt', allowEmptyArchive: true
         }
         success {
             echo 'Pipeline finished successfully!'
-            // Send success email
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
                  body: 'The Jenkins pipeline has successfully completed.'
         }
         failure {
             echo 'Pipeline failed.'
-            // Send failure email
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Jenkins Pipeline Failure: Salary-api',
                  body: 'The Jenkins pipeline has failed. Please check the logs.'
