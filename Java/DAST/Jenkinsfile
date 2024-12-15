@@ -10,7 +10,7 @@ pipeline {
 
         stage('DAST') {
             steps {
-                // Run OWASP ZAP scan
+               
                 sh '''
                     zap-cli quick-scan --self-contained --start --spider --scan https://your-app-url.com | tee dast-report.txt
                     echo "DAST report generated:"
@@ -23,19 +23,17 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            // Archive the DAST report file
+        
             archiveArtifacts artifacts: 'dast-report.txt', allowEmptyArchive: true
         }
         success {
-            echo 'Pipeline finished successfully!'
-            // Send success email
+            echo 'Pipeline finished successfully!'            
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
                  body: 'The Jenkins pipeline has successfully completed.'
         }
         failure {
-            echo 'Pipeline failed.'
-            // Send failure email
+            echo 'Pipeline failed.'           
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Jenkins Pipeline Failure: Salary-api',
                  body: 'The Jenkins pipeline has failed. Please check the logs.'
