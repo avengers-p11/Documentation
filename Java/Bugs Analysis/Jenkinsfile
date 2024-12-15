@@ -15,8 +15,8 @@ pipeline {
 
         stage('Compile Project') {
             steps {
-                echo 'Compiling the project using Maven...'
-                sh 'mvn compile'
+                echo 'Compiling the project using Maven Wrapper...'
+                sh './mvnw compile'  // Use mvnw instead of mvn
             }
         }
 
@@ -60,4 +60,3 @@ pipeline {
         }
     }
 }
-
