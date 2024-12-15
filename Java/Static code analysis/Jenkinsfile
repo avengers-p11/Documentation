@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        mvnHome = tool name: 'Maven', type: 'Maven' // Ensure this matches the Maven tool name in Jenkins configuration
-        scannerHome = tool 'Sonar'  // Ensure this matches the SonarQube tool name in Jenkins configuration
+        mvnHome = tool name: 'Maven', type: 'Maven' 
+        scannerHome = tool 'Sonar'  
     }
 
     stages {
@@ -16,7 +16,7 @@ pipeline {
         stage('Compile Project') {
             steps {
                 echo 'Compiling the project using Maven...'
-                sh '${mvnHome}/bin/mvn compile' // Use the Maven tool defined in Jenkins
+                sh '${mvnHome}/bin/mvn compile' 
             }
         }
 
