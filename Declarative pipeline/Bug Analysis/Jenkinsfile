@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        scannerHome = tool 'Sonar'  // Ensure this matches the SonarQube tool name in Jenkins configuration
-        VENV_DIR = "venv" // Directory for the virtual environment
+        scannerHome = tool 'Sonar'  
+        VENV_DIR = "venv" 
     }
 
     stages {
@@ -68,7 +68,7 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            // Archive the compilation report file
+          
             archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         }
         success {
