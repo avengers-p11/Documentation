@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        scannerHome = tool 'Sonar'  // Ensure this matches the SonarQube tool name in Jenkins configuration
-        VENV_DIR = "venv" // Directory for the virtual environment
+        scannerHome = tool 'Sonar'  
+        VENV_DIR = "venv" 
     }
 
     stages {
@@ -62,12 +62,12 @@ pipeline {
                 }
             }
         }
-    } // Closing the 'stages' block
+    } 
 
     post {
         always {
             echo 'Pipeline completed.'
-            // Archive the static code analysis report file
+            
             archiveArtifacts artifacts: 'static-code-analysis-report.txt', allowEmptyArchive: true
         }
         success {
@@ -101,7 +101,7 @@ pipeline {
                                 <p>The Jenkins pipeline has failed. Please check the logs for details.</p>
                             </body>
                          </html>""",
-                attachmentsPattern: 'static-code-analysis-report.txt'  // Attach the report in case of failure too
+                attachmentsPattern: 'static-code-analysis-report.txt' 
             )
         }
     }
