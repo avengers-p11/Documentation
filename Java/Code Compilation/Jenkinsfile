@@ -1,8 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "/path/to/maven/bin:${env.PATH}" 
+    tools {
+        // Specify the Maven tool configured in Jenkins Global Tools
+        maven 'Maven 3'  // This should match the name you provided in the Global Tool Configuration
     }
 
     stages {
@@ -14,11 +15,8 @@ pipeline {
 
         stage('Code Compilation') {
             steps {
-                sh '''
-                    mvn compile | tee compilation-report.txt
-                    echo "Report generated:"
-                    cat compilation-report.txt
-                '''
+                // Now Maven should be available in your environment
+                sh 'mvn compile'
             }
         }
     }
@@ -27,6 +25,26 @@ pipeline {
         always {
             echo 'Pipeline completed.'
             archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+        }
+        success {
+            emailext(
+                attachmentsPattern: 'compilation-report.txt',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        }
+        failure {
+            echo 'Pipeline failed.'
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+            )
         }
     }
 }
