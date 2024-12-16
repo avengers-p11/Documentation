@@ -1,8 +1,12 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'  
+    }
+
     environment {
-        scannerHome = tool 'Sonar'  // Ensure this matches the SonarQube tool name in Jenkins configuration
+        scannerHome = tool 'Sonar' 
     }
 
     stages {
@@ -13,16 +17,19 @@ pipeline {
             }
         }
 
-        stage('Compile Project') {
+        stage('Code Compilation') {
             steps {
-                echo 'Compiling the project using Maven Wrapper...'
-                sh './mvnw compile'
+           
+                sh '''
+                    mvn compile > compilation-report.txt
+                    cat compilation-report.txt
+                '''
             }
         }
 
         stage('Bug Analysis') {
             steps {
-                echo 'Running SonarQube analysis for bugs...'
+               
                 script {
                     withSonarQubeEnv('Sonar') {
                         sh """
@@ -33,7 +40,7 @@ pipeline {
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG \
-                            -Dsonar.report.export.path=target/sonar-bugs-report.txt
+                            -Dsonar.report.export.path=target/sonar-report.json  // Output in JSON format
                         """
                     }
                 }
@@ -44,7 +51,8 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            archiveArtifacts artifacts: 'target/sonar-bugs-report.txt', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/sonar-report.json', allowEmptyArchive: true
         }
         success {
             echo 'Bug analysis completed successfully!'
