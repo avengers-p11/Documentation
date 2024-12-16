@@ -56,19 +56,25 @@ pipeline {
         }
         success {
             echo 'Bug analysis completed successfully!'
-            mail to: 'it.mohitsaini@gmail.com', 
-                 subject: 'SonarQube Bug Analysis: Salary-api', 
-                 body: '''The Jenkins pipeline has successfully completed. 
-                          Attached are the compilation and SonarQube bug analysis reports.''',
-                 attachLog: true,
-                 attachmentsPattern: 'compilation-report.txt,target/sonar-report.json'
+            emailext(
+                attachmentsPattern: 'compilation-report.txt,target/sonar-report.json',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
         }
         failure {
             echo 'Bug analysis failed.'
-            mail to: 'it.mohitsaini@gmail.com', 
-                 subject: 'Jenkins Pipeline Failure: Salary-api', 
-                 body: 'The Jenkins pipeline has failed. Please check the logs for details.',
-                 attachLog: true
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent(),
+                attachmentsPattern: 'compilation-report.txt,target/sonar-report.json'
+            )
         }
     }
 }
