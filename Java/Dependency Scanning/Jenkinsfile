@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven' 
+        maven 'Maven'
     }
 
     stages {
@@ -47,7 +47,8 @@ More info at: ${env.BUILD_URL}""",
                 subject: 'Jenkins Pipeline Failure: Salary-api',
                 body: '''Hello,
 
-The Jenkins pipeline has failed. Please check the attached logs and reports for more details.'''.stripIndent()
+The Jenkins pipeline has failed. Please check the attached logs and reports for more details.'''.stripIndent(),
+                attachmentsPattern: 'static-code-analysis-report.txt,target/sonar-report.json,target/sonar-report.html'
             )
         }
     }
