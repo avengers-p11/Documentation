@@ -1,1 +1,127 @@
+pipeline {
+    agent any
 
+    environment {
+        VENV_DIR = "venv" 
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning the repository...'
+                git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+            }
+        }
+
+        stage('Install System Dependencies') {
+            steps {
+                echo 'Installing required system dependencies...'
+                sh '''
+                    # Update system and install Python 3.11 and necessary libraries
+                    DEBIAN_FRONTEND=noninteractive sudo apt-get update -y
+                    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+                        software-properties-common
+                    sudo add-apt-repository ppa:deadsnakes/ppa -y
+                    sudo apt-get update -y
+                    sudo apt-get install -y python3.11 python3.11-venv python3.11-dev \
+                        python3-pip libpq-dev gcc
+                '''
+            }
+        }
+
+        stage('Set Up Python Environment') {
+            steps {
+                echo 'Setting up Python virtual environment with Python 3.11...'
+                sh '''
+                    # Create virtual environment with Python 3.11
+                    if [ ! -d "$VENV_DIR" ]; then
+                        python3.11 -m venv $VENV_DIR
+                    fi
+
+                    # Activate virtual environment and upgrade pip
+                    . ${VENV_DIR}/bin/activate
+                    pip install --upgrade pip
+                '''
+            }
+        }
+
+        stage('Install Poetry') {
+            steps {
+                echo 'Installing Poetry...'
+                sh '''
+                    # Install Poetry in the virtual environment
+                    . ${VENV_DIR}/bin/activate
+                    pip install poetry
+                '''
+            }
+        }
+
+        stage('Update Poetry Lock File') {
+            steps {
+                echo 'Updating poetry.lock file...'
+                sh '''
+                    # Update the poetry.lock file if pyproject.toml has changed
+                    . ${VENV_DIR}/bin/activate
+                    poetry lock --no-update
+                '''
+            }
+        }
+
+        stage('Install Python Dependencies') {
+            steps {
+                echo 'Installing Python dependencies from poetry.lock...'
+                sh '''
+                    # Install dependencies based on the updated poetry.lock file
+                    . ${VENV_DIR}/bin/activate
+                    poetry install
+                '''
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                echo 'Running tests...'
+                sh '''
+                    # Activate the virtual environment and run tests
+                    . ${VENV_DIR}/bin/activate
+                    poetry run pytest
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            sh '''
+                # Remove the virtual environment
+                rm -rf $VENV_DIR
+            '''
+            archiveArtifacts artifacts: 'unit-test-report.txt', allowEmptyArchive: true
+            echo 'Pipeline completed.'
+        }
+        
+        success {
+            echo 'Pipeline executed successfully!'
+            emailext(
+                attachmentsPattern: 'unit-test-report.txt',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'anjalidhiman.as@gmail.com'
+            )
+        }
+        
+        failure {
+            echo 'Pipeline failed. Check the logs for details.'
+            emailext(
+                to: 'anjalidhiman.as@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+            )
+        }
+    }
+}
