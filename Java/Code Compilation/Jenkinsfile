@@ -1,8 +1,8 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'maven' 
+    environment {
+        PATH = "/path/to/maven/bin:${env.PATH}" 
     }
 
     stages {
@@ -15,7 +15,7 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 sh '''
-                    mvn compile > compilation-report.txt
+                    mvn compile | tee compilation-report.txt
                     echo "Report generated:"
                     cat compilation-report.txt
                 '''
@@ -26,6 +26,7 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
+            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         }
     }
 }
