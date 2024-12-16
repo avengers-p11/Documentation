@@ -15,9 +15,9 @@ pipeline {
         stage('Dependency Check') {
             steps {
                 sh '''
-                    mvn org.owasp:dependency-check-maven:check | tee dependency-check-report.txt
-                    echo "Dependency check report generated:"
-                    ls -l dependency-check-report.txt
+                    mvn org.owasp:dependency-check-maven:check | tee static-code-analysis-report.txt
+                    echo "Static code analysis report generated:"
+                    ls -l static-code-analysis-report.txt
                 '''
             }
         }
@@ -25,20 +25,30 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'dependency-check-report.txt', allowEmptyArchive: true
+            echo 'Pipeline completed.'
+            archiveArtifacts artifacts: 'static-code-analysis-report.txt', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/sonar-report.json', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/sonar-report.html', allowEmptyArchive: true
         }
         success {
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Java CI Declarative Pipeline Success: Salary-api',
-                 body: 'The Jenkins pipeline has successfully completed. Attached is the dependency check report.',
-                 attachmentsPattern: 'dependency-check-report.txt'
+            emailext(
+                attachmentsPattern: 'static-code-analysis-report.txt,target/sonar-report.json,target/sonar-report.html',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
         }
         failure {
             echo 'Pipeline failed.'
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Jenkins Pipeline Failure: Salary-api',
-                 body: 'The Jenkins pipeline has failed. Attached is the dependency check report for debugging.',
-                 attachmentsPattern: 'dependency-check-report.txt'
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the attached logs and reports for more details.'''.stripIndent()
+            )
         }
     }
 }
