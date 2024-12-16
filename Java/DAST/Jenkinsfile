@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-       
         ZAP_CLI = "zap-cli"
     }
 
@@ -16,7 +15,6 @@ pipeline {
         stage('DAST') {
             steps {
                 script {
-                
                     sh '''
                         $ZAP_CLI quick-scan --self-contained --start --spider --scan https://github.com/avengers-p11/Documentation/blob/Declarative/Java/DAST/Jenkinsfile
                         echo "DAST scan completed."
@@ -33,15 +31,24 @@ pipeline {
         }
         success {
             echo 'Pipeline finished successfully!'
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Java CI Declarative Pipeline Success: Salary-api',
-                 body: 'The Jenkins pipeline has successfully completed.'
+            emailext(
+                attachmentsPattern: 'dast-report.pdf',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
         }
         failure {
             echo 'Pipeline failed.'
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Jenkins Pipeline Failure: Salary-api',
-                 body: 'The Jenkins pipeline has failed. Please check the logs.'
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent(),
+                attachmentsPattern: 'dast-report.pdf'
+            )
         }
     }
 }
