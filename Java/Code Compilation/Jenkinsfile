@@ -25,7 +25,7 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline completed.'
+           
             archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         }
         success {
