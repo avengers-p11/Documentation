@@ -1,15 +1,19 @@
 pipeline {
     agent any
 
-    stages {    
+    tools {
+        maven 'Maven'  
+
+    stages {
         stage('Clone Repository') {
             steps {
                 git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
-            }    
+            }
         }
 
         stage('Dependency Check') {
             steps {
+               
                 sh '''
                     mvn org.owasp:dependency-check-maven:check | tee dependency-check-report.txt
                     echo "Dependency check report generated:"
@@ -21,12 +25,11 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline completed.'
-          
+       
             archiveArtifacts artifacts: 'dependency-check-report.txt', allowEmptyArchive: true
         }
         success {
-            echo 'Pipeline finished successfully!'
+         
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
                  body: 'The Jenkins pipeline has successfully completed.'
