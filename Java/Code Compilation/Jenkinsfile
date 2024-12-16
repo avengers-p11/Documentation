@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.9.9'  // Use the name exactly as configured in Global Tool Configuration
+        maven 'Maven 3.9.9'  // Ensure this matches your Global Tool Configuration
     }
 
     environment {
@@ -29,10 +29,22 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 sh """
-                    mvn compile | tee ${REPORT_FILE}
+                    mvn clean install | tee ${REPORT_FILE}
                     echo "Report generated:"
                     ls -l ${REPORT_FILE}
                 """
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Package Application') {
+            steps {
+                sh 'mvn clean package'
             }
         }
     }
