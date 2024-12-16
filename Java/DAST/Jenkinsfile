@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        // Define the Docker image for OWASP ZAP
-        ZAP_IMAGE = "owasp/zap2docker-stable"
+       
+        ZAP_CLI = "zap-cli"
     }
 
     stages {
@@ -16,9 +16,9 @@ pipeline {
         stage('DAST') {
             steps {
                 script {
-                    // Run OWASP ZAP container for DAST scan using Docker
+                
                     sh '''
-                        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/zap/wrk:rw $ZAP_IMAGE zap-cli quick-scan --self-contained --start --spider --scan https://your-app-url.com
+                        $ZAP_CLI quick-scan --self-contained --start --spider --scan https://your-app-url.com
                         echo "DAST scan completed."
                     '''
                 }
