@@ -1,6 +1,6 @@
 node {
    
-    tool name: 'Maven', type: 'Maven'
+    tool name: 'Maven', type: 'maven'
 
     stage('Clone Repository') {
     
