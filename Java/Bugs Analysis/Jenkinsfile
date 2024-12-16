@@ -19,7 +19,7 @@ pipeline {
 
         stage('Code Compilation') {
             steps {
-           
+                echo 'Compiling the code...'
                 sh '''
                     mvn compile > compilation-report.txt
                     cat compilation-report.txt
@@ -29,18 +29,18 @@ pipeline {
 
         stage('Bug Analysis') {
             steps {
-               
+                echo 'Running SonarQube Bug Analysis...'
                 script {
                     withSonarQubeEnv('Sonar') {
                         sh """
-                          ${scannerHome}/bin/sonar-scanner \
+                          ${env.scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=salary \
                             -Dsonar.projectName=Salary-api \
                             -Dsonar.host.url=http://3.90.82.155:9000 \
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG \
-                            -Dsonar.report.export.path=target/sonar-report.json  // Output in JSON format
+                            -Dsonar.report.export.path=target/sonar-report.json
                         """
                     }
                 }
@@ -58,13 +58,17 @@ pipeline {
             echo 'Bug analysis completed successfully!'
             mail to: 'it.mohitsaini@gmail.com', 
                  subject: 'SonarQube Bug Analysis: Salary-api', 
-                 body: 'The Jenkins pipeline has successfully completed. Please check the SonarQube report for bug analysis.'
+                 body: '''The Jenkins pipeline has successfully completed. 
+                          Attached are the compilation and SonarQube bug analysis reports.''',
+                 attachLog: true,
+                 attachmentsPattern: 'compilation-report.txt,target/sonar-report.json'
         }
         failure {
             echo 'Bug analysis failed.'
             mail to: 'it.mohitsaini@gmail.com', 
                  subject: 'Jenkins Pipeline Failure: Salary-api', 
-                 body: 'The Jenkins pipeline has failed. Please check the logs for details.'
+                 body: 'The Jenkins pipeline has failed. Please check the logs for details.',
+                 attachLog: true
         }
     }
 }
