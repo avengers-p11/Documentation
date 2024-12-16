@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'  
+        maven 'Maven' // Make sure 'Maven' is the correct name of your Maven installation in Jenkins
+    }
 
     stages {
         stage('Clone Repository') {
@@ -13,7 +14,6 @@ pipeline {
 
         stage('Dependency Check') {
             steps {
-               
                 sh '''
                     mvn org.owasp:dependency-check-maven:check | tee dependency-check-report.txt
                     echo "Dependency check report generated:"
@@ -25,11 +25,9 @@ pipeline {
 
     post {
         always {
-       
             archiveArtifacts artifacts: 'dependency-check-report.txt', allowEmptyArchive: true
         }
         success {
-         
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
                  body: 'The Jenkins pipeline has successfully completed.'
