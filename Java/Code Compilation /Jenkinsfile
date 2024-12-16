@@ -1,1 +1,49 @@
+node {
+    
+    tool name: 'Maven', type: 'maven'
+
+    try {
+        stage('Clone Repository') {
+            checkout([$class: 'GitSCM', 
+            branches: [[name: '*/main']], 
+            userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+        }
+
+        stage('Code Compilation') {
+           
+            sh '''
+                mvn compile > compilation-report.txt
+                echo "Report generated:"
+                cat compilation-report.txt
+            '''
+        }
+
+    } catch (Exception e) {
+      
+        currentBuild.result = 'FAILURE'
+        emailext(
+            to: 'it.mohitsaini@gmail.com',
+            subject: 'Jenkins Pipeline Failure: Salary-api',
+            body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+        )
+        throw e
+    } finally {
+        stage('Post Actions') {
+            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+
+            if (currentBuild.result == 'SUCCESS') {
+                emailext(
+                    attachmentsPattern: 'compilation-report.txt',
+                    body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                    recipientProviders: [developers(), requestor()],
+                    subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                    to: 'it.mohitsaini@gmail.com'
+                )
+            }
+        }
+    }
+}
 
