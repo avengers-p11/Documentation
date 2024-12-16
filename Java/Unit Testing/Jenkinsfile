@@ -1,16 +1,22 @@
 pipeline {
     agent any
 
-    stages {    
+    tools {
+        maven 'Maven'  
+    }
+
+    stages {
         stage('Clone Repository') {
             steps {
+               
                 git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
-            }    
+            }
         }
 
         stage('Unit Tests & Coverage') {
             steps {
-               sh '''
+             
+                sh '''
                     mvn clean test jacoco:report | tee unit-test-report.txt
                     echo "JaCoCo coverage report generated."
                     ls -l target/site/jacoco
@@ -20,7 +26,7 @@ pipeline {
 
         stage('Archive Reports') {
             steps {
-              
+                echo 'Archiving unit test and coverage reports...'
                 archiveArtifacts artifacts: 'target/site/jacoco/**', allowEmptyArchive: true
             }
         }
@@ -29,19 +35,16 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            
             archiveArtifacts artifacts: 'unit-test-report.txt', allowEmptyArchive: true
         }
         success {
             echo 'Pipeline finished successfully!'
-           
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
                  body: 'The Jenkins pipeline has successfully completed. Code coverage and unit test reports are archived.'
         }
         failure {
             echo 'Pipeline failed.'
-         
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Jenkins Pipeline Failure: Salary-api',
                  body: 'The Jenkins pipeline has failed. Please check the logs.'
