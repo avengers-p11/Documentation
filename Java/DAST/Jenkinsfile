@@ -1,22 +1,25 @@
 pipeline {
     agent any
 
-    stages {    
+    environment {
+        // Define the Docker image for OWASP ZAP
+        ZAP_IMAGE = "owasp/zap2docker-stable"
+    }
+
+    stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+                git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
             }    
         }
 
         stage('DAST') {
             steps {
                 script {
-                  
+                    // Run OWASP ZAP container for DAST scan using Docker
                     sh '''
-                        zap-cli quick-scan --self-contained --start --spider --scan https://your-app-url.com
-                        zap-cli report -o dast-report.pdf -f pdf
-                        echo "DAST PDF report generated."
-                        ls -l dast-report.pdf
+                        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/zap/wrk:rw $ZAP_IMAGE zap-cli quick-scan --self-contained --start --spider --scan https://your-app-url.com
+                        echo "DAST scan completed."
                     '''
                 }
             }
@@ -25,16 +28,17 @@ pipeline {
 
     post {
         always {
+            echo 'Pipeline completed.'
             archiveArtifacts artifacts: 'dast-report.pdf', allowEmptyArchive: true
         }
         success {
-                    
+            echo 'Pipeline finished successfully!'
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
                  body: 'The Jenkins pipeline has successfully completed.'
         }
         failure {
-            echo 'Pipeline failed.'           
+            echo 'Pipeline failed.'
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Jenkins Pipeline Failure: Salary-api',
                  body: 'The Jenkins pipeline has failed. Please check the logs.'
