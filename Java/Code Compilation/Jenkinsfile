@@ -37,24 +37,21 @@ pipeline {
         }
         success {
             echo 'Pipeline finished successfully!'
-            emailext(
-                attachmentsPattern: 'unit-test-report.txt',
-                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
-More info at: ${env.BUILD_URL}""",
-                recipientProviders: [developers(), requestor()],
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                to: 'it.mohitsaini@gmail.com'
-            )
+            mail to: 'it.mohitsainin@gmail.com',
+                 subject: "Jenkins Build Success: Job ${env.JOB_NAME} Build ${env.BUILD_NUMBER}",
+                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}
+                
+Please find the attached reports for unit tests and code coverage.""",
+                 attachments: [ 'unit-test-report.txt', 'target/site/jacoco/**' ]
         }
         failure {
             echo 'Pipeline failed.'
-            emailext(
-                to: 'it.mohitsaini@gmail.com',
-                subject: 'Jenkins Pipeline Failure: Salary-api',
-                body: '''Hello,
+            mail to: 'it.mohitsainin@gmail.com',
+                 subject: 'Jenkins Pipeline Failure: Salary-api',
+                 body: '''Hello,
 
-The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
-            )
+The Jenkins pipeline has failed. Please check the logs.'''
         }
     }
 }
