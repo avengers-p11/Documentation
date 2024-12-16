@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/path/to/maven/bin:${env.PATH}" 
+    }
+
     stages {
         stage('Clone Repository') {
             steps {
@@ -10,11 +14,10 @@ pipeline {
 
         stage('Code Compilation') {
             steps {
-               
                 sh '''
-                    mvn compile | tee compilation-report.txt
+                    mvn compile > compilation-report.txt
                     echo "Report generated:"
-                    ls -l compilation-report.txt
+                    cat compilation-report.txt
                 '''
             }
         }
@@ -23,7 +26,6 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            
             archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         }
         success {
@@ -38,7 +40,6 @@ More info at: ${env.BUILD_URL}""",
         }
         failure {
             echo 'Pipeline failed.'
-           
             emailext(
                 to: 'it.mohitsaini@gmail.com',
                 subject: 'Jenkins Pipeline Failure: Salary-api',
