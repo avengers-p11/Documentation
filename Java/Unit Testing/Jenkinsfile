@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'  
+        maven 'Maven'
     }
 
     stages {
@@ -37,19 +37,16 @@ pipeline {
         }
         success {
             echo 'Pipeline finished successfully!'
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Java CI Declarative Pipeline Success: Salary-api',
-                 body: '''The Jenkins pipeline has successfully completed.
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Java CI Declarative Pipeline Success: Salary-api',
+                body: '''The Jenkins pipeline has successfully completed.
 Please find the attached reports for unit tests and code coverage.''',
-                 attachmentsPattern: 'unit-test-report.txt,target/site/jacoco/**'
+                attachmentsPattern: 'unit-test-report.txt,target/site/jacoco/**'
+            )
         }
         failure {
             echo 'Pipeline failed.'
-            mail to: 'it.mohitsaini@gmail.com',
-                 subject: 'Jenkins Pipeline Failure: Salary-api',
-                 body: '''The Jenkins pipeline has failed.
-Please check the attached logs and reports for details.''',
-                 attachmentsPattern: 'unit-test-report.txt,target/site/jacoco/**'
-        }
-    }
-}
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure:
