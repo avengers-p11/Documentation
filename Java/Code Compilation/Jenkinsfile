@@ -2,35 +2,43 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'  
+        maven 'Maven'
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+                git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
             }
         }
 
-        stage('Code Compilation') {
+        stage('Unit Tests & Coverage') {
             steps {
                 sh '''
-                    mvn compile > compilation-report.txt
-                    echo "Report generated:"
-                    cat compilation-report.txt
+                    mvn clean test jacoco:report | tee unit-test-report.txt
+                    echo "JaCoCo coverage report generated."
+                    ls -l target/site/jacoco
                 '''
+            }
+        }
+
+        stage('Archive Reports') {
+            steps {
+                echo 'Archiving unit test and coverage reports...'
+                archiveArtifacts artifacts: 'target/site/jacoco/**', allowEmptyArchive: true
             }
         }
     }
 
     post {
         always {
-           
-            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+            echo 'Pipeline completed.'
+            archiveArtifacts artifacts: 'unit-test-report.txt', allowEmptyArchive: true
         }
         success {
+            echo 'Pipeline finished successfully!'
             emailext(
-                attachmentsPattern: 'compilation-report.txt',
+                attachmentsPattern: 'unit-test-report.txt',
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
                 recipientProviders: [developers(), requestor()],
