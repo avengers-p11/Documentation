@@ -18,7 +18,7 @@ pipeline {
                 script {
                 
                     sh '''
-                        $ZAP_CLI quick-scan --self-contained --start --spider --scan https://your-app-url.com
+                        $ZAP_CLI quick-scan --self-contained --start --spider --scan https://github.com/avengers-p11/Documentation/blob/Declarative/Java/DAST/Jenkinsfile
                         echo "DAST scan completed."
                     '''
                 }
