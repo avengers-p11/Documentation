@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven' // Make sure 'Maven' is the correct name of your Maven installation in Jenkins
+        maven 'Maven' 
     }
 
     stages {
@@ -30,13 +30,15 @@ pipeline {
         success {
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
-                 body: 'The Jenkins pipeline has successfully completed.'
+                 body: 'The Jenkins pipeline has successfully completed. Attached is the dependency check report.',
+                 attachmentsPattern: 'dependency-check-report.txt'
         }
         failure {
             echo 'Pipeline failed.'
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Jenkins Pipeline Failure: Salary-api',
-                 body: 'The Jenkins pipeline has failed. Please check the logs.'
+                 body: 'The Jenkins pipeline has failed. Attached is the dependency check report for debugging.',
+                 attachmentsPattern: 'dependency-check-report.txt'
         }
     }
 }
