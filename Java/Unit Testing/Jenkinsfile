@@ -49,4 +49,11 @@ Please find the attached reports for unit tests and code coverage.''',
             echo 'Pipeline failed.'
             emailext(
                 to: 'it.mohitsaini@gmail.com',
-                subject: 'Jenkins Pipeline Failure:
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''The Jenkins pipeline has failed.
+Please check the attached logs and reports for details.''',
+                attachmentsPattern: 'unit-test-report.txt,target/site/jacoco/**'
+            )
+        }
+    }
+}
