@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'  
+        maven 'Maven'
     }
 
     environment {
-        scannerHome = tool 'Sonar' 
+        scannerHome = tool 'Sonar'
     }
 
     stages {
@@ -20,8 +20,8 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 sh '''
-                    mvn compile > compilation-report.txt
-                    cat compilation-report.txt
+                    mvn compile > static-code-analysis-report.txt
+                    cat static-code-analysis-report.txt
                 '''
             }
         }
@@ -38,7 +38,8 @@ pipeline {
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=Static \
-                            -Dsonar.report.export.path=target/sonar-report.json
+                            -Dsonar.report.export.path=target/sonar-report.json \
+                            -Dsonar.html.report=target/sonar-report.html
                         """
                     }
                 }
@@ -49,24 +50,30 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'static-code-analysis-report.txt', allowEmptyArchive: true
             archiveArtifacts artifacts: 'target/sonar-report.json', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/sonar-report.html', allowEmptyArchive: true
         }
         success {
-            echo 'Static code analysis completed successfully!'
-            mail to: 'it.mohitsaini@gmail.com', 
-                 subject: 'SonarQube Bug Analysis: Salary-api', 
-                 body: '''The Jenkins pipeline has successfully completed.
-Please find the attached reports for the bug analysis.''', 
-                 attachmentsPattern: 'compilation-report.txt,target/sonar-report.json'
+            emailext(
+                attachmentsPattern: 'static-code-analysis-report.txt,target/sonar-report.json,target/sonar-report.html',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
         }
         failure {
-            echo 'Static code analysis failed.'
-            mail to: 'it.mohitsaini@gmail.com', 
-                 subject: 'Jenkins Pipeline Failure: Salary-api', 
-                 body: '''The Jenkins pipeline has failed.
-Please check the attached logs and reports for more details.''', 
-                 attachmentsPattern: 'compilation-report.txt,target/sonar-report.json'
+            echo 'Pipeline failed.'
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent(),
+                attachmentsPattern: 'static-code-analysis-report.txt,target/sonar-report.json,target/sonar-report.html'
+            )
         }
     }
 }
