@@ -19,7 +19,6 @@ pipeline {
 
         stage('Code Compilation') {
             steps {
-           
                 sh '''
                     mvn compile > compilation-report.txt
                     cat compilation-report.txt
@@ -29,7 +28,6 @@ pipeline {
 
         stage('Static Code Analysis') {
             steps {
-               
                 script {
                     withSonarQubeEnv('Sonar') {
                         sh """
@@ -40,7 +38,7 @@ pipeline {
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=Static \
-                            -Dsonar.report.export.path=target/sonar-report.json  // Output in JSON format
+                            -Dsonar.report.export.path=target/sonar-report.json
                         """
                     }
                 }
@@ -58,13 +56,17 @@ pipeline {
             echo 'Static code analysis completed successfully!'
             mail to: 'it.mohitsaini@gmail.com', 
                  subject: 'SonarQube Bug Analysis: Salary-api', 
-                 body: 'The Jenkins pipeline has successfully completed. Please check the SonarQube report for bug analysis.'
+                 body: '''The Jenkins pipeline has successfully completed.
+Please find the attached reports for the bug analysis.''', 
+                 attachmentsPattern: 'compilation-report.txt,target/sonar-report.json'
         }
         failure {
             echo 'Static code analysis failed.'
             mail to: 'it.mohitsaini@gmail.com', 
                  subject: 'Jenkins Pipeline Failure: Salary-api', 
-                 body: 'The Jenkins pipeline has failed. Please check the logs for details.'
+                 body: '''The Jenkins pipeline has failed.
+Please check the attached logs and reports for more details.''', 
+                 attachmentsPattern: 'compilation-report.txt,target/sonar-report.json'
         }
     }
 }
