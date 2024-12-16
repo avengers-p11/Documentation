@@ -10,24 +10,25 @@ pipeline {
 
         stage('DAST') {
             steps {
-               
-                sh '''
-                    zap-cli quick-scan --self-contained --start --spider --scan https://your-app-url.com | tee dast-report.txt
-                    echo "DAST report generated:"
-                    ls -l dast-report.txt
-                '''
+                script {
+                  
+                    sh '''
+                        zap-cli quick-scan --self-contained --start --spider --scan https://your-app-url.com
+                        zap-cli report -o dast-report.pdf -f pdf
+                        echo "DAST PDF report generated."
+                        ls -l dast-report.pdf
+                    '''
+                }
             }
         }
     }
 
     post {
         always {
-            echo 'Pipeline completed.'
-        
-            archiveArtifacts artifacts: 'dast-report.txt', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'dast-report.pdf', allowEmptyArchive: true
         }
         success {
-            echo 'Pipeline finished successfully!'            
+                    
             mail to: 'it.mohitsaini@gmail.com',
                  subject: 'Java CI Declarative Pipeline Success: Salary-api',
                  body: 'The Jenkins pipeline has successfully completed.'
