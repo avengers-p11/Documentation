@@ -38,7 +38,8 @@ node {
     stage('Archive Reports') {
         echo 'Archiving reports...'
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
-        sh "ls -l ${env.WORKSPACE}"  # List files to confirm they exist
+        // List files to confirm they exist
+        sh "ls -l ${env.WORKSPACE}"  
     }
 
     stage('Send Email') {
@@ -50,12 +51,3 @@ node {
                 attachmentsPattern: reportFiles,
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
-                recipientProviders: [developers(), requestor()],
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                to: 'it.mohitsaini@gmail.com'
-            )
-        } else {
-            echo "Error: One or more report files not found. Email not sent."
-        }
-    }
-}
