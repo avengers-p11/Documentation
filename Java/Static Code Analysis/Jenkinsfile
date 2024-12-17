@@ -14,7 +14,7 @@ node {
         sh '''
             echo "Compiling the code..."
             mvn compile > compilation-report.txt
-            ls -l compilation-report.txt  
+            ls -l compilation-report.txt  # Confirm file exists
             cat compilation-report.txt
         '''
     }
@@ -29,8 +29,8 @@ node {
                     -Dsonar.host.url=http://52.91.122.31:9000 \
                     -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                     -Dsonar.java.binaries=target/classes \
-                    -Dsonar.issue.types=CODE_SMELL \  
-                    -Dsonar.report.export.path=target/static-code-analysis-report.json  
+                    -Dsonar.issue.types=CODE_SMELL \
+                    -Dsonar.report.export.path=target/static-code-analysis-report.json
             '''
         }
     }
@@ -57,4 +57,3 @@ More info at: ${env.BUILD_URL}""",
         }
     }
 }
-
