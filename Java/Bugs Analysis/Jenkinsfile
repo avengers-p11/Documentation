@@ -1,12 +1,12 @@
 node {
     def mvnHome = tool name: 'Maven', type: 'maven'
-    def sonarScannerHome = tool name: 'Sonar'  
+    def sonarScannerHome = tool name: 'Sonar'
 
-    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"  
+    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"
 
     stage('Clone Repository') {
-        checkout([$class: 'GitSCM', 
-                  branches: [[name: '*/main']], 
+        checkout([$class: 'GitSCM',
+                  branches: [[name: '*/main']],
                   userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
     }
 
@@ -21,7 +21,7 @@ node {
 
     stage('Bug Analysis') {
         echo "Running SonarQube Bug Analysis..."
-        withSonarQubeEnv('Sonar') {  
+        withSonarQubeEnv('Sonar') {
             sh '''
                 sonar-scanner \
                     -Dsonar.projectKey=salary \
@@ -39,7 +39,7 @@ node {
         echo 'Archiving reports...'
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
         // List files to confirm they exist
-        sh "ls -l ${env.WORKSPACE}"  
+        sh "ls -l ${env.WORKSPACE}"
     }
 
     stage('Send Email') {
@@ -51,3 +51,12 @@ node {
                 attachmentsPattern: reportFiles,
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        } else {
+            echo "Error: One or more report files not found. Email not sent."
+        }
+    }
+}
