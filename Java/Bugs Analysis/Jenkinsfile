@@ -1,8 +1,8 @@
 node {
     def mvnHome = tool name: 'Maven', type: 'maven'
-    def sonarScannerHome = tool name: 'Sonar'  
+    def sonarScannerHome = tool name: 'Sonar'
 
-    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"  
+    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"
 
     stage('Clone Repository') {
         checkout([$class: 'GitSCM', 
@@ -35,26 +35,40 @@ node {
         }
     }
 
-    stage('Archive Reports') {
+    stage('Archive Report') {
+        // Properly handle spaces in the path
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
-        // Correct the path to avoid duplication
-        sh "ls -l '${env.WORKSPACE}/Scripted_Java/Bug Analysis'"  
+        // List workspace directory content to confirm the path
+        sh "ls -l \"${env.WORKSPACE}/Scripted_Java/Bug Analysis\""  
     }
 
     stage('Send Email') {
-        def reportFiles = 'compilation-report.txt,target/sonar-report.json'
+        def reportFiles = "compilation-report.txt,target/sonar-report.json"
+        
+        def reportFile = "${env.WORKSPACE}/compilation-report.txt"  
+        def sonarReportFile = "${env.WORKSPACE}/target/sonar-report.json"
 
-        if (fileExists('compilation-report.txt')) {
-            emailext(
-                attachmentsPattern: reportFiles,
-                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+        if (fileExists(reportFile) && fileExists(sonarReportFile)) {
+            if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
+                emailext(
+                    attachmentsPattern: reportFiles,  
+                    body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
-                recipientProviders: [developers(), requestor()],
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                to: 'it.mohitsaini@gmail.com'
-            )
+                    recipientProviders: [developers(), requestor()],
+                    subject: "Jenkins Build SUCCESS: Job ${env.JOB_NAME}",
+                    to: 'it.mohitsaini@gmail.com'
+                )
+            } else {
+                emailext(
+                    to: 'it.mohitsaini@gmail.com',
+                    subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
+                    body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+                )
+            }
         } else {
-            echo "Error: Report files not found. Email not sent."
+            echo "Error: Required report files not found. Email not sent."
         }
     }
 }
