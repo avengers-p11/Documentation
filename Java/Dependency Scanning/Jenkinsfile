@@ -12,7 +12,7 @@ node {
     stage('Dependency Checking with OWASP') {
         echo "Running OWASP Dependency Check..."
         
-        // Ensure OWASP dependency check is running correctly
+       
         sh '''
             mvn org.owasp:dependency-check-maven:check \
                 -Dformat=HTML \
@@ -31,7 +31,7 @@ node {
     stage('Archive Reports') {
         echo "Checking if OWASP report exists in the target directory..."
         
-        // Check if the report file exists before archiving
+        
         def reportPath = 'target/owasp-report/dependency-check-report.html'
         
         if (fileExists(reportPath)) {
@@ -43,10 +43,10 @@ node {
     }
 
     stage('Send Email') {
-        // Define the OWASP report file for email attachment
+     
         def reportFiles = 'target/owasp-report/dependency-check-report.html'
 
-        // Check if the OWASP report exists before sending the email
+      
         if (fileExists(reportFiles)) {
             emailext(
                 attachmentsPattern: reportFiles,
