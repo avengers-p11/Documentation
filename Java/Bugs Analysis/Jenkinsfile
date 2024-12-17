@@ -37,7 +37,7 @@ node {
 
     stage('Archive Reports') {
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
-        // Fixing the path with spaces by quoting it
+        // Correct the path to avoid duplication
         sh "ls -l '${env.WORKSPACE}/Scripted_Java/Bug Analysis'"  
     }
 
