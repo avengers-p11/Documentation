@@ -1,5 +1,5 @@
 node {
-    
+   
     def mvnHome = tool name: 'Maven', type: 'maven'
     env.PATH = "${mvnHome}/bin:${env.PATH}"  
 
@@ -12,6 +12,7 @@ node {
     stage('Code Compilation') {
         sh '''
             mvn compile > compilation-report.txt
+            echo "Report generated:"
             ls -l compilation-report.txt  
             cat compilation-report.txt
         '''
