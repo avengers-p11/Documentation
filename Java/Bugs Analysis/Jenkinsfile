@@ -40,7 +40,7 @@ node {
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
         // List workspace directory content to confirm the path
         echo "Workspace: ${env.WORKSPACE}"  // Debugging the workspace path
-        sh "ls -l \"${env.WORKSPACE}/Scripted_Java/Bug Analysis\""  
+        sh "ls -l \"${env.WORKSPACE}/target\""  // Adjusted path to list the 'target' directory content
     }
 
     stage('Send Email') {
