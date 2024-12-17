@@ -36,14 +36,16 @@ node {
     }
 
     stage('Archive Reports') {
+        echo 'Archiving reports...'
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
-        sh "ls -l ${env.WORKSPACE}"  
+        sh "ls -l ${env.WORKSPACE}"  # List files to confirm they exist
     }
 
     stage('Send Email') {
         def reportFiles = 'compilation-report.txt,target/sonar-report.json'
 
-        if (fileExists('compilation-report.txt')) {
+        // Check if both the report files exist before sending the email
+        if (fileExists('compilation-report.txt') && fileExists('target/sonar-report.json')) {
             emailext(
                 attachmentsPattern: reportFiles,
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
@@ -53,8 +55,7 @@ More info at: ${env.BUILD_URL}""",
                 to: 'it.mohitsaini@gmail.com'
             )
         } else {
-            echo "Error: Report files not found. Email not sent."
+            echo "Error: One or more report files not found. Email not sent."
         }
     }
 }
-
