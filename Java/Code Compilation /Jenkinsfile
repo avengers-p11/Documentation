@@ -1,7 +1,7 @@
 node {
-    // Set Maven tool and configure its path
+   
     def mvnHome = tool name: 'Maven', type: 'maven'
-    env.PATH = "${mvnHome}/bin:${env.PATH}"  // Add Maven to PATH
+    env.PATH = "${mvnHome}/bin:${env.PATH}"  
 
     stage('Clone Repository') {
         checkout([$class: 'GitSCM', 
@@ -13,7 +13,7 @@ node {
         sh '''
             mvn compile > "compilation-report.txt"
             echo "Report generated:"
-            ls -l "compilation-report.txt"  # Debug: confirm file exists
+            ls -l "compilation-report.txt"  
             cat "compilation-report.txt"
         '''
     }
@@ -21,16 +21,16 @@ node {
     stage('Archive Report') {
         // Properly handle spaces in the path
         archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
-        sh "ls -l \"${env.WORKSPACE}\""  // Quote workspace path to handle spaces
+        sh "ls -l \"${env.WORKSPACE}\""  
     }
 
     stage('Send Email') {
-        def reportFile = "${env.WORKSPACE}/compilation-report.txt"  // Path to the file
+        def reportFile = "${env.WORKSPACE}/compilation-report.txt"  
         
-        if (fileExists(reportFile)) {  // Check if file exists before sending
+        if (fileExists(reportFile)) {  
             if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                 emailext(
-                    attachmentsPattern: 'compilation-report.txt',  // Attach the report
+                    attachmentsPattern: 'compilation-report.txt',  
                     body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
                     recipientProviders: [developers(), requestor()],
