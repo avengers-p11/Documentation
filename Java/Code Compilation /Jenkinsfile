@@ -1,16 +1,15 @@
 node {
    
-    tool name: 'Maven', type: 'maven'
+    def mvnHome = tool name: 'Maven', type: 'maven'
+    env.PATH = "${mvnHome}/bin:${env.PATH}"  // Add Maven to PATH
 
     stage('Clone Repository') {
-    
         checkout([$class: 'GitSCM', 
                   branches: [[name: '*/main']], 
                   userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
     }
 
     stage('Code Compilation') {
-      
         sh '''
             mvn compile > compilation-report.txt
             echo "Report generated:"
@@ -19,7 +18,6 @@ node {
     }
 
     stage('Archive Report') {
-       
         archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
     }
 
