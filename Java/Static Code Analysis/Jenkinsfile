@@ -1,1 +1,60 @@
+node {
+    def mvnHome = tool name: 'Maven', type: 'maven'
+    def sonarScannerHome = tool name: 'Sonar'  
+
+    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"  
+
+    stage('Clone Repository') {
+        checkout([$class: 'GitSCM', 
+                  branches: [[name: '*/main']], 
+                  userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+    }
+
+    stage('Code Compilation') {
+        sh '''
+            echo "Compiling the code..."
+            mvn compile > compilation-report.txt
+            ls -l compilation-report.txt  
+            cat compilation-report.txt
+        '''
+    }
+
+    stage('Static Code Analysis') {
+        echo "Running SonarQube Static Code Analysis..."
+        withSonarQubeEnv('Sonar') {  
+            sh '''
+                sonar-scanner \
+                    -Dsonar.projectKey=salary \
+                    -Dsonar.projectName=Salary-api \
+                    -Dsonar.host.url=http://52.91.122.31:9000 \
+                    -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                    -Dsonar.java.binaries=target/classes \
+                    -Dsonar.issue.types=CODE_SMELL \  
+                    -Dsonar.report.export.path=target/static-code-analysis-report.json  
+            '''
+        }
+    }
+
+    stage('Archive Reports') {
+        archiveArtifacts artifacts: 'compilation-report.txt,target/static-code-analysis-report.json', allowEmptyArchive: true
+        sh "ls -l ${env.WORKSPACE}"  
+    }
+
+    stage('Send Email') {
+        def reportFiles = 'compilation-report.txt,target/static-code-analysis-report.json'
+
+        if (fileExists('compilation-report.txt')) {
+            emailext(
+                attachmentsPattern: reportFiles,
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        } else {
+            echo "Error: Report files not found. Email not sent."
+        }
+    }
+}
 
