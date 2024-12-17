@@ -1,8 +1,8 @@
 node {
     def mvnHome = tool name: 'Maven', type: 'maven'
-    def sonarScannerHome = tool name: 'Sonar'  
+    def sonarScannerHome = tool name: 'Sonar'
 
-    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"  
+    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"
 
     stage('Clone Repository') {
         checkout([$class: 'GitSCM', 
@@ -37,13 +37,17 @@ node {
 
     stage('Archive Reports') {
         archiveArtifacts artifacts: 'compilation-report.txt,target/static-code-analysis-report.json', allowEmptyArchive: true
-        sh "ls -l ${env.WORKSPACE}"  
+        sh "ls -l ${env.WORKSPACE}"  // List contents of the workspace for debugging
     }
 
     stage('Send Email') {
-        def reportFiles = 'compilation-report.txt,target/static-code-analysis-report.json'
+        def reportFiles = "${env.WORKSPACE}/compilation-report.txt,${env.WORKSPACE}/target/static-code-analysis-report.json"
 
-        if (fileExists('compilation-report.txt')) {
+        // Check if both files exist
+        def reportFile = "${env.WORKSPACE}/compilation-report.txt"
+        def sonarReportFile = "${env.WORKSPACE}/target/static-code-analysis-report.json"
+
+        if (fileExists(reportFile) && fileExists(sonarReportFile)) {
             emailext(
                 attachmentsPattern: reportFiles,
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
@@ -53,7 +57,7 @@ More info at: ${env.BUILD_URL}""",
                 to: 'it.mohitsaini@gmail.com'
             )
         } else {
-            echo "Error: Report files not found. Email not sent."
+            echo "Error: Required report files not found. Email not sent."
         }
     }
 }
