@@ -36,7 +36,7 @@ node {
     }
 
     stage('Archive Report') {
-        // Properly handle spaces in the path and archive reports
+        // Archive both compilation report and sonar report
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
         // List workspace directory content to confirm the path
         echo "Workspace: ${env.WORKSPACE}"  // Debugging the workspace path
@@ -44,32 +44,34 @@ node {
     }
 
     stage('Send Email') {
-        def reportFiles = "compilation-report.txt,target/sonar-report.json"
-        
-        def reportFile = "${env.WORKSPACE}/compilation-report.txt"  
-        def sonarReportFile = "${env.WORKSPACE}/target/sonar-report.json"
+        // SonarQube dashboard link based on project key
+        def sonarHostUrl = "http://3.94.185.47:9000"
+        def sonarProjectKey = "salary"
+        def sonarLink = "${sonarHostUrl}/dashboard?id=${sonarProjectKey}"
 
-        if (fileExists(reportFile) && fileExists(sonarReportFile)) {
-            if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
-                emailext(
-                    attachmentsPattern: reportFiles,  
-                    body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
-More info at: ${env.BUILD_URL}""",
-                    recipientProviders: [developers(), requestor()],
-                    subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                    to: 'it.mohitsaini@gmail.com'
-                )
-            } else {
-                emailext(
-                    to: 'it.mohitsaini@gmail.com',
-                    subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
-                    body: '''Hello,
+        if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
+            emailext(
+                attachmentsPattern: "compilation-report.txt,target/sonar-report.json",  
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}
 
-The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
-                )
-            }
+You can view the SonarQube analysis results at: ${sonarLink}
+""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
         } else {
-            echo "Error: Required report files not found. Email not sent."
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.
+
+You can view the SonarQube analysis results at: ${sonarLink}
+'''.stripIndent()
+            )
         }
     }
 }
