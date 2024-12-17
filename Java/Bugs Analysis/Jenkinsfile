@@ -39,6 +39,7 @@ node {
         // Properly handle spaces in the path and archive reports
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
         // List workspace directory content to confirm the path
+        echo "Workspace: ${env.WORKSPACE}"  // Debugging the workspace path
         sh "ls -l \"${env.WORKSPACE}/Scripted_Java/Bug Analysis\""  
     }
 
