@@ -37,7 +37,7 @@ node {
 
     stage('Archive Reports') {
         archiveArtifacts artifacts: 'compilation-report.txt,target/static-code-analysis-report.json', allowEmptyArchive: true
-        sh "ls -l ${env.WORKSPACE}"  // List contents of the workspace for debugging
+        sh "ls -l \"${env.WORKSPACE}\""  // Corrected to handle paths with spaces
     }
 
     stage('Send Email') {
