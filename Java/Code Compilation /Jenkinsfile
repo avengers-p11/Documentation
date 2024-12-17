@@ -1,7 +1,7 @@
 node {
-   
+    
     def mvnHome = tool name: 'Maven', type: 'maven'
-    env.PATH = "${mvnHome}/bin:${env.PATH}"  // Add Maven to PATH
+    env.PATH = "${mvnHome}/bin:${env.PATH}"  
 
     stage('Clone Repository') {
         checkout([$class: 'GitSCM', 
@@ -12,33 +12,41 @@ node {
     stage('Code Compilation') {
         sh '''
             mvn compile > compilation-report.txt
-            echo "Report generated:"
+            ls -l compilation-report.txt  
             cat compilation-report.txt
         '''
     }
 
     stage('Archive Report') {
+        
         archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+        sh "ls -l ${env.WORKSPACE}"  
     }
 
     stage('Send Email') {
-        if (currentBuild.result == 'SUCCESS') {
-            emailext(
-                attachmentsPattern: 'compilation-report.txt',
-                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+        def reportFile = "${env.WORKSPACE}/compilation-report.txt"  
+        
+        if (fileExists(reportFile)) {  
+            if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
+                emailext(
+                    attachmentsPattern: 'compilation-report.txt',  // Attach the report
+                    body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
-                recipientProviders: [developers(), requestor()],
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                to: 'it.mohitsaini@gmail.com'
-            )
-        } else {
-            emailext(
-                to: 'it.mohitsaini@gmail.com',
-                subject: 'Jenkins Pipeline Failure: Salary-api',
-                body: '''Hello,
+                    recipientProviders: [developers(), requestor()],
+                    subject: "Jenkins Build SUCCESS: Job ${env.JOB_NAME}",
+                    to: 'it.mohitsaini@gmail.com'
+                )
+            } else {
+                emailext(
+                    to: 'it.mohitsaini@gmail.com',
+                    subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
+                    body: '''Hello,
 
 The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
-            )
+                )
+            }
+        } else {
+            echo "Error: Attachment file not found: ${reportFile}"
         }
     }
 }
