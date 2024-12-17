@@ -6,7 +6,7 @@ node {
 
     stage('Clone Repository') {
         checkout([$class: 'GitSCM', 
-                  branches: [[name: '*/main']], 
+                  branches: [[name: '*/main']],  
                   userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
     }
 
