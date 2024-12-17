@@ -1,1 +1,57 @@
+node {
+    def mvnHome = tool name: 'Maven', type: 'maven'
+    
+    env.PATH = "${mvnHome}/bin:${env.PATH}"  
+
+    stage('Clone Repository') {
+        checkout([$class: 'GitSCM', 
+                  branches: [[name: '*/main']], 
+                  userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+    }
+
+    stage('Dependency Checking with OWASP') {
+        echo "Running OWASP Dependency Check..."
+        
+        // Ensure OWASP dependency check is running correctly
+        sh '''
+            mvn org.owasp:dependency-check-maven:check \
+                -Dformat=HTML \
+                -DoutputDirectory=target/owasp-report
+
+            # Verify the report is being created
+            if [ -d "target/owasp-report" ]; then
+                echo "OWASP report directory found."
+                ls -l target/owasp-report
+            else
+                echo "Error: OWASP report directory not found."
+            fi
+        '''
+    }
+
+    stage('Archive Reports') {
+        echo "Checking if OWASP report exists in the target directory..."
+        
+               if (fileExists('target/owasp-report/dependency-check-report.html')) {
+            archiveArtifacts artifacts: 'target/owasp-report/dependency-check-report.html', allowEmptyArchive: true
+        } else {
+            echo "Error: OWASP report not found, skipping archiving."
+        }
+    }
+
+    stage('Send Email') {
+        def reportFile = 'target/owasp-report/dependency-check-report.html'
+
+        if (fileExists(reportFile)) {
+            emailext (
+                to: "it.mohitsaini@gmail.com",
+                subject: "OWASP Dependency Check Report",
+                body: "Please find the OWASP Dependency Check report attached.",
+                attachLog: true,
+              
+            )
+        } else {
+            echo "Error: Report file not found. Email not sent."
+        }
+    }
+}
 
