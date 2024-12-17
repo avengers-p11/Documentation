@@ -31,27 +31,33 @@ node {
     stage('Archive Reports') {
         echo "Checking if OWASP report exists in the target directory..."
         
-               if (fileExists('target/owasp-report/dependency-check-report.html')) {
-            archiveArtifacts artifacts: 'target/owasp-report/dependency-check-report.html', allowEmptyArchive: true
+        // Check if the report file exists before archiving
+        def reportPath = 'target/owasp-report/dependency-check-report.html'
+        
+        if (fileExists(reportPath)) {
+            echo "OWASP report found, archiving..."
+            archiveArtifacts artifacts: reportPath, allowEmptyArchive: true
         } else {
             echo "Error: OWASP report not found, skipping archiving."
         }
     }
 
     stage('Send Email') {
-        def reportFile = 'target/owasp-report/dependency-check-report.html'
+        // Define the OWASP report file for email attachment
+        def reportFiles = 'target/owasp-report/dependency-check-report.html'
 
-        if (fileExists(reportFile)) {
-            emailext (
-                to: "it.mohitsaini@gmail.com",
-                subject: "OWASP Dependency Check Report",
-                body: "Please find the OWASP Dependency Check report attached.",
-                attachLog: true,
-              
+        // Check if the OWASP report exists before sending the email
+        if (fileExists(reportFiles)) {
+            emailext(
+                attachmentsPattern: reportFiles,
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
             )
         } else {
-            echo "Error: Report file not found. Email not sent."
+            echo "Error: OWASP report files not found. Email not sent."
         }
     }
 }
-
