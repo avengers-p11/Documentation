@@ -30,25 +30,24 @@ node {
                     -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                     -Dsonar.java.binaries=target/classes \
                     -Dsonar.issue.types=BUG \
-                    -Dsonar.report.export.path=target/sonar-report.json
+                    -Dsonar.report.export.path=target/sonar-bug-report.json
             '''
         }
     }
 
-    stage('Archive Report') {
+    stage('Archive Reports') {
         // Properly handle spaces in the path
-        archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
+        archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json,target/sonar-bug-report.json', allowEmptyArchive: true
         // List workspace directory content to confirm the path
-        sh "ls -l \"${env.WORKSPACE}/Scripted_Java/Bug Analysis\""  
+        sh "ls -l \"${env.WORKSPACE}/Scripted_Java/Bug Analysis\""
     }
 
     stage('Send Email') {
-        def reportFiles = "compilation-report.txt,target/sonar-report.json"
-        
-        def reportFile = "${env.WORKSPACE}/compilation-report.txt"  
-        def sonarReportFile = "${env.WORKSPACE}/target/sonar-report.json"
+        def compilationReportFile = "${env.WORKSPACE}/compilation-report.txt"  
+        def sonarBugReportFile = "${env.WORKSPACE}/target/sonar-bug-report.json"
 
-        if (fileExists(reportFile) && fileExists(sonarReportFile)) {
+        if (fileExists(compilationReportFile) && fileExists(sonarBugReportFile)) {
+            def reportFiles = "compilation-report.txt, sonar-report.json, sonar-bug-report.json"
             if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                 emailext(
                     attachmentsPattern: reportFiles,  
@@ -68,7 +67,7 @@ The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
                 )
             }
         } else {
-            echo "Error: Required report files not found. Email not sent."
+            echo "Error: Report files not found. Email not sent."
         }
     }
 }
