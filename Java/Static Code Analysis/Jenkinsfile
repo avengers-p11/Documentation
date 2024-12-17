@@ -33,11 +33,13 @@ node {
                     -Dsonar.report.export.path=target/static-code-analysis-report.json
             '''
         }
+        // List target directory to confirm report creation
+        sh 'ls -l target/'
     }
 
     stage('Archive Reports') {
         archiveArtifacts artifacts: 'compilation-report.txt,target/static-code-analysis-report.json', allowEmptyArchive: true
-        sh "ls -l \"${env.WORKSPACE}\""  // Corrected to handle paths with spaces
+        sh "ls -l \"${env.WORKSPACE}\""  // Check workspace contents
     }
 
     stage('Send Email') {
