@@ -4,6 +4,7 @@ pipeline {
     environment {
         VENV_DIR = "venv" 
         DEP_CHECK_PATH = "/opt/dependency-check/bin" 
+    }
 
     stages {
         stage('Clone Repository') {
@@ -97,7 +98,6 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            // Archive the dependency check report file
             archiveArtifacts artifacts: 'dependency-check-report.html', allowEmptyArchive: true
         }
         success {
