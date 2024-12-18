@@ -31,7 +31,7 @@ node {
         }
 
         stage('Static code Analysis') {
-            echo 'Running SonarQube analysis for bugs...'
+           
             withSonarQubeEnv('Sonar') {
                 sh """
                     ${scannerHome}/bin/sonar-scanner \
@@ -40,7 +40,7 @@ node {
                         -Dsonar.host.url=http://3.85.16.100:9000 \
                         -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                         -Dsonar.java.binaries=target/classes \
-                        -Dsonar.issue.types=Static code analysis \
+                        -Dsonar.issue.types=code analysis \
                         -Dsonar.report.export.path=bugs-report.txt > ${sonarLogFile} 2>&1
                 """
             }
