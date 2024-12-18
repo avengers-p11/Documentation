@@ -27,11 +27,11 @@ pipeline {
         success {
             script {
                 send_email(
-                    subject: "Unit Testing Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    body: "The code has been Tested successfully.\n\nPlease find the attached Test report.",
-                    attachPath: "target",  
-                    attachFile: "unit-test-report.txt",  
-                    to: "it.mohitsaini@gmail.com"  
+                    "Unit Testing Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The unit tests have been executed successfully.\n\nPlease find the attached unit test report.",
+                    "target/surefire-reports",  // Path to the directory where your unit test reports are saved
+                    "TEST-*.xml",  // Report file name pattern (adjust as necessary)
+                    "it.mohitsaini@gmail.com"  // Recipient email
                 )
             }
         }
@@ -39,11 +39,11 @@ pipeline {
         failure {
             script {
                 send_email(
-                    subject: "Unit Test Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    body: "The Unit test has failed.\n\nPlease find the attached compilation report.",
-                    attachPath: "target", 
-                    attachFile: "unit-test-report.txt",  
-                    to: "it.mohitsaini@gmail.com"  
+                    "Unit Testing Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The unit tests have failed.\n\nPlease find the attached unit test report.",
+                    "target/surefire-reports",  // Path to the directory where your unit test reports are saved
+                    "TEST-*.xml",  // Report file name pattern (adjust as necessary)
+                    "it.mohitsaini@gmail.com"  // Recipient email
                 )
             }
         }
