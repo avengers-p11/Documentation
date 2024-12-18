@@ -8,18 +8,16 @@ pipeline {
         stage('Code Clone') {
             steps {
                 script {
-                  
-                    clone_repo()
+                    clone_repo()  
                 }
             }
         }
 
-    
+        // Stage for unit testing
         stage('Unit Testing') {
             steps {
                 script {
-                  
-                    unit_testing('Maven')
+                    unit_testing('Maven')  
                 }
             }
         }
@@ -28,26 +26,24 @@ pipeline {
     post {
         success {
             script {
-             
                 send_email(
-                    "Code Compilation Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The code has been compiled successfully.\n\nPlease find the attached compilation report.",
-                    "target",  // Path to the directory where your compilation report is saved
-                    "compile-report.txt",  // Report file name (adjust as necessary)
-                    "it.mohitsaini@gmail.com"  // Recipient email
+                    subject: "Unit Testing Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: "The code has been Tested successfully.\n\nPlease find the attached Test report.",
+                    attachPath: "target",  
+                    attachFile: "unit-test-report.txt",  
+                    to: "it.mohitsaini@gmail.com"  
                 )
             }
         }
 
         failure {
             script {
-              
                 send_email(
-                    "Code Compilation Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The code compilation has failed.\n\nPlease find the attached compilation report.",
-                    "target",  // Path to the directory where your compilation report is saved
-                    "compile-report.txt",  // Report file name (adjust as necessary)
-                    "it.mohitsaini@gmail.com"  // Recipient email
+                    subject: "Unit Test Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: "The Unit test has failed.\n\nPlease find the attached compilation report.",
+                    attachPath: "target", 
+                    attachFile: "unit-test-report.txt",  
+                    to: "it.mohitsaini@gmail.com"  
                 )
             }
         }
