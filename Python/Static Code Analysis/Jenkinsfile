@@ -1,1 +1,91 @@
+node {
+    def scannerHome = tool 'Sonar'
+    def VENV_DIR = "venv"
+    def sonarLogFile = 'sonarqube-analysis.log'
 
+    try {
+        stage('Clone Repository') {
+            echo 'Cloning the repository...'
+            git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+        }
+
+        stage('Install Dependencies') {
+            echo 'Installing required dependencies...'
+            sh '''
+                echo "Installing python3-venv and pip3..."
+                sudo apt-get install -y python3-venv python3-pip
+            '''
+        }
+
+        stage('Setup Python Virtual Environment') {
+            echo 'Setting up the Python virtual environment...'
+            sh """
+                if [ ! -d "$VENV_DIR" ]; then
+                    python3 -m venv $VENV_DIR
+                fi
+
+                ${VENV_DIR}/bin/pip install --upgrade pip
+                ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
+                ${VENV_DIR}/bin/pip install pytest
+            """
+        }
+
+        stage('Static code Analysis') {
+            echo 'Running SonarQube analysis for bugs...'
+            withSonarQubeEnv('Sonar') {
+                sh """
+                    ${scannerHome}/bin/sonar-scanner \
+                        -Dsonar.projectKey=attendance \
+                        -Dsonar.projectName=Attendance-api \
+                        -Dsonar.host.url=http://3.85.16.100:9000 \
+                        -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                        -Dsonar.java.binaries=target/classes \
+                        -Dsonar.issue.types=Static code analysis \
+                        -Dsonar.report.export.path=bugs-report.txt > ${sonarLogFile} 2>&1
+                """
+            }
+        }
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        echo 'Pipeline failed.'
+        emailext(
+            attachmentsPattern: sonarLogFile,
+            to: 'anjalidhiman.as@gmail.com',
+            subject: 'Jenkins Pipeline Failure: Attendance-api',
+            body: """
+                <html>
+                    <body>
+                        <h2>Pipeline Failure</h2>
+                        <p>Hello,</p>
+                        <p>The Jenkins pipeline has failed. Attached are the SonarQube logs for analysis.</p>
+                    </body>
+                </html>
+            """,
+            mimeType: 'text/html'
+        )
+        throw e
+    } finally {
+        stage('Post Actions') {
+            echo 'Post actions completed.'
+            if (currentBuild.result == 'SUCCESS') {
+                emailext(
+                    attachmentsPattern: sonarLogFile,
+                    to: 'anjalidhiman.as@gmail.com',
+                    subject: "Jenkins Build SUCCESS: Attendance-api",
+                    body: """
+                        <html>
+                            <body>
+                                <h2>Build SUCCESS</h2>
+                                <p>Job: ${env.JOB_NAME}</p>
+                                <p>Build Number: ${env.BUILD_NUMBER}</p>
+                                <p>Details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                                <p>Attached are the SonarQube logs for reference.</p>
+                            </body>
+                        </html>
+                    """,
+                    mimeType: 'text/html'
+                )
+            }
+        }
+    }
+}
