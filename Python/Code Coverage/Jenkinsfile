@@ -22,6 +22,9 @@ pipeline {
                     echo "Installing python3-venv and pip3..."
                     sudo apt-get update
                     sudo apt-get install -y python3-venv python3-pip unzip curl
+
+                    # Install Flask, Peewee, and pythonjsonlogger
+                    ${VENV_DIR}/bin/pip install flask peewee pythonjsonlogger
                 '''
             }
         }
@@ -45,9 +48,9 @@ pipeline {
             }
         }
 
-        stage('Code Coverage') {
+        stage('Run Tests and Generate Coverage Report') {
             steps {
-               
+                echo 'Running tests and generating code coverage report...'
                 sh '''
                     # Run pytest with coverage option
                     ${VENV_DIR}/bin/pytest --cov=attendance_api --cov-report html:${COVERAGE_REPORT_PATH} --cov-report xml:${COVERAGE_REPORT_PATH}/coverage.xml
@@ -98,4 +101,3 @@ pipeline {
         }
     }
 }
-
