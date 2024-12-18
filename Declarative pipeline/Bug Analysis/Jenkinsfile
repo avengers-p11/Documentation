@@ -57,7 +57,7 @@ pipeline {
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG \
-                            -Dsonar.report.export.path=compilation-report.txt
+                            -Dsonar.report.export.path=bugs-report.txt
                         """
                     }
                 }
