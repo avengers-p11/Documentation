@@ -4,7 +4,6 @@ pipeline {
     agent any
 
     stages {
-        
         stage('Code Clone') {
             steps {
                 script {
@@ -21,7 +20,7 @@ pipeline {
             }
         }
 
-        stage('Static code analysis') {
+        stage('Static Code Analysis') {
             steps {
                 script {
                     static_code_analysis('Sonar')
@@ -33,11 +32,12 @@ pipeline {
     post {
         success {
             script {
+                // Ensure the correct report path and name
                 send_email(
-                    "Code Compilation Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The code has been compiled successfully.\n\nPlease find the attached compilation report.",
+                    "SonarQube Analysis Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The SonarQube analysis has completed successfully.\n\nPlease find the attached analysis report.",
                     "target",  
-                    "compile-report.txt",  
+                    "static-code-analysis-report.json",  // Update to the SonarQube report filename
                     "it.mohitsaini@gmail.com"  
                 )
             }
@@ -45,11 +45,12 @@ pipeline {
 
         failure {
             script {
+                // Ensure the correct report path and name
                 send_email(
-                    "Code Compilation Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The code compilation has failed.\n\nPlease find the attached compilation report.",
+                    "SonarQube Analysis Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The SonarQube analysis has failed.\n\nPlease find the attached analysis report.",
                     "target",  
-                    "compile-report.txt", 
+                    "static-code-analysis-report.json",  // Update to the SonarQube report filename
                     "it.mohitsaini@gmail.com"  
                 )
             }
