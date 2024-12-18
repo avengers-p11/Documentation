@@ -68,7 +68,7 @@ pipeline {
                 sh '''
                     # Activate the virtual environment and run tests with code coverage
                     . ${VENV_DIR}/bin/activate
-                    pytest --cov=attendance_api --cov-report html:coverage-report --cov-report xml:coverage-report/coverage.xml
+                    coverage run -m pytest --cov=attendance_api --cov-report html:coverage-report --cov-report xml:coverage-report/coverage.xml
                 '''
             }
         }
