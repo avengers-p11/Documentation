@@ -23,8 +23,9 @@ pipeline {
                     sudo apt-get update
                     sudo apt-get install -y python3-venv python3-pip unzip curl
 
-                    # Install Flask, Peewee, and pythonjsonlogger
-                    ${VENV_DIR}/bin/pip install flask peewee pythonjsonlogger
+                    # Install Flask, Peewee, and pythonjsonlogger (via GitHub)
+                    ${VENV_DIR}/bin/pip install flask peewee
+                    ${VENV_DIR}/bin/pip install git+https://github.com/madzak/python-json-logger.git
                 '''
             }
         }
