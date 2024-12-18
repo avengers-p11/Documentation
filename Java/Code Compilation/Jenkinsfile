@@ -4,20 +4,22 @@ pipeline {
     agent any
 
     stages {
-     
+        
         stage('Code Clone') {
             steps {
                 script {
-                    clone_repo()  
+                 
+                    clone_repo()
                 }
             }
         }
 
-  
-        stage('Unit Testing') {
+       
+        stage('Code Compilation') {
             steps {
                 script {
-                    unit_testing('Maven')  
+              
+                    compile_code('Maven')
                 }
             }
         }
@@ -26,24 +28,26 @@ pipeline {
     post {
         success {
             script {
+               
                 send_email(
-                    subject: "Code Compilation Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    body: "The code has been compiled successfully.\n\nPlease find the attached compilation report.",
-                    attachPath: "target",  
-                    attachFile: "compile-report.txt", 
-                    to: "it.mohitsaini@gmail.com"  
+                    "Code Compilation Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The code has been compiled successfully.\n\nPlease find the attached compilation report.",
+                    "target",  
+                    "compile-report.txt",  
+                    "it.mohitsaini@gmail.com"  
                 )
             }
         }
 
         failure {
             script {
+             
                 send_email(
-                    subject: "Code Compilation Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    body: "The code compilation has failed.\n\nPlease find the attached compilation report.",
-                    attachPath: "target",  
-                    attachFile: "compile-report.txt",  
-                    to: "it.mohitsaini@gmail.com"  
+                    "Code Compilation Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The code compilation has failed.\n\nPlease find the attached compilation report.",
+                    "target",  
+                    "compile-report.txt", 
+                    "it.mohitsaini@gmail.com"  
                 )
             }
         }
