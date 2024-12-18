@@ -1,1 +1,55 @@
+@Library('Jenkins-shared-libraries') _
 
+pipeline {
+    agent any
+
+    stages {
+        // Stage to clone the repository
+        stage('Code Clone') {
+            steps {
+                script {
+                  
+                    clone_repo()
+                }
+            }
+        }
+
+    
+        stage('Unit Testing') {
+            steps {
+                script {
+                  
+                    unit_testing('Maven')
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+             
+                send_email(
+                    "Code Compilation Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The code has been compiled successfully.\n\nPlease find the attached compilation report.",
+                    "target",  // Path to the directory where your compilation report is saved
+                    "compile-report.txt",  // Report file name (adjust as necessary)
+                    "it.mohitsaini@gmail.com"  // Recipient email
+                )
+            }
+        }
+
+        failure {
+            script {
+              
+                send_email(
+                    "Code Compilation Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The code compilation has failed.\n\nPlease find the attached compilation report.",
+                    "target",  // Path to the directory where your compilation report is saved
+                    "compile-report.txt",  // Report file name (adjust as necessary)
+                    "it.mohitsaini@gmail.com"  // Recipient email
+                )
+            }
+        }
+    }
+}
