@@ -4,21 +4,18 @@ pipeline {
     agent any
 
     stages {
-       
         stage('Code Clone') {
             steps {
                 script {
-                    clone_repo()  
+                    clone_repo()
                 }
             }
         }
 
-        
         stage('Dependency Scanning') {
             steps {
                 script {
-                    
-                    dependency('Maven')  
+                    dependency('Maven')
                 }
             }
         }
@@ -27,26 +24,24 @@ pipeline {
     post {
         success {
             script {
-           
                 send_email(
                     "Dependency Scanning Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                     "The dependency scan has been completed successfully.\n\nPlease find the attached dependency report.",
-                    "target",  
-                    "dependency-check-report.html",  
-                    "it.mohitsaini@gmail.com" 
+                    "target/owasp-report",
+                    "dependency-check-report.html",
+                    "it.mohitsaini@gmail.com"
                 )
             }
         }
 
         failure {
             script {
-               
                 send_email(
                     "Dependency Scanning Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                     "The dependency scan has failed.\n\nPlease find the attached dependency report.",
-                    "target",  
-                    "dependency-check-report.html",  
-                    "it.mohitsaini@gmail.com"  
+                    "target/owasp-report",
+                    "dependency-check-report.html",
+                    "it.mohitsaini@gmail.com"
                 )
             }
         }
