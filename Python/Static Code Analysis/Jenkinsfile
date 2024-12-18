@@ -41,7 +41,7 @@ node {
                         -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                         -Dsonar.java.binaries=target/classes \
                         -Dsonar.issue.types=code analysis \
-                        -Dsonar.report.export.path=bugs-report.txt > ${sonarLogFile} 2>&1
+                        -Dsonar.report.export.path=report.txt > ${sonarLogFile} 2>&1
                 """
             }
         }
