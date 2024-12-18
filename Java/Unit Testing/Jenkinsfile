@@ -29,8 +29,8 @@ pipeline {
                 send_email(
                     "Unit Testing Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                     "The unit tests have been executed successfully.\n\nPlease find the attached unit test report.",
-                    "target/surefire-reports",  // Path to the directory where your unit test reports are saved
-                    "TEST-*.xml",  // Report file name pattern (adjust as necessary)
+                    "target",  // Path to the directory where your unit test reports are saved
+                    "unit-test-report.txt",  // Adjust this to match the actual report file name
                     "it.mohitsaini@gmail.com"  // Recipient email
                 )
             }
@@ -41,8 +41,8 @@ pipeline {
                 send_email(
                     "Unit Testing Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                     "The unit tests have failed.\n\nPlease find the attached unit test report.",
-                    "target/surefire-reports",  // Path to the directory where your unit test reports are saved
-                    "TEST-*.xml",  // Report file name pattern (adjust as necessary)
+                    "target",  // Path to the directory where your unit test reports are saved
+                    "unit-test-report.txt",  // Adjust this to match the actual report file name
                     "it.mohitsaini@gmail.com"  // Recipient email
                 )
             }
