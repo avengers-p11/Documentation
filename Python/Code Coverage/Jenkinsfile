@@ -26,7 +26,7 @@ pipeline {
         stage('Set Up Python Environment') {
             steps {
                 sh '''
-                    # Create virtual environment with Python 3.11
+                    # Create virtual environment with Python 3.11 if not already created
                     if [ ! -d "$VENV_DIR" ]; then
                         python3.11 -m venv $VENV_DIR  # Specify the virtual environment directory
                     fi
@@ -57,7 +57,7 @@ pipeline {
                     # Install dependencies based on pyproject.toml
                     poetry install
                     
-                    # Optionally install missing dependencies directly
+                    # Optionally install missing dependencies directly if needed
                     pip install flask_caching voluptuous
                 '''
             }
@@ -80,6 +80,7 @@ pipeline {
             sh '''
                 rm -rf $VENV_DIR
             '''
+            // Archive the coverage report
             archiveArtifacts artifacts: 'coverage-report/*.xml', allowEmptyArchive: true
             echo 'Pipeline completed.'
         }
@@ -97,7 +98,7 @@ More info at: ${env.BUILD_URL}""",
         failure {
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
-                subject: 'Jenkins Pipeline Failure: Salary-api',
+                subject: 'Jenkins Pipeline Failure: Attendance-api',
                 body: '''Hello,
 
 The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
@@ -105,4 +106,3 @@ The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
         }
     }
 }
-
