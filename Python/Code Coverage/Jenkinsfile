@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        VENV_DIR = "venv"  // Virtual environment directory
+        VENV_DIR = "venv" 
     }
 
     stages {
@@ -16,6 +16,10 @@ pipeline {
             steps {
                 sh '''
                     # Update system and install Python 3.11 and necessary libraries
+                    sudo apt-get update -y
+                    sudo apt-get install -y \
+                        software-properties-common
+                    sudo add-apt-repository ppa:deadsnakes/ppa -y
                     sudo apt-get update -y
                     sudo apt-get install -y python3.11 python3.11-venv python3.11-dev \
                         python3-pip libpq-dev gcc
@@ -48,27 +52,34 @@ pipeline {
             }
         }
 
-        stage('Install Python Dependencies') {
+        stage('Update Poetry Lock File') {
             steps {
                 sh '''
-                    # Activate the virtual environment
+                    # Update the poetry.lock file if pyproject.toml has changed
                     . ${VENV_DIR}/bin/activate
-                    
-                    # Install dependencies based on pyproject.toml
-                    poetry install
-                    
-                    # Optionally install missing dependencies directly if needed
-                    pip install flask_caching voluptuous
+                    poetry lock --no-update
                 '''
             }
         }
 
-        stage('Run Tests') {
+        stage('Install Python Dependencies') {
             steps {
                 sh '''
-                    # Activate the virtual environment and run tests with code coverage
+                    # Install dependencies based on the updated poetry.lock file
                     . ${VENV_DIR}/bin/activate
-                    coverage run -m pytest --cov=attendance_api --cov-report html:coverage-report --cov-report xml:coverage-report/coverage.xml
+                    poetry install
+                '''
+            }
+        }
+
+        stage('Run Tests with Coverage') {
+            steps {
+                sh '''
+                    # Activate the virtual environment and run tests with coverage
+                    . ${VENV_DIR}/bin/activate
+                    coverage run -m pytest
+                    coverage report > coverage.txt  # Generate a coverage report in text format
+                    coverage html  # Generate an HTML coverage report
                 '''
             }
         }
@@ -76,20 +87,19 @@ pipeline {
 
     post {
         always {
-            // Clean up the virtual environment after the build
             sh '''
+                # Remove the virtual environment after the build
                 rm -rf $VENV_DIR
             '''
-            // Archive the coverage report
-            archiveArtifacts artifacts: 'coverage-report/*.xml', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'unit-test-report.txt, coverage.txt, htmlcov/*', allowEmptyArchive: true
             echo 'Pipeline completed.'
         }
         
         success {
             emailext(
-                attachmentsPattern: 'coverage-report/*.xml',
+                attachmentsPattern: 'unit-test-report.txt, coverage.txt',
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
-More info at: ${env.BUILD_URL}""",
+                More info at: ${env.BUILD_URL}""",
                 to: 'anjalidhiman.as@gmail.com', 
                 subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
             )
@@ -98,7 +108,7 @@ More info at: ${env.BUILD_URL}""",
         failure {
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
-                subject: 'Jenkins Pipeline Failure: Attendance-api',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
                 body: '''Hello,
 
 The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
