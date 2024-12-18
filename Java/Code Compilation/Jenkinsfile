@@ -8,18 +8,16 @@ pipeline {
         stage('Code Clone') {
             steps {
                 script {
-                  
-                    clone_repo()
+                    clone_repo()  
                 }
             }
         }
 
-    
-        stage('Code Compilation') {
+        // Stage for unit testing
+        stage('Unit Testing') {
             steps {
                 script {
-                  
-                    compile_code('Maven')
+                    unit_testing('Maven')  
                 }
             }
         }
@@ -28,12 +26,11 @@ pipeline {
     post {
         success {
             script {
-             
                 send_email(
-                    "Code Compilation Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The code has been compiled successfully.\n\nPlease find the attached compilation report.",
-                    "target",  // Path to the directory where your compilation report is saved
-                    "compile-report.txt",  // Report file name (adjust as necessary)
+                    "Unit Testing Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The unit tests have been executed successfully.\n\nPlease find the attached unit test report.",
+                    "target/surefire-reports",  // Path to the directory where your unit test reports are saved
+                    "TEST-*.xml",  // Report file name pattern (adjust as necessary)
                     "it.mohitsaini@gmail.com"  // Recipient email
                 )
             }
@@ -41,16 +38,14 @@ pipeline {
 
         failure {
             script {
-              
                 send_email(
-                    "Code Compilation Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The code compilation has failed.\n\nPlease find the attached compilation report.",
-                    "target",  // Path to the directory where your compilation report is saved
-                    "compile-report.txt",  // Report file name (adjust as necessary)
+                    "Unit Testing Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The unit tests have failed.\n\nPlease find the attached unit test report.",
+                    "target/surefire-reports",  // Path to the directory where your unit test reports are saved
+                    "TEST-*.xml",  // Report file name pattern (adjust as necessary)
                     "it.mohitsaini@gmail.com"  // Recipient email
                 )
             }
         }
     }
 }
-
