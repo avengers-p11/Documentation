@@ -15,9 +15,9 @@ pipeline {
         stage('Dependency Check') {
             steps {
                 sh '''
-                    mvn org.owasp:dependency-check-maven:check | tee static-code-analysis-report.txt
-                    echo "Static code analysis report generated:"
-                    ls -l static-code-analysis-report.txt
+                    mvn org.owasp:dependency-check-maven:check -Dformat=HTML -DoutputDirectory=target
+                    echo "Dependency check report generated:"
+                    ls -l target/dependency-check-report.html
                 '''
             }
         }
@@ -26,13 +26,11 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            archiveArtifacts artifacts: 'static-code-analysis-report.txt', allowEmptyArchive: true
-            archiveArtifacts artifacts: 'target/sonar-report.json', allowEmptyArchive: true
-            archiveArtifacts artifacts: 'target/sonar-report.html', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'target/dependency-check-report.html', allowEmptyArchive: true
         }
         success {
             emailext(
-                attachmentsPattern: 'static-code-analysis-report.txt,target/sonar-report.json,target/sonar-report.html',
+                attachmentsPattern: 'target/dependency-check-report.html',
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
                 recipientProviders: [developers(), requestor()],
@@ -48,7 +46,7 @@ More info at: ${env.BUILD_URL}""",
                 body: '''Hello,
 
 The Jenkins pipeline has failed. Please check the attached logs and reports for more details.'''.stripIndent(),
-                attachmentsPattern: 'static-code-analysis-report.txt,target/sonar-report.json,target/sonar-report.html'
+                attachmentsPattern: 'target/dependency-check-report.html'
             )
         }
     }
