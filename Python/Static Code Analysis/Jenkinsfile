@@ -18,7 +18,7 @@ node {
                         -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                         -Dsonar.java.binaries=target/classes \
                         -Dsonar.sources=. \
-                        -Dsonar.report.export.path=static-code-analysis-report.txt
+                        -Dsonar.report.export.path=reports/static-code-analysis-report.txt
                 """
             }
         }
@@ -43,10 +43,17 @@ node {
     } finally {
         stage('Post Actions') {
             echo 'Archiving artifacts...'
-            archiveArtifacts artifacts: 'static-code-analysis-report.txt', allowEmptyArchive: true
+            script {
+                def reportFile = 'reports/static-code-analysis-report.txt'
+                if (fileExists(reportFile)) {
+                    archiveArtifacts artifacts: reportFile, allowEmptyArchive: true
+                } else {
+                    echo "Report file not found: ${reportFile}"
+                }
+            }
             if (currentBuild.result == 'SUCCESS') {
                 emailext(
-                    attachmentsPattern: 'static-code-analysis-report.txt',
+                    attachmentsPattern: 'reports/static-code-analysis-report.txt',
                     to: 'anjalidhiman.as@gmail.com',
                     subject: "Jenkins Build SUCCESS: Attendance-api",
                     body: """
