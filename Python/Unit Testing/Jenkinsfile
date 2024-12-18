@@ -3,22 +3,21 @@ pipeline {
 
     environment {
         VENV_DIR = "venv" 
+    }
 
     stages {
         stage('Clone Repository') {
             steps {
-              
                 git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
             }
         }
 
         stage('Install System Dependencies') {
             steps {
-                
                 sh '''
                     # Update system and install Python 3.11 and necessary libraries
-                    DEBIAN_FRONTEND=noninteractive sudo apt-get update -y
-                    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+                    sudo apt-get update -y
+                    sudo apt-get install -y \
                         software-properties-common
                     sudo add-apt-repository ppa:deadsnakes/ppa -y
                     sudo apt-get update -y
@@ -30,7 +29,6 @@ pipeline {
 
         stage('Set Up Python Environment') {
             steps {
-                
                 sh '''
                     # Create virtual environment with Python 3.11
                     if [ ! -d "$VENV_DIR" ]; then
@@ -46,7 +44,6 @@ pipeline {
 
         stage('Install Poetry') {
             steps {
-          
                 sh '''
                     # Install Poetry in the virtual environment
                     . ${VENV_DIR}/bin/activate
@@ -57,7 +54,6 @@ pipeline {
 
         stage('Update Poetry Lock File') {
             steps {
-             
                 sh '''
                     # Update the poetry.lock file if pyproject.toml has changed
                     . ${VENV_DIR}/bin/activate
@@ -68,7 +64,6 @@ pipeline {
 
         stage('Install Python Dependencies') {
             steps {
-              
                 sh '''
                     # Install dependencies based on the updated poetry.lock file
                     . ${VENV_DIR}/bin/activate
@@ -79,7 +74,6 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-               
                 sh '''
                     # Activate the virtual environment and run tests
                     . ${VENV_DIR}/bin/activate
@@ -91,7 +85,6 @@ pipeline {
 
     post {
         always {
-         
             sh '''
                 # Remove the virtual environment
                 rm -rf $VENV_DIR
@@ -101,18 +94,16 @@ pipeline {
         }
         
         success {
-          
             emailext(
                 attachmentsPattern: 'unit-test-report.txt',
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
-More info at: ${env.BUILD_URL}""",
+                More info at: ${env.BUILD_URL}""",
                 to: 'anjalidhiman.as@gmail.com', 
                 subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
             )
         }
         
         failure {
-           
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
                 subject: 'Jenkins Pipeline Failure: Salary-api',
@@ -123,4 +114,3 @@ The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
         }
     }
 }
-
