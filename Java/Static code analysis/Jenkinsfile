@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
+        maven 'Maven'  
     }
 
     environment {
-        scannerHome = tool 'Sonar'
+        scannerHome = tool 'Sonar' 
     }
 
     stages {
@@ -19,28 +19,30 @@ pipeline {
 
         stage('Code Compilation') {
             steps {
+                echo 'Compiling the code...'
                 sh '''
-                    mvn compile > static-code-analysis-report.txt
-                    cat static-code-analysis-report.txt
+                    mvn compile > compilation-report.txt
+                    cat compilation-report.txt
                 '''
             }
         }
 
-        stage('Static Code Analysis') {
+        stage('Static Code Analysis') { 
             steps {
+                echo 'Running SonarQube Static Code Analysis...'
                 script {
                     withSonarQubeEnv('Sonar') {
                         sh """
-                          ${scannerHome}/bin/sonar-scanner \
+                          ${env.scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=salary \
                             -Dsonar.projectName=Salary-api \
-                            -Dsonar.host.url=http://52.91.122.31:9000 \
+                            -Dsonar.host.url=http://54.237.71.206:9000 \
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
-                            -Dsonar.issue.types=Static \
-                            -Dsonar.report.export.path=target/sonar-report.json \
-                            -Dsonar.html.report=target/sonar-report.html
+                            -Dsonar.issue.types=BUG > sonar-output.log
                         """
+                       
+                        sh "grep 'ANALYSIS SUCCESSFUL' -A 4 sonar-output.log > sonar-summary.log || true"
                     }
                 }
             }
@@ -50,29 +52,29 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            archiveArtifacts artifacts: 'static-code-analysis-report.txt', allowEmptyArchive: true
-            archiveArtifacts artifacts: 'target/sonar-report.json', allowEmptyArchive: true
-            archiveArtifacts artifacts: 'target/sonar-report.html', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'sonar-output.log', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'sonar-summary.log', allowEmptyArchive: true
         }
         success {
+            echo 'Static code analysis completed successfully!'
             emailext(
-                attachmentsPattern: 'static-code-analysis-report.txt,target/sonar-report.json,target/sonar-report.html',
+                attachmentsPattern: 'compilation-report.txt,sonar-summary.log',
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
-                recipientProviders: [developers(), requestor()],
                 subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                 to: 'it.mohitsaini@gmail.com'
             )
         }
         failure {
-            echo 'Pipeline failed.'
+            echo 'Static code analysis failed.'
             emailext(
                 to: 'it.mohitsaini@gmail.com',
                 subject: 'Jenkins Pipeline Failure: Salary-api',
                 body: '''Hello,
 
 The Jenkins pipeline has failed. Please check the logs.'''.stripIndent(),
-                attachmentsPattern: 'static-code-analysis-report.txt,target/sonar-report.json,target/sonar-report.html'
+                attachmentsPattern: 'compilation-report.txt,sonar-summary.log'
             )
         }
     }
