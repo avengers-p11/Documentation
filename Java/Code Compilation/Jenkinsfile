@@ -11,7 +11,7 @@ pipeline {
                 script {
                  
                     clone_repo()
-                    javaHelperMethod()
+                    
                 }
             }
         }
