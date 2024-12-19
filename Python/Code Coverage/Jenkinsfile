@@ -1,1 +1,87 @@
+@Library('Jenkins-shared-libraries@main') _  // Replace with your library name
+
+pipeline {
+    agent any
+
+    environment {
+        VENV_DIR = "venv"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                script {
+                    python_clone_repo()  // Calling shared library method
+                }
+            }
+        }
+
+        stage('Set Up Python Environment') {
+            steps {
+                script {
+                    python_environment()  // Calling shared library method
+                }
+            }
+        }
+
+        stage('poetry_lock') {
+            steps {
+                script {
+                    poetry_lock()  // Calling shared library method
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    python_dependencies()  // Calling shared library method
+                }
+            }
+        }
+
+        stage('Run Tests with Coverage') {
+            steps {
+                script {
+                    python_code_coverage()  // Calling shared library method
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                echo "Cleaning up the environment"
+                sh 'rm -rf venv'
+            }
+            archiveArtifacts artifacts: 'coverage.txt, htmlcov/*', allowEmptyArchive: true
+            echo 'Pipeline completed.'
+        }
+
+        success {
+            script {
+                emailext(
+                    attachmentsPattern: 'coverage.txt',
+                    body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+                    More info at: ${env.BUILD_URL}""",
+                    to: 'your-email@example.com',
+                    subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                )
+            }
+        }
+
+        failure {
+            script {
+                emailext(
+                    to: 'your-email@example.com',
+                    subject: 'Jenkins Pipeline Failure: Attendance API',
+                    body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+                )
+            }
+        }
+    }
+}
 
