@@ -1,18 +1,18 @@
-@Library('Jenkins-shared-libraries@main') _  // Replace with your library name
+@Library('Jenkins-shared-libraries@main') _  
 
 pipeline {
     agent any
 
     environment {
         VENV_DIR = "venv"
-        TEST_REPORT_PATH = "test-reports/unit_test_report.xml"  // Path to your test report
+        TEST_REPORT_PATH = "test-reports/unit_test_report.xml"  
     }
 
     stages {
         stage('Clone Repository') {
             steps {
                 script {
-                    python_clone_repo()  // Ensure this method is defined in your shared library
+                    python_clone_repo()  
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
         stage('Set Up Python Environment') {
             steps {
                 script {
-                    python_environment()  // Ensure this method is defined in your shared library
+                    python_environment()  
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
         stage('Poetry Lock') {
             steps {
                 script {
-                    poetry_lock()  // Ensure this method is defined in your shared library
+                    poetry_lock()  
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    python_dependencies()  // Ensure this method is defined in your shared library
+                    python_dependencies() 
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
         stage('Unit Testing') {
             steps {
                 script {
-                    python_testing()  // Ensure this method is defined in your shared library
+                    python_testing()  
                 }
             }
         }
@@ -52,9 +52,9 @@ pipeline {
         stage('Send Test Report Email') {
             steps {
                 script {
-                    // Send email with the test report as an attachment
+                    
                     emailext(
-                        to: 'it.mohitsaini@gmail.com',  // Replace with actual email address
+                        to: 'anjalidhiman.as@gmail.com',  
                         subject: "Unit Test Report - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: "Please find the attached unit test report for ${env.JOB_NAME} #${env.BUILD_NUMBER}.",
                         attachmentsPattern: TEST_REPORT_PATH,
