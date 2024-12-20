@@ -24,17 +24,17 @@
 9. [**Contact Information**](#contact-information)
 10. [**References**](#references)
 
-# Introduction
+## Introduction
 Ansible is a powerful automation tool that lets you manage and configure your infrastructure efficiently. It uses a simple language called YAML to define tasks and playbooks.
 
-# What is ansible
+## What is ansible
 Ansible Roles are a powerful way to organize and reuse automation tasks. They provide a standardized structure for grouping related tasks, variables, files, templates, and handlers. This modular approach makes your playbooks more manageable, reusable, and easier to maintain.
 
 
-# Why ansible?
+## Why ansible?
 Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
 
-# Why Use Ansible Roles?
+## Why Use Ansible Roles?
 
 | **Reason**                     | **Description**                                                                                       |
 |--------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -43,28 +43,28 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 | **Accelerate Deployment Times**  | Speeds up deployments by reusing predefined tasks and configurations.                                |
 | **Improve Consistency and Compliance** | Standardizes configurations, ensuring uniformity across environments and aiding regulatory compliance. |
                                   |
-# Steps for creating Ansible role
+## Steps for creating Ansible role
 
 [Reffer the POC for jenkins setup](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Jenkins/Software%20Configuration/POC%20to%20setup%20Jenkins)
 
-# Folder Structure
+## Folder Structure
 
 ![image](https://github.com/user-attachments/assets/899ee4f3-0dbd-4bec-94e2-85688bbf3ad3)
 
 
 
-# Command to run playbook
+## Command to run playbook
 
 ``` sh
 ansible-playbook -i <inventory-file> <playbook-name>
 ```
 
-# Conclusion
+## Conclusion
 Ansible Roles offer a modular approach to automate infrastructure, making deployments efficient, consistent, and less error-prone.
 
 
 
-# Contact Information
+## Contact Information
 
 | **Name** | **Email address**            | **Github ID**
 |----------|-------------------------------|-------------------|
@@ -72,7 +72,7 @@ Ansible Roles offer a modular approach to automate infrastructure, making deploy
 
 ---
 
-# References
+## References
 
 | **Link** | **Description**            |
 |----------|-------------------------------|
