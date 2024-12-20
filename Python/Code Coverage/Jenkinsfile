@@ -1,4 +1,4 @@
-@Library('Jenkins-shared-libraries@main') _  // Replace with your library name
+@Library('Jenkins-shared-libraries@main') _  
 
 pipeline {
     agent any
@@ -11,7 +11,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script {
-                    python_clone_repo()  // Calling shared library method
+                    python_clone_repo()  
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
         stage('Set Up Python Environment') {
             steps {
                 script {
-                    python_environment()  // Calling shared library method
+                    python_environment()  
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('poetry_lock') {
             steps {
                 script {
-                    poetry_lock()  // Calling shared library method
+                    poetry_lock()  
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    python_dependencies()  // Calling shared library method
+                    python_dependencies() 
                 }
             }
         }
@@ -43,7 +43,7 @@ pipeline {
         stage('Run Tests with Coverage') {
             steps {
                 script {
-                    python_code_coverage()  // Calling shared library method
+                    python_code_coverage()  
                 }
             }
         }
@@ -52,7 +52,7 @@ pipeline {
     post {
         always {
             script {
-                echo "Cleaning up the environment"
+             
                 sh 'rm -rf venv'
             }
             archiveArtifacts artifacts: 'coverage.txt, htmlcov/*', allowEmptyArchive: true
