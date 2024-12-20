@@ -32,9 +32,12 @@ Ansible Roles are a powerful way to organize and reuse automation tasks. They pr
 Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
 
  ## Pre-requisties
- 1. Ansible Insalled
- 2. Pip and boto3 installed
- 3. install aws cli should be configured
+
+|Pre-requisite	|Description|
+|-----|------|
+|Ansible| Ensure Ansible is installed on your system.|
+|pip and boto3| Install pip for Python 3 and then install the boto3 library, which is required for AWS interactions.|
+|AWS CLI| Install and configure the AWS CLI to authenticate and interact with AWS services.|
 
 
 ### Steps for ansible role
