@@ -1,1 +1,107 @@
+@Library('Jenkins-shared-libraries@main') _  // Replace with your library name
+
+pipeline {
+    agent any
+
+    environment {
+        VENV_DIR = "venv"
+        REPORT_DIR = "/var/lib/jenkins/workspace/Shared_Libraries_Python/Code Coverage"  // Absolute directory path
+        REPORT_FILE = "pytest-report.xml"  // Report file name
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                script {
+                    python_clone_repo()  // Ensure this method is defined in your shared library
+                }
+            }
+        }
+
+        stage('Set Up Python Environment') {
+            steps {
+                script {
+                    python_environment()  // Ensure this method is defined in your shared library
+                }
+            }
+        }
+
+        stage('Poetry Lock') {
+            steps {
+                script {
+                    poetry_lock()  // Ensure this method is defined in your shared library
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    python_dependencies()  // Ensure this method is defined in your shared library
+                }
+            }
+        }
+
+        stage('Unit Testing') {
+            steps {
+                script {
+                    python_testing()  // Ensure this method is defined in your shared library
+                }
+            }
+        }
+
+        stage('Email Success') {
+            steps {
+                script {
+                    def reportExists = fileExists("${REPORT_DIR}/${REPORT_FILE}")
+                    echo "Report exists: ${reportExists}"
+                    
+                    if (reportExists) {
+                        send_email(
+                            "Unit Test Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                            "The unit tests have passed successfully.\n\nPlease find the attached unit test report.",
+                            REPORT_DIR,  // Report directory
+                            REPORT_FILE,  // Unit test report file name
+                            "it.mohitsaini@gmail.com"
+                        )
+                    } else {
+                        echo "Test report not found, skipping email."
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        failure {
+            script {
+                def reportExists = fileExists("${REPORT_DIR}/${REPORT_FILE}")
+                echo "Report exists: ${reportExists}"
+
+                if (reportExists) {
+                    send_email(
+                        "Unit Test Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                        "The unit tests have failed.\n\nPlease find the attached unit test report.",
+                        REPORT_DIR,  // Report directory
+                        REPORT_FILE,  // Unit test report file name
+                        "it.mohitsaini@gmail.com"
+                    )
+                } else {
+                    echo "Test report not found, skipping email."
+                }
+            }
+        }
+    }
+}
+
+def send_email(String subject, String body, String reportDir, String reportFile, String recipients = 'it.mohitsaini@gmail.com') {
+    // Use double quotes around the file path to properly handle spaces
+    def reportPath = "\"${reportDir}/${reportFile}\""  // Add double quotes around the file path
+    emailext(
+        subject: subject,
+        body: body,
+        attachmentsPattern: reportPath,  // Pass the quoted path
+        to: recipients
+    )
+}
 
