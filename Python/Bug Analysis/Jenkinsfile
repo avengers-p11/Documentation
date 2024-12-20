@@ -1,4 +1,4 @@
-@Library('Jenkins-shared-libraries@main') _  // Replace with your library name
+@Library('Jenkins-shared-libraries@main') _  
 
 pipeline {
     agent any
@@ -11,7 +11,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script {
-                    python_clone_repo()  // Calling shared library method
+                    python_clone_repo()  
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
         stage('Set Up Python Environment') {
             steps {
                 script {
-                    python_environment()  // Calling shared library method
+                    python_environment()  
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('poetry_lock') {
             steps {
                 script {
-                    poetry_lock()  // Calling shared library method
+                    poetry_lock()  
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    python_dependencies()  // Calling shared library method
+                    python_dependencies()  
                 }
             }
         }
@@ -43,7 +43,7 @@ pipeline {
         stage('Run Tests with Coverage') {
             steps {
                 script {
-                    python_code_coverage()  // Calling shared library method
+                    python_code_coverage()  
                 }
             }
         }
@@ -51,11 +51,11 @@ pipeline {
         stage('Static code') {
             steps {
                 script {
-                    static_code_analysis()  // Calling shared library method
+                    static_code_analysis()  
                 }
             }
         }
-    }  // Closing the stages block
+    }  
 
     post {
         always {
@@ -73,7 +73,7 @@ pipeline {
                     attachmentsPattern: 'coverage.txt',
                     body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
                     More info at: ${env.BUILD_URL}""",
-                    to: 'your-email@example.com',
+                    to: 'anjalidhiman.as@gmail.com',
                     subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
                 )
             }
@@ -82,7 +82,7 @@ pipeline {
         failure {
             script {
                 emailext(
-                    to: 'your-email@example.com',
+                    to: 'anjalidhiman.as@gmail.com',
                     subject: 'Jenkins Pipeline Failure: Attendance API',
                     body: '''Hello,
 
