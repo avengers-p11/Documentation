@@ -13,9 +13,10 @@
 3. [**Why ansible**](#why-ansible)
 4. [Pre-requsities](#pre-requisties)
 5. [Steps for Ansible role](#steps-for-ansible-role)
-6. [Conclusion](#conculsion)
-7. [Contact Information](#contact-information)
-8. [References](#references)
+6. [Output](#output)
+7. [Conclusion](#conculsion)
+8. [Contact Information](#contact-information)
+9. [References](#references)
 
  
  
@@ -59,31 +60,32 @@ sudo apt install ansible
 ```
 ansible --version
 ```
-![Screenshot 2024-12-06 at 7 11 11 PM](https://github.com/user-attachments/assets/4a49dfd9-2041-46f7-bb47-6a972e524275)
+![Screenshot 2024-12-20 at 9 13 40 PM](https://github.com/user-attachments/assets/7df16a11-da90-47ed-9343-e7bd7336d14f)
 
 
 
 **Steps 5. Create ansible role** 
 
 ```
-ansible-galaxy init Jenkins_role
+ansible-galaxy init install_jenkins
 ```
-![Screenshot 2024-12-06 at 6 59 21 PM](https://github.com/user-attachments/assets/75b3f8ce-4251-4f9c-9ae4-c79a469837e8)
-
+![Screenshot 2024-12-20 at 9 06 35 PM](https://github.com/user-attachments/assets/c06ee123-e16d-4379-9c1f-40673060f6a9)
 
 
 **Steps 6. Change the direcotry current to my role**
 ```
-cd Jenkins_role
+cd install_jenkins
 ```
-![Screenshot 2024-12-06 at 7 00 36 PM](https://github.com/user-attachments/assets/ca46cc2a-bf3b-4a25-8ee0-71c5e745c984)
+![Screenshot 2024-12-20 at 9 10 25 PM](https://github.com/user-attachments/assets/5b0570ac-4eaa-4f12-80e3-11aa47978be4)
+
 
 
 **Steps 7. After configure my role direcorty structure**
 ```
 tree
 ```
-![Screenshot 2024-12-06 at 6 56 41 PM](https://github.com/user-attachments/assets/7bcc2a48-c45e-43ce-bb62-815769064168)
+![Screenshot 2024-12-20 at 9 03 46 PM](https://github.com/user-attachments/assets/09cb2896-e534-465f-b6aa-393e48d74442)
+
 
 
 
@@ -124,6 +126,9 @@ ansible-playbook -i aws_ec2.yml /home/ubuntu/jenkins/install_jenkins/tests/test.
 
 ![Screenshot 2024-12-20 at 8 40 32 PM](https://github.com/user-attachments/assets/35686fe1-4ed5-4ca2-9ada-d4397ba66b8d)
 
+## Output
+
+![Screenshot 2024-12-20 at 9 08 39 PM](https://github.com/user-attachments/assets/92b1a12e-b21b-45fb-8f34-75fdf22d69a6)
 
 ## Conclusion
 Roles are a way to make code in playbooks reusable by putting the functionality into generalized libraries that can be then used in any playbook as needed.
