@@ -6,6 +6,7 @@ pipeline {
     environment {
         DEP_CHECK_PATH = '/opt/dependency-check/bin'  // Path to the Dependency-Check installation
         DEP_CHECK_REPORT_PATH = '/tmp/dependency-check-report.html'  // Path for the report
+        TEMP_REPORT_PATH = '/tmp/dependency-check-report-temp.html'  // Temporary file path for email
     }
 
     stages {
@@ -75,15 +76,15 @@ pipeline {
         stage('Send Dependency Check Report Email') {
             steps {
                 script {
-                    // Copy the report to a safe location if needed
-                    sh "cp '${DEP_CHECK_REPORT_PATH}' /tmp/dependency-check-report.html"  // Copy file to /tmp if necessary
+                    // Copy the report to a safe location if needed (avoiding overwriting the same file)
+                    sh "cp '${DEP_CHECK_REPORT_PATH}' '${TEMP_REPORT_PATH}'"  // Copy to a new temp location
 
                     // Send email with the Dependency-Check report as an attachment
                     emailext(
                         to: 'anjalidhiman.as@gmail.com',  // Replace with actual recipient
                         subject: "OWASP Dependency-Check Report - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: "Please find the attached Dependency-Check report for ${env.JOB_NAME} #${env.BUILD_NUMBER}.",
-                        attachmentsPattern: '/tmp/dependency-check-report.html',  // Path to the report file
+                        attachmentsPattern: '${TEMP_REPORT_PATH}',  // Path to the temporary report file
                         mimeType: 'text/html'
                     )
                 }
