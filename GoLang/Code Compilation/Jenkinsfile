@@ -1,1 +1,66 @@
+pipeline {
+    agent any
 
+    environment {
+        // Set Go environment variables (adjust GOROOT and GOPATH as necessary)
+        GOROOT = '/usr/local/go'    // Go installation path on Jenkins agent
+        GOPATH = '/tmp/go'          // A writable directory for Go workspace
+        PATH = "/usr/local/go/bin:$PATH"  // Add Go binary location to PATH
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the repository from GitHub
+                git url: 'https://github.com/OT-MICROSERVICES/employee-api.git', branch: 'main'
+            }
+        }
+
+        stage('Setup Go') {
+            steps {
+                script {
+                    // Ensure Go is installed and working
+                    sh 'go version'  // Check Go version
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Run 'go mod tidy' to install dependencies (if Go modules are being used)
+                sh 'go mod tidy'
+            }
+        }
+
+        stage('Compile Go Project') {
+            steps {
+                // Compile the Go project
+                sh 'go build -o output/employee-api main.go'  // Adjust the main.go path and output name if needed
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run Go tests
+                sh 'go test -v ./...'  // Run tests for all Go packages in the project
+            }
+        }
+    }    
+
+    post {
+        always {
+            // Clean up or notify if needed
+            echo 'Pipeline complete.'
+        }
+
+        success {
+            // Successful build actions (e.g., notify team, etc.)
+            echo 'Build and tests completed successfully.'
+        }
+
+        failure {
+            // Failure handling (e.g., notify team about failure)
+            echo 'Go build or tests failed.'
+        }
+    }
+}
