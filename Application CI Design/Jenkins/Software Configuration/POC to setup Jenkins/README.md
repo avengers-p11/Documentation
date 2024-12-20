@@ -6,34 +6,38 @@
 | Pravesh Kumar | 06-12-24 | Version 1.1 | Pravesh Kumar | 20-12-24 |  |
 
 
-# **Table of Contents**
+## **Table of Contents**
 
-1.  [Introduction](#introduction)
-
-2.  [Pre-requsities](#pre-requisties)
-
-3.  [Steps for Ansible role](#steps-for-ansible-role)
-
-4.  [Conclusion](#conculsion)
-
-5.  [Contact Information](#contact-information)
-
-6. [References](#references)
+1. [Introduction](#introduction)
+2. [**What is ansible**](#what-is-ansible)
+3. [**Why ansible**](#why-ansible)
+4. [Pre-requsities](#pre-requisties)
+5. [Steps for Ansible role](#steps-for-ansible-role)
+6. [Conclusion](#conculsion)
+7. [Contact Information](#contact-information)
+8. [References](#references)
 
  
  
- # Introduction
+ ## Introduction
 
 Ansible roles are basically playbooks broken up into a known file structure.
 
 
- # Pre-requisties
+## What is ansible
+Ansible Roles are a powerful way to organize and reuse automation tasks. They provide a standardized structure for grouping related tasks, variables, files, templates, and handlers. This modular approach makes your playbooks more manageable, reusable, and easier to maintain.
+
+
+## Why ansible?
+Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
+
+ ## Pre-requisties
  1. Ansible Insalled
  2. Pip and boto3 installed
  3. install aws cli should be configured
 
 
-## Steps for ansible role
+### Steps for ansible role
 
 **Steps 1. Update your OS**
 ```
@@ -111,10 +115,10 @@ ansible-playbook -i aws_ec2.yml /home/ubuntu/jenkins/install_jenkins/tests/test.
 ![Screenshot 2024-12-20 at 8 40 32 PM](https://github.com/user-attachments/assets/35686fe1-4ed5-4ca2-9ada-d4397ba66b8d)
 
 
-# Conclusion
+## Conclusion
 Roles are a way to make code in playbooks reusable by putting the functionality into generalized libraries that can be then used in any playbook as needed.
 
-# Contact Information
+## Contact Information
 
 | **Name** | **Email address**            | **Github ID**
 |----------|-------------------------------|-------------------|
@@ -122,7 +126,7 @@ Roles are a way to make code in playbooks reusable by putting the functionality 
 
 ---
 
-# References
+## References
 
 | **Link** | **Description** |
 |----------------------------------------------------|--------------------|
