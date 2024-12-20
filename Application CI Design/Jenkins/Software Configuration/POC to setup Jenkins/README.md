@@ -85,6 +85,13 @@ tree
 
 
 **Steps 8. pip and boto3 installation**
+
+### pip
+Its a package manager for Python used to install and manage Python libraries. It is essential for managing dependencies in Python projects. 
+
+###boto3
+The AWS SDK (Software Development Kit) for Python, enabling developers to interact with various AWS services like EC2, S3, Lambda, and more from Python applications.
+
 ```
 sudo apt install python-pip
 ```
