@@ -65,7 +65,7 @@ pipeline {
                     attachmentsPattern: 'coverage.txt',
                     body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
                     More info at: ${env.BUILD_URL}""",
-                    to: 'your-email@example.com',
+                    to: 'anjalidhiman.as@gmail.com',
                     subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
                 )
             }
@@ -74,7 +74,7 @@ pipeline {
         failure {
             script {
                 emailext(
-                    to: 'your-email@example.com',
+                    to: 'anjalidhiman.as@gmail.com',
                     subject: 'Jenkins Pipeline Failure: Attendance API',
                     body: '''Hello,
 
