@@ -1,7 +1,0 @@
----
-- hosts: tag_Name_jenkins_master_1
-  become: yes
-  gather_facts: yes
-
-  roles:
-    - Jenkins-role
