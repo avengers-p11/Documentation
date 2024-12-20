@@ -3,7 +3,7 @@
 
 | **Author** | **Created on** | **Version** | **Last updated by** | **Last edited on** | **Reviewer L0** |
 |------------|-------------|-----------|--------------|-------------|-----------|
-| Pravesh Kumar | 06-12-24 | Version 1.1 | Pravesh Kumar | 06-12-24 |  |
+| Pravesh Kumar | 06-12-24 | Version 1.1 | Pravesh Kumar | 20-12-24 |  |
 
 
 # **Table of Contents**
@@ -82,9 +82,10 @@ tree
 
 **Steps 8. pip and boto3 installation**
 ```
-sudo apt install python3-pip
+sudo apt install python-pip
 ```
-![Screenshot 2024-12-06 at 7 15 15 PM](https://github.com/user-attachments/assets/652086e5-9b1f-4dd5-85c4-472366767beb)
+![Screenshot 2024-12-20 at 8 47 19 PM](https://github.com/user-attachments/assets/0b712784-8f42-46a6-9b8d-26d08a3b8a96)
+
 
 
 ```
@@ -101,8 +102,15 @@ sudo apt install python3-boto
 
 ## Run the ansible role**
 ```
-ansible-playbook -i <inventory-name> <playbook-name>
-``` 
+ansible-playbook -i aws_ec2.yml <playbook-name>
+```
+```
+ansible-playbook -i aws_ec2.yml /home/ubuntu/jenkins/install_jenkins/tests/test.yml
+```
+
+![Screenshot 2024-12-20 at 8 40 32 PM](https://github.com/user-attachments/assets/35686fe1-4ed5-4ca2-9ada-d4397ba66b8d)
+
+
 # Conclusion
 Roles are a way to make code in playbooks reusable by putting the functionality into generalized libraries that can be then used in any playbook as needed.
 
@@ -119,4 +127,4 @@ Roles are a way to make code in playbooks reusable by putting the functionality 
 | **Link** | **Description** |
 |----------------------------------------------------|--------------------|
 | https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html | Ansible Installation |
-| https://www.softwaretestinghelp.com/ansible-roles-jenkins-integration-ec2-modules | Ansible role for jenkins |
+| [ansible_role](https://github.com/avengers-p11/ansible/blob/main/jenkins/) | Ansible role for jenkins |
