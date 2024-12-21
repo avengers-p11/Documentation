@@ -10,7 +10,7 @@ node {
     }
 
     stage('Dependency Checking with OWASP') {
-        echo "Running OWASP Dependency Check..."
+        
         
        
         sh '''
@@ -18,7 +18,7 @@ node {
                 -Dformat=HTML \
                 -DoutputDirectory=target/owasp-report
 
-            # Verify the report is being created
+          
             if [ -d "target/owasp-report" ]; then
                 echo "OWASP report directory found."
                 ls -l target/owasp-report
@@ -29,7 +29,7 @@ node {
     }
 
     stage('Archive Reports') {
-        echo "Checking if OWASP report exists in the target directory..."
+        
         
         
         def reportPath = 'target/owasp-report/dependency-check-report.html'
