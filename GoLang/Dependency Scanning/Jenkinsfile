@@ -1,1 +1,60 @@
+pipeline {
+    agent any
 
+    tools {
+        go 'GO'  
+    }
+
+    environment {
+        REPORT_FILE = "dependency_scan_report.txt"  // File to save dependency scanning report
+        GOSEC_BIN = './bin'  // Set the path to the gosec binary (ensure correct location)
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'git@github.com:avengers-p11/employee-api.git'
+            }
+        }
+
+        stage('Install GoSec') {
+            steps {
+               
+                script {
+                    sh 'curl -s https://raw.githubusercontent.com/securego/gosec/master/install.sh | bash'
+                    // Check if gosec was installed successfully
+                    if (!fileExists("${GOSEC_BIN}/gosec")) {
+                        error "GoSec installation failed."
+                    }
+                }
+            }
+        }
+
+        stage('Dependency Scanning') {
+            steps {
+                script {
+                 
+                    sh '''
+                        set -e  // Exit immediately if any command fails
+                        export PATH=$PATH:${GOSEC_BIN}
+                        gosec -fmt json -out ${REPORT_FILE} ./... || true  // Continue even if gosec warns
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                
+                emailext(
+                    attachmentsPattern: "${REPORT_FILE}",
+                    body: "Dependency scanning report is attached.",
+                    subject: "Go Project Dependency Scanning Report",
+                    to: "it.mohitsaini@gmail.com"
+                )
+            }
+        }
+    }
+}
