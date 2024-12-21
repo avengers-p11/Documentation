@@ -7,6 +7,7 @@ pipeline {
 
     environment {
         REPORT_FILE = "test_report.txt" 
+    }
 
     stages {
         stage('Checkout') {
@@ -17,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                
+             
                 sh "go test -v > ${REPORT_FILE} 2>&1"
             }
         }
@@ -25,7 +26,7 @@ pipeline {
 
     post {
         always {
-           
+         
             emailext attachmentsPattern: "${REPORT_FILE}",
                      body: "Test report is attached.",
                      subject: "Go Project Unit Test Report",
@@ -33,4 +34,3 @@ pipeline {
         }
     }
 }
-
