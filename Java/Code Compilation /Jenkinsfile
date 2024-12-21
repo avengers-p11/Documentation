@@ -19,7 +19,7 @@ node {
     }
 
     stage('Archive Report') {
-        // Properly handle spaces in the path
+        
         archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         sh "ls -l \"${env.WORKSPACE}\""  
     }
