@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                echo 'Cloning the repository...'
+             
                 git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
             }
         }
 
         stage('Install System Dependencies') {
             steps {
-                echo 'Installing required system dependencies...'
+                
                 sh '''
                     # Update system and install Python 3.11 and necessary libraries
                     DEBIAN_FRONTEND=noninteractive sudo apt-get update -y
@@ -31,7 +31,7 @@ pipeline {
 
         stage('Set Up Python Environment') {
             steps {
-                echo 'Setting up Python virtual environment with Python 3.11...'
+                
                 sh '''
                     # Create virtual environment with Python 3.11
                     if [ ! -d "$VENV_DIR" ]; then
@@ -47,7 +47,7 @@ pipeline {
 
         stage('Install Poetry') {
             steps {
-                echo 'Installing Poetry...'
+            
                 sh '''
                     # Install Poetry in the virtual environment
                     . ${VENV_DIR}/bin/activate
@@ -58,7 +58,7 @@ pipeline {
 
         stage('Update Poetry Lock File') {
             steps {
-                echo 'Updating poetry.lock file...'
+              
                 sh '''
                     # Update the poetry.lock file if pyproject.toml has changed
                     . ${VENV_DIR}/bin/activate
@@ -69,9 +69,9 @@ pipeline {
 
         stage('Install Python Dependencies') {
             steps {
-                echo 'Installing Python dependencies from poetry.lock...'
+              
                 sh '''
-                    # Install dependencies based on the updated poetry.lock file
+                 
                     . ${VENV_DIR}/bin/activate
                     poetry install
                 '''
@@ -80,9 +80,9 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                echo 'Running tests...'
+         
                 sh '''
-                    # Activate the virtual environment and run tests
+                   
                     . ${VENV_DIR}/bin/activate
                     poetry run pytest
                 '''
@@ -92,17 +92,17 @@ pipeline {
 
     post {
         always {
-            echo 'Cleaning up workspace...'
+            
             sh '''
-                # Remove the virtual environment
+               
                 rm -rf $VENV_DIR
             '''
             archiveArtifacts artifacts: 'unit-test-report.txt', allowEmptyArchive: true
-            echo 'Pipeline completed.'
+            
         }
         
         success {
-            echo 'Pipeline executed successfully!'
+          
             emailext(
                 attachmentsPattern: 'unit-test-report.txt',
                 body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
@@ -113,7 +113,7 @@ More info at: ${env.BUILD_URL}""",
         }
         
         failure {
-            echo 'Pipeline failed. Check the logs for details.'
+            
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
                 subject: 'Jenkins Pipeline Failure: Salary-api',
