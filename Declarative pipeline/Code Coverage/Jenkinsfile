@@ -89,8 +89,8 @@ pipeline {
                         # Activate the virtual environment and run tests with coverage
                         . ${VENV_DIR}/bin/activate
                         coverage run -m pytest
-                        coverage report > coverage.txt  # Generate a coverage report in text format
-                        coverage html  # Generate an HTML coverage report
+                        coverage report > coverage.txt  
+                        coverage html  
                     '''
                 }
             }
