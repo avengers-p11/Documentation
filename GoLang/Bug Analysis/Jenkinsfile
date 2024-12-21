@@ -46,7 +46,7 @@ pipeline {
                 attachmentsPattern: 'bugs-report.txt',
                 body: "Bug analysis report is attached.",
                 subject: "SonarQube Bug Analysis Report",
-                to: "it.mohitsaini@gmail.com"
+                to: "raman.tripathi.snaatak@mygurukulam.co"
             )
         }
 
