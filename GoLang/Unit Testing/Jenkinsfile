@@ -1,1 +1,36 @@
+pipeline {
+    agent any
+
+    tools {
+        go 'GO'  
+    }
+
+    environment {
+        REPORT_FILE = "test_report.txt" 
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'git@github.com:avengers-p11/employee-api.git'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                
+                sh "go test -v > ${REPORT_FILE} 2>&1"
+            }
+        }
+    }
+
+    post {
+        always {
+           
+            emailext attachmentsPattern: "${REPORT_FILE}",
+                     body: "Test report is attached.",
+                     subject: "Go Project Unit Test Report",
+                     to: "it.mohitsaini@gmail.com"
+        }
+    }
+}
 
