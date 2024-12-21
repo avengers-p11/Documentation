@@ -1,0 +1,126 @@
+pipeline {
+    agent any
+
+    environment {
+        VENV_DIR = "venv" 
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+             
+                git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+            }
+        }
+
+        stage('Install System Dependencies') {
+            steps {
+                
+                sh '''
+                    # Update system and install Python 3.11 and necessary libraries
+                    DEBIAN_FRONTEND=noninteractive sudo apt-get update -y
+                    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+                        software-properties-common
+                    sudo add-apt-repository ppa:deadsnakes/ppa -y
+                    sudo apt-get update -y
+                    sudo apt-get install -y python3.11 python3.11-venv python3.11-dev \
+                        python3-pip libpq-dev gcc
+                '''
+            }
+        }
+
+        stage('Set Up Python Environment') {
+            steps {
+                
+                sh '''
+                    # Create virtual environment with Python 3.11
+                    if [ ! -d "$VENV_DIR" ]; then
+                        python3.11 -m venv $VENV_DIR
+                    fi
+
+                    # Activate virtual environment and upgrade pip
+                    . ${VENV_DIR}/bin/activate
+                    pip install --upgrade pip
+                '''
+            }
+        }
+
+        stage('Install Poetry') {
+            steps {
+            
+                sh '''
+                    # Install Poetry in the virtual environment
+                    . ${VENV_DIR}/bin/activate
+                    pip install poetry
+                '''
+            }
+        }
+
+        stage('Update Poetry Lock File') {
+            steps {
+              
+                sh '''
+                    # Update the poetry.lock file if pyproject.toml has changed
+                    . ${VENV_DIR}/bin/activate
+                    poetry lock --no-update
+                '''
+            }
+        }
+
+        stage('Install Python Dependencies') {
+            steps {
+              
+                sh '''
+                 
+                    . ${VENV_DIR}/bin/activate
+                    poetry install
+                '''
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+         
+                sh '''
+                   
+                    . ${VENV_DIR}/bin/activate
+                    poetry run pytest
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            
+            sh '''
+               
+                rm -rf $VENV_DIR
+            '''
+            archiveArtifacts artifacts: 'unit-test-report.txt', allowEmptyArchive: true
+            
+        }
+        
+        success {
+          
+            emailext(
+                attachmentsPattern: 'unit-test-report.txt',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                to: 'anjalidhiman.as@gmail.com', 
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+            )
+        }
+        
+        failure {
+            
+            emailext(
+                to: 'anjalidhiman.as@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+            )
+        }
+    }
+}
