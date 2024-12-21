@@ -2,21 +2,21 @@ pipeline {
     agent any
 
     environment {
-        VENV_DIR = "venv" // Directory for the virtual environment
-        DEP_CHECK_PATH = "/opt/dependency-check/bin" // Path to dependency-check
+        VENV_DIR = "venv" 
+        DEP_CHECK_PATH = "/opt/dependency-check/bin" 
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                echo 'Cloning the repository...'
+                
                 git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                echo 'Installing required dependencies...'
+                
                 sh '''
                     # Install python3-venv and pip3
                     echo "Installing python3-venv and pip3..."
@@ -28,7 +28,7 @@ pipeline {
 
         stage('Setup Python Virtual Environment') {
             steps {
-                echo 'Setting up the Python virtual environment...'
+                
                 sh '''
                     # Create a virtual environment if it doesn't exist
                     if [ ! -d "$VENV_DIR" ]; then
@@ -86,7 +86,7 @@ pipeline {
 
         stage('Run OWASP Dependency-Check') {
             steps {
-                echo 'Running OWASP Dependency-Check for dependency scanning...'
+                
                 sh '''
                     # Run dependency-check using the full path
                     ${DEP_CHECK_PATH}/dependency-check.sh --project Attendance-API --scan . --format HTML --out dependency-check-report.html
@@ -97,8 +97,8 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline completed.'
-            // Archive the dependency check report file
+         
+          
             archiveArtifacts artifacts: 'dependency-check-report.html', allowEmptyArchive: true
         }
         success {
