@@ -15,7 +15,7 @@ pipeline {
         stage('Install System Dependencies') {
             steps {
                 sh '''
-                    # Update system and install Python 3.11 and necessary libraries
+                 
                     sudo apt-get update -y
                     sudo apt-get install -y \
                         software-properties-common
@@ -30,12 +30,12 @@ pipeline {
         stage('Set Up Python Environment') {
             steps {
                 sh '''
-                    # Create virtual environment with Python 3.11 if not already created
+               
                     if [ ! -d "$VENV_DIR" ]; then
                         python3.11 -m venv $VENV_DIR  # Specify the virtual environment directory
                     fi
 
-                    # Activate virtual environment and upgrade pip
+                   
                     . ${VENV_DIR}/bin/activate
                     pip install --upgrade pip
                 '''
@@ -45,7 +45,7 @@ pipeline {
         stage('Install Poetry') {
             steps {
                 sh '''
-                    # Install Poetry in the virtual environment
+                 
                     . ${VENV_DIR}/bin/activate
                     pip install poetry
                 '''
@@ -55,7 +55,7 @@ pipeline {
         stage('Update Poetry Lock File') {
             steps {
                 sh '''
-                    # Update the poetry.lock file if pyproject.toml has changed
+                
                     . ${VENV_DIR}/bin/activate
                     poetry lock --no-update
                 '''
@@ -65,7 +65,7 @@ pipeline {
         stage('Install Python Dependencies') {
             steps {
                 sh '''
-                    # Install dependencies based on the updated poetry.lock file
+                   
                     . ${VENV_DIR}/bin/activate
                     poetry install
                 '''
@@ -75,7 +75,7 @@ pipeline {
         stage('Run Tests with Coverage') {
             steps {
                 sh '''
-                    # Activate the virtual environment and run tests with coverage
+                   
                     . ${VENV_DIR}/bin/activate
                     coverage run -m pytest
                     coverage report > coverage.txt  # Generate a coverage report in text format
@@ -88,7 +88,7 @@ pipeline {
     post {
         always {
             sh '''
-                # Remove the virtual environment after the build
+               
                 rm -rf $VENV_DIR
             '''
             archiveArtifacts artifacts: 'unit-test-report.txt, coverage.txt, htmlcov/*', allowEmptyArchive: true
