@@ -36,15 +36,15 @@ node {
     }
 
     stage('Archive Report') {
-        // Archive both compilation report and sonar report
+        
         archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
-        // List workspace directory content to confirm the path
+       
         echo "Workspace: ${env.WORKSPACE}"  // Debugging the workspace path
         sh "ls -l \"${env.WORKSPACE}/target\""  // Adjusted path to list the 'target' directory content
     }
 
     stage('Send Email') {
-        // SonarQube dashboard link based on project key
+       
         def sonarHostUrl = "http://3.94.185.47:9000"
         def sonarProjectKey = "salary"
         def sonarLink = "${sonarHostUrl}/dashboard?id=${sonarProjectKey}"
