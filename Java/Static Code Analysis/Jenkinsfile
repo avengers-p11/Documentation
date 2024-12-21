@@ -12,7 +12,7 @@ node {
 
     stage('Code Compilation') {
         sh '''
-            echo "Compiling the code..."
+            
             mvn compile > compilation-report.txt
             ls -l compilation-report.txt  # Confirm file exists
             cat compilation-report.txt
@@ -20,7 +20,7 @@ node {
     }
 
     stage('Static Code Analysis') {
-        echo "Running SonarQube Static Code Analysis..."
+       
         withSonarQubeEnv('Sonar') {  
             sh '''
                 sonar-scanner \
@@ -33,7 +33,7 @@ node {
                     -Dsonar.report.export.path=target/static-code-analysis-report.json
             '''
         }
-        // List target directory to confirm report creation
+       
         sh 'ls -l target/'
     }
 
@@ -43,7 +43,7 @@ node {
     }
 
     stage('Send Email') {
-        // SonarQube dashboard link
+      
         def sonarLink = "http://3.94.185.47:9000/dashboard?id=salary"
         def taskLink = "http://3.94.185.47:9000/api/ce/task?id=08c4a63b-0113-49e8-998c-81f403727745"
 
