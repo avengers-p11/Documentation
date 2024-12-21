@@ -52,7 +52,7 @@ pipeline {
                     attachmentsPattern: "${REPORT_FILE}",
                     body: "Dependency scanning report is attached.",
                     subject: "Go Project Dependency Scanning Report",
-                    to: "it.mohitsaini@gmail.com"
+                    to: "raman.tripathi.snaatak@mygurukulam.co"
                 )
             }
         }
