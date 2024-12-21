@@ -30,7 +30,7 @@ pipeline {
             emailext attachmentsPattern: "${REPORT_FILE}",
                      body: "Compilation report is attached.",
                      subject: "Go Project Compilation Report",
-                     to: "it.mohitsaini@gmail.com"
+                     to: "raman.tripathi.snaatak@mygurukulam.co"
         }
     }
 }
