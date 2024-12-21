@@ -1,8 +1,12 @@
 pipeline {
     agent any
 
+    tools {
+        go 'GO'  
+    }
+
     environment {
-        REPORT_FILE = "compile_report.txt" // File to save compilation report
+        REPORT_FILE = "compile_report.txt" 
     }
 
     stages {
@@ -14,7 +18,7 @@ pipeline {
 
         stage('Compile') {
             steps {
-                // Run Go build and save the output to a report file
+               
                 sh "go build > ${REPORT_FILE} 2>&1"
             }
         }
@@ -22,7 +26,7 @@ pipeline {
 
     post {
         always {
-            // Send the compilation report via email
+           
             emailext attachmentsPattern: "${REPORT_FILE}",
                      body: "Compilation report is attached.",
                      subject: "Go Project Compilation Report",
