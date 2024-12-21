@@ -102,7 +102,9 @@ sudo apt install python-pip
 ```
 ![Screenshot 2024-12-20 at 8 47 19 PM](https://github.com/user-attachments/assets/0b712784-8f42-46a6-9b8d-26d08a3b8a96)
 
-
+```
+sudo apt install python3-pip
+```
 
 ```
 pip install boto
