@@ -6,102 +6,112 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)  
-2. [What Are Quality Gates?](#what-are-quality-gates)  
-3. [Why Use Quality Gates?](#why-use-quality-gates)  
-4. [Key Metrics in Quality Gates](#key-metrics-in-quality-gates)  
-5. [Default Quality Gate in SonarQube](#default-quality-gate-in-sonarqube)  
-6. [Customizing Quality Gates](#customizing-quality-gates)  
-7. [Best Practices for Quality Gates](#best-practices-for-quality-gates)  
-8. [Conclusion](#conclusion)
-9. [Contacts](#contacts)
-10. [References](#references)  
+- [What is SonarQube](#what-is-sonarqube)
+- [What are Quality Gates in SonarQube](#what-are-quality-gates-in-sonarqube)
+- [Benefits of SonarQube Quality Gates](#benefits-of-sonarqube-quality-gates)
+- [Types of quality gates in SonarQube](#types-of-quality-gates-in-sonarqube)
+- [SonarQube Quality Gate Implementation](#SonarQube-Quality-Gate-Implementation)
+- [Conclusion](#Conclusion)
+- [Contact Information](#contact-information)
+- [Reference Links](#reference-links)
 
----
+## What is SonarQube
 
-## Introduction
+SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality. It performs automatic reviews using static code analysis to detect bugs, code smells, and security vulnerabilities across multiple programming languages. By providing comprehensive reports and visualizations.
 
-SonarQube Quality Gates are a critical feature for enforcing code quality and ensuring the reliability, maintainability, and security of your projects. They act as checkpoints during the software development process, determining whether the code passes or fails based on predefined criteria.
+## What are Quality Gates in SonarQube
 
----
+SonarQube quality gates are predefined sets of conditions used to assess the quality of software code during its development lifecycle. These conditions typically include metrics such as code coverage, code duplications, coding standards compliance, and security vulnerabilities. Quality gates evaluate these metrics against predetermined thresholds. If the code meets these standards, the gate passes; if not, it fails. 
 
-## What Are Quality Gates?
+## Benefits of SonarQube Quality Gates
 
-Quality Gates are a set of conditions applied to a project’s code analysis results. If the project meets all the conditions, it "passes" the quality gate; otherwise, it "fails." These gates ensure that only high-quality code moves to production.
+| Benefit                 | Description                                                                                   |
+|-------------------------|-----------------------------------------------------------------------------------------------|
+| Early Issue Detection   | Catch code quality issues early in development, offering prompt feedback.                      |
+| Consistency             | Ensure consistent code quality across projects and teams.                                      |
+| Automation              | Automate code evaluation against metrics like coverage and vulnerabilities, saving time.       |
+| Best Practices          | Encourage adherence to coding standards, improving overall code quality.                       |
+| Integration             | Seamlessly integrate with CI/CD pipelines for continuous monitoring and improvement.           |
+| Decision Support        | Provide insights for project managers to assess code readiness, reducing deployment risks.     |
 
----
 
-## Why Use Quality Gates?
+## Types of quality gates in SonarQube
 
-Using Quality Gates in SonarQube provides the following benefits:
+- ### Default Quality Gate
 
-- **Early Detection**: Identifies code quality issues before they reach production.  
-- **Automated Enforcement**: Enforces consistent quality standards across all projects.  
-- **Improved Collaboration**: Promotes accountability among developers by clearly defining quality thresholds.  
-- **Continuous Improvement**: Encourages teams to improve code quality over time.  
+    SonarQube's default quality gate, known as "Sonar way," is a set of predefined conditions designed to ensure code quality and maintainability. It typically includes criteria such as no new critical issues, a minimum percentage of code coverage by unit tests on new code, and limits on code duplication. Additionally, it enforces high ratings for maintainability, reliability, and security on new code.
 
----
 
-## Key Metrics in Quality Gates
 
-| **Metric**               | **Description**                                                                 |
-|---------------------------|---------------------------------------------------------------------------------|
-| **Code Coverage**         | Percentage of code covered by automated tests. A key metric for test effectiveness. |
-| **New Bugs**              | Number of bugs introduced in new or modified code.                              |
-| **New Vulnerabilities**   | Tracks security issues in newly written code.                                   |
-| **Code Smells**           | Measures maintainability issues in the codebase.                               |
-| **Technical Debt**        | Estimated effort required to fix code issues.                                   |
-| **Duplicated Code**       | Percentage of duplicated lines in the codebase.                                 |
-| **Reliability Rating**    | Assesses the robustness of the code (A to E scale).                             |
-| **Security Rating**       | Measures the resilience to security threats (A to E scale).                     |
-| **Maintainability Rating**| Evaluates the ease of maintaining the codebase (A to E scale).                  |
+| Metric                   | Condition                          | Default Value                                |
+|--------------------------|------------------------------------|----------------------------------------------|
+| **Code Coverage**        | Code Coverage on New Code          | Greater than 80%                             |
+| **Duplicated Lines**     | Duplicated Lines on New Code       | Limited amount                               |
+| **Reliability Rating**   | Reliability Rating on New Code     | no new blocker or critical issues        |
+| **Security Rating**      | Security Rating or Hotspot on New Code | no new blocker or critical vulnerabilities |
+| **Maintainability Rating** | Maintainability Rating on New Code | technical debt ratio <= 5%               |
 
----
+ - ### Custom Quality Gate
 
-## Default Quality Gate in SonarQube
+    In SonarQube, you can create custom quality gates to tailor code quality checks according to your project's specific requirements. custom quality gates let you adjust metrics like code coverage, duplication and maintainability according to your project's needs.
 
-SonarQube comes with a built-in **"Sonar way"** Quality Gate, which includes the following conditions:
+## SonarQube Quality Gate Implementation
 
-1. **New Code Coverage**: Minimum 80% coverage for new code.  
-2. **No New Bugs**: Zero bugs introduced in new code.  
-3. **No New Vulnerabilities**: Zero vulnerabilities in new code.  
-4. **No New Code Smells**: Maintainability thresholds for new code.  
-5. **Technical Debt Ratio**: Remain within acceptable levels.
+### 1. Login to SonarQube
+- Open your SonarQube instance (e.g., `http://localhost:9000`).
+- Login using your credentials.
 
----
+<img width="605" alt="image" src="https://github.com/user-attachments/assets/bf94527d-89d8-40ad-8c30-0282b4fa9c5f" />
 
-## Customizing Quality Gates
 
-SonarQube allows you to create custom Quality Gates tailored to your project's requirements.
+### 2. Go to Quality Gates
+- Click on **Quality Gates** in the top menu.
 
-### Steps to Customize:
-1. Navigate to **Administration > Quality Gates** in the SonarQube interface.  
-2. Click **Create** to add a new Quality Gate.  
-3. Add conditions by specifying metrics and thresholds.  
-4. Assign the Quality Gate to your project(s).  
+<img width="608" alt="image" src="https://github.com/user-attachments/assets/41885da3-708a-47d7-ae0a-6b61c8358770" />
 
-### Example:
-- **Condition**: New Code Coverage >= 90%  
-- **Condition**: New Bugs <= 0  
-- **Condition**: Duplicated Code <= 3%
 
----
+### 3. Create or Edit a Quality Gate
+- If you want to modify an existing Quality Gate (like **SonarWay**), click on it. Otherwise, click **Create** to create a new one.
 
-## Best Practices for Quality Gates
+<img width="332" alt="image" src="https://github.com/user-attachments/assets/0cb90da2-9d13-46c6-897f-ea92aa5a7519" />
 
-| **Best Practice**                     | **Description**                                                                 |
-|---------------------------------------|---------------------------------------------------------------------------------|
-| **Focus on New Code**                 | Prioritize monitoring and improving the quality of new code to maintain overall project health. |
-| **Set Realistic Thresholds**          | Ensure thresholds are achievable but promote improvement.                      |
-| **Align with Team Goals**             | Customize gates to reflect your team's quality standards and goals.            |
-| **Integrate with CI/CD**              | Enforce Quality Gates in Continuous Integration/Delivery pipelines.            |
-| **Regularly Review Gates**            | Update Quality Gates periodically to align with evolving project needs.        |
+- Give the gate a meaningful name if creating a new one.
 
----
+<img width="356" alt="image" src="https://github.com/user-attachments/assets/1c38a1e7-7f9e-404e-8441-3af5fc034ef3" />
 
-## Conclusion
+### 4. Add Conditions for Failing Quality Gate
 
-SonarQube Quality Gates are an essential mechanism for maintaining high standards in software development. By leveraging built-in and customized Quality Gates, teams can proactively enforce quality and foster continuous improvement.
+#### Code Coverage:
+- **Condition**: If **Code Coverage** is less than **80%**, the project should fail.
+  
+  **Add Condition**:
+  - **Metric**: `Coverage`
+  - **Operator**: `is less than`
+  - **Value**: `80%`
+  - **Status**: `Error` (This will fail the project if coverage is below 80%).
+
+<img width="594" alt="image" src="https://github.com/user-attachments/assets/b0530c5f-05ee-41b9-9458-f2f410c6415e" />
+
+### 5. Apply Quality Gate to Your Project
+- Once you have added the conditions, save the quality gate.
+- Go to Project Administration > Quality Gate.
+- From the dropdown, select the quality gate you just created or updated.
+- Save the settings.
+
+### 6. Test the Quality Gate
+- Run the SonarQube analysis for your project to check if the quality gate fails based on these conditions:
+```
+  mvn clean install sonar:sonar
+```
+- After the analysis, go to the SonarQube dashboard for your project.
+- Check the Quality Gate status:
+  - If any condition (e.g., Code Coverage < 80%, Reliability Rating = B, etc.) is not met, the project will show as Failed.
+
+<img width="599" alt="image" src="https://github.com/user-attachments/assets/a575e851-ddbf-4575-a61c-74761e65675f" />
+
+### Conclusion
+
+SonarQube's quality gates help maintain high code standards by checking metrics like code coverage, security, and maintainability. The default "Sonar way" gate provides a solid foundation, while custom gates allow for flexibility. Quality gates detect issues early, ensure consistency, and integrate smoothly into CI/CD pipelines, making them essential for modern software development.
 
 ---
 
