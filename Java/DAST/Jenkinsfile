@@ -26,7 +26,7 @@ pipeline {
             }
         }
 
-        stage('Run DAST - Nikto') {
+        stage('Run DAST') {
             steps {
                 
                 sh "nikto -h ${TARGET_URL} -o nikto_report.html -Tuning 2"
