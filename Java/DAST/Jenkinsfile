@@ -1,1 +1,52 @@
+@Library('Jenkins-shared-libraries@main') _
+
+pipeline {
+    agent any
+
+    environment {
+        TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
+        REPORT_FILE = 'dast_report.html'  // Updated report file name
+    }
+
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs() 
+            }
+        }
+        
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Call the shared library function to install Nikto
+                dast_install_dependencies()
+            }
+        }
+
+        stage('Run DAST') {
+            steps {
+                // Call the shared library function to run Nikto scan
+                dast_run_scan("${TARGET_URL}", "${REPORT_FILE}")
+            }
+        }
+
+        stage('Publish DAST Report') {
+            steps {
+                archiveArtifacts artifacts: "${REPORT_FILE}", allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        always {
+            // Call the shared library function to send the email with the report
+            dast_send_report("${REPORT_FILE}")
+        }
+    }
+}
 
