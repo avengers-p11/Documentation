@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 28-11-24      | Neelesh  Kumar             | 28-11-24           |  | | |     
+| Neelesh kumar      | 28-11-24      | Neelesh  Kumar             | 28-11-24           |Shikha tripathi  | | |     
 
 ## Table of Contents
 1. [Purpose](#purpose)
@@ -55,8 +55,7 @@ This Poc demonstrates how to set up and use GitHub as a Version Control System. 
    sudo apt-get update
    sudo apt-get install git
    ```
-![Screenshot from 2024-11-29 13-54-04](https://github.com/user-attachments/assets/125d6413-ac24-4d1c-9f1c-37138468e095)
-![Screenshot from 2024-11-29 14-00-16](https://github.com/user-attachments/assets/fc47ab97-1b46-4b91-84be-7f90ffa08699)
+![Screenshot from 2024-12-22 16-22-56](https://github.com/user-attachments/assets/ff7b9b1b-f752-4536-bdab-c676268a8afd)
 
 
 2. Create a GitHub account at [github.com](https://github.com)
@@ -69,7 +68,7 @@ This Poc demonstrates how to set up and use GitHub as a Version Control System. 
    - Click "Create repository"
   
    
-![Screenshot from 2024-11-29 13-49-02](https://github.com/user-attachments/assets/49646b46-922f-40de-bb01-d06aac917a47)
+![Screenshot from 2024-12-22 16-25-12](https://github.com/user-attachments/assets/b449d827-8a23-40c3-b789-446b6d3e32d0)
 
 
 
@@ -91,17 +90,16 @@ This Poc demonstrates how to set up and use GitHub as a Version Control System. 
  git push sshorigin main
  
 ```
-![Screenshot from 2024-11-29 14-18-43](https://github.com/user-attachments/assets/c8977e0e-68a1-4459-b276-22deb2f4cecc)
-![Screenshot from 2024-11-29 14-18-52](https://github.com/user-attachments/assets/3b9d4f66-c610-4dbc-a5de-2ffcc450d874)
-![Screenshot from 2024-11-29 14-18-58](https://github.com/user-attachments/assets/96c7a3e2-872f-46f5-9ad9-9943409f2253)
-![Screenshot from 2024-11-29 14-21-55](https://github.com/user-attachments/assets/def53c9a-8f3e-4654-8eaa-4c9b47a40d6d)
-![Screenshot from 2024-11-29 14-22-16](https://github.com/user-attachments/assets/01ea0678-3b9c-47b4-9e23-baaa8d32cb48)
-![Screenshot from 2024-11-29 14-22-24](https://github.com/user-attachments/assets/a6b95bc6-3e7a-4080-8797-ef309bad9b81)
-![Screenshot from 2024-11-29 14-22-35](https://github.com/user-attachments/assets/b021eff6-a792-4c24-9bef-3df02c08f4e6)
-![Screenshot from 2024-11-29 14-22-59](https://github.com/user-attachments/assets/e7757b2a-5875-4d53-b6a5-bfc3513f42d4)
-![Screenshot from 2024-11-29 14-23-56](https://github.com/user-attachments/assets/cbaa5c9f-67e9-4ecc-aa77-9797262bf703)
-![Screenshot from 2024-11-29 14-25-37](https://github.com/user-attachments/assets/94508a9f-f6d7-485a-9d06-b665450e60f9)
-![Screenshot from 2024-11-29 14-26-12](https://github.com/user-attachments/assets/b0f89fb0-ab02-4843-be4b-f0e59e72a60f)
+![Screenshot from 2024-12-22 16-28-37](https://github.com/user-attachments/assets/294d4f15-9bcc-4788-8448-357b65b7a500)
+![Screenshot from 2024-12-22 16-31-14](https://github.com/user-attachments/assets/8ac26578-ca6c-4e95-996a-3dfc417a3de0)
+![Screenshot from 2024-12-22 16-32-18](https://github.com/user-attachments/assets/553c665f-345f-4b60-96ed-10be9c453b3f)
+![Screenshot from 2024-12-22 16-33-36](https://github.com/user-attachments/assets/bb3e28e8-7af7-474a-97a3-17318da1ff0c)
+![Screenshot from 2024-12-22 16-34-20](https://github.com/user-attachments/assets/9acadc71-4b05-42e8-98d4-0f58d2dcccc8)
+![Screenshot from 2024-12-22 16-34-57](https://github.com/user-attachments/assets/2429fa9f-5923-41d5-8912-2be9ec3c83a3)
+![Screenshot from 2024-12-22 16-38-27](https://github.com/user-attachments/assets/d0c338d5-0f14-49e1-9b76-f94842942323)
+![Screenshot from 2024-12-22 16-39-11](https://github.com/user-attachments/assets/43f4077a-d7fe-4df5-a5de-cd1083f73d0d)
+![Screenshot from 2024-12-22 16-40-35](https://github.com/user-attachments/assets/0d067949-4395-4d0c-9132-43a8c84a26a3)
+![Screenshot from 2024-12-22 16-41-01](https://github.com/user-attachments/assets/ad9691f7-57b2-45f8-945c-9240a9f34b7e)
 
 ## Conclusion
 
