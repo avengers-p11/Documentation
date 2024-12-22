@@ -1,0 +1,51 @@
+node {
+    // Define tools and environment variables
+    def goHome = tool 'GO'
+    def scannerHome = tool 'Sonar'
+    def REPORT_FILE = "bugs-report.txt"
+
+    try {
+        stage('Clone Repository') {
+            echo 'Cloning the repository...'
+            checkout([
+                $class: 'GitSCM',
+                branches: [[name: 'main']],
+                userRemoteConfigs: [[url: 'git@github.com:avengers-p11/attendance-api.git']]
+            ])
+        }
+
+        stage('Bug Analysis') {
+            echo 'Running SonarQube analysis for bugs...'
+            withSonarQubeEnv('Sonar') { // Assuming 'Sonar' is configured in Jenkins Global Tool Configuration
+                sh """
+                    ${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.projectKey=employee \
+                    -Dsonar.projectName=Employee-api \
+                    -Dsonar.host.url=http://100.27.13.45:9000 \
+                    -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                    -Dsonar.java.binaries=target/classes \
+                    -Dsonar.issue.types=BUG \
+                    -Dsonar.report.export.path=${REPORT_FILE}
+                """
+            }
+        }
+    } catch (e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        stage('Send Email') {
+            emailext(
+                attachmentsPattern: REPORT_FILE,
+                body: "Bug analysis report is attached.",
+                subject: "SonarQube Bug Analysis Report",
+                to: "raman.tripathi.snaatak@mygurukulam.co"
+            )
+        }
+
+        if (currentBuild.result == 'SUCCESS') {
+            echo 'Bug analysis completed successfully.'
+        } else {
+            echo 'Bug analysis failed.'
+        }
+    }
+}
