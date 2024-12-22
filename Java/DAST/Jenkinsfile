@@ -31,7 +31,7 @@ pipeline {
         stage('Run DAST') {
             steps {
                 // Call the shared library function to run Nikto scan
-                dast_run_scan("${TARGET_URL}", "${REPORT_FILE}")
+                dast_run_scan()
             }
         }
 
@@ -45,7 +45,7 @@ pipeline {
     post {
         always {
             // Call the shared library function to send the email with the report
-            dast_send_report("${REPORT_FILE}")
+            dast_send_report()
         }
     }
 }
