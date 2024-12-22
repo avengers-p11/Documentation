@@ -1,5 +1,6 @@
 # Liquibase POC Documentation
-![image](https://github.com/user-attachments/assets/76f8388c-06ff-45ec-8b85-c2eae6f88f75)
+![image](https://github.com/user-attachments/assets/f3ed32db-5047-4fed-a7f6-83cea0a3119d)
+
 
 
 
@@ -62,14 +63,15 @@ https://github.com/MyGurukulam-p11/Documentation/tree/Priyanshu_yadav-SCRUM-13/O
 ````sh
 sudo snap install liquibase
 ````
-<img width="578" alt="Screenshot 2024-11-20 at 8 25 20 PM" src="https://github.com/user-attachments/assets/c473efdd-6779-40f9-8d16-b23a51a17517">
+<img width="644" alt="image" src="https://github.com/user-attachments/assets/c6ca3b87-6faa-4afa-9832-123f6cb49267" />
+
 
 
  To verification installation
 ````sh
 liquibase --version
 ````
-<img width="1116" alt="Screenshot 2024-11-20 at 8 10 26 PM" src="https://github.com/user-attachments/assets/0bee7a02-aab0-4185-a82d-206ac0979fa7">
+<img width="1110" alt="image" src="https://github.com/user-attachments/assets/dbc27004-1f5f-4b6d-8e05-0dbcc2830bf1" />
 
 ## For Connecting with DB
 
@@ -125,8 +127,7 @@ liquibase --version
 ```    
 liquibase --changeLogFile=db-changelog.xml update
 ```
-<img width="1061" alt="Screenshot 2024-11-20 at 8 09 21 PM" src="https://github.com/user-attachments/assets/fa2792d6-e5ed-44a4-8d1d-d05560f06cee">
-
+<img width="1061" alt="image" src="https://github.com/user-attachments/assets/2dc6422a-13fb-4d27-b501-54001e52b6d8" />
 
 
 ## Best Practices
