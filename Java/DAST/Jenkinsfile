@@ -2,52 +2,65 @@ pipeline {
     agent any
 
     environment {
-        ZAP_CLI = "zap-cli"
+       
+        TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Clean Workspace') {
+            steps { 
+                cleanWs() 
+            }
+        }
+        
+        stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
-            }    
+                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+               
+                sh 'sudo apt-get update && sudo apt-get install -y nikto'
+            }
         }
 
-        stage('DAST') {
+        stage('Run DAST - Nikto') {
             steps {
-                script {
-                    sh '''
-                        $ZAP_CLI quick-scan --self-contained --start --spider --scan https://github.com/avengers-p11/Documentation/blob/Declarative/Java/DAST/Jenkinsfile
-                        echo "DAST scan completed."
-                    '''
-                }
+                
+                sh "nikto -h ${TARGET_URL} -o nikto_report.html -Tuning 2"
+            }
+        }
+
+        stage('Publish DAST Report') {
+            steps {
+              
+                archiveArtifacts artifacts: 'nikto_report.html', allowEmptyArchive: true
             }
         }
     }
 
     post {
         always {
-            echo 'Pipeline completed.'
-            archiveArtifacts artifacts: 'dast-report.pdf', allowEmptyArchive: true
-        }
-        success {
-            echo 'Pipeline finished successfully!'
+            
             emailext(
-                attachmentsPattern: 'dast-report.pdf',
-                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
-More info at: ${env.BUILD_URL}""",
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                to: 'it.mohitsaini@gmail.com'
-            )
-        }
-        failure {
-            echo 'Pipeline failed.'
-            emailext(
-                to: 'it.mohitsaini@gmail.com',
-                subject: 'Jenkins Pipeline Failure: Salary-api',
-                body: '''Hello,
+                subject: "DAST Report - Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                body: """
+                    Hello,
 
-The Jenkins pipeline has failed. Please check the logs.'''.stripIndent(),
-                attachmentsPattern: 'dast-report.pdf'
+                    The DAST (Nikto) scan for build #${env.BUILD_NUMBER} has been completed.
+                    
+                    Build Status: ${currentBuild.currentResult}
+                    
+                    Please find the attached report.
+
+                    Regards,
+                    Jenkins
+                """,
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                to: 'it.mohitsaini@gmail.com',
+                attachmentsPattern: 'nikto_report.html'
             )
         }
     }
