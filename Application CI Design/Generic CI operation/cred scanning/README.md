@@ -49,6 +49,8 @@ If any of these are found in the code, they could be a security risk because att
 | **AWS Macie**   | Specifically for AWS environments, it scans your storage (like S3 buckets) for sensitive data. | 
 | **SpectralOps** | Focuses on identifying secrets in code and configuration files and integrates well with CI pipelines. | 
 
+
+
 ### Comparison of Credential Scanning Tools
 
 | Tool         | Features                                                                 | Strengths                                                            | Limitations                                                     |
