@@ -1,7 +1,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 11-12-24           |  | | |   
+| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 11-12-24           | Sikha tripathi | | |   
 
 ## Table Of Contents
 - [Introduction](#introduction)
@@ -18,7 +18,7 @@
 ---
 
 ## Introduction
-- License scanning analyzes and identifies software licenses associated with code or components in a project.
+ License scanning analyzes and identifies software licenses associated with code or components in a project.
 
 ---
 
@@ -30,19 +30,20 @@
 - **Security and Quality Assurance**: Evaluates security, quality, and reputation of components.
 
 ---
-
 ## License Scanning Tools
-- **FOSSA**: Comprehensive license compliance and dependency analysis tool.
-- **Black Duck**: Open-source security and license compliance solution.
-- **WhiteSource**: Manages open-source components and license compliance.
-- **Ninka**: Lightweight tool analyzing license text.
-- **Licensee**: Ruby gem identifying licenses by analyzing license files.
-- **ScanCode Toolkit**: Open-source license and metadata scanning toolkit.
-- **LicenseFinder**: Manages dependencies and licenses in Ruby projects.
-- **JFrog Xray**: Artifact analysis for security and license compliance.
-- **FOSSology**: Open-source license compliance software system.
+
+| Tool             | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| **FOSSA**         | Comprehensive license compliance and dependency analysis tool.             |
+| **Black Duck**     | Open-source security and license compliance solution.                     |
+| **WhiteSource**    | Manages open-source components and license compliance.                    |
+| **JFrog Xray**     | Artifact analysis for security and license compliance.                    |
+| **FOSSology**      | Open-source license compliance software system.                           |
+
+
 
 ---
+
 
 ## Tool Comparison
 
@@ -57,15 +58,21 @@
 | **Customization**         | Flexible in reporting and policies                | Customizable policies and reporting                | Customization requires more technical expertise   |
 | **Cost (Free Elements)**  | Free version with limited features                | Primarily commercial with trial options           | Open-source; support costs may apply              |
 
+
+
 ---
+   
+
 
 ## Tool Recommendation
 - **FOSSA** is recommended due to:
-  - **Multi-language Support**: Comprehensive license detection across multiple languages.
-  - **Vulnerability Scanning**: Robust scanning for security risks.
-  - **User-Friendly Interface**: Easy navigation, integrates with CI/CD tools.
-  - **Continuous Monitoring**: Monitors changes in licenses over time.
 
+| Feature                        | Description                                                                     |
+|--------------------------------|---------------------------------------------------------------------------------|
+| **Multi-language Support**     | Comprehensive license detection across multiple programming languages.          |
+| **Vulnerability Scanning**     | Robust scanning capabilities for identifying security risks.                   |
+| **User-Friendly Interface**    | Easy navigation and seamless integration with CI/CD tools.                     |
+| **Continuous Monitoring**      | Tracks and monitors changes in licenses over time for proactive compliance.    |
 
 ## Advantages and Disadvantages
 
@@ -74,7 +81,6 @@
 | - Ensures legal compliance                           | - Misidentification of licenses                    |
 | - Identifies license types                           | - Overhead from alerts                             |
 | - Reduces legal risks                               | - License interpretation challenges                 |
-| - Facilitates risk assessment                        | - Integration challenges                            |
 | - Automated scanning                                | - Tool updates required                            |
 | - Centralized documentation                          | - Dependency management                             |
 | - Informed choices                                  | - Doesn’t address all compliance issues            |
@@ -120,6 +126,6 @@
 |-------------|------------------------------------------------------------------------|
 | FOSSA       | [https://fossa.com](https://fossa.com)                                 |
 | Black Duck  | [https://www.blackducksoftware.com](https://www.blackducksoftware.com) |
-| Snyk        | [https://snyk.io](https://snyk.io)                                     |
+| POC        | [https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Generic%20CI%20operation/Licence%20scanning/POC.md](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Generic%20CI%20operation/Licence%20scanning/POC.md)                                     |
 | WhiteSource | [https://www.whitesourcesoftware.com](https://www.whitesourcesoftware.com) |
 
