@@ -98,7 +98,7 @@
 ---
 
 ## Conclusion
-- License scanning ensures legal compliance and mitigates risks in software development. Automating the process streamlines compliance and security while allowing teams to focus on development.
+ License scanning ensures legal compliance and mitigates risks in software development. Automating the process streamlines compliance and security while allowing teams to focus on development.
 
 ---
 
