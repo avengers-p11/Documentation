@@ -2,10 +2,9 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 8-12-24           |  | | |     
+| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 8-12-24           | Shikha tripathi | | |     
 
 ### Table of Contents
-- [Introduction](#introduction)
 - [What is Credential Scanning?](#what-is-credential-scanning)
 - [Why Credential Scanning?](#why-credential-scanning)
 - [Tools for Credential Scanning](#tools-for-credential-scanning)
@@ -18,10 +17,6 @@
 - [Contact Information](#contact-information)
 - [Refrences](#refrences) 
 
-### Introduction
-Credential scanning is a process used in Continuous Integration (CI) to automatically check code for sensitive information like passwords, API keys, or tokens. It helps ensure that no critical data is accidentally shared in the codebase or in public repositories, which could lead to security issues.
-
-As part of the CI pipeline, where code is built and tested automatically, credential scanning ensures that sensitive information doesn’t slip through unnoticed. This process is especially important in modern, fast-paced development environments where mistakes can happen.
 
 ### What is Credential Scanning?
 Credential scanning is simply the act of scanning through your code, configuration files, or logs to check for sensitive information, like:
@@ -47,7 +42,6 @@ If any of these are found in the code, they could be a security risk because att
 | **TruffleHog**  | Looks for sensitive data by scanning for high-entropy strings, which might represent passwords or keys.
 | **Gitleaks**    | Scans Git repositories for sensitive information in the code history.   | 
 | **AWS Macie**   | Specifically for AWS environments, it scans your storage (like S3 buckets) for sensitive data. | 
-| **SpectralOps** | Focuses on identifying secrets in code and configuration files and integrates well with CI pipelines. | 
 
 
 
@@ -59,7 +53,6 @@ If any of these are found in the code, they could be a security risk because att
 | **TruffleHog**  | 1. Scans for high-entropy strings (API keys, secrets) <br> 2. Regex scanning <br> 3. Supports a wide variety of data sources | 1. Works with many data types <br> 2. Flexible scanning methods <br> 3. Good for scanning past commit history | 1. Can produce false positives <br> 2. Complex setup for fine-tuning <br> 3. Manual effort required to interpret results |
 | **Gitleaks**    | 1. Simple command-line interface (CLI) <br> 2. CI/CD pipeline integration <br> 3. Scans Git history and pre-commit hooks | 1. Lightweight and fast <br> 2. Easy to use and set up <br> 3. Open-source and free to use | 1. Lacks advanced dashboards <br> 2. Minimal reporting features <br> 3. Less comprehensive for large, complex projects |
 | **AWS Macie**   | 1. Uses machine learning to classify sensitive data <br> 2. Works seamlessly with AWS services (S3, etc.) <br> 3. Detects personally identifiable information (PII) | 1. Tailored for AWS environments <br> 2. Automatic classification of sensitive data <br> 3. Can handle large volumes of data | 1. Limited to AWS services <br> 2. Cost can escalate with usage <br> 3. Not suitable for non-AWS projects |
-| **SpectralOps** | 1. Customizable with APIs for more control <br> 2. Scans code and configuration files <br> 3. Supports multiple integrations (Jenkins, GitLab, etc.) | 1. Works well with large projects <br> 2. Good for complex workflows <br> 3. Supports multiple file formats and environments | 1. Hard to set up for small teams <br> 2. Complex configuration <br> 3. Can require expert knowledge for customization |
 
 
 ### Advantages of Credential Scanning
@@ -72,8 +65,8 @@ If any of these are found in the code, they could be a security risk because att
 | **Avoid Data Leaks**  | By removing sensitive data before code is published, you avoid exposing it to hackers.               |
 
 ### Proof of Concept (POC)
-![Screenshot from 2024-12-08 12-23-42](https://github.com/user-attachments/assets/09cd825b-cf69-49cf-93e1-b3100d104463)
-![Screenshot from 2024-12-08 12-23-52](https://github.com/user-attachments/assets/2a53e3d2-e3b4-4b47-ae8d-9b7824a4da0e)
+![Screenshot from 2024-12-22 16-51-00](https://github.com/user-attachments/assets/a406f9f6-1379-4ab0-92d9-667788071874)
+![Screenshot from 2024-12-22 16-51-52](https://github.com/user-attachments/assets/700f960e-8279-42da-b70f-ccfee6062398)
 
 
 
@@ -88,19 +81,13 @@ If any of these are found in the code, they could be a security risk because att
 | **Use Secrets Managers** | Store secrets (keys, passwords) in secure vaults like AWS Secrets Manager or HashiCorp Vault.     |
 
 ### Recommendation
-Chooses GitLeaks because:
+## Why Choose GitLeaks?
 
-- It’s simple to set up and integrates easily with GitHub Actions.
-- It scans the entire Git history, not just recent commits, which helps find secrets buried deep in the code.
-- It's lightweight and runs efficiently in CI pipelines, ensuring that sensitive data is caught before reaching production.
-
-#### How GitLeaks works:
-
-- **1. Scan the repository**: Gitleaks looks through the entire Git history, including the current files and past commits.
-- **2. Find secrets**: It detects strings or patterns that look like sensitive information (such as "password = 'secret123'" or api_key = 'abcdef').
-- **3.Report**: It gives a report listing where the leaks are and what kind of secret it found (e.g., password, API key).
-
-
+| Feature                                     | Description                                                                                   |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------|
+| **Simple Setup**                            | GitLeaks is easy to configure and integrates seamlessly with GitHub Actions for CI workflows. |
+| **Comprehensive Scanning**                  | It scans the entire Git history, not just recent commits, ensuring even deeply buried secrets are identified. |
+| **Lightweight and Efficient**               | GitLeaks is optimized for CI pipelines, catching sensitive data without adding significant overhead. |
 
 
 ### Conclusion
