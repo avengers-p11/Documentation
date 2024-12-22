@@ -2,6 +2,9 @@
 ![image](https://github.com/user-attachments/assets/f3ed32db-5047-4fed-a7f6-83cea0a3119d)
 
 
+| Author        | Created on | Version | Last updated by | Last edited on |
+  |-------------|---------|-------------|-------------|---------|
+  | Raman Tripathi | 20-12-24 | version 1 | Raman Tripathi | 20-11-24 |
 
 
 
@@ -176,7 +179,13 @@ liquibase --changeLogFile=db-changelog.xml update
 Liquibase is a powerful tool for managing database schema changes, providing a reliable way to track, version, and deploy changes. By following best practices and having a solid backup and rollback strategy, you can effectively manage your database schema lifecycle.
 
 ## Contact Information
+| Name| Email Address      |
+|-----|--------------------------|
+| Raman Tripathi | raman.tripathi.snaatak@mygurukulam.co |
 
+| GitHub | URL |
+|----------|---------|
+|  Raman-tripathi07  |  https://github.com/Raman-tripathi07 |
 
 ## References
 | Reference                          | URL                                                                 |
