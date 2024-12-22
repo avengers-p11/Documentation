@@ -1,0 +1,45 @@
+node {
+    // Define tools and environment variables
+    def goHome = tool 'GO'
+    def REPORT_FILE = "dependency_scan_report.txt"
+    def GOSEC_BIN = './bin'
+
+    try {
+        stage('Checkout') {
+            checkout([
+                $class: 'GitSCM',
+                branches: [[name: 'main']],
+                userRemoteConfigs: [[url: 'git@github.com:avengers-p11/employee-api.git']]
+            ])
+        }
+
+        stage('Install GoSec') {
+            sh '''
+                curl -s https://raw.githubusercontent.com/securego/gosec/master/install.sh | bash
+            '''
+            
+            if (!fileExists("${GOSEC_BIN}/gosec")) {
+                error "GoSec installation failed."
+            }
+        }
+
+        stage('Dependency Scanning') {
+            sh """
+                export PATH=$PATH:${GOSEC_BIN}
+                gosec -fmt json -out ${REPORT_FILE} ./... || true
+            """
+        }
+    } catch (e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        stage('Send Email') {
+            emailext(
+                attachmentsPattern: "${REPORT_FILE}",
+                body: "Dependency scanning report is attached.",
+                subject: "Go Project Dependency Scanning Report",
+                to: "raman.tripathi.snaatak@mygurukulam.co"
+            )
+        }
+    }
+}
