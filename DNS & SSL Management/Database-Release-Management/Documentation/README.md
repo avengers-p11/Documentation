@@ -2,7 +2,9 @@
 
 # Database Release Management | Intro / Understanding
 
-
+| Author        | Created on | Version | Last updated by | Last edited on |
+  |-------------|---------|-------------|-------------|---------|
+  | Raman Tripathi | 20-12-24 | version 1 | Raman Tripathi | 20-11-24 |
 
 
 ## Table of Content
@@ -74,7 +76,13 @@
 
 
 ## Contact Information
+| Name| Email Address      |
+|-----|--------------------------|
+| Raman Tripathi | raman.tripathi.snaatak@mygurukulam.co |
 
+| GitHub | URL |
+|----------|---------|
+|  Raman-tripathi07  |  https://github.com/Raman-tripathi07 |
 
 
 ## References
