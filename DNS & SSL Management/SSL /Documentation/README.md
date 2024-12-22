@@ -1,13 +1,14 @@
 # Secure socket layer (SSL) Documentation
 
-        |  
+| **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
+|------------|----------------|-------------------|---------------------|----------|
+| Raman Tripathi  | 20-12-24      | V1.1  | 20-12-24           |  |
 
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Why SSL ?](#why-ssl)
-- [What is SSL ?](#what-is-ssl)
 - [SSL Advantages](#ssl-advantages)
 - [Disadvantages of SSL](#disadvantages-of-ssl)
 - [How it is work ?](#how-ssl-works)
@@ -15,21 +16,18 @@
 - [Different SSL provider](#different-ssl-provider)
 - [Comparison between SSL providers ](#comparison-between-ssl-providers)
 - [Recommendation](#recommendation)
+  
 ## Introduction
 
->SSL (Secure Sockets Layer) is an encryption protocol that secures data transfer between a server and a client. When SSL is implemented, data is transferred in an encrypted form, making it difficult for unauthorized individuals to understand or intercept it. Nowadays, the upgraded version of SSL, called TLS (Transport Layer Security), is used, which is even more secure and efficient.
+SSL (Secure Sockets Layer) is an encryption protocol that secures data transfer between a server and a client. When SSL is implemented, data is transferred in an encrypted form, making it difficult for unauthorized individuals to understand or intercept it. Nowadays, the upgraded version of SSL, called TLS (Transport Layer Security), is used, which is even more secure and efficient.
 
 
 
 ## Why SSL ?
 
->Originally, data on the web was transmitted in plaintext, making it easy for anyone who intercepted the message to read it. For example, if someone logged into their email account, their username and password would travel across the Internet unprotected.
+Originally, data on the web was transmitted in plaintext, making it easy for anyone who intercepted the message to read it. For example, if someone logged into their email account, their username and password would travel across the Internet unprotected.
+
 SSL was created to solve this problem and protect user privacy. By encrypting data between a user and a web server, SSL ensures that anyone who intercepts the data sees only a scrambled mess of characters. This keeps the user’s login credentials safe, visible only to the email service.
-
-
-
-## What is SSL ?
->Secure Sockets Layer (SSL) is a communication protocol that encrypts data sent between a website and a browser, or between two servers. It's used to create a secure connection between devices or applications on a network, and to authenticate the other party before sharing data.
 
 ## SSL Advantages 
    1. **Data Encryption:**
@@ -57,7 +55,8 @@ Search engines like Google prioritize websites with SSL, improving their search 
 
 
 ## How SSL works ?
-![image](https://github.com/user-attachments/assets/df45b674-ec30-475d-a70d-a6a927bbe243)
+![image](https://github.com/user-attachments/assets/54c7e181-4a15-4946-ad29-b66a3cc91389)
+
 
  #### **TCP Handshake:**
  - Before SSL begins, the client and server establish a TCP connection.
@@ -129,7 +128,6 @@ sudo certbot renew
 ## Different SSL provider 
 
 
- 
 - Let's Encrypt  
 - DigiCert  
 - GlobalSign  
@@ -146,12 +144,18 @@ sudo certbot renew
 
 
 ## Recommendation
->To use Let’s Encrypt easily, set up Certbot to automatically renew your certificate every 90 days. Keep an eye on the expiration dates to make sure everything stays active. Make your website secure by using TLS 1.2+ and enabling HSTS to force HTTPS. If you have multiple subdomains, you can use a wildcard certificate to cover them all.
+To use Let’s Encrypt easily, set up Certbot to automatically renew your certificate every 90 days. Keep an eye on the expiration dates to make sure everything stays active. Make your website secure by using TLS 1.2+ and enabling HSTS to force HTTPS. If you have multiple subdomains, you can use a wildcard certificate to cover them all.
 
 
 ## Contact information
 
+| Name| Email Address      |
+|-----|--------------------------|
+| Raman Tripathi | raman.tripathi.snaatak@mygurukulam.co |
 
+| GitHub | URL |
+|----------|---------|
+|  Raman-tripathi07  |  https://github.com/Raman-tripathi07  |
 
 ## References
 
