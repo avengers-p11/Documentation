@@ -54,7 +54,7 @@ The list of several relevant testing frameworks for Java is mentioned below
 | **Selenium** | Automates browsers to test websites. | Works with Chrome, Firefox, Safari, and more. Can be used with JUnit and TestNG. | Tests work across browsers. Supports many languages like Java, Python. | Tests can be slow. Needs extra tools for advanced features. |
 | **Maven**     | Automates builds and manages dependencies. | Manages dependencies (e.g., JUnit, TestNG) using `pom.xml`. Plugins for testing (e.g., Surefire). Generates reports. | Simplifies dependency management. Automates test execution. Integrates easily with CI/CD tools. | Requires proper configuration to work effectively. Not a standalone testing tool.          |
 
-# Java Unit Testing using Maven 
+# Java Unit Testing using Junit
 
 **Before starting unit testing, ensure that you have Maven installed on your system. If not, please follow the instructions in the following resource**
 
