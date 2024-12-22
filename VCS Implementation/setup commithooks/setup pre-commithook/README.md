@@ -1,9 +1,13 @@
 # Setup Commit Hooks (pre-commithook)in Git
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 12-12-24           |  shreya jaiswal| | |     
+| Neelesh kumar      | 29-11-24      | Neelesh  Kumar             | 12-12-24           |  shreya/shikha| | |     
 
 This guide explains how to set up and configure commit hooks in Git to enforce best practices and automate pre-commit checks.
+
+
+
+![image](https://github.com/user-attachments/assets/809fe01d-184a-4a23-bba3-ca96a1cd3570)
 
 ---
 
@@ -90,32 +94,10 @@ Make the script executable:
 chmod +x pre-commit
 ```
 ![Screenshot from 2024-12-08 21-49-24](https://github.com/user-attachments/assets/04ee8ae3-d93b-430b-9d69-e2d9d07764b3)
-![Screenshot from 2024-12-08 12-08-48](https://github.com/user-attachments/assets/e33e82b2-efeb-4d17-b9cb-de5a36af67cb)
+![Screenshot from 2024-12-22 16-11-41](https://github.com/user-attachments/assets/48e44201-6b4e-4492-98cc-1e7a9d3faf41)
 
 
 
-
-## Using Tools for Managing Hooks
-
-Instead of manually managing hooks, you can use tools like:
-
-  Husky: A tool for managing Git hooks in JavaScript/Node.js projects.
-  pre-commit: A framework for managing multi-language pre-commit hooks.
-
-### Husky Example
-
- Install Husky:
-```
-npm install husky --save-dev
-```
- Add a pre-commit hook:
-```
-npx husky add .husky/pre-commit "npm run lint"
-```
-Commit the changes:
-
-    git add .husky/pre-commit
-    git commit -m "Setup Husky pre-commit hook"
 ## Contacts
 
 | Name| Email Address      |
