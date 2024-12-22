@@ -60,7 +60,7 @@ Liquibase operates through a series of `changelogs` written in XML, YAML, JSON, 
 
 ### 2. Install PostgresSQL 
 - References
-https://github.com/MyGurukulam-p11/Documentation/tree/Priyanshu_yadav-SCRUM-13/OT%20MS%20Understanding/PostgresSQL/Setup%20and%20run%20the%20PostgresSQL%20for%20POC
+https://github.com/avengers-p11/Documentation/blob/main/OT%20MS%20Understanding/PostgresSQL/PostgresSQL-documentation.md
 
 ### 3. Install Liquibase
 ````sh
