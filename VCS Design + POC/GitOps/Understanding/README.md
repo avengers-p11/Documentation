@@ -4,6 +4,18 @@
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
 | Pravesh Kumar      | 20-11-24      | Pravesh Kumar             | 30-11-24           |  | | |
 
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Why GitOps](#why-gitops)
+3. [GitOps Principles](#GitOps-Principles)
+4. [GitOps Tools](#gitops-tools)
+5. [GitOps Tools](#GitOps-Tools)
+6. [GitOps Workflows and Procedures](#GitOps-Workflows-and-Procedures)
+7. [Benefits of GitOps](#Benefits-of-GitOps)
+8. [Drawbacks of GitOps](#Drawbacks-of-GitOps)
+9. [GitOps Best Practices](#GitOps-Best-Practices)
+10. [FAQs](#FAQs)
+
 ## Introduction
 
 GitOps is a modern approach to managing infrastructure and applications using Git as the single source of truth, combining version control, collaboration, and CI/CD to enable automated, reliable, and auditable workflows for faster, more secure software delivery.
@@ -38,6 +50,8 @@ GitOps is a modern approach to managing infrastructure and applications using Gi
 |Spinnaker |	Multi-cloud continuous delivery platform, supporting GitOps workflows. |
 
 ## GitOps Workflows and Procedures
+![image](https://github.com/user-attachments/assets/a206612d-8906-42d8-a78c-cfc6c87791ac)
+
 
 |Step	| Description| 
 |-----|-----|
@@ -85,9 +99,6 @@ GitOps is a modern approach to managing infrastructure and applications using Gi
 |What happens if manual changes occur?	|Continuous reconciliation tools detect and fix drift, restoring the desired state defined in Git.|
 |Is GitOps secure?	|Yes, Git provides controlled access, review mechanisms, and a clear audit trail for all changes.|
 
-## Conclusion
-
-GitOps streamlines application and infrastructure management by using Git as the central source of truth, automating deployments, and ensuring consistency. It offers benefits like faster rollbacks and enhanced security, though it requires overcoming challenges like tool complexity and a learning curve.
 
 
 ## Contact Information
