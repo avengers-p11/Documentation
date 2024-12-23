@@ -1,67 +1,81 @@
-@Library('Jenkins-shared-libraries@main') _
+@Library('Jenkins-shared-libraries@main') _  
 
 pipeline {
     agent any
-
     environment {
-        TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
-        REPORT_FILE = 'dast_report.html'
+        VENV_DIR = "venv"
     }
-
     stages {
-        stage('Code Clone') {
+        stage('Clone Repository') {
             steps {
                 script {
-                    clone_repo()  // Ensure the 'clone_repo' function is defined in the shared library or in the Jenkinsfile.
+                    python_clone_repo()  
                 }
             }
         }
-
+        stage('Set Up Python Environment') {
+            steps {
+                script {
+                    python_environment()  
+                }
+            }
+        }
+        stage('poetry_lock') {
+            steps {
+                script {
+                    poetry_lock()  
+                }
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 script {
-                    dast_install_dependencies()  // Install nikto
+                    python_dependencies()  
                 }
             }
         }
-
-        stage('Run DAST') {
+        stage('Run Tests with Coverage') {
             steps {
                 script {
-                    // Call the correct method with parameters (targetUrl and reportFile)
-                    dast_run_scan(TARGET_URL, REPORT_FILE)  // Run DAST scan with provided target URL and report file
+                    python_code_coverage()  
                 }
             }
         }
-
-        stage('Publish DAST Report') {
+        stage('Static code') {
             steps {
                 script {
-                    archive_report(REPORT_FILE)  // Archive the report file (ensure this function is defined elsewhere)
+                    static_code_analysis()  
                 }
             }
         }
-    }
-
+    }  
     post {
+        always {
+            script {
+                echo "Cleaning up the environment"
+                sh 'rm -rf venv'
+            }
+            archiveArtifacts artifacts: 'coverage.txt, htmlcov/*', allowEmptyArchive: true
+            echo 'Pipeline completed.'
+        }
         success {
             script {
-                send_email(
-                    "DAST Scan Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The DAST scan has been completed successfully.\n\nPlease find the attached report.",
-                    REPORT_FILE,
-                    "it.mohitsaini@gmail.com"
+                emailext(
+                    attachmentsPattern: 'coverage.txt',
+                    body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+                    More info at: ${env.BUILD_URL}""",
+                    to: 'anjalidhiman.as@gmail.com',
+                    subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
                 )
             }
         }
-
         failure {
             script {
-                send_email(
-                    "DAST Scan Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The DAST scan has failed.\n\nPlease find the attached report.",
-                    REPORT_FILE,
-                    "it.mohitsaini@gmail.com"
+                emailext(
+                    to: 'anjalidhiman.as@gmail.com',
+                    subject: 'Jenkins Pipeline Failure: Attendance API',
+                    body: '''Hello,
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
                 )
             }
         }
