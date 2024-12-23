@@ -5,48 +5,64 @@ pipeline {
 
     environment {
         TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
-        REPORT_FILE = 'dast_report.html'  // Updated report file name
+        REPORT_FILE = 'dast_report.html'
     }
 
     stages {
-        stage('Clean Workspace') {
+        stage('Code Clone') {
             steps {
-                cleanWs() 
-            }
-        }
-        
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+                script {
+                    clone_repo('git@github.com:avengers-p11/salary-api.git', 'main')
+                }
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                // Call the shared library function to install Nikto
-                dast_install_dependencies()
+                script {
+                    install_dependencies()
+                }
             }
         }
 
         stage('Run DAST') {
             steps {
-                // Call the shared library function to run Nikto scan
-                dast_run_scan()
+                script {
+                    run_dast_scan("${TARGET_URL}", "${REPORT_FILE}")
+                }
             }
         }
 
         stage('Publish DAST Report') {
             steps {
-                archiveArtifacts artifacts: "${REPORT_FILE}", allowEmptyArchive: true
+                script {
+                    archive_report("${REPORT_FILE}")
+                }
             }
         }
     }
 
     post {
-        always {
-            // Call the shared library function to send the email with the report
-            dast_send_report()
+        success {
+            script {
+                send_email(
+                    "DAST Scan Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The DAST scan has been completed successfully.\n\nPlease find the attached report.",
+                    "${REPORT_FILE}",
+                    "it.mohitsaini@gmail.com"
+                )
+            }
+        }
+
+        failure {
+            script {
+                send_email(
+                    "DAST Scan Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The DAST scan has failed.\n\nPlease find the attached report.",
+                    "${REPORT_FILE}",
+                    "it.mohitsaini@gmail.com"
+                )
+            }
         }
     }
 }
-
