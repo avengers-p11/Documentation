@@ -1,1 +1,63 @@
+pipeline {
+    agent any
 
+    environment {
+        TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
+    }
+
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: 'main']],
+                          userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'sudo apt-get update && sudo apt-get install -y nikto'
+            }
+        }
+
+        stage('Run DAST') {
+            steps {
+                sh "nikto -h ${TARGET_URL} -o dast_report.html -Tuning 2"
+            }
+        }
+
+        stage('Publish DAST Report') {
+            steps {
+                archiveArtifacts artifacts: 'dast_report.html', allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        always {
+            emailext(
+                subject: "DAST Report - Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                body: """
+                    Hello,
+
+                    The DAST scan for build #${env.BUILD_NUMBER} has been completed.
+                    
+                    Build Status: ${currentBuild.currentResult}
+                    
+                    Please find the attached report.
+
+                    Regards,
+                    Jenkins
+                """,
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                to: 'anjalidhiman.as@gmail.com',
+                attachmentsPattern: 'dast_report.html'
+            )
+        }
+    }
+}
