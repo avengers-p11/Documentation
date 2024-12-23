@@ -20,7 +20,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    install_dependencies()
+                    dast_install_dependencies()
                 }
             }
         }
