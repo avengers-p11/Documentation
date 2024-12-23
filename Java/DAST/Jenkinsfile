@@ -37,6 +37,8 @@ pipeline {
             steps {
                 script {
                     archiveArtifacts artifacts: "${REPORT_FILE}", allowEmptyArchive: true
+                    // Debugging line to confirm the file exists
+                    sh "ls -l ${REPORT_FILE}"  
                 }
             }
         }
@@ -65,4 +67,13 @@ pipeline {
             }
         }
     }
+}
+
+def send_email(subject, body, attachment, to) {
+    emailext (
+        subject: subject,
+        body: body,
+        attachmentsPattern: attachment,  // Ensure the file pattern matches your report file
+        to: to
+    )
 }
