@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Clone Repository') {   
             steps {
                 git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
             }
