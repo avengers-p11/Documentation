@@ -3,7 +3,7 @@ node {
     def mvnHome = tool name: 'Maven', type: 'maven'
     env.PATH = "${mvnHome}/bin:${env.PATH}"  
 
-    stage('Clone Repository') {
+    stage('Clone Repository') {  
         checkout([$class: 'GitSCM', 
                   branches: [[name: '*/main']], 
                   userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
