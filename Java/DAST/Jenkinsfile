@@ -1,68 +1,49 @@
-@Library('Jenkins-shared-libraries@main') _
+node {
+    
+    def TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
 
-pipeline {
-    agent any
-
-    environment {
-        TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
-        REPORT_FILE = 'dast_report.html'
-    }
-
-    stages {
-        stage('Code Clone') {
-            steps {
-                script {
-                    clone_repo('git@github.com:avengers-p11/salary-api.git', 'main')
-                }
-            }
+    try {
+        
+        stage('Clean Workspace') {
+            cleanWs()
         }
-
+       
+        stage('Checkout') {
+            checkout([$class: 'GitSCM', branches: [[name: 'main']],
+                      userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+        }
+       
         stage('Install Dependencies') {
-            steps {
-                script {
-                    dast_install_dependencies()
-                }
-            }
+            sh 'sudo apt-get update && sudo apt-get install -y nikto'
         }
-
+       
         stage('Run DAST') {
-            steps {
-                script {
-                    run_dast_scan("${TARGET_URL}", "${REPORT_FILE}")
-                }
-            }
+            sh "nikto -h ${TARGET_URL} -o dast_report.html -Tuning 2"
         }
-
+       
         stage('Publish DAST Report') {
-            steps {
-                script {
-                    archive("${REPORT_FILE}")
-                }
-            }
+            archiveArtifacts artifacts: 'dast_report.html', allowEmptyArchive: true
         }
-    }
-
-    post {
-        success {
-            script {
-                send_email(
-                    "DAST Scan Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The DAST scan has been completed successfully.\n\nPlease find the attached report.",
-                    "${REPORT_FILE}",
-                    "it.mohitsaini@gmail.com"
-                )
-            }
-        }
-
-        failure {
-            script {
-                send_email(
-                    "DAST Scan Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                    "The DAST scan has failed.\n\nPlease find the attached report.",
-                    "${REPORT_FILE}",
-                    "it.mohitsaini@gmail.com"
-                )
-            }
-        }
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+       
+        emailext(
+            subject: "DAST Report - Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+            body: """
+                Hello,
+                The DAST scan for build #${env.BUILD_NUMBER} has been completed.
+                
+                Build Status: ${currentBuild.currentResult}
+                
+                Please find the attached report.
+                Regards,
+                Jenkins
+            """,
+            recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+            to: 'it.mohitsaini@gmail.com',
+            attachmentsPattern: 'dast_report.html'
+        )
     }
 }
