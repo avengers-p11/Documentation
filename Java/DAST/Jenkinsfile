@@ -1,1 +1,55 @@
+node {
+    
+    def TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
 
+    try {
+        
+        stage('Clean Workspace') {
+            cleanWs()
+        }
+
+       
+        stage('Checkout') {
+            checkout([$class: 'GitSCM', branches: [[name: 'main']],
+                      userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+        }
+
+       
+        stage('Install Dependencies') {
+            sh 'sudo apt-get update && sudo apt-get install -y nikto'
+        }
+
+       
+        stage('Run DAST') {
+            sh "nikto -h ${TARGET_URL} -o dast_report.html -Tuning 2"
+        }
+
+       
+        stage('Publish DAST Report') {
+            archiveArtifacts artifacts: 'dast_report.html', allowEmptyArchive: true
+        }
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+       
+        emailext(
+            subject: "DAST Report - Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+            body: """
+                Hello,
+
+                The DAST scan for build #${env.BUILD_NUMBER} has been completed.
+                
+                Build Status: ${currentBuild.currentResult}
+                
+                Please find the attached report.
+
+                Regards,
+                Jenkins
+            """,
+            recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+            to: 'it.mohitsaini@gmail.com',
+            attachmentsPattern: 'dast_report.html'
+        )
+    }
+}
