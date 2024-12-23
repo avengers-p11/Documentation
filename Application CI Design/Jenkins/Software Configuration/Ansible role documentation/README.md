@@ -42,7 +42,7 @@ Ansible Roles are a powerful mechanism for organizing and reusing automation tas
 | **Reduce Human Error**           | Ensures consistent execution of tasks through automation, reducing the chance of manual mistakes.     |
 | **Accelerate Deployment Times**  | Speeds up deployments by reusing predefined tasks and configurations.                                |
 | **Improve Consistency and Compliance** | Standardizes configurations, ensuring uniformity across environments and aiding regulatory compliance. |
-                                  |
+                                  
 ## Steps for creating Ansible role
 
 [Reffer the POC for jenkins setup](https://github.com/avengers-p11/Documentation/tree/main/Application%20CI%20Design/Jenkins/Software%20Configuration/POC%20to%20setup%20Jenkins)
