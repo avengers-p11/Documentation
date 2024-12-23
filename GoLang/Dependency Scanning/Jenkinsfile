@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Call the shared library function to install GoSec
-                    installGoSec(env.GOSEC_BIN)
+                    golangInstallGoSec(env.GOSEC_BIN)
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     // Call the shared library function to scan dependencies
-                    scanDependencies(env.GOSEC_BIN, env.REPORT_FILE)
+                    golangScanDependencies(env.GOSEC_BIN, env.REPORT_FILE)
                 }
             }
         }
