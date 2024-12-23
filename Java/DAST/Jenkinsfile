@@ -12,7 +12,7 @@ pipeline {
         stage('Code Clone') {
             steps {
                 script {
-                    clone_repo()  
+                    clone_repo()  // Ensure this function is defined in the shared library
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    dast_install_dependencies()  
+                    dast_install_dependencies()  // Ensure this function is defined in the shared library
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
         stage('Run DAST') {
             steps {
                 script {
-                    dast_run_scan("${TARGET_URL}", "${REPORT_FILE}")  
+                    dast_run_scan("${TARGET_URL}", "${REPORT_FILE}")  // Ensure this function is defined in the shared library
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Publish DAST Report') {
             steps {
                 script {
-                    archive("${REPORT_FILE}")  
+                    archiveArtifacts artifacts: "${REPORT_FILE}", allowEmptyArchive: true
                 }
             }
         }
