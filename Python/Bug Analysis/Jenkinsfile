@@ -53,7 +53,7 @@ pipeline {
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                            -Dsonar.host.url=http://34.202.159.42:9000 \
+                            -Dsonar.host.url=http://54.175.166.181:9000 \
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG \
