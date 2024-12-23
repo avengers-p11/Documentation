@@ -19,11 +19,12 @@
 10. [Clone the salary-api repo in your instance](#clone-the-salary-api-repo-in-your-instance)
 11. [Install migration tool](install-migration-tool)
 12. [Run the java runtime command](#run-the-java-runtine-command)
-13. [Output](#output)
-14. [Error](#error)
-15. [Conclusion](#conclusion)
-16. [Contact Information](#contact-information)
-17. [References](#references)
+13. [Endpoint Information](#Endpoint-Information)
+14. [Output](#output)
+15. [Error](#error)
+16. [Conclusion](#conclusion)
+17. [Contact Information](#contact-information)
+18. [References](#references)
 ---  
 
 ## Pre-Requisites
