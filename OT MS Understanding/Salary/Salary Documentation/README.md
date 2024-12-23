@@ -27,13 +27,13 @@ The Salary API is a vital microservice in the OT-Microservices project, handling
 
 ### The primary purpose of the Salary API
 
-- Manage and process salary records for employees.
-
-- Integrate easily with other microservices within the OT-Microservices ecosystem.
-  
-- Support efficient data storage, retrieval, and calculation related to employee compensation.
-  
-- It is essential in automating payroll processes, enhancing accuracy in employee compensation records, and simplifying the financial operations within the organization.
+|Aspect	|Description|
+|---|---|
+|Manage Salary Records|	Manage and process salary records for employees.|
+|Integration|	Integrate easily with other microservices within the OT-Microservices ecosystem.|
+|Data Management	|Support efficient data storage, retrieval, and calculation related to employee compensation.|
+|Automation and Accuracy|	Automate payroll processes, enhancing accuracy in employee compensation records.|
+|Financial Operations	|Simplify financial operations within the organization.|
 
 ### Supported features of the Salary API
 
