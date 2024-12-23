@@ -1,1 +1,56 @@
+@Library('Jenkins-shared-libraries@main') _
+
+pipeline {
+    agent any
+
+    tools {
+        go 'GO'
+    }
+
+    environment {
+        REPORT_FILE = "unit_test_report.txt"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    
+                    golang_clone_repo ()
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                   
+                    golangInstallGoSec()
+                }
+            }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+                script {
+                  
+                    golangRunUnitTests(env.REPORT_FILE)
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                emailext(
+                    attachmentsPattern: "${env.REPORT_FILE}",
+                    body: "Unit test report is attached.",
+                    subject: "Go Project Unit Test Report",
+                    to: "raman.tripathi.snaatak@mygurukulam.co"
+                )
+            }
+        }
+    }
+}
 
