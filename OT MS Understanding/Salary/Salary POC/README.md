@@ -379,11 +379,50 @@ java -jar target/salary-0.1.0-RELEASE.jar
 ```
 - The command runs the Java application packaged in the salary-0.1.0-RELEASE.jar file.
  --- 
+
+ ## Endpoint Information
+
+| Endpoint|	Method	|Description|
+|----|----|----|
+|/api/v1/salary/create/record	|POST	|Data creation endpoint which accepts certain JSON body to add salary information in database|
+|/api/v1/salary/search	|GET|	Endpoint for searching data information using the params in the URL|
+|/api/v1/salary/search/all	|GET	|Endpoint for searching all information across the system|
+|/actuator/prometheus	|GET	|Application healthcheck and performance metrics are available on this endpoint|
+|/actuator/health|	GET	|Endpoint for providing shallow healthcheck information about application health and readiness|
+
+---
+
 ## Output
 
 ![Screenshot 2024-11-11 at 11 52 13 PM](https://github.com/user-attachments/assets/a990c12e-2c05-4765-b7c3-86900693e22e)
 
 ---
+
+### /api/v1/salary/create/record
+
+![Screenshot 2024-12-23 at 4 54 19 PM](https://github.com/user-attachments/assets/08748455-4d38-4a4e-b267-6b8e7a6da4c3)
+
+---
+### /api/v1/salary/search
+
+![Screenshot 2024-12-23 at 4 54 57 PM](https://github.com/user-attachments/assets/7122407a-ea73-4802-97df-11cbd11bfefb)
+
+ ---
+ ### /api/v1/salary/search/all
+
+ ![Screenshot 2024-12-23 at 4 55 31 PM](https://github.com/user-attachments/assets/bef52ec9-af5a-42fe-b4f5-acfa6700e0e6)
+
+---
+ ### /actuator/prometheus
+
+ ![Screenshot 2024-12-23 at 4 56 30 PM](https://github.com/user-attachments/assets/bc8a0d57-a5a7-4864-a4f1-8f2f3d4e6dcb)
+
+---
+ ### /actuator/health
+![Screenshot 2024-12-23 at 4 58 11 PM](https://github.com/user-attachments/assets/cb199e00-7608-4795-a212-b411066be223)
+
+---
+
 ## Error ##
 
 ### Port is already is in use
