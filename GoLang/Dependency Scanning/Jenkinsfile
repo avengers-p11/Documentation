@@ -8,7 +8,7 @@ pipeline {
     }
 
     environment {
-        REPORT_FILE = "dependency_scan_report.txt"
+        REPORT_FILE = "dependency_scan_report.json"
         GOSEC_BIN = './bin'
     }
 
@@ -16,7 +16,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    // Call the shared library function for checkout
+                    // Call the shared library function for repository checkout
                     golang_clone_repo()
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Call the shared library function to install GoSec
-                    golangInstallGoSec()
+                    installGoSec(env.GOSEC_BIN)
                 }
             }
         }
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     // Call the shared library function to scan dependencies
-                    golangScanDependencies()
+                    scanDependencies(env.GOSEC_BIN, env.REPORT_FILE)
                 }
             }
         }
@@ -45,7 +45,7 @@ pipeline {
         always {
             script {
                 emailext(
-                    attachmentsPattern: "${REPORT_FILE}",
+                    attachmentsPattern: "${env.REPORT_FILE}",
                     body: "Dependency scanning report is attached.",
                     subject: "Go Project Dependency Scanning Report",
                     to: "raman.tripathi.snaatak@mygurukulam.co"
