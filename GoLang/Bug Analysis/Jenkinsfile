@@ -20,12 +20,11 @@ pipeline {
                 }
             }
         }
-    }
 
-    stage('Bug Analysis') {
+        stage('Bug Analysis') {  // Fixed: Moved inside the 'stages' block
             steps {
                 script {
-                    // Pass the Go tool name to the golang_compile function
+                    // Pass the Go tool name to the bug_analysis function
                     bug_analysis('Sonar')
                 }
             }
