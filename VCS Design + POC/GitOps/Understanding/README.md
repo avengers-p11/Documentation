@@ -9,14 +9,13 @@
 2. [Why GitOps](#why-gitops)
 3. [GitOps Principles](#GitOps-Principles)
 4. [GitOps Tools](#gitops-tools)
-5. [GitOps Tools](#GitOps-Tools)
-6. [GitOps Workflows and Procedures](#GitOps-Workflows-and-Procedures)
-7. [Benefits of GitOps](#Benefits-of-GitOps)
-8. [Drawbacks of GitOps](#Drawbacks-of-GitOps)
-9. [GitOps Best Practices](#GitOps-Best-Practices)
-10. [FAQs](#FAQs)
-11. [Contact Information](#Contact-Information)
-12. [References](#References)
+5. [GitOps Workflows and Procedures](#GitOps-Workflows-and-Procedures)
+6. [Benefits of GitOps](#Benefits-of-GitOps)
+7. [Drawbacks of GitOps](#Drawbacks-of-GitOps)
+8. [GitOps Best Practices](#GitOps-Best-Practices)
+9. [FAQs](#FAQs)
+10. [Contact Information](#Contact-Information)
+11. [References](#References)
 
 ## Introduction
 
