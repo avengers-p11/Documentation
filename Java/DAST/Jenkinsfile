@@ -29,14 +29,14 @@ pipeline {
         stage('Run DAST') {
             steps {
                 
-                sh "nikto -h ${TARGET_URL} -o nikto_report.html -Tuning 2"
+                sh "nikto -h ${TARGET_URL} -o dast_report.html -Tuning 2"
             }
         }
 
         stage('Publish DAST Report') {
             steps {
               
-                archiveArtifacts artifacts: 'nikto_report.html', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'dast_report.html', allowEmptyArchive: true
             }
         }
     }
@@ -60,7 +60,7 @@ pipeline {
                 """,
                 recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                 to: 'it.mohitsaini@gmail.com',
-                attachmentsPattern: 'nikto_report.html'
+                attachmentsPattern: 'dast_report.html'
             )
         }
     }
