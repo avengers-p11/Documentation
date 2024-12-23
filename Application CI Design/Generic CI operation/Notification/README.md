@@ -47,29 +47,29 @@ This guide will walk you through setting up Slack and Jenkins to collaborate, pr
    
 3.Search for **Jenkins CI** and click **Add to Slack**.
 
-![Screenshot from 2024-12-12 18-49-36](https://github.com/user-attachments/assets/4bd43765-d965-422c-9b59-e7ead8b3669f)
-![Screenshot from 2024-12-12 18-49-49](https://github.com/user-attachments/assets/23700090-bc13-4095-91eb-326c9c475fb9)
+![Screenshot from 2024-12-23 16-02-11](https://github.com/user-attachments/assets/71c74c6c-65d3-4600-a266-0405a39653d8)
+![Screenshot from 2024-12-23 16-02-42](https://github.com/user-attachments/assets/8a4a2145-67c1-4159-a6f0-a65aa505b88f)
 
 
 4. Choose the Slack channel where you want to receive Jenkins notifications, then click **Add Jenkins CI Integration**.
-![Screenshot from 2024-12-12 18-51-13](https://github.com/user-attachments/assets/34a65138-9eb9-4dde-979d-027a241eb112)
+![Screenshot from 2024-12-23 16-03-11](https://github.com/user-attachments/assets/e578382c-9866-4479-926a-0d2db44e708a)
 
 5. Copy the **team subdomain** and **integration token** for later use in Jenkins.
-![Screenshot from 2024-12-12 18-51-53](https://github.com/user-attachments/assets/aac5bbae-4279-45c9-8e1d-847ac3a4497a)
+![Screenshot from 2024-12-23 16-04-34](https://github.com/user-attachments/assets/eb31429d-c21d-45ff-8f6c-ee42f9720a3c)
 
 
 ### Step 3: Install Slack Notification Plugin in Jenkins
 1. In Jenkins, navigate to **Manage Jenkins** > **Manage Plugins**.
 2. Search for **Slack Notification Plugin** and install it.
-![Screenshot from 2024-12-12 18-54-31](https://github.com/user-attachments/assets/136e6420-f2b0-4c6b-bb64-445e4fa17fdc)
+![Screenshot from 2024-12-23 16-05-07](https://github.com/user-attachments/assets/75c83248-7742-4eae-907e-24d143324599)
 
 
 
  3. After installation, configure the Slack credentials:
    - Go to **Manage Jenkins** > **Credentials** > **Global** > **Add Credentials**.
    - Select **Secret Text**, then enter the Slack integration token copied earlier.
-![Screenshot from 2024-12-12 20-22-36](https://github.com/user-attachments/assets/fed4ec2e-0476-4d16-baa7-77a96e487a8f)
-![Screenshot from 2024-12-12 20-22-50](https://github.com/user-attachments/assets/395a52b7-9608-455f-8e0c-cceed447797e)
+![Screenshot from 2024-12-23 16-06-04](https://github.com/user-attachments/assets/5feba79e-871f-452d-97be-8e9b91dc2281)
+![Screenshot from 2024-12-23 16-06-39](https://github.com/user-attachments/assets/7c490c65-aaef-4fcd-b395-c6a13bede446)
 
 
  4. **Configure the Slack settings in Jenkins:**
@@ -78,19 +78,17 @@ This guide will walk you through setting up Slack and Jenkins to collaborate, pr
      - Set **Workspace** to your Slack team subdomain.
      - Select the credentials (integration token) you created earlier.
      - Set a default Slack channel for notifications.
- ![Screenshot from 2024-12-12 20-23-58](https://github.com/user-attachments/assets/a6c075b0-afec-4875-89ee-b2d99dbda0f6)
- ![Screenshot from 2024-12-12 20-24-12](https://github.com/user-attachments/assets/08b9b790-cb71-4a04-87ca-e85c73b4ea21)
- ![Screenshot from 2024-12-12 19-33-24](https://github.com/user-attachments/assets/946dce6e-af28-4e0f-a92c-2423d6a7721e)
+ ![Screenshot from 2024-12-23 16-20-55](https://github.com/user-attachments/assets/964d1bd5-f9f6-44c1-aff0-1d6ad8d77715)
+ ![Screenshot from 2024-12-23 16-21-56](https://github.com/user-attachments/assets/a1d037bd-538a-4eff-968f-5e394f43547a)
+ ![Screenshot from 2024-12-23 16-23-10](https://github.com/user-attachments/assets/f41ca00e-1384-442d-ab38-77c4a77caa3f)
 
 ## Step 4: Run a Sample Test   
 
    1.Trigger a build             
    2.Check the Slack channel you configured to ensure you receive build status notifications.
  
- ![Screenshot from 2024-12-12 19-48-42](https://github.com/user-attachments/assets/e794af0b-caf7-45bf-bc18-73d21e40ba9e)
-
- ![Screenshot from 2024-12-12 19-48-34](https://github.com/user-attachments/assets/2a28a245-6209-41fb-8fe6-7203d82e5521)
-
+ ![Screenshot from 2024-12-23 16-23-41](https://github.com/user-attachments/assets/dbafb717-70e2-4f8f-a578-0e5e65373403)
+ ![Screenshot from 2024-12-23 16-24-09](https://github.com/user-attachments/assets/400a9c17-8b92-436e-917a-578c51957f21)
 
  ## Contacts
 
