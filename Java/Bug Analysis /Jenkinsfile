@@ -3,7 +3,7 @@
 pipeline {
     agent any
 
-    stages {
+    stages {  
         stage('Code Clone') {
             steps {
                 script {
