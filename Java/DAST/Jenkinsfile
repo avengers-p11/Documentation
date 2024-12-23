@@ -12,7 +12,7 @@ pipeline {
         stage('Code Clone') {
             steps {
                 script {
-                    clone_repo()
+                    clone_repo()  // Ensure the 'clone_repo' function is defined in the shared library or in the Jenkinsfile.
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    dast_install_dependencies()
+                    dast_install_dependencies()  // Install nikto
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
         stage('Run DAST') {
             steps {
                 script {
-                    dast_run_scan("${TARGET_URL}", "${REPORT_FILE}")
+                    dast_run_scan("${TARGET_URL}", "${REPORT_FILE}")  // Run DAST scan with provided target URL and report file
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Publish DAST Report') {
             steps {
                 script {
-                    archive_report("${REPORT_FILE}")
+                    archive_report("${REPORT_FILE}")  // Archive the report file (ensure this function is defined elsewhere)
                 }
             }
         }
