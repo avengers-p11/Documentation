@@ -28,7 +28,7 @@ pipeline {
         stage('Run DAST') {
             steps {
                 script {
-                    run_dast_scan("${TARGET_URL}", "${REPORT_FILE}")
+                    dast_run_scan("${TARGET_URL}", "${REPORT_FILE}")
                 }
             }
         }
