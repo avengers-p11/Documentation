@@ -2,7 +2,7 @@
 
 | **Author** | **Created on** | **Last updated by** | **Last edited on** | **Reviwer L0** |**Reviwer L1** |**Reviwer L2** |
 |------------|----------------|----------------------|---------------------|---------------|---------------|---------------|
-| Pravesh Kumar      | 20-11-24      | Pravesh Kumar             | 30-11-24           |  | | |
+| Pravesh Kumar      | 20-11-24      | Pravesh Kumar             | 30-11-24           |Shreya, Khushi  | | |
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -15,6 +15,8 @@
 8. [Drawbacks of GitOps](#Drawbacks-of-GitOps)
 9. [GitOps Best Practices](#GitOps-Best-Practices)
 10. [FAQs](#FAQs)
+11. [Contact Information](#Contact-Information)
+12. [References](#References)
 
 ## Introduction
 
@@ -110,9 +112,10 @@ GitOps is a modern approach to managing infrastructure and applications using Gi
 
 ## References
 
-
-| [GitOps Principles](https://www.gitops.tech) |
-| [ArgoCD Documentation](https://argo-cd.readthedocs.io) |
-| [Flux GitOps](https://fluxcd.io) |
-|[Jenkins X](https://jenkins-x.io) |
-|[Spinnaker Documentation](https://spinnaker.io) |
+|Reference |	Description|
+|----|----|
+| [GitOps](https://www.gitops.tech) |GitOps Principles|
+| [ArgoCD](https://argo-cd.readthedocs.io) |ArgoCD Documentation|
+| [Flux](https://fluxcd.io) |Flux GitOps|
+|[Jenkins X](https://jenkins-x.io) |Jenkins X|
+|[Spinnaker](https://spinnaker.io) |Spinnaker Documentation|
