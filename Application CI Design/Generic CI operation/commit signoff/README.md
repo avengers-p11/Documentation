@@ -81,10 +81,9 @@ push the commit to your repo
 ```
 git push origin main
 ```
-![Screenshot from 2024-12-20 23-29-27](https://github.com/user-attachments/assets/c58adbe1-f28b-4cbf-a7a5-300626875b00)
-![Screenshot from 2024-12-20 23-30-14](https://github.com/user-attachments/assets/e5cf6cca-bc8f-4cfc-abb1-d7f8753ebff0)
+![Screenshot from 2024-12-23 16-34-30](https://github.com/user-attachments/assets/f4251af5-f2f6-4710-9692-156aea1311fb)
+![Screenshot from 2024-12-23 16-35-19](https://github.com/user-attachments/assets/e3c93be1-eb07-4437-9727-0638459d7b55)
 
-## Best Practices
 
 
 | Practice                                      | Description                                                                 |
