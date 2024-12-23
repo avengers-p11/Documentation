@@ -34,19 +34,19 @@ Ansible roles are basically playbooks broken up into a known file structure.
 
 ### Steps for ansible role
 
-**Steps 1. Update your OS**
+**Step 1. Update your OS**
 ```
 sudo apt update
 ```
 ![Screenshot 2024-12-06 at 7 12 34 PM](https://github.com/user-attachments/assets/25d580c3-3065-4dee-8b33-5ff39691554d)
 
 
-**Steps 3. Ansbilbe installed**
+**Step 3. Ansbilbe installed**
 ```
 sudo apt install ansible
 ```
 
-**Steps 4. Verify ansible version**
+**Step 4. Verify ansible version**
 
 ```
 ansible --version
@@ -55,7 +55,7 @@ ansible --version
 
 
 
-**Steps 5. Create ansible role** 
+**Step 5. Create ansible role** 
 
 ```
 ansible-galaxy init install_jenkins
@@ -63,7 +63,7 @@ ansible-galaxy init install_jenkins
 ![Screenshot 2024-12-20 at 9 06 35 PM](https://github.com/user-attachments/assets/c06ee123-e16d-4379-9c1f-40673060f6a9)
 
 
-**Steps 6. Change the direcotry current to my role**
+**Step 6. Change the direcotry current to my role**
 ```
 cd install_jenkins
 ```
@@ -71,7 +71,7 @@ cd install_jenkins
 
 
 
-**Steps 7. After configure my role direcorty structure**
+**Step 7. After configure my role direcorty structure**
 ```
 tree
 ```
@@ -80,12 +80,12 @@ tree
 
 
 
-**Steps 8. pip and boto3 installation**
+**Step 8. pip and boto3 installation**
 
 ### pip
 Its a package manager for Python used to install and manage Python libraries. It is essential for managing dependencies in Python projects. 
 
-###boto3
+### boto3
 The AWS SDK (Software Development Kit) for Python, enabling developers to interact with various AWS services like EC2, S3, Lambda, and more from Python applications.
 
 ```
