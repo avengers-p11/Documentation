@@ -52,7 +52,7 @@ pipeline {
                     "DAST Scan Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                     "The DAST scan has been completed successfully.\n\nPlease find the attached report.",
                     "${REPORT_FILE}",
-                    "it.mohitsaini@gmail.com"
+                    "anjalidhiman.as@gmail.com"
                 )
             }
         }
@@ -63,7 +63,7 @@ pipeline {
                     "DAST Scan Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                     "The DAST scan has failed.\n\nPlease find the attached report.",
                     "${REPORT_FILE}",
-                    "it.mohitsaini@gmail.com"
+                    "anjalidhiman.as@gmail.com"
                 )
             }
         }
