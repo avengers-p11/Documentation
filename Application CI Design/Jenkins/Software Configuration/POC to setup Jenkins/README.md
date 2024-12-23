@@ -9,14 +9,12 @@
 ## **Table of Contents**
 
 1. [Introduction](#introduction)
-2. [**What is ansible**](#what-is-ansible)
-3. [**Why ansible**](#why-ansible)
-4. [Pre-requsities](#pre-requisties)
-5. [Steps for Ansible role](#steps-for-ansible-role)
-6. [Output](#output)
-7. [Conclusion](#conculsion)
-8. [Contact Information](#contact-information)
-9. [References](#references)
+2. [Pre-requsities](#pre-requisties)
+3. [Steps for Ansible role](#steps-for-ansible-role)
+4. [Output](#output)
+5. [Conclusion](#conculsion)
+6. [Contact Information](#contact-information)
+7. [References](#references)
 
  
  
@@ -24,13 +22,6 @@
 
 Ansible roles are basically playbooks broken up into a known file structure.
 
-
-## What is ansible
-Ansible Roles are a powerful way to organize and reuse automation tasks. They provide a standardized structure for grouping related tasks, variables, files, templates, and handlers. This modular approach makes your playbooks more manageable, reusable, and easier to maintain.
-
-
-## Why ansible?
-Ansible Roles are a powerful mechanism for organizing and reusing automation tasks.
 
  ## Pre-requisties
 
