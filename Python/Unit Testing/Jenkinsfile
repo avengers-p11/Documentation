@@ -49,13 +49,10 @@ node {
         stage('Run Tests') {
             sh """
                 . ${VENV_DIR}/bin/activate
-                poetry run pytest
-                poetry run unit report > unit-test.txt
-               
+                poetry run pytest > unit-test.txt
             """
         }
     } catch (Exception e) {
-       
         echo "Pipeline failed: ${e.message}"
         mail(
             to: 'anjalidhiman.as@gmail.com',
@@ -66,13 +63,10 @@ node {
     } finally {
         stage('Cleanup') {
             sh "rm -rf ${VENV_DIR}"
-
-          
             archiveArtifacts artifacts: 'unit-test.txt, htmlcov/*', allowEmptyArchive: true
             echo 'Pipeline completed.'
         }
 
-      
         stage('Send Email') {
             if (fileExists(reportFile)) {
                 if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
@@ -94,8 +88,4 @@ The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
                     )
                 }
             } else {
-                echo "Error: Attachment file not found: ${reportFile}"
-            }
-        }
-    }
-}
+                echo "Error: Attachment
