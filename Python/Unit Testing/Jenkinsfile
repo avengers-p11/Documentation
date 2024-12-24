@@ -15,12 +15,23 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install Poetry') {
             steps {
-                echo 'Installing dependencies...'
+                echo 'Installing Poetry...'
                 sh """
                     . ${VENV_DIR}/bin/activate
-                    pip install -r requirements.txt
+                    curl -sSL https://install.python-poetry.org | python3 -
+                    export PATH=\"$HOME/.local/bin:\$PATH\"
+                """
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing dependencies with Poetry...'
+                sh """
+                    . ${VENV_DIR}/bin/activate
+                    poetry install
                 """
             }
         }
@@ -30,7 +41,7 @@ pipeline {
                 echo 'Installing missing dependencies...'
                 sh """
                     . ${VENV_DIR}/bin/activate
-                    pip install flask peewee python-json-logger  # Corrected package name
+                    poetry add flask peewee python-json-logger  # Adding missing dependencies
                 """
             }
         }
