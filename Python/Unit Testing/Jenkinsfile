@@ -1,0 +1,117 @@
+node {
+    // Define the virtual environment directory
+    def VENV_DIR = "venv"
+    def PROJECT_DIR = "attendance-api" // Define the directory where pyproject.toml is located
+
+    stage('Clone Repository') {
+        // Clone the repository
+        git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+    }
+
+    stage('Install System Dependencies') {
+        // Retry the installation step if the lock is held
+        retry(3) {
+            // Loop until the lock is released or retry 3 times
+            sh '''
+                while fuser /var/lib/dpkg/lock-frontend > /dev/null 2>&1; do
+                    echo "Waiting for apt lock to be released..."
+                    sleep 5
+                done
+                sudo apt-get update -y
+                sudo apt-get install -y python3.11 python3.11-venv python3-pip libpq-dev gcc
+            '''
+        }
+    }
+
+    stage('Set Up Python Environment') {
+        // Create and set up the Python virtual environment
+        sh """
+            if [ ! -d "$VENV_DIR" ]; then
+                python3.11 -m venv $VENV_DIR
+            fi
+            . $VENV_DIR/bin/activate
+            pip install --upgrade pip
+        """
+    }
+
+    stage('Install Poetry') {
+        // Install Poetry in the virtual environment
+        sh """
+            . $VENV_DIR/bin/activate
+            pip install poetry
+        """
+    }
+
+    stage('Navigate to Project Directory') {
+        // Change directory to where pyproject.toml is located
+        dir(PROJECT_DIR) {
+            // Check if pyproject.toml exists
+            sh 'ls -la pyproject.toml'
+        }
+    }
+
+    stage('Update Poetry Lock File') {
+        // Regenerate poetry.lock file to reflect changes in pyproject.toml
+        dir(PROJECT_DIR) {
+            sh """
+                . ../../$VENV_DIR/bin/activate
+                poetry lock --no-update
+            """
+        }
+    }
+
+    stage('Install Python Dependencies') {
+        // Install Python dependencies using Poetry
+        dir(PROJECT_DIR) {
+            sh """
+                . ../../$VENV_DIR/bin/activate
+                poetry install
+            """
+        }
+    }
+
+    stage('Install Python JSON Logger') {
+        // Install python-json-logger using pip
+        sh """
+            . $VENV_DIR/bin/activate
+            pip install python-json-logger
+        """
+    }
+
+    stage('Run Tests') {
+        // Run tests with Poetry
+        dir(PROJECT_DIR) {
+            sh """
+                . ../../$VENV_DIR/bin/activate
+                poetry run pytest
+            """
+        }
+    }
+
+    post {
+        always {
+            // Clean up the virtual environment
+            sh 'rm -rf $VENV_DIR'
+            archiveArtifacts artifacts: 'unit-test-report.txt', allowEmptyArchive: true
+        }
+
+        success {
+            // Send success email with report
+            emailext(
+                to: 'anjalidhiman.as@gmail.com',
+                subject: "Build Success: ${env.JOB_NAME}",
+                body: "Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} succeeded. More info: ${env.BUILD_URL}",
+                attachmentsPattern: 'unit-test-report.txt'
+            )
+        }
+
+        failure {
+            // Send failure email
+            emailext(
+                to: 'anjalidhiman.as@gmail.com',
+                subject: 'Jenkins Pipeline Failed',
+                body: 'The Jenkins pipeline has failed. Please check the logs.'
+            )
+        }
+    }
+}
