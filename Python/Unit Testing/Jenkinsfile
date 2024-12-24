@@ -78,14 +78,17 @@ node {
             echo 'Running unit tests using pytest...'
             sh """
                 . ${VENV_DIR}/bin/activate  
-                pytest > ${reportFile} || true  
+                echo 'Running pytest tests and redirecting output to ${reportFile}'
+                pytest > ${reportFile} || true  # Capture output into the report file
+                echo 'pytest output:'
+                cat ${reportFile}  # Output the content of the report file for debugging
             """
         }
 
     } catch (Exception e) {
         echo "Pipeline failed: ${e.message}"
         mail(
-            to: 'anjalidhiman.as@gmail.com',
+            to: 'it.mohitsaini@gmail.com',
             subject: 'Pipeline Failed',
             body: 'The Jenkins pipeline failed. Please check the logs.'
         )
@@ -99,10 +102,11 @@ node {
         }
 
         stage('Send Email') {
+            // Check if the report file exists before sending email
             if (fileExists(reportFile)) {
                 if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                     emailext(
-                        to: 'anjalidhiman.as@gmail.com',
+                        to: 'it.mohitsaini@gmail.com',
                         subject: "Jenkins Build SUCCESS: Job ${env.JOB_NAME}",
                         body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
@@ -111,7 +115,7 @@ More info at: ${env.BUILD_URL}""",
                     )
                 } else {
                     emailext(
-                        to: 'anjalidhiman.as@gmail.com',
+                        to: 'it.mohitsaini@gmail.com',
                         subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
                         body: '''Hello,
 
