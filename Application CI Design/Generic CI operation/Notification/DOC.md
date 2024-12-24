@@ -49,11 +49,13 @@ Slack is a cloud-based collaboration platform designed for team communication. I
 
 ## Best Practices
 
-- **Custom Notifications**: Customize notifications to include relevant information such as build status, commit messages, and responsible developers.
-- **Channel Organization**: Use dedicated channels for different projects or teams to keep notifications organized and relevant.
-- **Rate Limiting**: Be mindful of Slack's rate limits and avoid overloading channels with excessive notifications.
-- **Security**: Keep your Slack API tokens secure and use credentials management in Jenkins to protect sensitive information.
 
+| **Best Practice**       | **Description**                                                                                   |
+|--------------------------|---------------------------------------------------------------------------------------------------|
+| **Custom Notifications** | Customize notifications to include relevant information such as build status, commit messages, and responsible developers. |
+| **Channel Organization** | Use dedicated channels for different projects or teams to keep notifications organized and relevant. |
+| **Rate Limiting**        | Be mindful of Slack's rate limits and avoid overloading channels with excessive notifications.     |
+| **Security**             | Keep your Slack API tokens secure and use credentials management in Jenkins to protect sensitive information. |
 
 ## Conclusion
 
