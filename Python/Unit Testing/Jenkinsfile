@@ -35,6 +35,15 @@ node {
             """
         }
 
+        stage('Verify Poetry Installation') {
+            echo 'Verifying Poetry Installation...'
+            sh """
+                . ${VENV_DIR}/bin/activate  
+                which poetry || { echo 'Poetry installation failed'; exit 1; }
+                poetry --version
+            """
+        }
+
         stage('Regenerate Poetry Lock File') {
             echo 'Regenerating the poetry.lock file...'
             sh """
