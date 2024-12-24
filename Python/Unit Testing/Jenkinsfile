@@ -49,7 +49,7 @@ node {
         stage('Run Tests') {
             sh """
                 . ${VENV_DIR}/bin/activate
-                poetry run pytest > unit-test.txt
+                poetry run pytest > unit-test.txt; cat unit-test.txt
             """
         }
     } catch (Exception e) {
@@ -75,7 +75,7 @@ node {
                         subject: "Jenkins Build SUCCESS: Job ${env.JOB_NAME}",
                         body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
-                        attachmentsPattern: 'unit-test.txt',  // Attach the correct report file
+                        attachmentsPattern: 'unit-test.txt',  
                         attachLog: true
                     )
                 } else {
