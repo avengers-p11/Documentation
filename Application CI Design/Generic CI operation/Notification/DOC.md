@@ -57,7 +57,7 @@ Slack is a cloud-based collaboration platform designed for team communication. I
 
 ## Conclusion
 
-Integrating Jenkins with Slack is a powerful way to enhance your development workflow. By following the steps outlined in this [POC](https://github.com/MyGurukulam-p11/Documentation/blob/main/Application-CI-Design/Generic%20CI%20operation/Slack%20notification%20/POC.md) and adhering to best practices, you can ensure that your team stays informed and responsive to changes in the build process. This integration fosters better collaboration, faster issue resolution, and improved overall productivity.
+Integrating Jenkins with Slack is a powerful way to enhance your development workflow. By following the steps outlined in this [POC]() and adhering to best practices, you can ensure that your team stays informed and responsive to changes in the build process. This integration fosters better collaboration, faster issue resolution, and improved overall productivity.
 
 
 
