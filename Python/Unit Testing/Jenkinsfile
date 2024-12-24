@@ -103,4 +103,16 @@ More info at: ${env.BUILD_URL}""",
                     )
                 } else {
                     emailext(
-                        to: 'anj
+                        to: 'anjalidhiman.as@gmail.com',
+                        subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
+                        body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+                    )
+                }
+            } else {
+                echo "Error: Attachment file not found: ${reportFile}"
+            }
+        }
+    }
+}
