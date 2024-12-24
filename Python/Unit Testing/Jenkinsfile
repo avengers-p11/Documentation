@@ -31,6 +31,8 @@ pipeline {
                 echo 'Installing dependencies with Poetry...'
                 sh """
                     . ${VENV_DIR}/bin/activate
+                    # Ensure Poetry is in PATH
+                    export PATH=\"$HOME/.local/bin:\$PATH\"
                     poetry install
                 """
             }
@@ -41,6 +43,7 @@ pipeline {
                 echo 'Installing missing dependencies...'
                 sh """
                     . ${VENV_DIR}/bin/activate
+                    export PATH=\"$HOME/.local/bin:\$PATH\"
                     poetry add flask peewee python-json-logger  # Adding missing dependencies
                 """
             }
@@ -51,6 +54,7 @@ pipeline {
                 echo 'Running unit tests...'
                 sh """
                     . ${VENV_DIR}/bin/activate
+                    export PATH=\"$HOME/.local/bin:\$PATH\"
                     pytest --maxfail=5 --disable-warnings --tb=short > unit-test-report.txt || true
                 """
             }
