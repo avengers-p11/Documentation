@@ -46,7 +46,7 @@ node {
         stage('Install Project Dependencies with Poetry') {
             echo 'Installing project dependencies using Poetry...'
             sh """
-                . ${VENV_DIR}/bin/activate  
+                . ${VENV_DIR}/bin/activate 
                 poetry install
             """
         }
