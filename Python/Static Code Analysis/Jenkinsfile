@@ -1,4 +1,4 @@
-node {
+node { 
     def VENV_DIR = "venv"
     def reportFile = "${env.WORKSPACE}/coverage.txt"  /
 
