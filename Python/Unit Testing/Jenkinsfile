@@ -30,17 +30,16 @@ node {
         stage('Install Poetry') {
             echo 'Installing Poetry...'
             sh """
-                . ${VENV_DIR}/bin/activate  
-                pip install poetry
+                . ${VENV_DIR}/bin/activate
+                curl -sSL https://install.python-poetry.org | python3 - --version 1.8.0  # Install Poetry
             """
         }
 
         stage('Verify Poetry Installation') {
             echo 'Verifying Poetry Installation...'
             sh """
-                . ${VENV_DIR}/bin/activate  
-                which poetry || { echo 'Poetry installation failed'; exit 1; }
-                poetry --version
+                . ${VENV_DIR}/bin/activate
+                poetry --version || { echo 'Poetry installation failed'; exit 1; }
             """
         }
 
