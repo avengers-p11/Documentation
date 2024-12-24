@@ -1,5 +1,5 @@
 node {
-    def VENV_DIR = "${env.WORKSPACE}/venv"  
+    def VENV_DIR = "${env.WORKSPACE}/venv"  // Define the virtual environment directory
     def reportFile = "${env.WORKSPACE}/unit-test-report.txt"
 
     try {
@@ -22,7 +22,7 @@ node {
                 if [ ! -d "${VENV_DIR}" ]; then
                     python3.11 -m venv ${VENV_DIR}
                 fi
-                . ${VENV_DIR}/bin/activate  
+                . ${VENV_DIR}/bin/activate  # Correct the path to the virtual environment's activation script
                 pip install --upgrade pip
             """
         }
@@ -30,7 +30,7 @@ node {
         stage('Install Poetry') {
             echo 'Installing Poetry...'
             sh """
-                . ${VENV_DIR}/bin/activate  
+                . ${VENV_DIR}/bin/activate  # Correct the path to the virtual environment's activation script
                 pip install poetry
             """
         }
@@ -38,15 +38,15 @@ node {
         stage('Regenerate Poetry Lock File') {
             echo 'Regenerating the poetry.lock file...'
             sh """
-                . ${VENV_DIR}/bin/activate  
-                poetry lock --no-update  
+                . ${VENV_DIR}/bin/activate  # Correct the path to the virtual environment's activation script
+                poetry lock --no-update  # Regenerate the lock file without updating dependencies
             """
         }
 
         stage('Install Project Dependencies with Poetry') {
             echo 'Installing project dependencies using Poetry...'
             sh """
-                . ${VENV_DIR}/bin/activate 
+                . ${VENV_DIR}/bin/activate  # Correct the path to the virtual environment's activation script
                 poetry install
             """
         }
@@ -54,15 +54,15 @@ node {
         stage('Run Tests') {
             echo 'Running unit tests using pytest...'
             sh """
-                . ${VENV_DIR}/bin/activate  
-                pytest > ${reportFile} || true  
+                . ${VENV_DIR}/bin/activate  # Correct the path to the virtual environment's activation script
+                pytest > ${reportFile} || true  # Capture the test results in a report file
             """
         }
 
     } catch (Exception e) {
         echo "Pipeline failed: ${e.message}"
         mail(
-            to: 'anjalidhiman.as@gmail.com',
+            to: 'it.mohitsaini@gmail.com',
             subject: 'Pipeline Failed',
             body: 'The Jenkins pipeline failed. Please check the logs.'
         )
@@ -79,16 +79,16 @@ node {
             if (fileExists(reportFile)) {
                 if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                     emailext(
-                        to: 'anjalidhiman.as@gmail.com',
+                        to: 'it.mohitsaini@gmail.com',
                         subject: "Jenkins Build SUCCESS: Job ${env.JOB_NAME}",
                         body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
-                        attachmentsPattern: 'unit-test-report.txt',  
+                        attachmentsPattern: 'unit-test-report.txt',  // Attach the test report
                         attachLog: true
                     )
                 } else {
                     emailext(
-                        to: 'anjalidhiman.as@gmail.com',
+                        to: 'it.mohitsaini@gmail.com',
                         subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
                         body: '''Hello,
 
