@@ -32,16 +32,6 @@ node {
             sh """
                 . ${VENV_DIR}/bin/activate  
                 pip install poetry
-                echo 'Poetry installation complete'
-            """
-        }
-
-        stage('Verify Poetry Installation') {
-            echo 'Verifying Poetry installation...'
-            sh """
-                . ${VENV_DIR}/bin/activate
-                which poetry  # Check the location of Poetry
-                poetry --version  # Verify that Poetry is installed
             """
         }
 
@@ -65,7 +55,7 @@ node {
             echo 'Running unit tests using pytest...'
             sh """
                 . ${VENV_DIR}/bin/activate  
-                pytest > ${reportFile} || true  # Capture the test results in a report file
+                pytest > ${reportFile} || true  
             """
         }
 
@@ -93,4 +83,21 @@ node {
                         subject: "Jenkins Build SUCCESS: Job ${env.JOB_NAME}",
                         body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
-                        attachmentsPattern: 'unit-t
+                        attachmentsPattern: 'unit-test-report.txt',  
+                        attachLog: true
+                    )
+                } else {
+                    emailext(
+                        to: 'anjalidhiman.as@gmail.com',
+                        subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
+                        body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+                    )
+                }
+            } else {
+                echo "Error: Attachment file not found: ${reportFile}"
+            }
+        }
+    }
+}
