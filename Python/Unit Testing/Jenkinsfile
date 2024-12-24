@@ -1,101 +1,81 @@
-pipeline {
-    agent any
-
-    environment {
-        VENV_DIR = '/var/lib/jenkins/workspace/Scripted_Python/Unit Testing/venv'
-    }
-
-    stages {
+node {
+    def venvDir = '/var/lib/jenkins/workspace/Scripted_Python/Unit Testing/venv'
+    
+    try {
         stage('Prepare Virtual Environment') {
-            steps {
-                echo 'Setting up Python virtual environment...'
-                sh """
-                    python3 -m venv ${VENV_DIR}
-                """
-            }
+            echo 'Setting up Python virtual environment...'
+            sh """
+                python3 -m venv ${venvDir}
+            """
         }
 
         stage('Install Poetry') {
-            steps {
-                echo 'Installing Poetry...'
-                sh """
-                    . ${VENV_DIR}/bin/activate
-                    curl -sSL https://install.python-poetry.org | python3 -
-                    export PATH=\"$HOME/.local/bin:\$PATH\"
-                """
-            }
+            echo 'Installing Poetry...'
+            sh """
+                . ${venvDir}/bin/activate
+                curl -sSL https://install.python-poetry.org | python3 -
+                export PATH=\$HOME/.local/bin:\$PATH
+            """
         }
 
         stage('Install Dependencies') {
-            steps {
-                echo 'Installing dependencies with Poetry...'
-                sh """
-                    . ${VENV_DIR}/bin/activate
-                    # Ensure Poetry is in PATH
-                    export PATH=\"$HOME/.local/bin:\$PATH\"
-                    poetry install
-                """
-            }
+            echo 'Installing dependencies with Poetry...'
+            sh """
+                . ${venvDir}/bin/activate
+                export PATH=\$HOME/.local/bin:\$PATH
+                poetry install
+            """
         }
 
         stage('Install Missing Dependencies') {
-            steps {
-                echo 'Installing missing dependencies...'
-                sh """
-                    . ${VENV_DIR}/bin/activate
-                    export PATH=\"$HOME/.local/bin:\$PATH\"
-                    poetry add flask peewee python-json-logger  # Adding missing dependencies
-                """
-            }
+            echo 'Installing missing dependencies...'
+            sh """
+                . ${venvDir}/bin/activate
+                export PATH=\$HOME/.local/bin:\$PATH
+                poetry add flask peewee python-json-logger
+            """
         }
 
         stage('Run Tests') {
-            steps {
-                echo 'Running unit tests...'
-                sh """
-                    . ${VENV_DIR}/bin/activate
-                    export PATH=\"$HOME/.local/bin:\$PATH\"
-                    pytest --maxfail=5 --disable-warnings --tb=short > unit-test-report.txt || true
-                """
-            }
+            echo 'Running unit tests...'
+            sh """
+                . ${venvDir}/bin/activate
+                export PATH=\$HOME/.local/bin:\$PATH
+                pytest --maxfail=5 --disable-warnings --tb=short > unit-test-report.txt || true
+            """
         }
 
         stage('Archive Test Results') {
-            steps {
-                echo 'Archiving test results...'
-                archiveArtifacts allowEmptyArchive: true, artifacts: 'unit-test-report.txt'
-            }
+            echo 'Archiving test results...'
+            archiveArtifacts allowEmptyArchive: true, artifacts: 'unit-test-report.txt'
         }
 
         stage('Send Email') {
-            steps {
-                script {
-                    def subject = "Unit Test Results"
-                    def body = "Please find the unit test results attached."
-                    def recipients = "youremail@example.com"
-                    def attachment = "unit-test-report.txt"
-
-                    if (fileExists(attachment)) {
-                        emailext subject: subject,
-                                 body: body,
-                                 to: recipients,
-                                 attachmentsPattern: attachment
-                    } else {
-                        emailext subject: subject,
-                                 body: "The test report could not be found.",
-                                 to: recipients
-                    }
+            script {
+                def subject = "Unit Test Results"
+                def body = "Please find the unit test results attached."
+                def recipients = "youremail@example.com"
+                def attachment = "unit-test-report.txt"
+                
+                if (fileExists(attachment)) {
+                    emailext subject: subject,
+                             body: body,
+                             to: recipients,
+                             attachmentsPattern: attachment
+                } else {
+                    emailext subject: subject,
+                             body: "The test report could not be found.",
+                             to: recipients
                 }
             }
         }
-    }
-
-    post {
-        always {
-            echo 'Cleaning up...'
-            sh """
-                rm -rf ${VENV_DIR}
-            """
-        }
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        echo 'Cleaning up...'
+        sh """
+            rm -rf ${venvDir}
+        """
     }
 }
