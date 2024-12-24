@@ -1,6 +1,6 @@
 node {
-    def VENV_DIR = "${env.WORKSPACE}/venv"  
-    def reportFile = "${env.WORKSPACE}/unit-test-report.txt"
+    def VENV_DIR = "\"${env.WORKSPACE}/venv\""  // Properly handle spaces in the path
+    def reportFile = "\"${env.WORKSPACE}/unit-test-report.txt\""
 
     try {
         stage('Clone Repository') {
@@ -19,7 +19,7 @@ node {
         stage('Set Up Python Environment') {
             echo 'Setting up the Python virtual environment...'
             sh """
-                if [ ! -d "${VENV_DIR}" ]; then
+                if [ ! -d ${VENV_DIR} ]; then
                     python3.11 -m venv ${VENV_DIR}
                 fi
                 . ${VENV_DIR}/bin/activate  
@@ -103,16 +103,4 @@ More info at: ${env.BUILD_URL}""",
                     )
                 } else {
                     emailext(
-                        to: 'anjalidhiman.as@gmail.com',
-                        subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
-                        body: '''Hello,
-
-The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
-                    )
-                }
-            } else {
-                echo "Error: Attachment file not found: ${reportFile}"
-            }
-        }
-    }
-}
+                        to: 'anj
