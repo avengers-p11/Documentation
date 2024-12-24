@@ -30,7 +30,7 @@ node {
             '''
         }
 
-        stage('Run Tests') {
+        stage('Code Coverage') {
             sh '''
                 . ${VENV_DIR}/bin/activate
                 coverage run -m pytest
