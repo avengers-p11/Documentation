@@ -88,4 +88,8 @@ The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
                     )
                 }
             } else {
-                echo "Error: Attachment
+                echo "Error: Attachment file not found: ${reportFile}"
+            }
+        }
+    }
+}
