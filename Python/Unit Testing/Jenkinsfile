@@ -1,104 +1,116 @@
 node {
-   
-    env.VENV_DIR = "venv"
+    // Define the virtual environment directory
+    def VENV_DIR = "venv"
+    def PROJECT_DIR = "attendance-api" // Define the directory where pyproject.toml is located
 
     stage('Clone Repository') {
+        // Clone the repository
         git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
     }
 
     stage('Install System Dependencies') {
-        steps {
+        // Retry the installation step if the lock is held
+        retry(3) {
+            // Loop until the lock is released or retry 3 times
             sh '''
-               
-                DEBIAN_FRONTEND=noninteractive sudo apt-get update -y
-                DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
-                    software-properties-common
-                sudo add-apt-repository ppa:deadsnakes/ppa -y
+                while fuser /var/lib/dpkg/lock-frontend > /dev/null 2>&1; do
+                    echo "Waiting for apt lock to be released..."
+                    sleep 5
+                done
                 sudo apt-get update -y
-                sudo apt-get install -y python3.11 python3.11-venv python3.11-dev \
-                    python3-pip libpq-dev gcc
+                sudo apt-get install -y python3.11 python3.11-venv python3-pip libpq-dev gcc
             '''
         }
     }
 
     stage('Set Up Python Environment') {
-        steps {
-            sh '''
-                
-                if [ ! -d "$env.VENV_DIR" ]; then
-                    python3.11 -m venv $env.VENV_DIR
-                fi
-
-                # Activate virtual environment and upgrade pip
-                . ${env.VENV_DIR}/bin/activate
-                pip install --upgrade pip
-            '''
-        }
+        // Create and set up the Python virtual environment
+        sh """
+            if [ ! -d "$VENV_DIR" ]; then
+                python3.11 -m venv $VENV_DIR
+            fi
+            . $VENV_DIR/bin/activate
+            pip install --upgrade pip
+        """
     }
 
     stage('Install Poetry') {
-        steps {
-            sh '''
-                
-                . ${env.VENV_DIR}/bin/activate
-                pip install poetry
-            '''
+        // Install Poetry in the virtual environment
+        sh """
+            . $VENV_DIR/bin/activate
+            pip install poetry
+        """
+    }
+
+    stage('Navigate to Project Directory') {
+        // Change directory to where pyproject.toml is located
+        dir(PROJECT_DIR) {
+            // Check if pyproject.toml exists
+            sh 'ls -la pyproject.toml'
         }
     }
 
     stage('Update Poetry Lock File') {
-        steps {
-            sh '''
-                
-                . ${env.VENV_DIR}/bin/activate
+        // Regenerate poetry.lock file to reflect changes in pyproject.toml
+        dir(PROJECT_DIR) {
+            sh """
+                . ../../$VENV_DIR/bin/activate
                 poetry lock --no-update
-            '''
+            """
         }
     }
 
     stage('Install Python Dependencies') {
-        steps {
-            sh '''
-                . ${env.VENV_DIR}/bin/activate
+        // Install Python dependencies using Poetry
+        dir(PROJECT_DIR) {
+            sh """
+                . ../../$VENV_DIR/bin/activate
                 poetry install
-            '''
+            """
         }
     }
 
+    stage('Install Python JSON Logger') {
+        // Install python-json-logger using pip
+        sh """
+            . $VENV_DIR/bin/activate
+            pip install python-json-logger
+        """
+    }
+
     stage('Run Tests') {
-        steps {
-            sh '''
-                . ${env.VENV_DIR}/bin/activate
+        // Run tests with Poetry
+        dir(PROJECT_DIR) {
+            sh """
+                . ../../$VENV_DIR/bin/activate
                 poetry run pytest
-            '''
+            """
         }
     }
 
     post {
         always {
-            sh '''
-                rm -rf $env.VENV_DIR
-            '''
+            // Clean up the virtual environment
+            sh 'rm -rf $VENV_DIR'
             archiveArtifacts artifacts: 'unit-test-report.txt', allowEmptyArchive: true
         }
 
         success {
+            // Send success email with report
             emailext(
-                attachmentsPattern: 'unit-test-report.txt',
-                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
-                          More info at: ${env.BUILD_URL}""",
-                to: 'anjalidhiman.as@gmail.com', 
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                to: 'anjalidhiman.as@gmail.com',
+                subject: "Build Success: ${env.JOB_NAME}",
+                body: "Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} succeeded. More info: ${env.BUILD_URL}",
+                attachmentsPattern: 'unit-test-report.txt'
             )
         }
 
         failure {
+            // Send failure email
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
-                subject: 'Jenkins Pipeline Failure: Salary-api',
-                body: '''Hello,
-
-                The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+                subject: 'Jenkins Pipeline Failed',
+                body: 'The Jenkins pipeline has failed. Please check the logs.'
             )
         }
     }
