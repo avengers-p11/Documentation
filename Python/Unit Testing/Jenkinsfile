@@ -50,8 +50,8 @@ node {
             sh """
                 . ${VENV_DIR}/bin/activate
                 poetry run pytest
-                poetry run coverage report > unit-test.txt
-                poetry run coverage html
+                poetry run unit report > unit-test.txt
+               
             """
         }
     } catch (Exception e) {
