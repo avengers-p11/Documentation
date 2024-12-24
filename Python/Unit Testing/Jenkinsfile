@@ -66,6 +66,14 @@ node {
             """
         }
 
+        stage('Install pytest') {
+            echo 'Installing pytest...'
+            sh """
+                . ${VENV_DIR}/bin/activate
+                pip install pytest
+            """
+        }
+
         stage('Run Tests') {
             echo 'Running unit tests using pytest...'
             sh """
