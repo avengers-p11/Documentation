@@ -35,6 +35,14 @@ node {
             """
         }
 
+        stage('Verify Poetry Installation') {
+            echo 'Verifying Poetry installation...'
+            sh """
+                . ${VENV_DIR}/bin/activate  
+                poetry --version  # Verify that Poetry is installed
+            """
+        }
+
         stage('Regenerate Poetry Lock File') {
             echo 'Regenerating the poetry.lock file...'
             sh """
@@ -55,7 +63,7 @@ node {
             echo 'Running unit tests using pytest...'
             sh """
                 . ${VENV_DIR}/bin/activate  
-                pytest > ${reportFile} || true  
+                pytest > ${reportFile} || true  # Capture the test results in a report file
             """
         }
 
