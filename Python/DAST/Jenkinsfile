@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
+        TARGET_URL = 'http://35.175.105.52:8080/apidocs'
     }
 
     stages {
