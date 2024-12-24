@@ -1,81 +1,101 @@
 node {
-    def venvDir = '/var/lib/jenkins/workspace/Scripted_Python/Unit Testing/venv'
-    
+    def VENV_DIR = "venv"
+    def reportFile = "${env.WORKSPACE}/unit-test.txt"  
+
     try {
-        stage('Prepare Virtual Environment') {
-            echo 'Setting up Python virtual environment...'
+        stage('Clone Repository') {
+            git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+        }
+
+        stage('Install System Dependencies') {
+            sh '''
+                sudo apt-get update -y
+                sudo apt-get install -y python3.11 python3.11-venv python3-pip
+            '''
+        }
+
+        stage('Set Up Python Environment') {
             sh """
-                python3 -m venv ${venvDir}
+                if [ ! -d "${VENV_DIR}" ]; then
+                    python3.11 -m venv ${VENV_DIR}
+                fi
+
+                . ${VENV_DIR}/bin/activate
+                pip install --upgrade pip
             """
         }
 
         stage('Install Poetry') {
-            echo 'Installing Poetry...'
             sh """
-                . ${venvDir}/bin/activate
-                curl -sSL https://install.python-poetry.org | python3 -
-                export PATH=\$HOME/.local/bin:\$PATH
+                . ${VENV_DIR}/bin/activate
+                pip install poetry
             """
         }
 
-        stage('Install Dependencies') {
-            echo 'Installing dependencies with Poetry...'
+        stage('Regenerate Poetry Lock File') {
             sh """
-                . ${venvDir}/bin/activate
-                export PATH=\$HOME/.local/bin:\$PATH
+                . ${VENV_DIR}/bin/activate
+                poetry lock --no-update
+            """
+        }
+
+        stage('Install Project Dependencies') {
+            sh """
+                . ${VENV_DIR}/bin/activate
                 poetry install
             """
         }
 
-        stage('Install Missing Dependencies') {
-            echo 'Installing missing dependencies...'
-            sh """
-                . ${venvDir}/bin/activate
-                export PATH=\$HOME/.local/bin:\$PATH
-                poetry add flask peewee python-json-logger
-            """
-        }
-
         stage('Run Tests') {
-            echo 'Running unit tests...'
             sh """
-                . ${venvDir}/bin/activate
-                export PATH=\$HOME/.local/bin:\$PATH
-                pytest --maxfail=5 --disable-warnings --tb=short > unit-test-report.txt || true
+                . ${VENV_DIR}/bin/activate
+                poetry run pytest
+                poetry run coverage report > unit-test.txt
+                poetry run coverage html
             """
-        }
-
-        stage('Archive Test Results') {
-            echo 'Archiving test results...'
-            archiveArtifacts allowEmptyArchive: true, artifacts: 'unit-test-report.txt'
-        }
-
-        stage('Send Email') {
-            script {
-                def subject = "Unit Test Results"
-                def body = "Please find the unit test results attached."
-                def recipients = "youremail@example.com"
-                def attachment = "unit-test-report.txt"
-                
-                if (fileExists(attachment)) {
-                    emailext subject: subject,
-                             body: body,
-                             to: recipients,
-                             attachmentsPattern: attachment
-                } else {
-                    emailext subject: subject,
-                             body: "The test report could not be found.",
-                             to: recipients
-                }
-            }
         }
     } catch (Exception e) {
-        currentBuild.result = 'FAILURE'
+       
+        echo "Pipeline failed: ${e.message}"
+        mail(
+            to: 'anjalidhiman.as@gmail.com',
+            subject: 'Pipeline Failed',
+            body: 'The Jenkins pipeline failed. Please check the logs.'
+        )
         throw e
     } finally {
-        echo 'Cleaning up...'
-        sh """
-            rm -rf ${venvDir}
-        """
+        stage('Cleanup') {
+            sh "rm -rf ${VENV_DIR}"
+
+          
+            archiveArtifacts artifacts: 'unit-test.txt, htmlcov/*', allowEmptyArchive: true
+            echo 'Pipeline completed.'
+        }
+
+      
+        stage('Send Email') {
+            if (fileExists(reportFile)) {
+                if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
+                    emailext(
+                        to: 'anjalidhiman.as@gmail.com',
+                        subject: "Jenkins Build SUCCESS: Job ${env.JOB_NAME}",
+                        body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                        attachmentsPattern: 'unit-test.txt',  // Attach the correct report file
+                        attachLog: true
+                    )
+                } else {
+                    emailext(
+                        to: 'anjalidhiman.as@gmail.com',
+                        subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
+                        body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+                    )
+                }
+            } else {
+                echo "Error: Attachment file not found: ${reportFile}"
+            }
+        }
     }
 }
