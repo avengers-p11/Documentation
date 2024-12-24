@@ -35,18 +35,11 @@ node {
             """
         }
 
-        stage('Update PATH for Poetry') {
-            echo 'Updating PATH for Poetry...'
-            sh """
-                echo 'export PATH="/var/lib/jenkins/.local/bin:$PATH"' >> ${VENV_DIR}/bin/activate
-            """
-        }
-
-        stage('Verify Poetry Installation') {
-            echo 'Verifying Poetry Installation...'
+        stage('Install Missing Dependencies') {
+            echo 'Installing missing dependencies...'
             sh """
                 . ${VENV_DIR}/bin/activate
-                poetry --version || { echo 'Poetry installation failed'; exit 1; }
+                pip install flask peewee pythonjsonlogger  # Install missing dependencies
             """
         }
 
@@ -54,7 +47,7 @@ node {
             echo 'Regenerating the poetry.lock file...'
             sh """
                 . ${VENV_DIR}/bin/activate  
-                poetry lock --no-update  
+                poetry lock --no-update  # Regenerate the poetry.lock file
             """
         }
 
@@ -66,19 +59,11 @@ node {
             """
         }
 
-        stage('Install pytest') {
-            echo 'Installing pytest...'
-            sh """
-                . ${VENV_DIR}/bin/activate
-                pip install pytest
-            """
-        }
-
         stage('Run Tests') {
             echo 'Running unit tests using pytest...'
             sh """
                 . ${VENV_DIR}/bin/activate  
-                echo 'Running pytest tests and redirecting output to ${reportFile}'
+                export PYTHONPATH=\$PYTHONPATH:${env.WORKSPACE}/client:${env.WORKSPACE}/router:${env.WORKSPACE}/utils
                 pytest > ${reportFile} || true  # Capture output into the report file
                 echo 'pytest output:'
                 cat ${reportFile}  # Output the content of the report file for debugging
@@ -88,7 +73,7 @@ node {
     } catch (Exception e) {
         echo "Pipeline failed: ${e.message}"
         mail(
-            to: 'it.mohitsaini@gmail.com',
+            to: 'anjalidhiman.as@gmail.com',
             subject: 'Pipeline Failed',
             body: 'The Jenkins pipeline failed. Please check the logs.'
         )
@@ -106,7 +91,7 @@ node {
             if (fileExists(reportFile)) {
                 if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                     emailext(
-                        to: 'it.mohitsaini@gmail.com',
+                        to: 'anjalidhiman.as@gmail.com',
                         subject: "Jenkins Build SUCCESS: Job ${env.JOB_NAME}",
                         body: """SUCCESS: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
 More info at: ${env.BUILD_URL}""",
@@ -115,7 +100,7 @@ More info at: ${env.BUILD_URL}""",
                     )
                 } else {
                     emailext(
-                        to: 'it.mohitsaini@gmail.com',
+                        to: 'anjalidhiman.as@gmail.com',
                         subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
                         body: '''Hello,
 
