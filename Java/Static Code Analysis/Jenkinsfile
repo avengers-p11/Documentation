@@ -1,0 +1,59 @@
+@Library('Jenkins-shared-libraries@main') _
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Code Clone') {
+            steps {
+                script {
+                    clone_repo()
+                }
+            }
+        }
+
+        stage('Code Compilation') {
+            steps {
+                script {
+                    compile_code('Maven')
+                }
+            }
+        }
+
+        stage('Static Code Analysis') {
+            steps {
+                script {
+                    static_code_analysis('Sonar')
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+                // Ensure the correct report path and name
+                send_email(
+                    "SonarQube Analysis Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The SonarQube analysis has completed successfully.\n\nPlease find the attached analysis report.",
+                    "target",  
+                    "static-code-analysis-report.json",  // Update to the SonarQube report filename
+                    "it.mohitsaini@gmail.com"  
+                )
+            }
+        }
+
+        failure {
+            script {
+                // Ensure the correct report path and name
+                send_email(
+                    "SonarQube Analysis Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The SonarQube analysis has failed.\n\nPlease find the attached analysis report.",
+                    "target",  
+                    "static-code-analysis-report.json",  // Update to the SonarQube report filename
+                    "it.mohitsaini@gmail.com"  
+                )
+            }
+        }
+    }
+}

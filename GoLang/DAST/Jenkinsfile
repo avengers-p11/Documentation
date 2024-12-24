@@ -1,0 +1,79 @@
+@Library('Jenkins-shared-libraries@main') _
+
+pipeline {
+    agent any
+
+    environment {
+        TARGET_URL = 'http://3.138.32.243:8080/swagger-ui/index.html'
+        REPORT_FILE = 'dast_report.html'
+    }
+
+    stages {
+        stage('Code Clone') {
+            steps {
+                script {
+                    clone_repo()  
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    dast_install_dependencies()  
+                }
+            }
+        }
+
+        stage('Run DAST') {
+            steps {
+                script {
+                    dast_run_scan("${TARGET_URL}", "${REPORT_FILE}")  
+                }
+            }
+        }
+
+        stage('Publish DAST Report') {
+            steps {
+                script {
+                    archiveArtifacts artifacts: "${REPORT_FILE}", allowEmptyArchive: true
+                  
+                    sh "ls -l ${REPORT_FILE}"  
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+                send_email(
+                    "DAST Scan Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The DAST scan has been completed successfully.\n\nPlease find the attached report.",
+                    "${REPORT_FILE}",
+                    "raman.tripathi.snaatak@mygurukulam.co"
+                )
+            }
+        }
+
+        failure {
+            script {
+                send_email(
+                    "DAST Scan Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The DAST scan has failed.\n\nPlease find the attached report.",
+                    "${REPORT_FILE}",
+                    "raman.tripathi.snaatak@mygurukulam.co"
+                )
+            }
+        }
+    }
+}
+
+def send_email(subject, body, attachment, to) {
+    emailext (
+        subject: subject,
+        body: body,
+        attachmentsPattern: attachment,  
+        to: to
+    )
+}

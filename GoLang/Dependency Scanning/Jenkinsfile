@@ -1,0 +1,56 @@
+@Library('Jenkins-shared-libraries@main') _
+
+pipeline {
+    agent any
+
+    tools {
+        go 'GO'
+    }
+
+    environment {
+        REPORT_FILE = "dependency_scan_report.json"
+        GOSEC_BIN = './bin'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Call the shared library function for repository checkout
+                    golang_clone_repo()
+                }
+            }
+        }
+
+        stage('Install GoSec') {
+            steps {
+                script {
+                    // Call the shared library function to install GoSec
+                    golangInstallGoSec(env.GOSEC_BIN)
+                }
+            }
+        }
+
+        stage('Dependency Scanning') {
+            steps {
+                script {
+                    // Call the shared library function to scan dependencies
+                    golangScanDependencies(env.GOSEC_BIN, env.REPORT_FILE)
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                emailext(
+                    attachmentsPattern: "${env.REPORT_FILE}",
+                    body: "Dependency scanning report is attached.",
+                    subject: "Go Project Dependency Scanning Report",
+                    to: "raman.tripathi.snaatak@mygurukulam.co"
+                )
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@Library('Jenkins-shared-libraries@main') _
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Code Clone') {
+            steps {
+                script {
+                    clone_repo()
+                }
+            }
+        }
+
+        stage('Dependency Scanning') {
+            steps {
+                script {
+                    dependency('Maven')
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+                send_email(
+                    "Dependency Scanning Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The dependency scan has been completed successfully.\n\nPlease find the attached dependency report.",
+                    "target/owasp-report",
+                    "dependency-check-report.html",
+                    "it.mohitsaini@gmail.com"
+                )
+            }
+        }
+
+        failure {
+            script {
+                send_email(
+                    "Dependency Scanning Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The dependency scan has failed.\n\nPlease find the attached dependency report.",
+                    "target/owasp-report",
+                    "dependency-check-report.html",
+                    "it.mohitsaini@gmail.com"
+                )
+            }
+        }
+    }
+}

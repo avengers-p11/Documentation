@@ -1,0 +1,50 @@
+@Library('Jenkins-shared-libraries@main') _
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Code Clone') {
+            steps {
+                script {
+                    golang_clone_repo()
+                }
+            }
+        }
+
+        stage('Code Compilation') {
+            steps {
+                script {
+                    // Pass the Go tool name to the golang_compile function
+                    golang_compile('GO')
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+                send_email(
+                    "Code Compilation Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The code has been compiled successfully.\n\nPlease find the attached compilation report.",
+                    "target",  
+                    "compile-report.txt",  
+                    "raman.tripathi.snaatak@mygurukulam.co"  
+                )
+            }
+        }
+
+        failure {
+            script {
+                send_email(
+                    "Code Compilation Failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    "The code compilation has failed.\n\nPlease find the attached compilation report.",
+                    "target",  
+                    "compile-report.txt", 
+                    "raman.tripathi.snaatak@mygurukulam.co"  
+                )
+            }
+        }
+    }
+}

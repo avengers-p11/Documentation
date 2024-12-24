@@ -1,0 +1,87 @@
+@Library('Jenkins-shared-libraries@main') _  
+
+pipeline {
+    agent any
+
+    environment {
+        VENV_DIR = "venv"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                script {
+                    python_clone_repo()  
+                }
+            }
+        }
+
+        stage('Set Up Python Environment') {
+            steps {
+                script {
+                    python_environment()  
+                }
+            }
+        }
+
+        stage('poetry_lock') {
+            steps {
+                script {
+                    poetry_lock()  
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    python_dependencies() 
+                }
+            }
+        }
+
+        stage('Run Tests with Coverage') {
+            steps {
+                script {
+                    python_code_coverage()  
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+             
+                sh 'rm -rf venv'
+            }
+            archiveArtifacts artifacts: 'coverage.txt, htmlcov/*', allowEmptyArchive: true
+            echo 'Pipeline completed.'
+        }
+
+        success {
+            script {
+                emailext(
+                    attachmentsPattern: 'coverage.txt',
+                    body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+                    More info at: ${env.BUILD_URL}""",
+                    to: 'anjalidhiman.as@gmail.com',
+                    subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                )
+            }
+        }
+
+        failure {
+            script {
+                emailext(
+                    to: 'anjalidhiman.as@gmail.com',
+                    subject: 'Jenkins Pipeline Failure: Attendance API',
+                    body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+                )
+            }
+        }
+    }
+}
+
