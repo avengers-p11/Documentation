@@ -35,6 +35,13 @@ node {
             """
         }
 
+        stage('Update PATH for Poetry') {
+            echo 'Updating PATH for Poetry...'
+            sh """
+                echo 'export PATH="/var/lib/jenkins/.local/bin:$PATH"' >> ${VENV_DIR}/bin/activate
+            """
+        }
+
         stage('Verify Poetry Installation') {
             echo 'Verifying Poetry Installation...'
             sh """
