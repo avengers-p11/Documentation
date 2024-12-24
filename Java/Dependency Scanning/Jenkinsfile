@@ -1,0 +1,63 @@
+node {
+    def mvnHome = tool name: 'Maven', type: 'maven'
+    
+    env.PATH = "${mvnHome}/bin:${env.PATH}"  
+
+    stage('Clone Repository') {
+        checkout([$class: 'GitSCM', 
+                  branches: [[name: '*/main']], 
+                  userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+    }
+
+    stage('Dependency Checking with OWASP') {
+        
+        
+       
+        sh '''
+            mvn org.owasp:dependency-check-maven:check \
+                -Dformat=HTML \
+                -DoutputDirectory=target/owasp-report
+
+          
+            if [ -d "target/owasp-report" ]; then
+                echo "OWASP report directory found."
+                ls -l target/owasp-report
+            else
+                echo "Error: OWASP report directory not found."
+            fi
+        '''
+    }
+
+    stage('Archive Reports') {
+        
+        
+        
+        def reportPath = 'target/owasp-report/dependency-check-report.html'
+        
+        if (fileExists(reportPath)) {
+            echo "OWASP report found, archiving..."
+            archiveArtifacts artifacts: reportPath, allowEmptyArchive: true
+        } else {
+            echo "Error: OWASP report not found, skipping archiving."
+        }
+    }
+
+    stage('Send Email') {
+     
+        def reportFiles = 'target/owasp-report/dependency-check-report.html'
+
+      
+        if (fileExists(reportFiles)) {
+            emailext(
+                attachmentsPattern: reportFiles,
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        } else {
+            echo "Error: OWASP report files not found. Email not sent."
+        }
+    }
+}

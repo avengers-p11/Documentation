@@ -1,0 +1,42 @@
+node {
+    def mvnHome = tool name: 'Maven', type: 'maven'
+    
+    env.PATH = "${mvnHome}/bin:${env.PATH}"  
+
+    stage('Clone Repository') {
+        checkout([$class: 'GitSCM', 
+                  branches: [[name: '*/main']], 
+                  userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+    }
+
+    stage('Unit Test & Jacoco Code Coverage') {
+        echo "Running Unit Tests and Jacoco for code coverage..."
+        sh '''
+            mvn test jacoco:report > "unit-test-report.txt"
+            ls -l "unit-test-report.txt"  
+            cat "unit-test-report.txt"
+        '''
+    }
+
+    stage('Archive Reports') {
+        archiveArtifacts artifacts: 'unit-test-report.txt,target/site/jacoco/index.html', allowEmptyArchive: true
+        sh "ls -l \"${env.WORKSPACE}\"" 
+    }
+
+    stage('Send Email') {
+        def reportFiles = 'unit-test-report.txt,target/site/jacoco/index.html'
+
+        if (fileExists('unit-test-report.txt')) {
+            emailext(
+                attachmentsPattern: reportFiles,
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        } else {
+            echo "Error: Report files not found. Email not sent."
+        }
+    }
+}

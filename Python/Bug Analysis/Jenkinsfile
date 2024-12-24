@@ -1,0 +1,91 @@
+node {
+    def scannerHome = tool 'Sonar'
+    def VENV_DIR = "venv"
+
+    try {
+        stage('Clone Repository') {
+            
+            git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+        }
+
+        stage('Install Dependencies') {
+            
+            sh '''
+                
+                sudo apt-get install -y python3-venv python3-pip
+            '''
+        }
+
+        stage('Setup Python Virtual Environment') {
+            
+            sh """
+                if [ ! -d "$VENV_DIR" ]; then
+                    python3 -m venv $VENV_DIR
+                fi
+
+                ${VENV_DIR}/bin/pip install --upgrade pip
+                ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
+                ${VENV_DIR}/bin/pip install pytest
+            """
+        }
+
+        stage('Bug Analysis') {
+         
+            withSonarQubeEnv('Sonar') {
+                sh """
+                    ${scannerHome}/bin/sonar-scanner \
+                        -Dsonar.projectKey=attendance \
+                        -Dsonar.projectName=Attendance-api \
+                        -Dsonar.host.url=http://54.175.166.181:9000 \
+                        -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                        -Dsonar.java.binaries=target/classes \
+                        -Dsonar.issue.types=BUG \
+                        -Dsonar.report.export.path=bugs-report.txt
+                """
+            }
+        }
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+      
+        emailext(
+            to: 'anjalidhiman.as@gmail.com',
+            subject: 'Jenkins Pipeline Failure: Attendance-api',
+            body: """
+                <html>
+                    <body>
+                        <h2>Pipeline Failure</h2>
+                        <p>Hello,</p>
+                        <p>The Jenkins pipeline has failed. Please check the logs for details.</p>
+                    </body>
+                </html>
+            """,
+            mimeType: 'text/html'
+        )
+        throw e
+    } finally {
+        stage('Post Actions') {
+            echo 'Archiving artifacts...'
+            sh 'touch compilation-report.txt || true' // Create a dummy file if not present
+            archiveArtifacts artifacts: '**/compilation-report.txt', allowEmptyArchive: true
+            if (currentBuild.result == 'SUCCESS') {
+                emailext(
+                    attachmentsPattern: '**/compilation-report.txt',
+                    to: 'anjalidhiman.as@gmail.com',
+                    subject: "Jenkins Build SUCCESS: Attendance-api",
+                    body: """
+                        <html>
+                            <body>
+                                <h2>Build SUCCESS</h2>
+                                <p>Job: ${env.JOB_NAME}</p>
+                                <p>Build Number: ${env.BUILD_NUMBER}</p>
+                                <p>Details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                            </body>
+                        </html>
+                    """,
+                    mimeType: 'text/html'
+                )
+            }
+        }
+    }
+}
+
