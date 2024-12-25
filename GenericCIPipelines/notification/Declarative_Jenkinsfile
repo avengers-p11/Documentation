@@ -36,6 +36,12 @@ pipeline {
                     to: email_recipients
                 )
 
+                slackSend(
+                    channel: slack_channel,
+                    message: "Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${BUILD_URL}",
+                    color: 'good'
+                )
+
             }
             }
         
@@ -60,7 +66,7 @@ pipeline {
 
                 slackSend(
                     channel: slack_channel,
-                    message: "Build Failed: ${currentBuild.fullDisplayName} \n Repository: ${repo_url} \n Build URL: ${BUILD_URL}",
+                    message: "Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${BUILD_URL}",
                     color: 'danger'
                 )
             }
