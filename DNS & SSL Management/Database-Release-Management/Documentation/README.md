@@ -1,10 +1,11 @@
 
 
-# Database Release Management | Intro / Understanding
+# Database Release Management | Intro & Understanding
 
-| Author        | Created on | Version | Last updated by | Last edited on |
-  |-------------|---------|-------------|-------------|---------|
-  | Raman Tripathi | 20-12-24 | version 1 | Raman Tripathi | 20-11-24 |
+| **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |
+|------------|----------------|-------------------|---------------------|----------|
+| Anjali Dhiman  | 04-12-24      | V1  | 05-12-24           | Khushi Malhotra |
+
 
 
 ## Table of Content
@@ -22,7 +23,7 @@
 
 ## Introduction
 
-> Database release management is a structured approach to managing database changes from development to production environments. Effective database release management ensures that changes are accurately and securely deployed, with minimized downtime.
+Database release management is a structured approach to managing database changes from development to production environments. Effective database release management ensures that changes are accurately and securely deployed, with minimized downtime.
 
 
 ## Why Database Release Management
@@ -74,15 +75,11 @@
 | Test Rollbacks in Staging | Ensure each critical change has a tested rollback plan to reduce production risks.
 
 
+ ## Contact
 
-## Contact Information
-| Name| Email Address      |
-|-----|--------------------------|
-| Raman Tripathi | raman.tripathi.snaatak@mygurukulam.co |
-
-| GitHub | URL |
-|----------|---------|
-|  Raman-tripathi07  |  https://github.com/Raman-tripathi07 |
+| Name| Email Address      | GitHub | URL |
+|-----|--------------------------|----------|---------|
+| Anjali Dhiman | anjali.dhiman.snaatak@mygurukulam.co |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
 
 
 ## References
