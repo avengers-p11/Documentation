@@ -9,22 +9,18 @@ This document provides detailed insights into a **Generic Continuous Integration
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [What is a CI Operation AMI?](#what-is-a-ci-operation-ami)
-3. [Why Use a CI Operation AMI?](#why-use-a-ci-operation-ami)
-4. [Different Tools Integrated in the AMI](#different-tools-integrated-in-the-ami)
-5. [Comparison of Tools and Configurations](#comparison-of-tools-and-configurations)
-6. [Advantages of a Generic CI Operation AMI](#advantages-of-a-generic-ci-operation-ami)
-7. [Best Practices](#best-practices)
-8. [Recommendations and Conclusion](#recommendations-and-conclusion)
-9. [Contact Information](#contact-information)
-10. [References](#references)
+1. [What is a CI Operation AMI?](#what-is-a-ci-operation-ami)
+2. [Why Use a CI Operation AMI?](#why-use-a-ci-operation-ami)
+3. [Different Tools Integrated in the AMI](#different-tools-integrated-in-the-ami)
+4. [Comparison of Tools and Configurations](#comparison-of-tools-and-configurations)
+5. [Advantages of a Generic CI Operation AMI](#advantages-of-a-generic-ci-operation-ami)
+6. [Best Practices](#best-practices)
+7. [Recommendations and Conclusion](#recommendations-and-conclusion)
+8. [Contact Information](#contact-information)
+9. [References](#references)
 
 ---
 
-## Introduction
-
-Continuous Integration (CI) is a crucial DevOps practice that emphasizes automated code integration and testing. A **CI Operation AMI** is a pre-configured Amazon Machine Image designed to standardize and streamline CI pipelines by bundling essential tools and configurations.
 
 ---
 
@@ -80,33 +76,31 @@ The AMI includes a range of tools to support various CI/CD pipelines:
 
 ## Advantages of a Generic CI Operation AMI
 
-1. **Flexibility:** Supports multiple CI/CD tools and pipelines.
-2. **Faster Onboarding:** New team members can quickly set up and start contributing.
-3. **Cost Savings:** Optimized for spot instances and autoscaling.
-4. **Enhanced Security:** Pre-configured with best practices for access control, patches, and encryption.
-5. **Customizability:** Tailor the AMI to specific organizational requirements.
+## Advantages of Using AMIs
+
+| **Advantage**          | **Description**                                                                                  |
+|-------------------------|-----------------------------------------------------------------------------------------------|
+| **Flexibility**         | Supports multiple CI/CD tools and pipelines.                                                  |
+| **Faster Onboarding**   | New team members can quickly set up and start contributing.                                    |
+| **Cost Savings**        | Optimized for spot instances and autoscaling to reduce infrastructure costs.                  |
+| **Enhanced Security**   | Pre-configured with best practices for access control, patches, and encryption.               |
+| **Customizability**     | Tailor the AMI to specific organizational requirements and workflows.                         |
 
 ---
 
 
 ## Best Practices
 
-1. **AMI Maintenance:**
-   - Regularly update the AMI with the latest security patches.
-   - Keep tools and libraries up-to-date.
 
-2. **Version Control:**
-   - Use versioned AMIs to track changes and roll back if needed.
-
-3. **Monitoring and Logging:**
-   - Integrate monitoring tools (e.g., CloudWatch) for real-time insights.
-   - Ensure CI logs are stored in a centralized location for analysis.
-
-4. **Custom Scripts:**
-   - Add organization-specific scripts for further automation.
-
-5. **Infrastructure as Code (IaC):**
-   - Use IaC tools like Terraform to manage AMI deployments consistently.
+| **Practice**                | **Description**                                                                 |
+|-----------------------------|---------------------------------------------------------------------------------|
+| **AMI Maintenance**         | Regularly update the AMI with the latest security patches.                     |
+|                             | Keep tools and libraries up-to-date.                                           |
+| **Version Control**         | Use versioned AMIs to track changes and roll back if needed.                   |
+| **Monitoring and Logging**  | Integrate monitoring tools (e.g., CloudWatch) for real-time insights.          |
+|                             | Ensure CI logs are stored in a centralized location for analysis.              |
+| **Custom Scripts**          | Add organization-specific scripts for further automation.                     |
+| **Infrastructure as Code**  | Use IaC tools like Terraform to manage AMI deployments consistently.           |
 
 ---
 
@@ -130,11 +124,13 @@ We recommend integrating the AMI with IaC tools and monitoring solutions for the
 
 ## References
 
-- [AWS AMI Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)
-- [Jenkins Official Documentation](https://www.jenkins.io/doc/)
-- [Docker Documentation](https://docs.docker.com/)
-- [Terraform Best Practices](https://www.terraform.io/docs)
-- [CI/CD Best Practices](https://www.atlassian.com/continuous-delivery/ci-vs-cd)
+| **Resource**                   | **Link**                                                                                  |
+|--------------------------------|------------------------------------------------------------------------------------------|
+| **AWS AMI Documentation**      | [AWS AMI Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)   |
+| **Jenkins Official Documentation** | [Jenkins Official Documentation](https://www.jenkins.io/doc/)                         |
+| **Docker Documentation**       | [Docker Documentation](https://docs.docker.com/)                                        |
+| **Terraform Best Practices**   | [Terraform Best Practices](https://www.terraform.io/docs)                               |
+| **CI/CD Best Practices**       | [CI/CD Best Practices](https://www.atlassian.com/continuous-delivery/ci-vs-cd)          |
 
 ---
 
