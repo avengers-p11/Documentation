@@ -51,7 +51,7 @@ pipeline {
                 emailext(
                     attachmentsPattern: "${REPORT_FILE}",
                     body: "Dependency scanning report is attached.",
-                    subject: "Go Project Dependency Scanning Report",
+                    subject: "Go Project Dependency Scanning Report.",
                     to: "raman.tripathi.snaatak@mygurukulam.co"
                 )
             }
