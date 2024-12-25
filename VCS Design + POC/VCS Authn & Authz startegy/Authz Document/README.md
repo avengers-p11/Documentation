@@ -4,146 +4,116 @@
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer**      |
 |-----------------------|----------------|-------------|----------------------------|---------------------|-------------------|
-| Kshamata      | 11-11-24       | Version 1.1  | Kshamata           | 03-12-24           | Khushi Malhotra    |
+| Kshamata      | 11-11-24       | Version 1.1  | Raman Tripathi          | 25-12-24           | Khushi Malhotra    |
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [Why Authorization is Important ?](#)
-3. [Authorization Strategies](#)
-4. [Example of VCS Authorization](#)
-5. [Best Practices for Authorization in VCS](#)
-6. [Conclusion](#conclusion)
-7. [Contact Information](#contact-information)
-8. [References](#references)
 
+- [Introduction](#introduction)
+- [Why We Use Authorization](#why-we-use-authorization)
+- [Types of Authorization](#types-of-authorization)
+- [Access Levels in Authorization](#access-levels-in-authorization)
+- [Audit Trails and Logging](#audit-trails-and-logging)
+- [Integration with Identity Providers](#integration-with-identity-providers)
+ 
+
+---
 
 ## Introduction
+ 
 
-![image](https://github.com/user-attachments/assets/8d356e06-2d3a-4d8c-b7e6-5aa8ef422867)
+**Authorization (Authz)** refers to the process of determining what actions an authenticated user is allowed to perform within a Version Control System (VCS). Unlike **authentication (Authn)**, which verifies a user's identity, **authorization** ensures that users only have access to resources they are permitted to interact with.
 
-Authorization refers to the permissions and access control mechanisms that define what actions authenticated users can perform on the repository, branches, and other resources. The techniques for authorization in VCS vary in granularity, flexibility, and complexity.
-
-Authorization in Version Control Systems (VCS) is a critical aspect of software development and collaboration. It governs who can access, modify, and control the codebase, ensuring that the right individuals or teams have the appropriate permissions. Without proper authorization, a VCS can become vulnerable to security risks, data loss, and inefficient workflows.
-
----
-
-## Why Authorization is Important ?
-
-![image](https://github.com/user-attachments/assets/7169bcd7-f81a-410e-9ca3-fb2ed902753d)
+In the context of VCS, proper authorization mechanisms are essential to safeguard code repositories, configurations, and other sensitive data from unauthorized access. By implementing robust authorization strategies, organizations can enforce security policies, maintain compliance, and promote collaboration in a controlled and secure environment.
 
 
-Authorization in Version Control Systems (VCS) ensures that only authorized individuals have access to specific parts of the codebase, reducing risks and improving collaboration. Here's why it's crucial:
 
-| **Aspect**                          | **Description**                                                                                     |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------|
-| **Security and Access Control**     | Prevents unauthorized users from accessing or modifying the codebase, protecting sensitive data.     |
-| **Protecting the Integrity of the Codebase** | Ensures only trusted individuals can make changes, preventing malicious code or errors from being introduced. |
-| **Managing Collaboration in Teams** | Allows granular permissions, enabling collaboration while minimizing conflicts and errors in code.    |
-| **Compliance and Legal Requirements**| Ensures that sensitive data is protected and access is restricted in line with regulatory requirements. |
-| **Effective Workflow and Reduced Risk of Errors** | Prevents accidental overwriting, conflicts, and ensures structured collaboration via role-based access. |
-| **Access to Critical Operations**   | Controls who can change repository settings, manage branches, and make destructive changes (e.g., deletions). |
-| **Disaster Recovery and Code Integrity** | Limits destructive actions like deleting code or force-pushing changes, preventing accidental data loss. |
-| **Managing External Contributions** | Helps control who can merge changes and ensures that external contributions go through the review process. |
-| **Automation and CI/CD Security**   | Secures CI/CD pipelines, ensuring that only authorized users can deploy, test, or push code to production. |
+## Why We Use Authorization
 
----
+Authorization is crucial for the following reasons:
 
-## Authorization Strategies
-Authorization strategies in version control systems (VCS) are methods used to control who can access, modify, or perform certain actions within a repository or project. These techniques help ensure that only authorized users can make changes, view the history, or manage repositories, providing security and maintaining the integrity of the codebase.
-
-There are Various Authorization strategies in VCS to control access to repositories and ensure secure collaboration within development teams. 
-
-Below mentioned are some of the common techniques: 
-
-| **Method**                               | **Description**                                                                                                                                                 | **Security Level**      | **Use Case**                                                                                                          |
-|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **User Authentication**                  |                                                                                                                                                                 |                         |                                                                                                                      |
-| - Username/Password                      | The basic method where users provide a valid username and password.                                                                                             | Low                     | Typically used in less secure environments or when other methods are not feasible.                                   |
-| - SSH Keys                               | A more secure method for authentication, especially for distributed systems like Git.                                                                            | Medium                   | Used for secure access, particularly for systems like Git.                                                           |
-| - OAuth/OpenID                           | Allows users to log in via third-party services like GitHub, Google, or other accounts.                                                                         | Medium                   | Common for applications that need to allow users to authenticate with popular third-party services.                   |
-| **Role-Based Access Control (RBAC)**     | Assigns users specific roles that define their access permissions to repositories or branches.                                                                  | High                     | Managing user access to repositories or actions based on predefined roles (e.g., restrict write access to developers). |
-| - Administrator                          | Full access to all repositories and administrative features.                                                                                                     | High                     | Administering repository settings and managing user permissions.                                                     |
-| - Contributor                            | Can push changes to repositories but cannot modify settings or user permissions.                                                                                | Medium                   | For developers working on repositories, but without administrative control.                                           |
-| - Viewer/Read-Only                       | Can view repositories but cannot make changes.                                                                                                                   | Low                      | Used for stakeholders who only need access to view the codebase.                                                      |
-| **Access Control Lists (ACLs)**          | Provides more granular control over who can access specific files or directories. Permissions are granted to individual users or groups.                        | Medium to High           | Defines permissions at a more granular level (e.g., on specific directories, files, or branches).                    |
-| **Branch Protection Rules**              | Controls how critical branches (e.g., main, develop) can be updated.                                                                                             | High                     | Restricts actions on specific branches (e.g., requires pull request reviews before merging).                         |
-| - Require Pull Requests                  | Prevent direct commits to protected branches, forcing code reviews.                                                                                             | High                     | Used to enforce a code review process before allowing changes to important branches.                                  |
-| - Status Checks                          | Enforce checks (e.g., passing tests) before code can be merged.                                                                                                  | High                     | Ensures that code passes necessary tests before merging into critical branches.                                        |
-| - Code Review Approvals                  | Require peer reviews and approval before merging changes.   
-
-| **Method**                             | **Description**                                                                                                                                                                      | **Security Level** | **Use Case**                                                                                           |
-|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|------------------------------------------------------------------------------------------------------|
-| **Token-Based Authentication (PATs)**  | Personal Access Tokens (PATs) are an alternative to passwords, often used for API access or when interacting with VCS through CLI tools.                                             | High                | Uses access tokens for API authentication and Git operations.                                        |
-|                                        | - More secure than passwords.                                                                                                                                                         |                     |                                                                                                      |
-|                                        | - Scoped to limit access to specific repositories or actions.                                                                                                                       |                     |                                                                                                      |
-|                                        | - Useful in automation scripts and CI/CD pipelines.                                                                                                                                   |                     |                                                                                                      |
-| **Two-Factor Authentication (2FA)**    | Adds an extra layer of security by requiring a second form of verification, such as a code sent via SMS or an authenticator app (e.g., Google Authenticator).                        | Very High           | Requires users to provide two forms of authentication (password + second factor).                    |
-|                                        | - Enforces stronger security for user accounts.                                                                                                                                      |                     |                                                                                                      |
-| **IP Whitelisting or Geo-Restrictions**| Limits repository access to specific IP addresses or geographic regions. Can be used to enforce security for private repositories.                                                  | Very High           | Restricts access to trusted networks or regions, adding an extra layer of security for private repos. |
-| **Repository-Level Permissions**       | Determines who can access specific repositories and what actions they can perform.                                                                                                  | High                | Grants or restricts access to specific repositories within a VCS, allowing users to be assigned different levels of access (e.g., Admin, Write, Read). |
-|                                        | - Read access: View the repository's code and history.                                                                                                                                 |                     |                                                                                                      |
-|                                        | - Write access: Push changes to the repository.                                                                                                                                      |                     |                                                                                                      |
-|                                        | - Admin access: Manage repository settings, permissions, and more.                                                                                                                 |                     |                                                                                                      |
+| **Reason**                                    | **Description**                                                                                                                                   |
+|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| **1. Control Access to Sensitive Resources**  | VCS systems contain critical data such as source code, documentation, and configurations. Unauthorized access to these resources can lead to security breaches, code tampering, or intellectual property theft. |
+| **2. Enforce the Principle of Least Privilege** | By limiting access to only the necessary resources, authorization ensures users have the minimum level of access required to perform their tasks, reducing potential security risks. |
+| **3. Provide Accountability and Compliance**  | Properly implemented authorization mechanisms allow organizations to monitor user access and actions, ensuring compliance with security policies and regulations such as GDPR, SOC 2, or HIPAA. |
+| **4. Enhance Collaboration**                  | Authorization ensures that only authorized team members can contribute to repositories or access sensitive resources, facilitating safe collaboration without compromising security. |
+| **5. Prevent Conflicts and Mistakes**         | Restricting access to certain actions (such as merging or deleting repositories) helps reduce the risk of errors, conflicts, or malicious activity. |
 
 
----
+   - Restricting access to certain actions (such as merging or deleting repositories) helps reduce the risk of errors, conflicts, or malicious activity.
 
-## Examples of VCS Authorization in Action
+#  Types of Authorization
 
-| **VCS**      | **Authorization Technique**      | **Description**                                                                                      | **Example**                                                                                                   |
-|--------------|----------------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| **GitHub**   | **Repository-level permissions** | Users can be granted read, write, or admin access to a repository.                                   | Users with **read** access can view and clone the repository, **write** access can push changes, **admin** access allows full control. |
-|              | **RBAC (Role-Based Access Control)** | Team members can be assigned roles like Maintainer, Developer, or Reader with different permissions.   | A **Maintainer** has full repository control, while a **Reader** can only view the code but cannot make changes.  |
-|              | **Branch Protection**           | Enforces rules for important branches, like requiring pull requests and code reviews before merging.   | The **`main`** branch may require that all changes go through a pull request with code reviews before merging. |
-|              | **2FA Enforcement**             | Enforces Two-Factor Authentication for accessing sensitive repositories.                             | Organizations can require all contributors to enable **2FA** before allowing access to critical repositories.  |
-| **GitLab**   | **Role-based Permissions**      | Allows setting roles for users in a project or group (e.g., Guest, Reporter, Developer, Maintainer).    | A **Developer** can push code to a repository, but a **Maintainer** has higher access to manage settings and permissions. |
-|              | **IP Whitelisting**             | Restricts repository access based on IP address ranges, ensuring only trusted network access.        | Access to repositories is restricted to users with IPs within the organization's trusted range. |
-|              | **Branch Protection Rules**     | Defines specific rules for protected branches, like restricting who can push or requiring code reviews before merging. | The **`master`** branch can be protected to allow only **Maintainers** to push code, with required code reviews before merging. |
-| **Bitbucket**| **Granular Permissions**        | Provides fine-grained control over who can access and modify repositories at both repository and branch levels. | **Admins** can configure repository settings, while **Developers** can push code but not manage repository settings. |
-|              | **Geo-restrictions**            | Restricts access based on geographic location or IP address.                                          | Only users from specific regions (e.g., the **EU** or **US**) are allowed to push code or access sensitive repositories. |
 
----
+| **Authorization Model**                       | **Description**                                                                                                          |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| **Role-Based Access Control (RBAC)**         | Access granted based on assigned roles with predefined permissions.                                                     |
+| **Attribute-Based Access Control (ABAC)**    | Access granted based on dynamic attributes (e.g., user, resource, environment).                                          |
+| **Discretionary Access Control (DAC)**       | Resource owners have control over permissions for other users.                                                           |
+| **Mandatory Access Control (MAC)**           | Access determined by security policies, not the resource owner.                                                          |
+| **Identity-Based Access Control (IBAC)**     | Access based on individual user identities.                                                                               |
+| **Time-Based Access Control (TBAC)**         | Access granted based on time or scheduled windows.                                                                       |
+| **Geolocation-Based Access Control (GeoAC)** | Access granted based on user's physical location (e.g., IP address or GPS).                                              |
+| **OAuth**                                    | Token-based authorization for third-party apps to access resources without sharing credentials.                           |
+| **OpenID Connect (OIDC)**                    | Authentication and authorization standard based on OAuth 2.0, allowing users to log in and grant access to resources.    |
 
-## Best Practices for Authorization in VCS
 
-Effective authorization strategies in Version Control Systems (VCS) are critical for maintaining security, compliance, and efficient collaboration. The following table outlines best practices for managing access in VCS.
 
-| **Best Practice**                                      | **Description**                                                                                                   | **Benefits**                                                    | **Common Platforms**                      |
-|--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|-------------------------------------------|
-| **Use Role-Based Access Control (RBAC)**               | Assign users roles (Admin, Developer, Viewer) based on their responsibilities and restrict access accordingly.   | Granular control over who can perform specific actions.         | GitHub, GitLab, Bitbucket, Azure DevOps   |
-| **Enable Two-Factor Authentication (2FA)**             | Require users to enable 2FA for accessing VCS platforms.                                                         | Adds an additional layer of security to prevent unauthorized access. | GitHub, GitLab, Bitbucket, GitKraken      |
-| **Implement IP Whitelisting**                          | Limit access to VCS from predefined, trusted IP addresses or address ranges.                                      | Restricts access to trusted networks, enhancing security.       | GitHub Enterprise, GitLab, Bitbucket Server |
-| **Use Least Privilege Principle**                      | Grant the minimum level of access necessary for users to perform their tasks.                                      | Reduces risk of accidental or malicious changes to critical resources. | GitHub, GitLab, Bitbucket, Azure DevOps   |
-| **Set Up Branch Protection Rules**                      | Configure rules for critical branches (e.g., `main`, `develop`), such as requiring pull requests and code reviews before merging. | Ensures code quality and prevents unauthorized or unreviewed changes. | GitHub, GitLab, Bitbucket, Azure DevOps   |
-| **Monitor and Audit Access Logs**                       | Regularly audit and review who has access to repositories and monitor changes to critical files or branches.     | Helps identify potential security issues and enforce compliance. | GitHub, GitLab, Bitbucket                 |
-| **Limit Access to Sensitive Repositories**             | Restrict access to repositories containing sensitive or proprietary code to authorized teams only.               | Prevents unauthorized access to confidential code.             | GitHub, GitLab, Bitbucket, GitHub Enterprise |
-| **Enforce Code Review and Approval Workflows**         | Ensure that changes to important codebase branches go through a mandatory review and approval process.            | Prevents bugs, security vulnerabilities, and unauthorized code changes. | GitHub, GitLab, Bitbucket, Azure DevOps   |
-| **Use SSH Keys for Secure Authentication**             | Use SSH keys instead of passwords for accessing repositories to ensure secure communication.                     | Prevents credential theft and ensures secure access.            | GitHub, GitLab, Bitbucket, AWS CodeCommit |
-| **Regularly Rotate API Tokens and Personal Access Tokens (PATs)** | Set expiration dates and regularly rotate API tokens or Personal Access Tokens for enhanced security.            | Mitigates the risk of token theft or misuse.                    | GitHub, GitLab, Bitbucket, Azure DevOps   |
-| **Control Access via Teams and Groups**                | Use VCS platform features to organize users into teams or groups and assign permissions based on these structures. | Simplifies permission management and ensures only authorized teams access critical resources. | GitHub, GitLab, Bitbucket, Azure DevOps   |
-| **Enforce SSO (Single Sign-On) for Enterprise Teams**  | Use SSO with SAML, OAuth, or other identity providers to streamline authentication and access control.            | Centralized authentication improves security and ease of management. | GitHub Enterprise, GitLab, Azure DevOps  |
-| **Restrict Merge Access to Authorized Users**          | Allow only specific users (e.g., senior developers or team leads) to merge pull requests into main branches.       | Protects critical branches from unauthorized or unreviewed code. | GitHub, GitLab, Bitbucket, Azure DevOps   |
-| **Implement Geo-Restrictions**                         | Limit access to the VCS based on the geographic location of users.                                                | Prevents unauthorized access from regions or countries with high security risks. | GitHub Enterprise, GitLab, Bitbucket Server |
-| **Use Multi-Factor Authentication (MFA) for Admins**    | Require administrators to use multi-factor authentication (MFA) for accessing sensitive areas of the VCS platform. | Provides additional security for critical administrative actions. | GitHub, GitLab, Bitbucket                 |
+## Access Levels in Authorization
 
-Adopting the best practices for authorization in VCS ensures that your repositories remain secure, accessible only to the right people, and compliant with security and workflow requirements. By following these practices, you can:
+| **Access Level**                      | **Permissions**                                                                                                             | **Use Case**                                                        |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| **Admin (Full Access)**               | - Full control over the VCS system, repositories, and user management. <br> - Manage repository settings, user roles, and system configurations. <br> - View and modify access control policies and audit logs. | System administrators, platform owners.                           |
+| **Contributor (Write Access)**        | - Can clone, push, pull, create branches, commit changes, and submit pull requests. <br> - Can modify content within repositories but cannot change repository settings. | Developers, technical contributors.                                |
+| **Viewer (Read-Only Access)**         | - Can view repositories and files but cannot modify or delete content. <br> - Can view issues, pull requests, and logs.      | Stakeholders, non-technical team members, external auditors.       |
+| **Custom Roles (Granular Permissions)**| - Allows the creation of custom roles with tailored access levels. <br> - Permissions can be restricted to specific repositories, files, or actions (e.g., read-only for certain branches). | Custom roles based on specific project or organizational needs.    |
 
-- **Protect sensitive code** from unauthorized access.
-- **Prevent accidental or malicious changes** through strict role management.
-- **Ensure compliance** with security regulations by monitoring access and enforcing approval workflows.
 
----
+## Audit Trails and Logging
+
+Audit trails provide a chronological record of all actions performed within the VCS, focusing on user access, changes, and configuration adjustments. These logs help maintain security, accountability, and transparency within the system.
+
+## Key Features of Audit Trails
+
+| **Feature**                          | **Description**                                                                                                    |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| **User Actions Logging**             | Logs actions like repository creation, commits, pushes, pulls, and merge requests.                                |
+| **Access Logging**                   | Tracks failed authentication attempts, successful logins, and changes in user access permissions.                  |
+| **Change Tracking**                  | Logs every change made to files or configurations, including commit author and timestamps.                         |
+| **Permissions Changes**              | Tracks modifications to user roles and permissions, including who granted or modified access.                     |
+| **Security Events**                  | Logs suspicious activities such as multiple failed login attempts, IP address anomalies, and other security events. |
+
+## Benefits of Audit Trails
+
+| **Benefit**             | **Description**                                                                                           |
+|-------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Security Monitoring**  | Quickly identify unauthorized access attempts or malicious activities.                                    |
+| **Compliance Reporting** | Generate audit reports for regulatory and internal compliance.                                           |
+| **Transparency**         | Provides clear visibility into who did what and when, enhancing accountability.                          |
+| **Forensic Analysis**    | Useful in post-incident investigations to trace security breaches or operational errors.                  |
+
+## Integration with Identity Providers
+
+Integrating your VCS with an **Identity Provider (IdP)** is essential for managing authentication and authorization efficiently. Integration with enterprise-level IdPs ensures consistent user management, centralizes access control, and supports compliance with organizational security policies.
+
+## Types of IdP Integration
+
+| **Integration Type**                | **Description**                                                                                                                     | **Benefits**                                                                                     |
+|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| **Single Sign-On (SSO)**            | Enables users to log into the VCS system using corporate credentials via SSO (e.g., Active Directory, Google Workspace, Okta).       | Simplifies user login, centralizes authentication, and reduces password fatigue.                |
+| **OAuth 2.0 / OpenID Connect**      | Enables secure and modern token-based authentication for VCS systems and external IdPs.                                            | Popular with services like GitHub, GitLab, and Bitbucket for enterprise-level authentication.    |
+| **Active Directory / LDAP Integration** | Connect VCS systems to enterprise directories like Active Directory (AD) or LDAP to manage user roles and permissions centrally.    | Ensures seamless user provisioning and access control, particularly in large organizations.      |
+| **Group-Based Permissions**         | VCS systems can map IdP groups to roles within the system. For example, users in the "Developers" group could automatically be granted Contributor access. | Automates user role assignment based on group membership, streamlining access control.            |
+
 
 ## Conclusion
 
-Authorization is key to maintaining **security**, **collaboration**, and **integrity** within a VCS. 
-By implementing proper authorization techniques, organizations can protect their code, ensure that only trusted users make changes, and enhance overall security and compliance within the VCS platform.
-Organizations can ensure safe, efficient, and compliant development workflows by properly controlling access. 
+**Authorization** is a cornerstone of securing VCS environments, ensuring that only authorized users can access sensitive resources and perform specific actions. By implementing a robust authorization strategy .
 
 ## Contact
 | Name          | Email Address       |
 |---------------|---------------------|
-| Kshamata |  kshamata.prasad.snaatak@mygurukulam.co|
+| Raman Tripathi |  raman.tripathi.snaatak@mygurukulam.co|
 
 
 
@@ -154,10 +124,6 @@ Organizations can ensure safe, efficient, and compliant development workflows by
 | **GitLab**       | [GitLab Documentation](https://docs.gitlab.com/)                    |
 | **Bitbucket**    | [Bitbucket Documentation](https://bitbucket.org/product)            |
 | **OAuth 2.0**    | [OAuth 2.0 Overview](https://oauth.net/2/)                           |
-
-
-
-
 
 
 
