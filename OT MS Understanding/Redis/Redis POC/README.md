@@ -30,7 +30,7 @@
 
 The purpose of this POC is to evaluate Redis as a caching solution for the application, testing its performance, scalability, and integration capabilities.
 
-## Redis Setup Prerequisites
+## Hardware Pre-requisites
 
 | **Requirement**        | **Details**                  |
 |------------------------|------------------------------|
