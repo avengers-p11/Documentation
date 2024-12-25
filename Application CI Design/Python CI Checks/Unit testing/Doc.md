@@ -22,9 +22,7 @@
 ---
 
 ## Introduction
-Continuous Integration (CI) is a practice where code changes are automatically built, tested, and integrated into the main branch frequently. This helps catch integration bugs and code quality issues early, reducing development risks.  In Python projects, CI checks are essential to ensure code passes unit tests and meets quality standards.  
-This document focuses on setting up CI for Python projects, with a focus on unit testing, comparing tools, and offering best practices for effective testing in the CI pipeline.
-
+This document focuses on unit testing in Python, providing a comparison of popular tools available in the market, highlighting their features, and offering guidance on selecting and using the best tools effectively.
 
 ## Life Cycle of Testing
 
