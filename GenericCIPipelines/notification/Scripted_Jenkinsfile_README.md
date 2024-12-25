@@ -1,53 +1,40 @@
-# Jenkins Pipeline for FOSSA Dependency Scanning
-
-This Jenkins pipeline automates the process of running a dependency scan on a project using FOSSA, generating an HTML report, and sending email notifications with the scan results.
+# Jenkins Scripted Pipeline with Email and Slack Notifications
 
 ## Overview
+This repository contains a Jenkins Scripted Pipeline script designed to send notifications via email and Slack. The pipeline includes a single `Notification` stage, and it performs actions based on the build status, notifying the appropriate recipients in case of success or failure.
 
-This pipeline:
-1. **Cleans the workspace** to remove any previous files.
-2. **Clones the repository** from the specified Git URL and branch.
-3. **Runs FOSSA dependency scanning** to analyze the project dependencies.
-4. **Generates an HTML report** of the FOSSA analysis.
-5. **Archives the generated FOSSA report**.
-6. **Sends email notifications** with the FOSSA report attached or notifies if the scan fails.
+---
 
-## Prerequisites
+## Pipeline Features
+- **Scripted Pipeline**: Written in the Jenkins Scripted Pipeline style.
+- **Notifications**:
+  - **Email Notification**: Sends build success or failure notifications to a specified email group.
+  - **Slack Notification**: Posts build status messages to a specified Slack channel.
 
-Before using this pipeline, ensure that:
-- Jenkins is set up with the **Pipeline** plugin enabled.
-- **FOSSA CLI** is installed on the Jenkins agent.
-- A **Jenkins Secret Text** credential for the FOSSA API key (e.g., `neelesh-fossa-token`) is configured.
-- Access to the **FOSSA** account to generate dependency reports.
+---
 
-## Pipeline Steps
-
-### 1. **Clean Workspace**
-   The workspace is cleaned to ensure no leftover files from previous builds.
-
-### 2. **Clone Repository**
-   The repository is cloned from the specified URL (`https://github.com/OT-MICROSERVICES/attendance-api.git`) and the `main` branch is checked out.
-
-### 3. **Dependency Scanning (FOSSA)**
-   - Retrieves the FOSSA API key using `withCredentials`.
-   - Runs `fossa init` to initialize the project for scanning.
-   - Runs `fossa analyze` to perform the scan.
-   - Generates an HTML report (`fossa-report.html`) with `fossa report --format html attribution`.
-
-### 4. **Publish FOSSA Report**
-   The generated FOSSA report (`fossa-report.html`) is archived as an artifact so that it can be accessed later.
-
-### 5. **Email Notification**
-   - **Always**: If the FOSSA report exists, an email is sent to the specified recipients with the report attached. If the report is not found, a message is printed indicating that no report was generated.
-   - **Failure**: If the build fails, an email is sent notifying the team about the failure, including the build log URL for troubleshooting.
-
-## Environment Variables
-
+## Environment Configuration
 The following environment variables are used in the pipeline:
-- `branch_name`: The name of the Git branch to be checked out (default: `main`).
-- `repo_url`: The Git repository URL to clone (default: `https://github.com/OT-MICROSERVICES/attendance-api.git`).
-- `fossa_token_id`: The Jenkins secret ID for the FOSSA API key (default: `neelesh-fossa-token`).
-- `email_recipients`: The email address to send the notifications to (default: `nilesh.rajput.snaatak@mygurukulam.co`).
-- `fossa_report_name`: The name of the generated FOSSA report (default: `fossa-report.html`).
+
+| Variable                 | Description                                              |
+|--------------------------|----------------------------------------------------------|
+| `email_recipients`       | Email addresses of the recipients for notifications.     |
+| `slack_channel`          | Slack channel for notifications (e.g., `#project-notification`). |
+| `slack_webhook_creds_id` | Jenkins credential ID for the Slack webhook token.       |
+
+---
+
+## Pipeline Logic
+### Stages:
+1. **Notification**:
+   - A simple stage that logs a message.
+
+### Post-Build Actions:
+- On **Success**:
+  - Sends an email to `email_recipients` with the build details.
+  - Sends a Slack message to the `slack_channel`.
+- On **Failure**:
+  - Sends an email to `email_recipients` with the failure details.
+  - Sends a Slack message to the `slack_channel`.
 
 ### Author -> Neelesh Rajput (nilesh.rajput.snaatak@mygurukulam.co)
