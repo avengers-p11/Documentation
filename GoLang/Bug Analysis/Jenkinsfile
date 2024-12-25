@@ -41,7 +41,7 @@ pipeline {
 
     post {
         always {
-            // Send email with bug analysis report as attachment
+            // Send email with bug analysis report as attachment.
             emailext(
                 attachmentsPattern: 'bugs-report.txt',
                 body: "Bug analysis report is attached.",
