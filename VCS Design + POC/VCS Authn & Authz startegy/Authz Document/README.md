@@ -1,5 +1,5 @@
 # Authorization Document for VCS 
-### This document provides Proof-of-Concept (POC) of frontend in detail.
+![image](https://github.com/user-attachments/assets/2c2413ed-b45c-4e7f-a11f-1812e89ed61d)
 
 
 | **Author**            | **Created on** | **Version** | **Last updated by**       | **Last edited on** | **Reviewer**      |
@@ -14,6 +14,9 @@
 - [Access Levels in Authorization](#access-levels-in-authorization)
 - [Audit Trails and Logging](#audit-trails-and-logging)
 - [Integration with Identity Providers](#integration-with-identity-providers)
+- [Conclusion](#conclusion)
+- [Contact](#contact)
+- [References](#references)
  
 
 ---
@@ -117,7 +120,7 @@ Integrating your VCS with an **Identity Provider (IdP)** is essential for managi
 
 
 
-##  Reference Links
+##  References
 | Service          | Documentation Link                                                  |
 |------------------|---------------------------------------------------------------------|
 | **GitHub**       | [GitHub Documentation](https://docs.github.com/)                    |
