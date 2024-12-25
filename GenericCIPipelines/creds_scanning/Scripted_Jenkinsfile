@@ -1,0 +1,60 @@
+node {
+    // Define environment variables
+    def branch_name = 'main'
+    def repo_url = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
+    def gitleaks_report_name = "gitleaks-report.json"
+    def email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
+
+    try {
+        stage('Clean Workspace') {
+            cleanWs()
+        }
+
+        stage('Clone Repository') {
+            git url: repo_url, branch: branch_name
+        }
+
+        stage('Run Gitleaks Scan') {
+            sh """
+            gitleaks detect \
+            --source . \
+            --report-format json \
+            --report-path ${gitleaks_report_name}
+            """
+        }
+
+        stage('Publish Gitleaks Report') {
+            archiveArtifacts artifacts: "${gitleaks_report_name}", fingerprint: true
+        }
+
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        // Always send email notification
+        def reportExists = fileExists(gitleaks_report_name)
+
+        if (reportExists) {
+            def reportContent = readFile(gitleaks_report_name)
+
+            emailext(
+                subject: "Gitleaks Scan Report (${repo_url})  - ${currentBuild.fullDisplayName}",
+                body: "Hello Team,\n\nPlease find attached the Gitleaks scan report for ${repo_url} repo: ${currentBuild.fullDisplayName}.\n Build Log URL: ${BUILD_URL}console \n\nRegards,\nJenkins",
+                attachLog: false,
+                attachmentsPattern: gitleaks_report_name,
+                to: email_recipients
+            )
+        } else {
+            echo "Gitleaks report not found. Skipping email notification."
+        }
+
+        // Failure email notification
+        if (currentBuild.result == 'FAILURE') {
+            emailext(
+                subject: "Gitleaks Scan Failed - ${currentBuild.fullDisplayName}",
+                body: "Hello Team,\n\nThe Gitleaks scan has failed for the build: ${currentBuild.fullDisplayName}. \n Build Log URL: ${BUILD_URL}console \n\nPlease check the Jenkins logs for more details.\n\nRegards,\nJenkins",
+                to: email_recipients
+            )
+        }
+    }
+}

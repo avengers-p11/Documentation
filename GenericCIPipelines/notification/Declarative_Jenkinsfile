@@ -1,0 +1,68 @@
+pipeline {
+    agent any
+
+    environment {
+        email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
+        slack_channel = "#project-notification"
+        slack_webhook_creds_id = "neelesh-slack-webhook"
+    }
+
+    stages {
+
+        stage('Notification') {
+            steps {
+                script {
+                    sh "echo This is Notification pipeline"
+                }
+            }
+        }
+
+    post {
+        success {
+            script {
+                emailext(
+                    subject: "Jenkins Build Successful [${BUILD_URL}] : ${currentBuild.fullDisplayName}",
+                    body: """Hello Team,
+
+                    Build is successful. 
+
+                    Build Log URL: ${BUILD_URL}console
+
+                    Regards,
+                    Jenkins
+                    """,
+                    attachLog: false,
+                    to: email_recipients
+                )
+
+            }
+            }
+        }
+
+        failure {
+            script {
+            // Notify on failure
+            emailext(
+                    subject: "Jenkins Build Failed!!! [${BUILD_URL}] : ${currentBuild.fullDisplayName}",
+                    body: """Hello Team,
+
+                    Build is FAILED!!. 
+
+                    Build Log URL: ${BUILD_URL}console
+
+                    Regards,
+                    Jenkins
+                    """,
+                    attachLog: false,
+                    to: email_recipients
+                )
+
+                slackSend(
+                    channel: slack_channel,
+                    message: "Build Failed: ${currentBuild.fullDisplayName} \n Repository: ${repo_url} \n Build URL: ${BUILD_URL}",
+                    color: 'danger'
+                )
+            }
+        }
+    }
+}
