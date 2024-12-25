@@ -15,11 +15,10 @@ This document provides detailed insights into a **Generic Continuous Integration
 4. [Different Tools Integrated in the AMI](#different-tools-integrated-in-the-ami)
 5. [Comparison of Tools and Configurations](#comparison-of-tools-and-configurations)
 6. [Advantages of a Generic CI Operation AMI](#advantages-of-a-generic-ci-operation-ami)
-7. [Proof of Concept (POC)](#proof-of-concept-poc)
-8. [Best Practices](#best-practices)
-9. [Recommendations and Conclusion](#recommendations-and-conclusion)
-10. [Contact Information](#contact-information)
-11. [References](#references)
+7. [Best Practices](#best-practices)
+8. [Recommendations and Conclusion](#recommendations-and-conclusion)
+9. [Contact Information](#contact-information)
+10. [References](#references)
 
 ---
 
@@ -89,24 +88,6 @@ The AMI includes a range of tools to support various CI/CD pipelines:
 
 ---
 
-## Proof of Concept (POC)
-
-### Scenario
-Developers need to deploy a CI pipeline for a microservices-based application using Jenkins.
-
-### Steps:
-1. Launch an EC2 instance using the pre-configured CI Operation AMI.
-2. Connect the instance to a source control repository (e.g., GitHub).
-3. Configure Jenkins to build and test the microservices automatically upon code changes.
-4. Use Docker to containerize the application and push images to an ECR (Elastic Container Registry).
-5. Deploy the images using Terraform to a Kubernetes cluster.
-
-### Results:
-- CI pipeline setup time reduced by 60%.
-- All tools were pre-installed, eliminating manual configuration.
-- Build and deployment times improved by 30% due to optimized configurations.
-
----
 
 ## Best Practices
 
