@@ -1,5 +1,5 @@
 node {
-    // Define tools and environment variables
+    // Define tools and environment variables.
     def goHome = tool 'GO'
     def REPORT_FILE = "test_report.txt"
 
