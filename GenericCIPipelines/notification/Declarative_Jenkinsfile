@@ -40,7 +40,8 @@ pipeline {
                     channel: slack_channel,
                     message: "Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${BUILD_URL}",
                     color: 'good',
-                    tokenCredentialId: slack_webhook_creds_id
+                    tokenCredentialId: slack_webhook_creds_id,
+                    baseUrl: 'teamasnaatak.slack.com'
                 )
 
             }
@@ -69,7 +70,8 @@ pipeline {
                     channel: slack_channel,
                     message: "Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${BUILD_URL}",
                     color: 'danger',
-                    tokenCredentialId: slack_webhook_creds_id
+                    tokenCredentialId: slack_webhook_creds_id,
+                    baseUrl: 'teamasnaatak.slack.com'
                 )
             }
         }
