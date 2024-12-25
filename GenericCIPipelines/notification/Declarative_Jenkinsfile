@@ -38,7 +38,7 @@ pipeline {
 
             }
             }
-        }
+        
 
         failure {
             script {
@@ -66,4 +66,5 @@ pipeline {
             }
         }
     }
+}
 
