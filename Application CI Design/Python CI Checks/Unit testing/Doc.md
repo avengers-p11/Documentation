@@ -1,8 +1,12 @@
-# Documentation of Unit Testing.
+# Documentation of Python Unit Testing.
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
 | Anjali Dhiman  | 04-12-24      | V1  | 05-12-24           | Khushi Malhotra |
+
+## ![image](https://github.com/user-attachments/assets/de480ac4-2a62-417f-a248-c63c8d95bb44)
+
+
 
 ## Table of Contents
 
@@ -24,20 +28,16 @@ This document focuses on setting up CI for Python projects, with a focus on unit
 
 ## Life Cycle of Testing
 
-![unit test life cycle](https://github.com/user-attachments/assets/9abd7f94-33d9-423e-bf1f-49a423078cdf)
+![image](https://github.com/user-attachments/assets/9e03a4e6-4600-48d6-b81a-41f8abdf3aa1)
 
----
+
 
 ## General Workflow
- ![Testing stage](https://github.com/user-attachments/assets/f057b075-fd9c-45e0-8048-91869f726f9d)
+![image](https://github.com/user-attachments/assets/466bf1c9-6f74-44eb-8b8d-5e7e580a72f9)
 
----
 
-# Different Tools for Unit Testing in Python
 
-![python tools](https://github.com/user-attachments/assets/d7a114db-67c2-45ad-829f-c49025221730)
-
-## Comparison of Testing Tool
+# Comparison Table of Different Tools Used in Unit Testing of Python
 
 | Feature                     | Lettuce                             | pytest                             | doctest                          | Robot                   |
 |-----------------------------|-------------------------------------|------------------------------------|----------------------------------|-----------------------------------|
@@ -73,5 +73,10 @@ This document focuses on setting up CI for Python projects, with a focus on unit
 
 For Python unit testing, **pytest** is ideal for flexibility and scalability, offering a rich set of features for both simple and complex testing scenarios. Its support for fixtures, parameterized tests, and comprehensive assertion methods make it a popular choice among developers. With an active community and extensive plugin ecosystem, **pytest** enables efficient test development and maintenance, making it well-suited for projects of any scale.
 
----
+## Reference Links
+
+| Links | Description      |
+|-----  |--------------------------|
+| https://www.geeksforgeeks.org/unit-testing-python-unittest |  Python Unit testing |
+| https://www.testbytes.net/blog/python-test-automation-framework | Python Unit testing tools |
 
