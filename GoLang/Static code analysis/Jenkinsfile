@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Running SonarQube analysis for bugs...'
                 script {
-                    withSonarQubeEnv('Sonar') {  // Assuming 'Sonar' is configured in Jenkins Global Tool Configuration
+                    withSonarQubeEnv('Sonar') {  // Assuming 'Sonar' is configured in Jenkins Global Tool Configuration.
                         sh """
                             ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=employee \
