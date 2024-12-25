@@ -1,1 +1,112 @@
 
+pipeline {
+    agent any
+    tools {
+        maven 'Maven'
+    }
+    environment {
+        SCANNER_HOME = tool 'Sonar'
+        MVN_HOME = tool 'Maven'
+        TARGET_URL = 'http://54.234.35.78:8080/swagger-ui/index.html'
+    }
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('Checkout GIT') {
+            steps {
+                git url: 'git@github.com:avengers-p11/salary-api.git', branch: 'main'
+            }
+        }
+        stage('Starting Code Compilation') {
+            steps {
+                echo "Code Compilation"
+                sh 'mvn clean compile'
+            }
+        }
+        stage('Static Code Analysis with SonarQube') {
+            steps {
+                script {
+                    withSonarQubeEnv('Sonar') {
+                        sh "${MVN_HOME}/bin/mvn clean package -Dmaven.test.skip=true sonar:sonar"
+                    }
+                }
+            }
+        }
+        stage('Bug Analysis with SonarQube') {
+            steps {
+                script {
+                    withSonarQubeEnv('Sonar') {
+                        sh "${MVN_HOME}/bin/mvn clean package -Dmaven.test.skip=true sonar:sonar"
+                    }
+                }
+            }
+        }
+        stage('Test Execution') {
+            steps {
+                echo 'Running tests'
+                sh "${MVN_HOME}/bin/mvn test"
+            }
+        }
+        stage('Archive Reports') {
+            steps {
+                echo 'Archiving all artifacts and reports'
+                archiveArtifacts artifacts: 'target/**/*', allowEmptyArchive: true
+            }
+        }
+        stage('Install Nikto for DAST') {
+            steps {
+                sh 'sudo apt-get update && sudo apt-get install -y nikto'
+            }
+        }
+        stage('Run DAST - Nikto') {
+            steps {
+                sh "nikto -h ${TARGET_URL} -o nikto_report.html -Tuning 2"
+            }
+        }
+        stage('Publish DAST Report') {
+            steps {
+                archiveArtifacts artifacts: 'nikto_report.html', allowEmptyArchive: true
+            }
+        }
+        stage('OWASP Dependency Check') {
+            steps {
+                echo "Running OWASP Dependency Check"
+                sh 'mvn org.owasp:dependency-check-maven:check -Dformat=HTML'
+            }
+        }
+        stage('Archive OWASP Reports') {
+            steps {
+                echo "Archiving OWASP Dependency Check Reports"
+                archiveArtifacts artifacts: 'target/dependency-check-report.html', allowEmptyArchive: true
+            }
+        }
+    }
+    post {
+        success {
+            echo "Build succeeded"
+        }
+        failure {
+            echo "Build failed"
+        }
+        always {
+            echo "Build finished with status: ${currentBuild.currentResult}"
+            emailext(
+                subject: "Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                body: """
+                    Hello,
+                    The build #${env.BUILD_NUMBER} has been completed.
+                    Build Status: ${currentBuild.currentResult}
+                    Please find the attached DAST and OWASP Dependency Check reports.
+                    Regards,
+                    Jenkins
+                """,
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                to:'raman.tripathi.snaatak@mygurukulam.co',
+                attachmentsPattern: 'nikto_report.html, target/dependency-check-report.html'
+            )
+        }
+    }
+}
