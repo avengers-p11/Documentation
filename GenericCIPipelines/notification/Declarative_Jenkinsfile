@@ -22,7 +22,7 @@ pipeline {
         success {
             script {
                 emailext(
-                    subject: "Jenkins Build Successful [${BUILD_URL}] : ${currentBuild.fullDisplayName}",
+                    subject: "[Declarative Pipeline] Jenkins Build Successful [${BUILD_URL}] : ${currentBuild.fullDisplayName}",
                     body: """Hello Team,
 
                     Build is successful. 
@@ -30,7 +30,7 @@ pipeline {
                     Build Log URL: ${BUILD_URL}console
 
                     Regards,
-                    Jenkins
+                    Jenkins Declarative Pipeline
                     """,
                     attachLog: false,
                     to: email_recipients
@@ -38,7 +38,7 @@ pipeline {
 
                 slackSend(
                     channel: slack_channel,
-                    message: "Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${BUILD_URL}",
+                    message: "[Declarative Pipeline]. Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${BUILD_URL}",
                     color: 'good',
                     tokenCredentialId: slack_webhook_creds_id
                 )
@@ -51,7 +51,7 @@ pipeline {
             script {
             // Notify on failure
             emailext(
-                    subject: "Jenkins Build Failed!!! [${BUILD_URL}] : ${currentBuild.fullDisplayName}",
+                    subject: "[Declarative Pipeline] Jenkins Build Failed!!! [${BUILD_URL}] : ${currentBuild.fullDisplayName}",
                     body: """Hello Team,
 
                     Build is FAILED!!. 
@@ -59,7 +59,7 @@ pipeline {
                     Build Log URL: ${BUILD_URL}console
 
                     Regards,
-                    Jenkins
+                    Jenkins Declarative Pipeline
                     """,
                     attachLog: false,
                     to: email_recipients
@@ -67,7 +67,7 @@ pipeline {
 
                 slackSend(
                     channel: slack_channel,
-                    message: "Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${BUILD_URL}",
+                    message: "[Declarative Pipeline]. Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${BUILD_URL}",
                     color: 'danger',
                     tokenCredentialId: slack_webhook_creds_id
                 )

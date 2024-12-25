@@ -15,7 +15,7 @@ node {
     } finally {
         if (currentBuild.result == 'SUCCESS') {
             emailext(
-                subject: "Jenkins Build Successful [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
+                subject: "[Scripted Pipeline] Jenkins Build Successful [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
                 body: """Hello Team,
 
                 Build is successful.
@@ -23,7 +23,7 @@ node {
                 Build Log URL: ${env.BUILD_URL}console
 
                 Regards,
-                Jenkins
+                Jenkins Scripted Pipeline
                 """,
                 attachLog: false,
                 to: email_recipients
@@ -31,13 +31,13 @@ node {
 
             slackSend(
                 channel: slack_channel,
-                message: "Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
+                message: "Scripted Pipeline. Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
                 color: 'good',
                 tokenCredentialId: slack_webhook_creds_id
             )
         } else if (currentBuild.result == 'FAILURE') {
             emailext(
-                subject: "Jenkins Build Failed!!! [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
+                subject: "[Scripted Pipeline] Jenkins Build Failed!!! [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
                 body: """Hello Team,
 
                 Build is FAILED!!.
@@ -45,7 +45,7 @@ node {
                 Build Log URL: ${env.BUILD_URL}console
 
                 Regards,
-                Jenkins
+                Jenkins Scripted Pipeline
                 """,
                 attachLog: false,
                 to: email_recipients
@@ -53,7 +53,7 @@ node {
 
             slackSend(
                 channel: slack_channel,
-                message: "Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
+                message: "Scripted Pipeline. Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
                 color: 'danger',
                 tokenCredentialId: slack_webhook_creds_id
             )
