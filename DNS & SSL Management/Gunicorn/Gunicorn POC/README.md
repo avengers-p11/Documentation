@@ -4,7 +4,7 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
-| Anjali Dhiman  | 04-12-24      | V1  | 05-12-24           | Khushi Malhotra |
+| Anjali Dhiman  | 04-12-24      | V1  | 24-12-24           | Khushi Malhotra |
 
 
 ## Table of Contents
@@ -13,6 +13,7 @@
 - [Gunicorn Setup](#scylladb-setup)
 - [Contact](#contact)
 - [References](#references)
+  
 ## Introduction
 This guide provides a step-by-step process to install and set up Gunicorn (Green Unicorn), a Python WSGI HTTP server, for deploying a basic Python web application (e.g., built with Flask) on a Linux system.
 
