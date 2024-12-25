@@ -2,77 +2,84 @@ pipeline {
     agent any
 
     environment {
+        email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
+        slack_channel = "#project-notification"
+        slack_webhook_creds_id = "neelesh-slack-webhook"
         branch_name = 'main'
         repo_url = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
-        gitleaks_report_name = "gitleaks-report.json"
-        email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
-    } 
+    }
 
     stages {
-
-
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
-
         stage('Clone Repository') {
             steps {
-                script {
-                    git url: repo_url, branch: branch_name
-                }
+                git branch: branch_name, url: repo_url
             }
         }
 
-        stage('Run Gitleaks Scan') {
+        stage('Verify Commit Sign-Off') {
             steps {
                 script {
-                    sh """
-                    gitleaks detect \
-                    --source . \
-                    --report-format json \
-                    --report-path ${env.gitleaks_report_name}
-                    """
-                }
-            }
-        }
+                    def unsignedCommits = sh(script: '''
+                        git log --pretty=format:"%h - %an: %s" --show-signature | grep -i -v "signed-off-by"
+                    ''', returnStdout: true).trim()
 
-        stage('Publish Gitleaks Report') {
-            steps {
-                archiveArtifacts artifacts: "${env.gitleaks_report_name}", fingerprint: true
+                    if (unsignedCommits) {
+                        error "The following commits are missing a sign-off:\n${unsignedCommits}"
+                    }
+                }
             }
         }
     }
 
     post {
-        always {
+        success {
             script {
-                def reportExists = fileExists(env.gitleaks_report_name)
+                emailext(
+                    subject: "Jenkins Build Successful [${env.BUILD_URL}]",
+                    body: """Hello Team,
 
-                if (reportExists) {
-                    def reportContent = readFile(env.gitleaks_report_name)
+                    The Jenkins build has passed all checks, including commit sign-off verification.
 
-                    emailext(
-                        subject: "Gitleaks Scan Report (${repo_url})  - ${currentBuild.fullDisplayName}",
-                        body: "Hello Team,\n\nPlease find attached the Gitleaks scan report for ${repo_url} repo: ${currentBuild.fullDisplayName}.\n Build Log URL : ${BUILD_URL}console \n\nRegards,\nJenkins",
-                        attachLog: false,
-                        attachmentsPattern: env.gitleaks_report_name,
-                        to: env.email_recipients
-                    )
-                } else {
-                    echo "Gitleaks report not found. Skipping email notification."
-                }
+                    Regards,
+                    Jenkins
+                    """,
+                    attachLog: false,
+                    to: email_recipients
+                )
+
+                slackSend(
+                    channel: slack_channel,
+                    message: "Build Success: ${currentBuild.fullDisplayName} \n Commit Sign-Off Verification Passed.",
+                    color: 'good',
+                    tokenCredentialId: slack_webhook_creds_id
+                )
             }
         }
+
         failure {
-            // Notify on failure
-            emailext(
-                subject: "Gitleaks Scan Failed - ${currentBuild.fullDisplayName}",
-                body: "Hello Team,\n\nThe Gitleaks scan has failed for the build: ${currentBuild.fullDisplayName}. \n Build Log URL : ${BUILD_URL}console \n\nPlease check the Jenkins logs for more details.\n\nRegards,\nJenkins",
-                to: env.email_recipients
-            )
+            script {
+                emailext(
+                    subject: "Jenkins Build Failed - Commit Sign-Off Missing",
+                    body: """Hello Team,
+
+                    The Jenkins build has failed due to missing commit sign-offs.
+
+                    Build Log URL: ${env.BUILD_URL}
+
+                    Regards,
+                    Jenkins
+                    """,
+                    attachLog: false,
+                    to: email_recipients
+                )
+
+                slackSend(
+                    channel: slack_channel,
+                    message: "Build Failed: ${currentBuild.fullDisplayName} \n Commit Sign-Off Verification Failed.",
+                    color: 'danger',
+                    tokenCredentialId: slack_webhook_creds_id
+                )
+            }
         }
     }
 }
- 
