@@ -1,76 +1,61 @@
 node {
-    // Define environment variables
-    def branch_name = 'main'
-    def repo_url = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
-    def fossa_token_id = "neelesh-fossa-token"
     def email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
-    def fossa_report_name = "fossa-report.html"
+    def slack_channel = "#project-notification"
+    def slack_webhook_creds_id = "neelesh-slack-webhook"
 
     try {
-        stage('Clean Workspace') {
-            cleanWs()
+        stage('Notification') {
+            echo "This is Notification pipeline"
         }
 
-        stage('Clone Repository') {
-            git url: repo_url, branch: branch_name
-        }
-
-        stage('Dependency Scanning (FOSSA)') {
-            withCredentials([string(credentialsId: fossa_token_id, variable: 'FOSSA_API_KEY')]) {
-                sh """
-                export FOSSA_API_KEY=${FOSSA_API_KEY}
-                fossa init
-                fossa analyze
-                fossa report --format html attribution > ${fossa_report_name}
-                """
-            }
-        }
-
-        stage('Publish FOSSA Report') {
-            archiveArtifacts artifacts: "${fossa_report_name}", fingerprint: true
-        }
-
+        currentBuild.result = 'SUCCESS'
     } catch (Exception e) {
         currentBuild.result = 'FAILURE'
         throw e
     } finally {
-        // Post-build actions
-        if (fileExists(fossa_report_name)) {
-            // Send an email with the FOSSA report if it exists
+        if (currentBuild.result == 'SUCCESS') {
             emailext(
-                subject: "FOSSA Dependency Scan Report (${repo_url}) - ${currentBuild.fullDisplayName}",
+                subject: "Jenkins Build Successful [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
                 body: """Hello Team,
 
-                Please find attached the FOSSA dependency scan report for the repository ${repo_url}.
+                Build is successful.
 
-                Build Log URL: ${BUILD_URL}console
+                Build Log URL: ${env.BUILD_URL}console
 
                 Regards,
                 Jenkins
                 """,
                 attachLog: false,
-                attachmentsPattern: fossa_report_name,
                 to: email_recipients
             )
-        } else {
-            echo "FOSSA report not found. Skipping email notification."
-        }
 
-        // Failure email notification
-        if (currentBuild.result == 'FAILURE') {
+            slackSend(
+                channel: slack_channel,
+                message: "Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
+                color: 'good',
+                tokenCredentialId: slack_webhook_creds_id
+            )
+        } else if (currentBuild.result == 'FAILURE') {
             emailext(
-                subject: "FOSSA Dependency Scan Failed - ${currentBuild.fullDisplayName}",
+                subject: "Jenkins Build Failed!!! [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
                 body: """Hello Team,
 
-                The FOSSA dependency scan has failed for the build: ${currentBuild.fullDisplayName}.
-                Build Log URL: ${BUILD_URL}console
+                Build is FAILED!!.
 
-                Please check the Jenkins logs for more details.
+                Build Log URL: ${env.BUILD_URL}console
 
                 Regards,
                 Jenkins
                 """,
+                attachLog: false,
                 to: email_recipients
+            )
+
+            slackSend(
+                channel: slack_channel,
+                message: "Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
+                color: 'danger',
+                tokenCredentialId: slack_webhook_creds_id
             )
         }
     }
