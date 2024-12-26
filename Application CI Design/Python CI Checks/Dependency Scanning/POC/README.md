@@ -195,7 +195,7 @@ If any security vulnerabilities are found, update the affected packages or follo
 **Steps 10: Report Link** 
 | Link         | Description         |
 |--------------|------------------------|
-| [Bug Analysis](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Python%20CI%20Checks/Bug%20Analysis/analyses.pb)| Report |
+| [Dependency checking](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Python%20CI%20Checks/Dependency%20Scanning/Dependency-Check%20Report.html)| Report |
 
 
 
