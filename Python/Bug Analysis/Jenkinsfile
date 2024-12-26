@@ -48,7 +48,7 @@ pipeline {
             }
         }
 
-        stage('Static code') {
+        stage('Bug Analysis') {
             steps {
                 script {
                     static_code_analysis()  
