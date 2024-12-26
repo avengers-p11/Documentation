@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        scannerHome = tool 'Sonar'  
-        VENV_DIR = "venv" 
+        scannerHome = tool 'Sonar' 
+        VENV_DIR = "venv"
     }
 
     stages {
@@ -51,13 +51,14 @@ pipeline {
             steps {
                 echo 'Running SonarQube analysis for bugs...'
                 script {
+                    // Use SonarQube environment configuration
                     withSonarQubeEnv('Sonar') {
                         sh """
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                            -Dsonar.host.url=http://34.224.3.61:9000 \
-                            -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                            -Dsonar.host.url=${SONAR_HOST_URL} \  
+                            -Dsonar.login=${SONAR_AUTH_TOKEN} \  
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG \
                             -Dsonar.report.export.path=bugs-report.txt
