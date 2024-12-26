@@ -47,7 +47,7 @@ pipeline {
             }
         }
 
-        stage('Bug Analysis') {
+        stage('Static code Analysis') {
             steps {
                 echo 'Running SonarQube analysis for bugs...'
                 script {
