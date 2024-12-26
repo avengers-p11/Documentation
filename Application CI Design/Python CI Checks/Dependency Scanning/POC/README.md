@@ -9,8 +9,8 @@
 ## Table of Contents
 1. [Introduction](#1-introduction) 
 2. [POC](#2-poc)
-3. [Contact](#3-contact)
-4. [References](#4-references)
+3. [Contact](#11-contact)
+4. [References](#12-references)
 
 ## 1. Introduction
 **What is Dependency Scanning in Python CI?**
@@ -192,21 +192,26 @@ If any security vulnerabilities are found, update the affected packages or follo
 
 ---
 
+**Steps 10: Report Link** 
+| Link         | Description         |
+|--------------|------------------------|
+| [Bug Analysis](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Python%20CI%20Checks/Bug%20Analysis/analyses.pb)| Report |
 
 
 
-## 9. Contacts
-
-
-## Contacts
+## 11. Contacts
 
 | Name| Email Address      | GitHub | URL |
 |-----|--------------------------|----------|---------|
 | Anjali Dhiman | anjali.dhiman.snaatak@mygurukulam.co |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
 
-## 10. References
 
-1. **GitHub Dependabot Documentation**: [GitHub Docs](https://docs.github.com/en/github/administering-a-repository/keeping-your-dependencies-updated-automatically)
-2. **Safety Tool GitHub Repository**: [Safety on GitHub](https://github.com/pyupio/safety)
-3. **SonarQube Python Plugin Documentation**: [SonarQube Docs](https://docs.sonarqube.org/latest/analysis/languages/python/)
-4. **Bandit Documentation**: [Bandit Docs](https://bandit.readthedocs.io/en/latest/)
+## 12. References
+
+| **Tool/Resource**                                                                                                                                                    | **Description & Documentation Link**                                                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| [GitHub Dependabot Documentation](https://docs.github.com/en/github/administering-a-repository/keeping-your-dependencies-updated-automatically)                      | Keeping your |
+| [Safety Tool GitHub Repository](https://github.com/pyupio/safety)                                                                                                   | Python dependency 
+| [SonarQube Python Plugin Documentation](https://docs.sonarqube.org/latest/analysis/languages/python/)                                                               | Python analysis and 
+| [Bandit Documentation](https://bandit.readthedocs.io/en/latest/)                                                                                                    | Security linter for 
+
