@@ -1,4 +1,4 @@
-# Bug Analysis | POC
+# Bug Analysis in Python | POC
 ## Description of this POC 
 
 
@@ -124,6 +124,11 @@ Navigate to `Manage Jenkins` > `Global Tool Configuration`.
 
 ![image](https://github.com/user-attachments/assets/dc0cf8ad-6557-4700-b8e0-1ce2f2926cc2)
 
+ ## **Report Link** 
+| Link         | Description         |
+|--------------|------------------------|
+| [Bug Analysis](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Python%20CI%20Checks/Bug%20Analysis/analyses.pb)| Report |
+#
 
 
 ## Conclusion
