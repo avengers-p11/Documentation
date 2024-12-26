@@ -9,14 +9,14 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-              
+                echo 'Cloning the repository...'
                 git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-              
+                echo 'Installing required dependencies...'
                 sh '''
                     # Install python3-venv and pip3
                     echo "Installing python3-venv and pip3..."
@@ -27,52 +27,56 @@ pipeline {
 
         stage('Setup Python Virtual Environment') {
             steps {
-               
+                echo 'Setting up the Python virtual environment...'
                 sh '''
                     # Create a virtual environment if it doesn't exist
                     if [ ! -d "$VENV_DIR" ]; then
                         python3 -m venv $VENV_DIR
                     fi
 
-                  
+                    # Ensure pip is available in the virtual environment
+                    ${VENV_DIR}/bin/python -m ensurepip --upgrade
                     ${VENV_DIR}/bin/pip install --upgrade pip
+
+                    # Install required Python packages
                     ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
                     
-                   
+                    # Ensure pytest is installed
                     ${VENV_DIR}/bin/pip install pytest
                 '''
             }
         }
 
-        stage('Static Code Analysis') {
+        stage('Bug Analysis') {
             steps {
-               
+                echo 'Running SonarQube analysis for bugs...'
                 script {
                     withSonarQubeEnv('Sonar') {
                         sh """
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                            -Dsonar.host.url=http://34.224.3.61/:9000 \
+                            -Dsonar.host.url=http://34.224.3.61:9000 \
                             -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
-                            -Dsonar.report.export.path=static-code-analysis-report.txt
+                            -Dsonar.issue.types=BUG \
+                            -Dsonar.report.export.path=bugs-report.txt
                         """
                     }
                 }
             }
         }
-    } 
+    }
 
     post {
         always {
-           
-            
-            archiveArtifacts artifacts: 'static-code-analysis-report.txt', allowEmptyArchive: true
+            echo 'Pipeline completed.'
+          
+            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         }
         success {
             emailext(
-                attachmentsPattern: 'static-code-analysis-report.txt',
+                attachmentsPattern: 'compilation-report.txt',
                 mimeType: 'text/html',
                 body: """<html>
                             <body>
@@ -89,19 +93,18 @@ pipeline {
             )
         }
         failure {
-        
+            echo 'Pipeline failed.'
             emailext(
                 mimeType: 'text/html',
                 to: 'anjalidhiman.as@gmail.com',
-                subject: 'Jenkins Pipeline Failure: Attendance-api',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
                 body: """<html>
                             <body>
                                 <h2>Pipeline Failure</h2>
                                 <p>Hello,</p>
                                 <p>The Jenkins pipeline has failed. Please check the logs for details.</p>
                             </body>
-                         </html>""",
-                attachmentsPattern: 'static-code-analysis-report.txt' 
+                         </html>"""
             )
         }
     }
