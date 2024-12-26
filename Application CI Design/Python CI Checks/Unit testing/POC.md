@@ -60,6 +60,12 @@ This command will start executing unit tests.
 |Flask|Raised when Python can't find the flask|Please make sure that all libraries of python is installed properly|
 |psycopg2|error occurs when the PostgreSQL server is unreachable, either due to connection issues or incorrect connection parameters.|Ensure that the PostgreSQL server is running and accessible.|
 
+## Report Link
+| Link         | Description         |
+|--------------|------------------------|
+| [Unit Testing](https://github.com/avengers-p11/Documentation/blob/main/Application%20CI%20Design/Python%20CI%20Checks/Unit%20testing/pytest-report.xml)| Report |
+
+
 
 ## Conclusion
  we can say that Unit testing in Python ensures code correctness, identifies bugs early, improves code reliability, and promotes efficient debugging and maintenance.
