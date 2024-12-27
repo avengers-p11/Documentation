@@ -38,7 +38,7 @@ This document explains about the implementation of SSL certificate on the domain
 ### Verify Server Configuration
 #### Check Nginx to ensure your domain is served:
 
-![Screenshot from 2024-11-18 23-53-50](https://github.com/user-attachments/assets/422d597b-1f22-4f62-aa27-aca901403e3e)
+![Screenshot 2024-12-27 at 5 23 59 PM](https://github.com/user-attachments/assets/14e84315-1526-4ff0-ae78-3c35d841cbaa)
 
 
 ### Obtain SSL Certificate
