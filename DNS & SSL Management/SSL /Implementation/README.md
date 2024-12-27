@@ -4,7 +4,7 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
-| Raman Tripathi  | 20-12-24      | V1.1  | 23-12-24           |  |
+| Raman Tripathi  | 20-12-24      | V1.1  | 25-12-24           |  |
 
 ---
 
@@ -51,7 +51,8 @@ This document explains about the implementation of SSL certificate on the domain
 ### Update Web Server Configuration
 #### Certbot automatically updates the server configuration. Verify:
 
-![Screenshot from 2024-11-19 00-35-12](https://github.com/user-attachments/assets/53cafcb0-65ee-4ce3-9763-be7630a57396)
+![Screenshot 2024-12-27 at 5 27 40 PM](https://github.com/user-attachments/assets/bfb364da-3120-4af2-816a-fc0814e44251)
+
 
 
 Look for the listen 443 ssl block added by Certbot.
