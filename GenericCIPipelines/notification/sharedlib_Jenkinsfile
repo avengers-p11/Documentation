@@ -1,0 +1,9 @@
+@Library('gitleaks-shared-lib') _ 
+
+def pipelineParams = [
+    emailRecipients: 'nilesh.rajput.snaatak@mygurukulam.co',
+    slackChannel: '#project-notification',
+    slackWebhookCredsId: 'neelesh-slack-webhook'
+]
+
+notificationPipeline(pipelineParams)
