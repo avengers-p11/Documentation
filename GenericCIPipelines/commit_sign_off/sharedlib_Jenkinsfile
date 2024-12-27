@@ -1,1 +1,88 @@
+def call(Map pipelineParams) {
+    def emailRecipients = pipelineParams.emailRecipients ?: 'nilesh.rajput.snaatak@mygurukulam.co'
+    def slackChannel = pipelineParams.slackChannel ?: '#project-notification'
+    def slackWebhookCredsId = pipelineParams.slackWebhookCredsId ?: 'neelesh-slack-webhook'
+    def branchName = pipelineParams.branchName ?: 'main'
+    def repoUrl = pipelineParams.repoUrl
 
+    pipeline {
+        agent any
+
+        stages {
+            stage('Clone Repository') {
+                steps {
+                    echo "Cloning repository: ${repoUrl} (branch: ${branchName})"
+                    git url: repoUrl, branch: branchName
+                }
+            }
+
+            stage('Verify Commit Sign-Off') {
+                steps {
+                    script {
+                        echo "Checking for unsigned commits..."
+                        def unsignedCommits = sh(
+                            script: '''
+                                git log --pretty=format:"%h - %an: %s" --show-signature | grep -i -v "signed-off-by"
+                            ''',
+                            returnStdout: true
+                        ).trim()
+
+                        if (unsignedCommits) {
+                            error "The following commits are missing a sign-off:\n${unsignedCommits}"
+                        }
+                    }
+                }
+            }
+        }
+
+        post {
+            success {
+                emailext(
+                    subject: "Jenkins Build Successful [${env.BUILD_URL}]",
+                    body: """Hello Team,
+
+                    The Jenkins build has passed all checks, including commit sign-off verification for repository: ${repoUrl}.
+
+                    Build Log URL: ${env.BUILD_URL}console
+
+                    Regards,
+                    Jenkins Shared Library
+                    """,
+                    attachLog: false,
+                    to: emailRecipients
+                )
+
+                slackSend(
+                    channel: slackChannel,
+                    message: "Shared Library. Build Success: ${currentBuild.fullDisplayName} \n Commit Sign-Off Verification Passed for repo ${repoUrl}. \n Build URL: ${env.BUILD_URL}",
+                    color: 'good',
+                    tokenCredentialId: slackWebhookCredsId
+                )
+            }
+
+            failure {
+                emailext(
+                    subject: "Jenkins Build Failed - Commit Sign-Off Missing",
+                    body: """Hello Team,
+
+                    The Jenkins build has failed due to missing commit sign-offs for repository: ${repoUrl}.
+
+                    Build Log URL: ${env.BUILD_URL}console
+
+                    Regards,
+                    Jenkins Shared Library
+                    """,
+                    attachLog: false,
+                    to: emailRecipients
+                )
+
+                slackSend(
+                    channel: slackChannel,
+                    message: "Shared Library. Build Failed: ${currentBuild.fullDisplayName} \n Commit Sign-Off Verification Failed for repo ${repoUrl}. \n Build URL: ${env.BUILD_URL}",
+                    color: 'danger',
+                    tokenCredentialId: slackWebhookCredsId
+                )
+            }
+        }
+    }
+}
