@@ -1,2 +1,15 @@
+@Library('your-shared-library') _ 
+
+def pipelineParams = [
+    awsRegion: 'ap-south-1',
+    packerTemplate: 'GenericCIPipelines/ami/packer_template.json',
+    repoUrl: 'https://github.com/OT-MICROSERVICES/attendance-api.git',
+    emailRecipients: 'nilesh.rajput.snaatak@mygurukulam.co',
+    slackChannel: '#project-notification',
+    slackWebhookCredsId: 'neelesh-slack-webhook',
+    amiName: 'declarative-ami'
+]
+
+amiBuildPipeline(pipelineParams)
 
 
