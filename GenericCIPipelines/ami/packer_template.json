@@ -1,0 +1,12 @@
+{
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "region": "{{user `aws_region`}}",
+        "source_ami": "ami-0c55b159cbfafe1f0", // Replace with your source AMI ID
+        "instance_type": "t3a.micro",
+        "ssh_username": "ubuntu",
+        "ami_name": "{{user `ami_name`}}-{{timestamp}}"
+      }
+    ]
+  }
