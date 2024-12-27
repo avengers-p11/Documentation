@@ -56,8 +56,8 @@ pipeline {
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                            -Dsonar.host.url=${SONAR_HOST_URL} \
-                            -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
+                           # -Dsonar.host.url=${SONAR_HOST_URL} \
+                           # -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG \
                             -Dsonar.report.export.path=bugs-report.txt
@@ -71,11 +71,12 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+            // Adjust artifact name if needed
+            archiveArtifacts artifacts: 'bugs-report.txt', allowEmptyArchive: true
         }
         success {
             emailext(
-                attachmentsPattern: 'compilation-report.txt',
+                attachmentsPattern: 'bugs-report.txt',
                 mimeType: 'text/html',
                 body: """<html>
                             <body>
