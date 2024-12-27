@@ -26,21 +26,11 @@ node {
                 curl https://bootstrap.pypa.io/get-pip.py | "$VENV_DIR/bin/python"
                 "$VENV_DIR/bin/pip" install --upgrade pip
 
-                # Check if pyproject.toml exists and install dependencies
+                # Install dependencies from pyproject.toml
                 if [ -f "pyproject.toml" ]; then
-                    if grep -q 'poetry' pyproject.toml; then
-                        "$VENV_DIR/bin/pip" install poetry
-                        "$VENV_DIR/bin/poetry" install
-                    else
-                        echo "pyproject.toml does not specify Poetry; attempting direct pip install."
-                        "$VENV_DIR/bin/pip" install -r <(poetry export -f requirements.txt --without-hashes)
-                    fi
-                else
-                    echo "No pyproject.toml file found. Skipping dependency installation."
+                    "$VENV_DIR/bin/pip" install poetry
+                    "$VENV_DIR/bin/poetry" install
                 fi
-                
-                # Install pytest
-                "$VENV_DIR/bin/pip" install pytest
             '''
         }
 
@@ -67,7 +57,6 @@ node {
                 <html>
                     <body>
                         <h2>Pipeline Failure</h2>
-                        <p>Hello,</p>
                         <p>The Jenkins pipeline has failed. Please check the logs for details.</p>
                     </body>
                 </html>
@@ -90,4 +79,14 @@ node {
                             <body>
                                 <h2>Build SUCCESS</h2>
                                 <p>Job: ${env.JOB_NAME}</p>
-                              
+                                <p>Build Number: ${env.BUILD_NUMBER}</p>
+                                <p>Details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                            </body>
+                        </html>
+                    """,
+                    mimeType: 'text/html'
+                )
+            }
+        }
+    }
+}
