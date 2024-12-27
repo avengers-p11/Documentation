@@ -1,10 +1,10 @@
 node {
-    def scannerHome = tool 'Sonar' // SonarQube scanner tool
-    def VENV_DIR = "venv"          // Virtual environment directory
+    def scannerHome = tool 'Sonar'  // SonarQube scanner tool
+    def VENV_DIR = "venv"           // Virtual environment directory
 
     try {
         stage('Clone Repository') {
-            git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+            git branch: 'main', url: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
         }
 
         stage('Install Dependencies') {
@@ -36,8 +36,7 @@ node {
                         -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                         -Dsonar.python.version=3 \
                         -Dsonar.sources=. \
-                        -Dsonar.issue.types=BUG \
-                        -Dsonar.report.export.path=bugs-report.txt
+                        -Dsonar.issue.types=BUG
                 """
             }
         }
@@ -58,28 +57,24 @@ node {
         )
         throw e
     } finally {
-        stage('Post Actions') {
-            echo 'Archiving artifacts...'
-            sh 'touch compilation-report.txt || true'
-            archiveArtifacts artifacts: '**/compilation-report.txt', allowEmptyArchive: true
-            if (currentBuild.result == 'SUCCESS') {
-                emailext(
-                    attachmentsPattern: '**/compilation-report.txt',
-                    to: 'anjalidhiman.as@gmail.com',
-                    subject: "Jenkins Build SUCCESS: Attendance-api",
-                    body: """
-                        <html>
-                            <body>
-                                <h2>Build SUCCESS</h2>
-                                <p>Job: ${env.JOB_NAME}</p>
-                                <p>Build Number: ${env.BUILD_NUMBER}</p>
-                                <p>Details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                            </body>
-                        </html>
-                    """,
-                    mimeType: 'text/html'
-                )
-            }
+        if (currentBuild.result == 'SUCCESS') {
+            emailext(
+                to: 'anjalidhiman.as@gmail.com',
+                subject: "Jenkins Build SUCCESS: Attendance-api",
+                body: """
+                    <html>
+                        <body>
+                            <h2>Build SUCCESS</h2>
+                            <p>Job: ${env.JOB_NAME}</p>
+                            <p>Build Number: ${env.BUILD_NUMBER}</p>
+                            <p>Details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                        </body>
+                    </html>
+                """,
+                mimeType: 'text/html'
+            )
         }
     }
 }
+
+
