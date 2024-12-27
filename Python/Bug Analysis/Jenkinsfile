@@ -1,6 +1,6 @@
 node {
+    def VENV_DIR = "venv"  // Virtual environment directory
     def scannerHome = tool 'Sonar'  // SonarQube scanner tool
-    def VENV_DIR = "venv"           // Virtual environment directory
 
     try {
         stage('Clone Repository') {
@@ -10,27 +10,24 @@ node {
         stage('Install Dependencies') {
             sh '''
                 sudo apt-get update -y
-                sudo apt-get install -y python3 python3-venv python3-pip curl || \
-                (echo "Retrying installation"; sudo apt-get install -y python3 python3-venv python3-pip curl)
+                sudo apt-get install -y python3 python3-venv python3-pip curl
             '''
         }
 
-        stage('Setup Python Virtual Environment') {
+        stage('Setup Virtual Environment') {
             sh """
-                # Create virtual environment if it doesn't exist
+                # Create and activate virtual environment
                 if [ ! -d "$VENV_DIR" ]; then
                     python3 -m venv $VENV_DIR
                 fi
-
-                # Activate the virtual environment and install dependencies
                 . ${VENV_DIR}/bin/activate
-                ${VENV_DIR}/bin/pip install --upgrade pip
-                ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
-                ${VENV_DIR}/bin/pip install pytest
+                pip install --upgrade pip
+                pip install -r requirements.txt || echo "No requirements.txt"
+                pip install pytest
             """
         }
 
-        stage('Bug Analysis') {
+        stage('SonarQube Analysis') {
             withSonarQubeEnv('Sonar') {
                 sh """
                     ${scannerHome}/bin/sonar-scanner \
@@ -38,46 +35,27 @@ node {
                         -Dsonar.projectName=Attendance-api \
                         -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                         -Dsonar.python.version=3 \
-                        -Dsonar.sources=. \
-                        -Dsonar.issue.types=BUG
+                        -Dsonar.sources=.
                 """
             }
         }
     } catch (Exception e) {
         currentBuild.result = 'FAILURE'
         
-        // Send failure email
+        // Failure email
         emailext(
             to: 'anjalidhiman.as@gmail.com',
-            subject: 'Jenkins Pipeline Failure: Attendance-api',
-            body: """
-                <html>
-                    <body>
-                        <h2>Pipeline Failure</h2>
-                        <p>The Jenkins pipeline has failed. Please check the logs for details.</p>
-                    </body>
-                </html>
-            """,
-            mimeType: 'text/html'
+            subject: 'Pipeline Failed: Attendance-api',
+            body: 'The Jenkins pipeline has failed. Check the logs for details.'
         )
         throw e
     } finally {
         if (currentBuild.result == 'SUCCESS') {
-            // Send success email with build details
+            // Success email
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
-                subject: "Jenkins Build SUCCESS: Attendance-api",
-                body: """
-                    <html>
-                        <body>
-                            <h2>Build SUCCESS</h2>
-                            <p>Job: ${env.JOB_NAME}</p>
-                            <p>Build Number: ${env.BUILD_NUMBER}</p>
-                            <p>Details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                        </body>
-                    </html>
-                """,
-                mimeType: 'text/html'
+                subject: 'Build SUCCESS: Attendance-api',
+                body: "Build Successful: ${env.JOB_NAME} #${env.BUILD_NUMBER} - ${env.BUILD_URL}"
             )
         }
     }
