@@ -46,7 +46,8 @@ node {
         emailext(
             to: 'anjalidhiman.as@gmail.com',
             subject: 'Pipeline Failed: Attendance-api',
-            body: 'The Jenkins pipeline has failed. Check the logs for details.'
+            body: 'The Jenkins pipeline has failed. Check the logs for details.',
+            mimeType: 'text/html'
         )
         throw e
     } finally {
@@ -55,7 +56,8 @@ node {
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
                 subject: 'Build SUCCESS: Attendance-api',
-                body: "Build Successful: ${env.JOB_NAME} #${env.BUILD_NUMBER} - ${env.BUILD_URL}"
+                body: "Build Successful: ${env.JOB_NAME} #${env.BUILD_NUMBER} - ${env.BUILD_URL}",
+                mimeType: 'text/html'
             )
         }
     }
