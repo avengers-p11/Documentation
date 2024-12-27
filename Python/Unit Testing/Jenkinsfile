@@ -42,6 +42,15 @@ pipeline {
             }
         }
 
+        stage('Update Poetry Lock File') {
+            steps {
+                sh '''
+                    . $VENV_DIR/bin/activate
+                    poetry lock --no-update
+                '''
+            }
+        }
+
         stage('Install Python Dependencies') {
             steps {
                 sh '''
