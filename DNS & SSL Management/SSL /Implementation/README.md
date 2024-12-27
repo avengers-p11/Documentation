@@ -4,7 +4,7 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **Reviewer** |
 |------------|----------------|-------------------|---------------------|----------|
-| Raman Tripathi  | 20-12-24      | V1.1  | 20-12-24           |  |
+| Raman Tripathi  | 20-12-24      | V1.1  | 23-12-24           |  |
 
 ---
 
@@ -64,10 +64,9 @@ Look for the listen 443 ssl block added by Certbot.
 
 
 ### Validate SSL
-#### Open https://infinitygurdians.shop in a browser and ensure it shows a secure lock icon.
+#### Open https://ua.otmservice.site in a browser and ensure it shows a secure lock icon.
 
-![Screenshot from 2024-11-19 00-21-41](https://github.com/user-attachments/assets/2ea0e567-6c38-4021-9c28-3a9b4efe0ffa)
-
+![Screenshot 2024-12-27 at 5 20 05 PM](https://github.com/user-attachments/assets/9744ade3-dc82-4a71-a929-4b648632a997)
 
 ---
 
