@@ -92,6 +92,6 @@ The domain now uses SSL encryption provided by Let’s Encrypt, improving securi
 
 | Reference Name       | Description                                  | Link                                                                 |
 |-----------------------|----------------------------------------------|----------------------------------------------------------------------|
-| SSL POC | POC on how you can set up a SSL for your Domain | [SSL POC](https://github.com/MyGurukulam-p11/Documentation/tree/Kaustubh_Scrum-60/DNS_&_SSL_Management/DNS/SSL_POC#ssl-poc)             |
-| SSL Documentation     | Detailed documentation on SSL               | [SSL Documentation](https://github.com/MyGurukulam-p11/Documentation/blob/Pritam_scrum59/SSL/Documentation/README.md)       |
+| SSL POC | POC on how you can set up a SSL for your Domain | [SSL POC](https://github.com/avengers-p11/Documentation/blob/main/DNS%20%26%20SSL%20Management/SSL%20/POC/README.md)             |
+| SSL Documentation     | Detailed documentation on SSL               | [SSL Documentation](https://github.com/avengers-p11/Documentation/blob/main/DNS%20%26%20SSL%20Management/SSL%20/Documentation/README.md)       |
 
