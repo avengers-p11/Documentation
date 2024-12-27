@@ -1,10 +1,10 @@
 node {
-    def scannerHome = tool 'Sonar'  // SonarQube scanner tool
-    def VENV_DIR = "venv"           // Virtual environment directory
+    def scannerHome = tool 'Sonar'  
+    def VENV_DIR = "venv"           
 
     try {
         stage('Clone Repository') {
-            git branch: 'main', url: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
+            git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
         }
 
         stage('Install Dependencies') {
@@ -22,7 +22,7 @@ node {
 
                 . ${VENV_DIR}/bin/activate
                 ${VENV_DIR}/bin/pip install --upgrade pip
-                ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
+                ${VENV_DIR}/bin/pip install -r requirements.txt 
                 ${VENV_DIR}/bin/pip install pytest
             """
         }
