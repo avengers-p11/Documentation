@@ -1,4 +1,4 @@
-@Library('fossa-shared-lib') _ 
+@Library('gitleaks-shared-lib') _ 
 
 def pipelineParams = [
     branchName: 'main', 
