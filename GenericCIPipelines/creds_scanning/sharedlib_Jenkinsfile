@@ -1,4 +1,4 @@
-@Library('neelesh-gitleaks-shared-lib') _ // Replace with the correct name of your shared library
+@Library('gitleaks-shared-lib') _ // Replace with the correct name of your shared library
 
 def pipelineParams = [
     branchName: 'main', 
