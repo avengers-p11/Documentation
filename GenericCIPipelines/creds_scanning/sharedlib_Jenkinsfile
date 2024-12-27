@@ -7,4 +7,4 @@ def pipelineParams = [
     emailRecipients: 'nilesh.rajput.snaatak@mygurukulam.co' 
 ]
 
-call(pipelineParams) // Call the shared library method
+gitleaksPipeline(pipelineParams) // Call the shared library method
