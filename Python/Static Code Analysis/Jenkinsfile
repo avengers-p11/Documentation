@@ -1,6 +1,6 @@
 node {
-    def scannerHome = tool 'Sonar'  
-    def VENV_DIR = "venv"           
+    def scannerHome = tool 'Sonar'  // SonarQube scanner tool
+    def VENV_DIR = "venv"           // Virtual environment directory
 
     try {
         stage('Clone Repository') {
@@ -22,12 +22,12 @@ node {
 
                 . ${VENV_DIR}/bin/activate
                 ${VENV_DIR}/bin/pip install --upgrade pip
-                ${VENV_DIR}/bin/pip install -r requirements.txt 
+                ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
                 ${VENV_DIR}/bin/pip install pytest
             """
         }
 
-        stage('Bug Analysis') {
+        stage('Static Code Analysis') {
             withSonarQubeEnv('Sonar') {
                 sh """
                     ${scannerHome}/bin/sonar-scanner \
