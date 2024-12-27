@@ -36,7 +36,6 @@ node {
                     ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.projectKey=attendance \
                         -Dsonar.projectName=Attendance-api \
-                        -Dsonar.host.url=http://54.175.166.181:9000 \
                         -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                         -Dsonar.java.binaries=target/classes \
                         -Dsonar.issue.types=BUG \
@@ -65,7 +64,7 @@ node {
     } finally {
         stage('Post Actions') {
             echo 'Archiving artifacts...'
-            sh 'touch compilation-report.txt || true' // Create a dummy file if not present
+            sh 'touch compilation-report.txt || true' 
             archiveArtifacts artifacts: '**/compilation-report.txt', allowEmptyArchive: true
             if (currentBuild.result == 'SUCCESS') {
                 emailext(
