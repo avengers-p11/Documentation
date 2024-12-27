@@ -1,14 +1,12 @@
 pipeline {
     agent any
     environment {
-        aws_region = 'ap-south-1' // Replace with your AWS region
-        packer_template = 'GenericCIPipelines/ami/packer_template.json' // Your Packer template file
+        aws_region = 'ap-south-1'
+        packer_template = 'GenericCIPipelines/ami/packer_template.json'
         email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
         slack_channel = "#project-notification"
         slack_webhook_creds_id = "neelesh-slack-webhook"
         ami_name = "declarative-ami"
-        // branch_name = 'main'
-        // repo_url = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
     }
     stages {
         stage('Checkout Code') {
@@ -52,7 +50,7 @@ pipeline {
 
                 slackSend(
                     channel: slack_channel,
-                    message: "Build Success: ${currentBuild.fullDisplayName} \n Commit Sign-Off Verification Passed for repo ${repo_url}. \n Build URL: ${BUILD_URL}",
+                    message: "Build Success: ${currentBuild.fullDisplayName} \n AMI Build Passed \n Build URL: ${BUILD_URL}",
                     color: 'good',
                     tokenCredentialId: slack_webhook_creds_id
                 )
