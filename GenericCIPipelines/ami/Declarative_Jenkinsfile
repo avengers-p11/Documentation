@@ -6,6 +6,7 @@ pipeline {
         email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
         slack_channel = "#project-notification"
         slack_webhook_creds_id = "neelesh-slack-webhook"
+        ami_name = "declarative-ami"
         // branch_name = 'main'
         // repo_url = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
     }
@@ -28,7 +29,7 @@ pipeline {
             steps {
                 echo 'Building AMI via Packer...'
                 sh '''
-                packer build -var "aws_region=${aws_region}" ${packer_template}
+                packer build -var "aws_region=${aws_region}" -var "ami_name=${ami_name}" ${packer_template}
                 '''
             }
         }
