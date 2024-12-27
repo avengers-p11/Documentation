@@ -56,7 +56,7 @@ pipeline {
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                            -Dsonar.java.binaries=target/classes \ 
+                            -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG \
                             -Dsonar.report.export.path=${WORKSPACE}/bugs-report.txt
                         """
