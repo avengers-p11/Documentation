@@ -57,8 +57,7 @@ pipeline {
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
                             -Dsonar.java.binaries=target/classes \
-                            -Dsonar.issue.types=BUG \
-                            -Dsonar.report.export.path=${WORKSPACE}/bugs-report.txt
+                            -Dsonar.issue.types=BUG
                         """
                     }
                 }
@@ -69,12 +68,10 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-            // Adjust artifact name if needed
-            archiveArtifacts artifacts: 'bugs-report.txt', allowEmptyArchive: true
+            // No need to archive artifacts or generate a report anymore
         }
         success {
             emailext(
-                attachmentsPattern: 'bugs-report.txt',
                 mimeType: 'text/html',
                 body: """<html>
                             <body>
@@ -85,9 +82,8 @@ pipeline {
                                 <p>More details at: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
                             </body>
                          </html>""",
-                recipientProviders: [developers(), requestor()],
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                to: 'anjalidhiman.as@gmail.com'
+                to: 'anjalidhiman.as@gmail.com',
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
             )
         }
         failure {
