@@ -22,7 +22,7 @@ node {
 
                 . ${VENV_DIR}/bin/activate
                 ${VENV_DIR}/bin/pip install --upgrade pip
-                ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
+                ${VENV_DIR}/bin/pip install -r requirements.txt 
                 ${VENV_DIR}/bin/pip install pytest
             """
         }
