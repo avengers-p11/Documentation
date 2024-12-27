@@ -44,7 +44,8 @@ This document explains about the implementation of SSL certificate on the domain
 ### Obtain SSL Certificate
 #### Run the Certbot command for your domain:
 
-![Screenshot from 2024-11-18 23-57-50](https://github.com/user-attachments/assets/854bb35e-dc9f-48b5-ad5f-94fc03321f2c)
+![Screenshot 2024-12-27 at 5 15 35 PM](https://github.com/user-attachments/assets/0dfecdb4-57a4-4efd-8f57-abf3e510234a)
+
 
 
 ### Update Web Server Configuration
