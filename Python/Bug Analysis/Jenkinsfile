@@ -10,16 +10,19 @@ node {
         stage('Install Dependencies') {
             sh '''
                 sudo apt-get update -y
-                sudo apt-get install -y python3 python3-venv python3-pip curl
+                sudo apt-get install -y python3 python3-venv python3-pip curl || \
+                (echo "Retrying installation"; sudo apt-get install -y python3 python3-venv python3-pip curl)
             '''
         }
 
         stage('Setup Python Virtual Environment') {
             sh """
+                # Create virtual environment if it doesn't exist
                 if [ ! -d "$VENV_DIR" ]; then
                     python3 -m venv $VENV_DIR
                 fi
 
+                # Activate the virtual environment and install dependencies
                 . ${VENV_DIR}/bin/activate
                 ${VENV_DIR}/bin/pip install --upgrade pip
                 ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
@@ -42,6 +45,8 @@ node {
         }
     } catch (Exception e) {
         currentBuild.result = 'FAILURE'
+        
+        // Send failure email
         emailext(
             to: 'anjalidhiman.as@gmail.com',
             subject: 'Jenkins Pipeline Failure: Attendance-api',
@@ -58,6 +63,7 @@ node {
         throw e
     } finally {
         if (currentBuild.result == 'SUCCESS') {
+            // Send success email with build details
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
                 subject: "Jenkins Build SUCCESS: Attendance-api",
