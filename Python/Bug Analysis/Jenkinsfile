@@ -56,11 +56,9 @@ pipeline {
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                           # -Dsonar.host.url=${SONAR_HOST_URL} \
-                           # -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
-                            -Dsonar.java.binaries=target/classes \
+                            -Dsonar.java.binaries=target/classes \ 
                             -Dsonar.issue.types=BUG \
-                            -Dsonar.report.export.path=bugs-report.txt
+                            -Dsonar.report.export.path=${WORKSPACE}/bugs-report.txt
                         """
                     }
                 }
