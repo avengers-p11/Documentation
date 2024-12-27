@@ -9,42 +9,45 @@ node {
 
         stage('Install Dependencies') {
             sh '''
+                #!/bin/bash
                 sudo apt-get update
                 sudo apt-get install -y python3 python3-venv python3-pip
             '''
         }
 
         stage('Setup Python Virtual Environment') {
-            sh """
+            sh '''
+                #!/bin/bash
                 if [ ! -d "$VENV_DIR" ]; then
-                    python3 -m venv $VENV_DIR
+                    python3 -m venv "$VENV_DIR"
                 fi
                 
                 # Ensure pip is installed and updated
-                curl https://bootstrap.pypa.io/get-pip.py | ${VENV_DIR}/bin/python
-                ${VENV_DIR}/bin/pip install --upgrade pip
+                curl https://bootstrap.pypa.io/get-pip.py | "$VENV_DIR/bin/python"
+                "$VENV_DIR/bin/pip" install --upgrade pip
 
                 # Check if pyproject.toml exists and install dependencies
                 if [ -f "pyproject.toml" ]; then
                     if grep -q 'poetry' pyproject.toml; then
-                        ${VENV_DIR}/bin/pip install poetry
-                        ${VENV_DIR}/bin/poetry install
+                        "$VENV_DIR/bin/pip" install poetry
+                        "$VENV_DIR/bin/poetry" install
                     else
                         echo "pyproject.toml does not specify Poetry; attempting direct pip install."
-                        ${VENV_DIR}/bin/pip install -r <(poetry export -f requirements.txt --without-hashes)
+                        "$VENV_DIR/bin/pip" install -r <(poetry export -f requirements.txt --without-hashes)
                     fi
                 else
                     echo "No pyproject.toml file found. Skipping dependency installation."
                 fi
                 
                 # Install pytest
-                ${VENV_DIR}/bin/pip install pytest
-            """
+                "$VENV_DIR/bin/pip" install pytest
+            '''
         }
 
         stage('Bug Analysis') {
             withSonarQubeEnv('Sonar') {
-                sh """
+                sh '''
+                    #!/bin/bash
                     ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.projectKey=attendance \
                         -Dsonar.projectName=Attendance-api \
@@ -52,7 +55,7 @@ node {
                         -Dsonar.java.binaries=target/classes \
                         -Dsonar.issue.types=BUG \
                         -Dsonar.report.export.path=bugs-report.txt
-                """
+                '''
             }
         }
     } catch (Exception e) {
@@ -87,14 +90,4 @@ node {
                             <body>
                                 <h2>Build SUCCESS</h2>
                                 <p>Job: ${env.JOB_NAME}</p>
-                                <p>Build Number: ${env.BUILD_NUMBER}</p>
-                                <p>Details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                            </body>
-                        </html>
-                    """,
-                    mimeType: 'text/html'
-                )
-            }
-        }
-    }
-}
+                              
