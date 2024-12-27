@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        scannerHome = tool 'Sonar' 
-        VENV_DIR = "venv"
+        scannerHome = tool 'Sonar'  
+        VENV_DIR = "venv" 
     }
 
     stages {
@@ -47,21 +47,17 @@ pipeline {
             }
         }
 
-        stage('Static code Analysis') {
+        stage('Static Code Analysis') {
             steps {
-                echo 'Running SonarQube analysis for bugs...'
+                echo 'Running SonarQube analysis for code analysis...'
                 script {
-                    // Use SonarQube environment configuration
                     withSonarQubeEnv('Sonar') {
                         sh """
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                            -Dsonar.host.url=${SONAR_HOST_URL} \  
-                            -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \  
                             -Dsonar.java.binaries=target/classes \
-                            -Dsonar.issue.types=BUG \
-                            -Dsonar.report.export.path=bugs-report.txt
+                            -Dsonar.issue.types=BUG
                         """
                     }
                 }
@@ -72,12 +68,9 @@ pipeline {
     post {
         always {
             echo 'Pipeline completed.'
-          
-            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
         }
         success {
             emailext(
-                attachmentsPattern: 'compilation-report.txt',
                 mimeType: 'text/html',
                 body: """<html>
                             <body>
@@ -88,9 +81,8 @@ pipeline {
                                 <p>More details at: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
                             </body>
                          </html>""",
-                recipientProviders: [developers(), requestor()],
-                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-                to: 'anjalidhiman.as@gmail.com'
+                to: 'anjalidhiman.as@gmail.com',
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
             )
         }
         failure {
