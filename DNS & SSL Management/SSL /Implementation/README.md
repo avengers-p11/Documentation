@@ -32,7 +32,8 @@ This document explains about the implementation of SSL certificate on the domain
 ### Install Certbot
 #### Update system packages and install Certbot:
 
-![Screenshot from 2024-11-18 23-41-31](https://github.com/user-attachments/assets/412c0007-2e54-4cb9-afe6-10be45e89eba)
+![Screenshot 2024-12-27 at 3 35 00 PM](https://github.com/user-attachments/assets/285e9522-2419-4c29-bceb-457eeea4a9b0)
+
 
 ### Verify Server Configuration
 #### Check Nginx to ensure your domain is served:
