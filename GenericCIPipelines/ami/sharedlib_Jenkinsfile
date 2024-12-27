@@ -1,4 +1,4 @@
-@Library('your-shared-library') _ 
+@Library('gitleaks-shared-lib') _ 
 
 def pipelineParams = [
     awsRegion: 'ap-south-1',
