@@ -38,7 +38,7 @@ Certbot offers several advantages, making it a preferred choice for managing SSL
 Compared to other SSL management tools, Certbot stands out for its simplicity, automation, and zero-cost approach.
 
 ---
-
+ 
 ## Pre-requisites
 Ensure the following before proceeding:
 1. **Domain Name**: A domain pointing to your server's public IP via DNS A/AAAA records.
