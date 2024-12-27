@@ -4,33 +4,45 @@ node {
 
     try {
         stage('Clone Repository') {
-            
             git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
         }
 
         stage('Install Dependencies') {
-            
             sh '''
-                
-                sudo apt-get install -y python3-venv python3-pip
+                sudo apt-get update
+                sudo apt-get install -y python3 python3-venv python3-pip
             '''
         }
 
         stage('Setup Python Virtual Environment') {
-            
             sh """
                 if [ ! -d "$VENV_DIR" ]; then
                     python3 -m venv $VENV_DIR
                 fi
-
+                
+                # Ensure pip is installed and updated
+                curl https://bootstrap.pypa.io/get-pip.py | ${VENV_DIR}/bin/python
                 ${VENV_DIR}/bin/pip install --upgrade pip
-                ${VENV_DIR}/bin/pip install -r requirements.txt || echo "requirements.txt not found, skipping dependency installation."
+
+                # Check if pyproject.toml exists and install dependencies
+                if [ -f "pyproject.toml" ]; then
+                    if grep -q 'poetry' pyproject.toml; then
+                        ${VENV_DIR}/bin/pip install poetry
+                        ${VENV_DIR}/bin/poetry install
+                    else
+                        echo "pyproject.toml does not specify Poetry; attempting direct pip install."
+                        ${VENV_DIR}/bin/pip install -r <(poetry export -f requirements.txt --without-hashes)
+                    fi
+                else
+                    echo "No pyproject.toml file found. Skipping dependency installation."
+                fi
+                
+                # Install pytest
                 ${VENV_DIR}/bin/pip install pytest
             """
         }
 
         stage('Bug Analysis') {
-         
             withSonarQubeEnv('Sonar') {
                 sh """
                     ${scannerHome}/bin/sonar-scanner \
@@ -45,7 +57,6 @@ node {
         }
     } catch (Exception e) {
         currentBuild.result = 'FAILURE'
-      
         emailext(
             to: 'anjalidhiman.as@gmail.com',
             subject: 'Jenkins Pipeline Failure: Attendance-api',
@@ -64,7 +75,7 @@ node {
     } finally {
         stage('Post Actions') {
             echo 'Archiving artifacts...'
-            sh 'touch compilation-report.txt || true' 
+            sh 'touch compilation-report.txt || true'
             archiveArtifacts artifacts: '**/compilation-report.txt', allowEmptyArchive: true
             if (currentBuild.result == 'SUCCESS') {
                 emailext(
@@ -87,4 +98,3 @@ node {
         }
     }
 }
-
