@@ -3,7 +3,7 @@
       {
         "type": "amazon-ebs",
         "region": "{{user `aws_region`}}",
-        "source_ami": "ami-0c55b159cbfafe1f0",
+        "source_ami": "ami-053b12d3152c0cc71",
         "instance_type": "t3a.micro",
         "ssh_username": "ubuntu",
         "ami_name": "{{user `ami_name`}}-{{timestamp}}"
