@@ -60,13 +60,13 @@ Look for the listen 443 ssl block added by Certbot.
 ### Restart Web Server
 #### Reload the server to apply changes:
 
-![Screenshot from 2024-11-18 23-55-37](https://github.com/user-attachments/assets/f118f19d-0df5-4b52-b267-b2f6fe183be8)
-
+![Screenshot 2024-12-27 at 5 20 05 PM](https://github.com/user-attachments/assets/9744ade3-dc82-4a71-a929-4b648632a997)
 
 ### Validate SSL
 #### Open https://ua.otmservice.site in a browser and ensure it shows a secure lock icon.
 
-![Screenshot 2024-12-27 at 5 20 05 PM](https://github.com/user-attachments/assets/9744ade3-dc82-4a71-a929-4b648632a997)
+
+![Screenshot 2024-12-27 at 5 15 59 PM](https://github.com/user-attachments/assets/1de5f0ae-38dc-4119-9e88-62a9b253040e)
 
 ---
 
