@@ -1,4 +1,4 @@
-@Library('shared-library-name') _
+@Library('gitleaks-shared-lib') _
 
 verifyCommits(
     emailRecipients: 'nilesh.rajput.snaatak@mygurukulam.co',
