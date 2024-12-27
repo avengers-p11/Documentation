@@ -1,35 +1,58 @@
-# Jenkins Declarative Pipeline with Email and Slack Notifications
+# Jenkins AMI Build Decalartive Pipeline
 
-This pipeline demonstrates a **Jenkins Declarative Pipeline** that sends email and Slack notifications based on the success or failure of the build.
+This repository contains a Jenkins pipeline script that automates the process of building an AMI using HashiCorp Packer. The pipeline includes steps for validating the Packer template, building the AMI, and notifying the team via email and Slack.
 
----
+## Prerequisites
 
-## Pipeline Overview
+1. **Jenkins Setup**:
+   - Jenkins should be installed and configured.
+   - Ensure the Jenkins agent has Packer installed and properly configured.
 
-### Features:
-1. **Notification Stage**:
-   - A simple placeholder stage to mimic some actions.
+2. **Packer Template**:
+   - A valid Packer template (`packer_template.json`) should be available in the repository.
 
-2. **Post-Build Notifications**:
-   - **Email Notification**:
-     - Sends an email to the specified recipients in both success and failure scenarios.
-   - **Slack Notification**:
-     - Sends a Slack message to the defined channel in success and failure scenarios.
+3. **AWS Permissions**:
+   - Ensure the AWS credentials used by Jenkins have permissions to create AMIs and manage EC2 resources.
 
----
+4. **Email Configuration**:
+   - Configure the Jenkins email plugin for notifications.
 
-## Environment Variables
+5. **Slack Configuration**:
+   - Configure the Slack notification plugin and add the webhook credentials (`slack_webhook_creds_id`).
 
-- **`email_recipients`**:
-  - Defines the email address for notification.
-  - Default: `nilesh.rajput.snaatak@mygurukulam.co`
+## Pipeline Configuration
 
-- **`slack_channel`**:
-  - Defines the Slack channel for sending notifications.
-  - Default: `#project-notification`
+### Environment Variables
 
-- **`slack_webhook_creds_id`**:
-  - Jenkins credential ID for Slack Webhook Token.
-  - Default: `neelesh-slack-webhook`
+| Variable               | Description                              |
+|------------------------|------------------------------------------|
+| `aws_region`           | AWS region where the AMI is created.    |
+| `packer_template`      | Path to the Packer template JSON file.  |
+| `email_recipients`     | Email addresses for notifications.      |
+| `slack_channel`        | Slack channel for notifications.        |
+| `slack_webhook_creds_id` | Credential ID for Slack webhook.       |
+| `ami_name`             | Name of the AMI to be created.          |
+
+### Pipeline Stages
+
+1. **Checkout Code**:
+   - Pulls the latest code from the source control repository.
+
+2. **Validate Packer Template**:
+   - Validates the Packer template to ensure correctness.
+
+3. **Build AMI**:
+   - Builds the AMI using Packer with the specified region and template.
+
+### Notifications
+
+- **Email**: Sends email notifications on success and failure to the specified recipients.
+- **Slack**: Sends Slack notifications to the specified channel on success and failure.
+
+## Usage
+
+1. Clone this repository to your Jenkins server.
+2. Configure the Jenkins job to use the `Jenkinsfile` or directly paste the pipeline script into the job.
+3. Trigger the pipeline.
 
 ### Author -> Neelesh Rajput (nilesh.rajput.snaatak@mygurukulam.co)

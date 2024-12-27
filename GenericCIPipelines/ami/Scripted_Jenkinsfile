@@ -1,62 +1,77 @@
 node {
-    def email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
-    def slack_channel = "#project-notification"
-    def slack_webhook_creds_id = "neelesh-slack-webhook"
+    def awsRegion = 'ap-south-1'
+    def packerTemplate = 'GenericCIPipelines/ami/packer_template.json'
+    def emailRecipients = "nilesh.rajput.snaatak@mygurukulam.co"
+    def slackChannel = "#project-notification"
+    def slackWebhookCredsId = "neelesh-slack-webhook"
+    def amiName = "declarative-ami"
 
     try {
-        stage('Notification') {
-            echo "This is Notification pipeline"
+        stage('Checkout Code') {
+            echo 'Checking out source code...'
+            checkout scm
         }
 
-        currentBuild.result = 'SUCCESS'
-    } catch (Exception e) {
-        currentBuild.result = 'FAILURE'
-        throw e
-    } finally {
-        if (currentBuild.result == 'SUCCESS') {
-            emailext(
-                subject: "[Scripted Pipeline] Jenkins Build Successful [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
-                body: """Hello Team,
-
-                Build is successful.
-
-                Build Log URL: ${env.BUILD_URL}console
-
-                Regards,
-                Jenkins Scripted Pipeline
-                """,
-                attachLog: false,
-                to: email_recipients
-            )
-
-            slackSend(
-                channel: slack_channel,
-                message: "Scripted Pipeline. Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
-                color: 'good',
-                tokenCredentialId: slack_webhook_creds_id
-            )
-        } else if (currentBuild.result == 'FAILURE') {
-            emailext(
-                subject: "[Scripted Pipeline] Jenkins Build Failed!!! [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
-                body: """Hello Team,
-
-                Build is FAILED!!.
-
-                Build Log URL: ${env.BUILD_URL}console
-
-                Regards,
-                Jenkins Scripted Pipeline
-                """,
-                attachLog: false,
-                to: email_recipients
-            )
-
-            slackSend(
-                channel: slack_channel,
-                message: "Scripted Pipeline. Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
-                color: 'danger',
-                tokenCredentialId: slack_webhook_creds_id
-            )
+        stage('Validate Packer Template') {
+            echo 'Validating Packer template...'
+            sh """
+            pwd && packer validate ${packerTemplate}
+            """
         }
+
+        stage('Build AMI') {
+            echo 'Building AMI via Packer...'
+            sh """
+            packer build -var "aws_region=${awsRegion}" -var "ami_name=${amiName}" ${packerTemplate}
+            """
+        }
+
+        // Post-success notifications
+        emailext(
+            subject: "Jenkins AMI Build Successful [${env.BUILD_URL}]",
+            body: """Hello Team,
+
+            The Jenkins AMI build has passed.
+
+            Regards,
+            Jenkins
+            """,
+            attachLog: false,
+            to: emailRecipients
+        )
+
+        slackSend(
+            channel: slackChannel,
+            message: "Build Success: ${currentBuild.fullDisplayName} \n AMI Build Passed \n Build URL: ${env.BUILD_URL}",
+            color: 'good',
+            tokenCredentialId: slackWebhookCredsId
+        )
+
+    } catch (Exception err) {
+        // Post-failure notifications
+        emailext(
+            subject: "Jenkins AMI Build Failed",
+            body: """Hello Team,
+
+            The Jenkins AMI build has failed.
+
+            Build Log URL: ${env.BUILD_URL}
+
+            Regards,
+            Jenkins
+            """,
+            attachLog: false,
+            to: emailRecipients
+        )
+
+        slackSend(
+            channel: slackChannel,
+            message: "Build Failed: ${currentBuild.fullDisplayName} \n AMI Build Failed \n Build URL: ${env.BUILD_URL}",
+            color: 'danger',
+            tokenCredentialId: slackWebhookCredsId
+        )
+
+        // Rethrow the exception to fail the pipeline
+        throw err
     }
 }
