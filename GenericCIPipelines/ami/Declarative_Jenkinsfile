@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         aws_region = 'us-east-1' // Replace with your AWS region
-        packer_template = 'GenericCIPipelines/ami/packer-template.json' // Your Packer template file
+        packer_template = 'GenericCIPipelines/ami/packer_template.json' // Your Packer template file
         email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
         slack_channel = "#project-notification"
         slack_webhook_creds_id = "neelesh-slack-webhook"
