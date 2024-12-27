@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo 'Validating Packer template...'
                 sh '''
-                packer validate ${packer_template}
+                pwd && packer validate ${packer_template}
                 '''
             }
         }
