@@ -1,0 +1,10 @@
+@Library('your-shared-library') _ // Replace with the correct name of your shared library
+
+def pipelineParams = [
+    branchName: 'main', // Optional, defaults to 'main'
+    repoUrl: 'https://github.com/your-repo-url.git', // Replace with actual repo URL
+    gitleaksReportName: 'gitleaks-report.json', // Optional, defaults to 'gitleaks-report.json'
+    emailRecipients: 'example@domain.com' // Replace with actual email addresses
+]
+
+call(pipelineParams) // Call the shared library method
