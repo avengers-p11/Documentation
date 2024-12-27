@@ -1,4 +1,4 @@
-@Library('gitleaks-shared-lib') _ // Replace with the correct name of your shared library
+@Library('gitleaks-shared-lib') _ 
 
 def pipelineParams = [
     branchName: 'main', 
@@ -7,4 +7,4 @@ def pipelineParams = [
     emailRecipients: 'nilesh.rajput.snaatak@mygurukulam.co' 
 ]
 
-gitleaksPipeline(pipelineParams) // Call the shared library method
+gitleaksPipeline(pipelineParams) 
