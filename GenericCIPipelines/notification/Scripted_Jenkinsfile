@@ -1,0 +1,62 @@
+node {
+    def email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
+    def slack_channel = "#project-notification"
+    def slack_webhook_creds_id = "neelesh-slack-webhook"
+
+    try {
+        stage('Notification') {
+            echo "This is Notification pipeline"
+        }
+
+        currentBuild.result = 'SUCCESS'
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        if (currentBuild.result == 'SUCCESS') {
+            emailext(
+                subject: "[Scripted Pipeline] Jenkins Build Successful [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
+                body: """Hello Team,
+
+                Build is successful.
+
+                Build Log URL: ${env.BUILD_URL}console
+
+                Regards,
+                Jenkins Scripted Pipeline
+                """,
+                attachLog: false,
+                to: email_recipients
+            )
+
+            slackSend(
+                channel: slack_channel,
+                message: "Scripted Pipeline. Build Success: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
+                color: 'good',
+                tokenCredentialId: slack_webhook_creds_id
+            )
+        } else if (currentBuild.result == 'FAILURE') {
+            emailext(
+                subject: "[Scripted Pipeline] Jenkins Build Failed!!! [${env.BUILD_URL}] : ${currentBuild.fullDisplayName}",
+                body: """Hello Team,
+
+                Build is FAILED!!.
+
+                Build Log URL: ${env.BUILD_URL}console
+
+                Regards,
+                Jenkins Scripted Pipeline
+                """,
+                attachLog: false,
+                to: email_recipients
+            )
+
+            slackSend(
+                channel: slack_channel,
+                message: "Scripted Pipeline. Build Failed: ${currentBuild.fullDisplayName} \n Build URL: ${env.BUILD_URL}",
+                color: 'danger',
+                tokenCredentialId: slack_webhook_creds_id
+            )
+        }
+    }
+}

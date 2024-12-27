@@ -1,0 +1,78 @@
+pipeline {
+    agent any
+
+    environment {
+        branch_name = 'main'
+        repo_url = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
+        gitleaks_report_name = "gitleaks-report.json"
+        email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
+    } 
+
+    stages {
+
+
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
+        stage('Clone Repository') {
+            steps {
+                script {
+                    git url: repo_url, branch: branch_name
+                }
+            }
+        }
+
+        stage('Run Gitleaks Scan') {
+            steps {
+                script {
+                    sh """
+                    gitleaks detect \
+                    --source . \
+                    --report-format json \
+                    --report-path ${env.gitleaks_report_name}
+                    """
+                }
+            }
+        }
+
+        stage('Publish Gitleaks Report') {
+            steps {
+                archiveArtifacts artifacts: "${env.gitleaks_report_name}", fingerprint: true
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                def reportExists = fileExists(env.gitleaks_report_name)
+
+                if (reportExists) {
+                    def reportContent = readFile(env.gitleaks_report_name)
+
+                    emailext(
+                        subject: "Gitleaks Scan Report (${repo_url})  - ${currentBuild.fullDisplayName}",
+                        body: "Hello Team,\n\nPlease find attached the Gitleaks scan report for ${repo_url} repo: ${currentBuild.fullDisplayName}.\n Build Log URL : ${BUILD_URL}console \n\nRegards,\nJenkins",
+                        attachLog: false,
+                        attachmentsPattern: env.gitleaks_report_name,
+                        to: env.email_recipients
+                    )
+                } else {
+                    echo "Gitleaks report not found. Skipping email notification."
+                }
+            }
+        }
+        failure {
+            // Notify on failure
+            emailext(
+                subject: "Gitleaks Scan Failed - ${currentBuild.fullDisplayName}",
+                body: "Hello Team,\n\nThe Gitleaks scan has failed for the build: ${currentBuild.fullDisplayName}. \n Build Log URL : ${BUILD_URL}console \n\nPlease check the Jenkins logs for more details.\n\nRegards,\nJenkins",
+                to: env.email_recipients
+            )
+        }
+    }
+}
+ 

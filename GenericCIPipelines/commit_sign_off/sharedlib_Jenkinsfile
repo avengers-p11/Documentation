@@ -1,0 +1,10 @@
+@Library('gitleaks-shared-lib') _
+
+verifyCommits(
+    emailRecipients: 'nilesh.rajput.snaatak@mygurukulam.co',
+    slackChannel: '#project-notification',
+    slackWebhookCredsId: 'neelesh-slack-webhook',
+    branchName: 'main',
+    repoUrl: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
+)
+        
