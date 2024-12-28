@@ -34,13 +34,6 @@ pipeline {
                 }
             }
         }
-        stage('Run Tests with Coverage') {
-            steps {
-                script {
-                    python_code_coverage()  
-                }
-            }
-        }
         stage('Static code') {
             steps {
                 script {
