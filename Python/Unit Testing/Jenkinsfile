@@ -46,6 +46,7 @@ pipeline {
                 script {
                     python_testing()  
                 }
+                junit 'test-reports/unit_test_report.xml'  
             }
         }
 
