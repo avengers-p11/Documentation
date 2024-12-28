@@ -39,24 +39,35 @@ node {
                 """
             }
         }
+
     } catch (Exception e) {
         currentBuild.result = 'FAILURE'
-        
-        // Failure email
+
+        // Failure email with debugging details
         emailext(
             to: 'anjalidhiman.as@gmail.com',
-            subject: 'Pipeline Failed: Attendance-api',
-            body: 'The Jenkins pipeline has failed. Check the logs for details.',
+            subject: "Pipeline FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+                <p>The Jenkins pipeline <strong>${env.JOB_NAME}</strong> has failed.</p>
+                <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
+                <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                <p><strong>Error:</strong> ${e}</p>
+            """,
             mimeType: 'text/html'
         )
+
         throw e
     } finally {
         if (currentBuild.result == 'SUCCESS') {
             // Success email
             emailext(
                 to: 'anjalidhiman.as@gmail.com',
-                subject: 'Build SUCCESS: Attendance-api',
-                body: "Build Successful: ${env.JOB_NAME} #${env.BUILD_NUMBER} - ${env.BUILD_URL}",
+                subject: "Pipeline SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                    <p>The Jenkins pipeline <strong>${env.JOB_NAME}</strong> has completed successfully.</p>
+                    <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
+                    <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                """,
                 mimeType: 'text/html'
             )
         }
