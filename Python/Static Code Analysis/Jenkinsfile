@@ -1,6 +1,6 @@
 node {
-    def VENV_DIR = "venv"  // Virtual environment directory
-    def scannerHome = tool 'Sonar'  // SonarQube scanner tool
+    def VENV_DIR = "venv"  
+    def scannerHome = tool 'Sonar'  
 
     try {
         stage('Clone Repository') {
@@ -38,7 +38,7 @@ node {
                 """
             }
         }
-        currentBuild.result = 'SUCCESS'  // Explicitly set success result
+        currentBuild.result = 'SUCCESS'  
     } catch (Exception e) {
         currentBuild.result = 'FAILURE'
         throw e
