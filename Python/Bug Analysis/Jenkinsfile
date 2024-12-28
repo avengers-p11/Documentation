@@ -51,7 +51,7 @@ pipeline {
         stage('Bug Analysis') {
             steps {
                 script {
-                    static_code_analysis()  
+                    bug_analysis()  
                 }
             }
         }
