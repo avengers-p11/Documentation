@@ -36,7 +36,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    python_dependencies() 
+                    python_dependencies()  
                 }
             }
         }
@@ -44,25 +44,45 @@ pipeline {
         stage('Unit Testing') {
             steps {
                 script {
-                    python_testing()  
+                    // Ensure the test-reports directory exists
+                    sh 'mkdir -p test-reports'
+
+                    // Run unit tests and generate the XML report
+                    sh '''
+                        . ${VENV_DIR}/bin/activate
+                        poetry run pytest --maxfail=1 --disable-warnings --junitxml=${TEST_REPORT_PATH}
+                    '''
                 }
+
+                // Publish test results to Jenkins
                 junit 'test-reports/unit_test_report.xml'  
             }
         }
+    }
 
-        stage('Send Test Report Email') {
-            steps {
-                script {
-                    
-                    emailext(
-                        to: 'anjalidhiman.as@gmail.com',  
-                        subject: "Unit Test Report - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                        body: "Please find the attached unit test report for ${env.JOB_NAME} #${env.BUILD_NUMBER}.",
-                        attachmentsPattern: TEST_REPORT_PATH,
-                        mimeType: 'text/html'
-                    )
-                }
+    post {
+        always {
+            script {
+                // Ensure the email is sent regardless of success or failure
+                emailext(
+                    to: 'anjalidhiman.as@gmail.com',  
+                    subject: "Pipeline Result: ${currentBuild.currentResult} - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: """
+                        <p>The pipeline has completed with status: <strong>${currentBuild.currentResult}</strong>.</p>
+                        <p>Test Report: <a href="${env.BUILD_URL}testReport">${env.BUILD_URL}testReport</a></p>
+                    """,
+                    attachmentsPattern: TEST_REPORT_PATH,
+                    mimeType: 'text/html'
+                )
             }
+        }
+
+        success {
+            echo 'Pipeline succeeded!'
+        }
+
+        failure {
+            echo 'Pipeline failed!'
         }
     }
 }
