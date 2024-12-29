@@ -26,8 +26,6 @@ node {
                 sonar-scanner \
                     -Dsonar.projectKey=salary \
                     -Dsonar.projectName=Salary-api \
-                    -Dsonar.host.url=http://34.239.250.107:9000 \
-                    -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                     -Dsonar.java.binaries=target/classes \
                     -Dsonar.issue.types=CODE_SMELL \
                     -Dsonar.report.export.path=target/static-code-analysis-report.json
