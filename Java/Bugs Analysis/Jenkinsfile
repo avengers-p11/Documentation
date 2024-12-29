@@ -1,0 +1,75 @@
+node {
+    def mvnHome = tool name: 'Maven', type: 'maven'
+    def sonarScannerHome = tool name: 'Sonar'
+
+    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"
+
+    stage('Clone Repository') {
+        checkout([$class: 'GitSCM', 
+                  branches: [[name: '*/main']],  
+                  userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+    }
+
+    stage('Code Compilation') {
+        sh '''
+            echo "Compiling the code..."
+            mvn compile > compilation-report.txt
+            ls -l compilation-report.txt  # Confirm file exists
+            cat compilation-report.txt
+        '''
+    }
+
+    stage('Bug Analysis') {
+        echo "Running SonarQube Bug Analysis..."
+        withSonarQubeEnv('Sonar') {  
+            sh '''
+                sonar-scanner \
+                    -Dsonar.projectKey=salary \
+                    -Dsonar.projectName=Salary-api \
+                    -Dsonar.java.binaries=target/classes \
+                    -Dsonar.issue.types=BUG \
+                    -Dsonar.report.export.path=target/sonar-report.json
+            '''
+        }
+    }
+
+    stage('Archive Report') {
+        
+        archiveArtifacts artifacts: 'compilation-report.txt,target/sonar-report.json', allowEmptyArchive: true
+       
+        echo "Workspace: ${env.WORKSPACE}"  
+        sh "ls -l \"${env.WORKSPACE}/target\""  
+    }
+
+    stage('Send Email') {
+       
+        def sonarHostUrl = "http://54.175.166.181:9000"
+        def sonarProjectKey = "salary"
+        def sonarLink = "${sonarHostUrl}/dashboard?id=${sonarProjectKey}"
+
+        if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
+            emailext(
+                attachmentsPattern: "compilation-report.txt,target/sonar-report.json",  
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}
+
+You can view the SonarQube analysis results at: ${sonarLink}
+""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        } else {
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: "Jenkins Pipeline Failure: ${env.JOB_NAME}",
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.
+
+You can view the SonarQube analysis results at: ${sonarLink}
+'''.stripIndent()
+            )
+        }
+    }
+}

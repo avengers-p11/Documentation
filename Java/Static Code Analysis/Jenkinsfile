@@ -1,0 +1,60 @@
+node {
+    def mvnHome = tool name: 'Maven', type: 'maven'
+    def sonarScannerHome = tool name: 'Sonar'
+
+    env.PATH = "${mvnHome}/bin:${sonarScannerHome}/bin:${env.PATH}"
+
+    stage('Clone Repository') {
+        checkout([$class: 'GitSCM', 
+                  branches: [[name: '*/main']], 
+                  userRemoteConfigs: [[url: 'git@github.com:avengers-p11/salary-api.git']]])
+    }
+
+    stage('Code Compilation') {
+        sh '''
+            
+            mvn compile > compilation-report.txt
+            ls -l compilation-report.txt  # Confirm file exists
+            cat compilation-report.txt
+        '''
+    }
+
+    stage('Static Code Analysis') {
+       
+        withSonarQubeEnv('Sonar') {  
+            sh '''
+                sonar-scanner \
+                    -Dsonar.projectKey=salary \
+                    -Dsonar.projectName=Salary-api \
+                    -Dsonar.java.binaries=target/classes \
+                    -Dsonar.issue.types=CODE_SMELL \
+                    -Dsonar.report.export.path=target/static-code-analysis-report.json
+            '''
+        }
+       
+        sh 'ls -l target/'
+    }
+
+    stage('Archive Reports') {
+        archiveArtifacts artifacts: 'compilation-report.txt,target/static-code-analysis-report.json', allowEmptyArchive: true
+        sh "ls -l \"${env.WORKSPACE}\""  
+    }
+
+    stage('Send Email') {
+      
+        def sonarLink = "http://34.239.250.107:9000/dashboard?id=salary"
+        def taskLink = "http://34.239.250.107:9000/api/ce/task?id=08c4a63b-0113-49e8-998c-81f403727745"
+
+        emailext(
+            body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}
+
+You can view the SonarQube analysis results at: ${sonarLink}
+The analysis task can be tracked here: ${taskLink}
+""",
+            recipientProviders: [developers(), requestor()],
+            subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+            to: 'it.mohitsaini@gmail.com'
+        )
+    }
+}

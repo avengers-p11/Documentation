@@ -1,0 +1,56 @@
+node {
+    
+    def goHome = tool 'GO'
+    def scannerHome = tool 'Sonar'
+    def REPORT_FILE = "static-code-analysis-report.txt"
+
+    try {
+        // Stage 1: Clone the Repository
+        stage('Clone Repository') {
+            echo 'Cloning the repository...'
+            checkout scm: [
+                $class: 'GitSCM',
+                branches: [[name: 'main']],
+                userRemoteConfigs: [[url: 'git@github.com:avengers-p11/attendance-api.git']]
+            ]
+        }
+
+        // Stage 2: Perform Static Code Analysis with SonarQube
+        stage('Static Code Analysis') {
+            echo 'Running SonarQube analysis for static code analysis...'
+            withSonarQubeEnv('Sonar') { 
+                sh """
+                    ${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.projectKey=employee \
+                    -Dsonar.projectName=Employee-api \
+                    -Dsonar.java.binaries=target/classes \
+                    -Dsonar.issue.types=CODE_SMELL,BUG,VULNERABILITY \
+                    -Dsonar.report.export.path=${REPORT_FILE}
+                """
+            }
+        }
+    } catch (Exception e) {
+        // Mark build as failed and rethrow the exception
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        // Stage 3: Send Email Notification
+        stage('Send Email') {
+            emailext(
+                attachmentsPattern: REPORT_FILE,
+                body: "Static code analysis report is attached.",
+                subject: "SonarQube Static Code Analysis Report",
+                to: "raman.tripathi.snaatak@mygurukulam.co"
+            )
+        }
+
+        // Print status message
+        if (currentBuild.result == 'SUCCESS') {
+            echo 'Static code analysis completed successfully.'
+        } else {
+            echo 'Static code analysis failed.'
+        }
+    }
+}
+
+

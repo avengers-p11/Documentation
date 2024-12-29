@@ -1,0 +1,73 @@
+node {
+    def VENV_DIR = "venv"  
+    def scannerHome = tool 'Sonar'  
+
+    try {
+        stage('Clone Repository') {
+            git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+        }
+
+        stage('Install Dependencies') {
+            sh '''
+                sudo apt-get update -y
+                sudo apt-get install -y python3 python3-venv python3-pip curl
+            '''
+        }
+
+        stage('Setup Virtual Environment') {
+            sh """
+                if [ ! -d "$VENV_DIR" ]; then
+                    python3 -m venv $VENV_DIR
+                fi
+                . ${VENV_DIR}/bin/activate
+                pip install --upgrade pip
+                pip install -r requirements.txt || echo "No requirements.txt"
+                pip install pytest
+            """
+        }
+
+        stage('Static Code Analysis') {
+            withSonarQubeEnv('Sonar') {
+                sh """
+                    ${scannerHome}/bin/sonar-scanner \
+                        -Dsonar.projectKey=attendance \
+                        -Dsonar.projectName=Attendance-api \
+                        -Dsonar.python.version=3 \
+                        -Dsonar.sources=.
+                """
+            }
+        }
+        currentBuild.result = 'SUCCESS'  
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        stage('Mail Notification') {
+            if (currentBuild.result == 'FAILURE') {
+                // Failure email
+                emailext(
+                    to: 'anjalidhiman.as@gmail.com',
+                    subject: "Pipeline FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: """
+                        <p>The Jenkins pipeline <strong>${env.JOB_NAME}</strong> has failed.</p>
+                        <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
+                        <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                    """,
+                    mimeType: 'text/html'
+                )
+            } else if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
+                // Success email
+                emailext(
+                    to: 'anjalidhiman.as@gmail.com',
+                    subject: "Pipeline SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: """
+                        <p>The Jenkins pipeline <strong>${env.JOB_NAME}</strong> has completed successfully.</p>
+                        <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
+                        <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                    """,
+                    mimeType: 'text/html'
+                )
+            }
+        }
+    }
+}
