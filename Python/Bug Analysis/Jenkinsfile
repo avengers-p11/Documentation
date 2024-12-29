@@ -56,7 +56,6 @@ pipeline {
                           ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=attendance \
                             -Dsonar.projectName=Attendance-api \
-                            -Dsonar.login=sqp_c0ccdb9c12fb89544be6fbed55184ce1d418f304 \
                             -Dsonar.java.binaries=target/classes \
                             -Dsonar.issue.types=BUG
                         """
