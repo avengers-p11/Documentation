@@ -32,7 +32,6 @@ node {
                     ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.projectKey=attendance \
                         -Dsonar.projectName=Attendance-api \
-                        -Dsonar.login=squ_4f371ade2db48dafec85157cda9d3d07e6a5c456 \
                         -Dsonar.python.version=3 \
                         -Dsonar.sources=.
                 """
