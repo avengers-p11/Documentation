@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/mohitsainin/Salary-api.git'
+            }
+        }
+
+        stage('Dependency Check') {
+            steps {
+                sh '''
+                    mvn org.owasp:dependency-check-maven:check -Dformat=HTML -DoutputDirectory=target
+                    echo "Dependency check report generated:"
+                    ls -l target/dependency-check-report.html
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline completed.'
+            archiveArtifacts artifacts: 'target/dependency-check-report.html', allowEmptyArchive: true
+        }
+        success {
+            emailext(
+                attachmentsPattern: 'target/dependency-check-report.html',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        }
+        failure {
+            echo 'Pipeline failed.'
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the attached logs and reports for more details.'''.stripIndent(),
+                attachmentsPattern: 'target/dependency-check-report.html'
+            )
+        }
+    }
+}

@@ -1,0 +1,52 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'  
+    }
+    
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+            }
+        }
+
+        stage('Code Compilation') {
+            steps {
+                sh '''
+                    mvn compile > compilation-report.txt
+                    echo "Report generated:"
+                    cat compilation-report.txt
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+           
+            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+        }
+        success {
+            emailext(
+                attachmentsPattern: 'compilation-report.txt',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                recipientProviders: [developers(), requestor()],
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        }
+        failure {
+            echo 'Pipeline failed.'
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent()
+            )
+        }
+    }
+}

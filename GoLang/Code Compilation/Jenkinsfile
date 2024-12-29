@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    tools {
+        go 'GO'  
+    }
+
+    environment {
+        REPORT_FILE = "compile_report.txt" 
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'git@github.com:avengers-p11/employee-api.git'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+               
+                sh "go build > ${REPORT_FILE} 2>&1"
+            }
+        }
+    }
+
+    post {
+        always {
+           
+            emailext attachmentsPattern: "${REPORT_FILE}",
+                     body: "Compilation report is attached.",
+                     subject: "Go Project Compilation Report",
+                     to: "raman.tripathi.snaatak@mygurukulam.co"
+        }
+    }
+}
+ 
