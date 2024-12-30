@@ -124,7 +124,7 @@ Declarative and automated workflows ensure consistency, reduce errors, and provi
 |Reference |	Description|
 |----|----|
 | [GitOps](https://www.gitops.tech) |GitOps Principles|
-|[Gitops](https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20+%20POC/GitOps/Tools%20evaluation/README.md) | GitOps Tool evolution]
+|[Gitops](https://github.com/avengers-p11/Documentation/blob/main/VCS%20Design%20+%20POC/GitOps/Tools%20evaluation/README.md) | GitOps Tool evolution|
 | [ArgoCD](https://argo-cd.readthedocs.io) |ArgoCD Documentation|
 | [Flux](https://fluxcd.io) |Flux GitOps|
 |[Jenkins X](https://jenkins-x.io) |Jenkins X|
