@@ -1,0 +1,88 @@
+@Library('Jenkins-shared-libraries@main') _  
+
+pipeline {
+    agent any
+
+    environment {
+        VENV_DIR = "venv"
+        TEST_REPORT_PATH = "test-reports/unit_test_report.xml"  
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                script {
+                    python_clone_repo()  
+                }
+            }
+        }
+
+        stage('Set Up Python Environment') {
+            steps {
+                script {
+                    python_environment()  
+                }
+            }
+        }
+
+        stage('Poetry Lock') {
+            steps {
+                script {
+                    poetry_lock()  
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    python_dependencies()  
+                }
+            }
+        }
+
+        stage('Unit Testing') {
+            steps {
+                script {
+                    // Ensure the test-reports directory exists
+                    sh 'mkdir -p test-reports'
+
+                    // Run unit tests and generate the XML report
+                    sh '''
+                        . ${VENV_DIR}/bin/activate
+                        poetry run pytest --maxfail=1 --disable-warnings --junitxml=${TEST_REPORT_PATH}
+                    '''
+                }
+
+                // Publish test results to Jenkins
+                junit 'test-reports/unit_test_report.xml'  
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                // Ensure the email is sent regardless of success or failure
+                emailext(
+                    to: 'anjalidhiman.as@gmail.com',  
+                    subject: "Pipeline Result: ${currentBuild.currentResult} - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: """
+                        <p>The pipeline has completed with status: <strong>${currentBuild.currentResult}</strong>.</p>
+                        <p>Test Report: <a href="${env.BUILD_URL}testReport">${env.BUILD_URL}testReport</a></p>
+                    """,
+                    attachmentsPattern: TEST_REPORT_PATH,
+                    mimeType: 'text/html'
+                )
+            }
+        }
+
+        success {
+            echo 'Pipeline succeeded!'
+        }
+
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
