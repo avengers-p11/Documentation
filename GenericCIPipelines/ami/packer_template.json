@@ -1,0 +1,14 @@
+{
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "region": "{{user `aws_region`}}",
+        "source_ami": "ami-053b12d3152c0cc71",
+        "instance_type": "t3a.micro",
+        "ssh_username": "ubuntu",
+        "ami_name": "{{user `ami_name`}}-{{timestamp}}",
+        "vpc_id": "vpc-0b9c7ac8029e56066",
+        "subnet_id": "subnet-0b4266b3ad4103573"
+      }
+    ]
+  }

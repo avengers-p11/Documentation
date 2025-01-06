@@ -1,0 +1,10 @@
+@Library('gitleaks-shared-lib') _ 
+
+def pipelineParams = [
+    branchName: 'main', 
+    repoUrl: 'https://github.com/OT-MICROSERVICES/attendance-api.git',
+    gitleaksReportName: 'gitleaks-report.json', 
+    emailRecipients: 'nilesh.rajput.snaatak@mygurukulam.co' 
+]
+
+gitleaksPipeline(pipelineParams) 

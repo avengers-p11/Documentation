@@ -1,0 +1,78 @@
+node {
+    def email_recipients = "nilesh.rajput.snaatak@mygurukulam.co"
+    def slack_channel = "#project-notification"
+    def slack_webhook_creds_id = "neelesh-slack-webhook"
+    def branch_name = 'main'
+    def repo_url = 'https://github.com/OT-MICROSERVICES/attendance-api.git'
+
+    try {
+        stage('Clone Repository') {
+            git url: repo_url, branch: branch_name
+        }
+
+        stage('Verify Commit Sign-Off') {
+            def unsignedCommits = sh(
+                script: '''
+                    git log --pretty=format:"%h - %an: %s" --show-signature | grep -i -v "signed-off-by"
+                ''', 
+                returnStdout: true
+            ).trim()
+
+            if (unsignedCommits) {
+                error "The following commits are missing a sign-off:\n${unsignedCommits}"
+            }
+        }
+
+        currentBuild.result = 'SUCCESS'
+
+    } catch (Exception e) {
+        currentBuild.result = 'FAILURE'
+        throw e
+    } finally {
+        if (currentBuild.result == 'SUCCESS') {
+            emailext(
+                subject: "Jenkins Build Successful [${env.BUILD_URL}]",
+                body: """Hello Team,
+
+                The Jenkins build has passed all checks, including commit sign-off verification for repository: ${repo_url}.
+
+                Build Log URL: ${env.BUILD_URL}console
+
+                Regards,
+                Jenkins Scripted Pipeline
+                """,
+                attachLog: false,
+                to: email_recipients
+            )
+
+            slackSend(
+                channel: slack_channel,
+                message: "Scripted Pipeline. Build Success: ${currentBuild.fullDisplayName} \n Commit Sign-Off Verification Passed for repo ${repo_url}. \n Build URL: ${env.BUILD_URL}",
+                color: 'good',
+                tokenCredentialId: slack_webhook_creds_id
+            )
+        } else if (currentBuild.result == 'FAILURE') {
+            emailext(
+                subject: "Jenkins Build Failed - Commit Sign-Off Missing",
+                body: """Hello Team,
+
+                The Jenkins build has failed due to missing commit sign-offs for repository: ${repo_url}.
+
+                Build Log URL: ${env.BUILD_URL}console
+
+                Regards,
+                Jenkins Scripted Pipeline
+                """,
+                attachLog: false,
+                to: email_recipients
+            )
+
+            slackSend(
+                channel: slack_channel,
+                message: "Scripted Pipeline. Build Failed: ${currentBuild.fullDisplayName} \n Commit Sign-Off Verification Failed for repo ${repo_url}. \n Build URL: ${env.BUILD_URL}",
+                color: 'danger',
+                tokenCredentialId: slack_webhook_creds_id
+            )
+        }
+    }
+}

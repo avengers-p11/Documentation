@@ -1,0 +1,12 @@
+@Library('gitleaks-shared-lib') _ 
+
+def pipelineParams = [
+    branchName: 'main', 
+    repoUrl: 'https://github.com/OT-MICROSERVICES/attendance-api.git',
+    fossaReportName: 'fossa-report.html', 
+    fossaTokenId: 'neelesh-fossa-token', 
+    emailRecipients: 'nilesh.rajput.snaatak@mygurukulam.co'
+]
+
+fossaPipeline(pipelineParams)
+   
