@@ -1,0 +1,95 @@
+pipeline {
+    agent any
+
+    environment {
+        VENV_DIR = "venv"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+            }
+        }
+
+        stage('Install System Dependencies') {
+            steps {
+                sh '''
+                    sudo apt-get update -y
+                    sudo apt-get install -y python3.11 python3.11-venv python3-pip libpq-dev gcc
+                '''
+            }
+        }
+
+        stage('Set Up Python Environment') {
+            steps {
+                sh '''
+                    if [ ! -d "$VENV_DIR" ]; then
+                        python3.11 -m venv $VENV_DIR
+                    fi
+                    . $VENV_DIR/bin/activate
+                    pip install --upgrade pip
+                '''
+            }
+        }
+
+        stage('Install Poetry') {
+            steps {
+                sh '''
+                    . $VENV_DIR/bin/activate
+                    pip install poetry
+                '''
+            }
+        }
+
+        stage('Update Poetry Lock File') {
+            steps {
+                sh '''
+                    . $VENV_DIR/bin/activate
+                    poetry lock --no-update
+                '''
+            }
+        }
+
+        stage('Install Python Dependencies') {
+            steps {
+                sh '''
+                    . $VENV_DIR/bin/activate
+                    poetry install
+                '''
+            }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+                sh '''
+                    . $VENV_DIR/bin/activate
+                    poetry run pytest --junitxml=unit-test-report.xml
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'unit-test-report.xml', allowEmptyArchive: true
+        }
+
+        success {
+            emailext(
+                attachmentsPattern: 'unit-test-report.xml',
+                to: 'anjalidhiman.as@gmail.com',
+                subject: "Build Success: ${env.JOB_NAME}",
+                body: "Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} succeeded. Check the attached report for details."
+            )
+        }
+
+        failure {
+            emailext(
+                to: 'anjalidhiman.as@gmail.com',
+                subject: "Build Failed: ${env.JOB_NAME}",
+                body: "The Jenkins pipeline failed. Please check the logs."
+            )
+        }
+    }
+}

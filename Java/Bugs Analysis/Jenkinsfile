@@ -1,0 +1,79 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'  
+    }
+
+    environment {
+        scannerHome = tool 'Sonar' 
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning the repository...'
+                git branch: 'main', url: 'git@github.com:avengers-p11/salary-api.git'
+            }
+        }
+
+        stage('Code Compilation') {
+            steps {
+                echo 'Compiling the code...'
+                sh '''
+                    mvn compile > compilation-report.txt
+                    cat compilation-report.txt
+                '''
+            }
+        }
+
+        stage('Bug Analysis') {
+            steps {
+                echo 'Running SonarQube Bug Analysis...'
+                script {
+                    withSonarQubeEnv('Sonar') {
+                        sh """
+                          ${env.scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=salary \
+                            -Dsonar.projectName=Salary-api \
+                            -Dsonar.java.binaries=target/classes \
+                            -Dsonar.issue.types=BUG > sonar-output.log
+                        """
+                       
+                        sh "grep 'ANALYSIS SUCCESSFUL' -A 4 sonar-output.log > sonar-summary.log || true"
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline completed.'
+            archiveArtifacts artifacts: 'compilation-report.txt', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'sonar-output.log', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'sonar-summary.log', allowEmptyArchive: true
+        }
+        success {
+            echo 'Bug analysis completed successfully!'
+            emailext(
+                attachmentsPattern: 'compilation-report.txt,sonar-summary.log',
+                body: """${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+More info at: ${env.BUILD_URL}""",
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                to: 'it.mohitsaini@gmail.com'
+            )
+        }
+        failure {
+            echo 'Bug analysis failed.'
+            emailext(
+                to: 'it.mohitsaini@gmail.com',
+                subject: 'Jenkins Pipeline Failure: Salary-api',
+                body: '''Hello,
+
+The Jenkins pipeline has failed. Please check the logs.'''.stripIndent(),
+                attachmentsPattern: 'compilation-report.txt,sonar-summary.log'
+            )
+        }
+    }
+}

@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    tools {
+        go 'GO'  
+    }
+    
+    environment {
+        scannerHome = tool 'Sonar'  
+       
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning the repository...'
+                git branch: 'main', url: 'git@github.com:avengers-p11/attendance-api.git'
+            }
+        }
+
+        stage('Bug Analysis') {
+            steps {
+                echo 'Running SonarQube analysis for bugs...'
+                script {
+                    withSonarQubeEnv('Sonar') {  // Assuming 'Sonar' is configured in Jenkins Global Tool Configuration.
+                        sh """
+                            ${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=employee \
+                            -Dsonar.projectName=Employee-api \
+                            -Dsonar.java.binaries=target/classes \
+                            -Dsonar.issue.types=BUG \
+                            -Dsonar.report.export.path=bugs-report.txt
+                        """
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            
+            emailext(
+                attachmentsPattern: 'bugs-report.txt',
+                body: "Bug analysis report is attached.",
+                subject: "SonarQube Static Code Analysis Report",
+                to: "raman.tripathi.snaatak@mygurukulam.co"
+            )
+        }
+
+        success {
+            echo 'Static Code Analysis completed successfully.'
+        }
+
+        failure {
+            echo 'Static Code Analysis failed.'
+        }
+    }
+}
+
