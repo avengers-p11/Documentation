@@ -89,5 +89,5 @@ For Terraform CD (Continuous Deployment), I'm employing a **streamlined approach
 ## References
 | Description                    | References  
 | ------------------------------ | ------------------------------------------------- |
-| Terraform Module CI/CD         | [Terraform Modules](https://www.reddit.com/r/Terraform/comments/17ldr9i/cicd_for_creating_terraform_modules/) |
+| Terraform Module CI/CD         | [Terraform Modules](https://itoutposts.com/blog/terraform-modules-overview/) |
 
