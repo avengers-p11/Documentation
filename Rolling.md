@@ -81,10 +81,13 @@ A rolling deployment is a strategy where the previous version of an application 
 | **Higher Operational Overhead** | Requires constant monitoring, health checks, and incremental updates, increasing the operational burden on the deployment team and necessitating robust automation tools.         |
 
 ## Best Practices
-- Use automation tools to monitor and manage deployments to reduce human error.
-- Implement robust rollback mechanisms to address issues efficiently.
-- Integrate continuous integration and continuous delivery (CI/CD) to streamline rolling deployments.
-- Test thoroughly in staging environments to avoid issues in production.
+| **Best Practice**                                              | **Description**                                                                                           |
+|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **Use automation tools**                                      | Automate deployment processes to monitor and manage deployments, reducing human error.                    |
+| **Implement rollback mechanisms**                             | Set up robust rollback mechanisms to address issues quickly and efficiently in case of deployment failures.|
+| **Integrate CI/CD**                                           | Use Continuous Integration and Continuous Delivery (CI/CD) to streamline and automate rolling deployments. |
+| **Test thoroughly in staging**                                | Perform extensive testing in staging environments to ensure the application functions properly in production.|
+
 
 ## Contacts
 
