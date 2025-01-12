@@ -31,8 +31,10 @@ Deployment strategies are techniques used to roll out changes to an application 
 - Rolling Deployment
 - Blue-Green Deployment
 - Canary Deployment
+- A/B Deployment
 
-![Screenshot 2025-01-12 171801](https://github.com/user-attachments/assets/02216102-28ee-4be8-9975-20b8c12b179b)
+![image](https://github.com/user-attachments/assets/aa47d084-2541-416a-a8f4-e9ecfbcee622)
+
 
 
 ## Rolling Deployment Strategy
