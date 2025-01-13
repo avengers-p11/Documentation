@@ -102,5 +102,8 @@ A rolling deployment is a strategy where the previous version of an application 
 |  Anjaliopstree  |  https://github.com/Anjaliopstree  |
 
 ## References
-- [Rolling Deployment](https://www.geteppo.com/blog/what-are-rolling-deployments)
-- [Deployment Strategy](https://medium.com/@navya.cloudops/devops-zero-to-hero-day-20-deployment-strategies-e6712b4801e4)
+
+| **Title**            | **Link**                                                                                  |
+|-----------------------|------------------------------------------------------------------------------------------|
+| Rolling Deployment    | [Rolling Deployment](https://www.geteppo.com/blog/what-are-rolling-deployments)          |
+| Deployment Strategy   | [Deployment Strategy](https://medium.com/@navya.cloudops/devops-zero-to-hero-day-20-deployment-strategies-e6712b4801e4) |
