@@ -22,7 +22,7 @@
 
 
 ## Introduction
-This document provides a detailed explanation of the rolling deployment strategy.
+This document offers a comprehensive overview of the Rolling Deployment Strategy, covering its key concepts, step-by-step workflow, advantages, disadvantages, real-world applications, and best practices to ensure seamless and efficient deployments.
 
 ## What are Deployment Strategies?
 Deployment strategies are techniques used to roll out changes to an application or system while minimizing downtime and risk.
