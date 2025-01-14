@@ -27,11 +27,17 @@ This document provides a detailed explanation of the rolling deployment strategy
 Deployment strategies are techniques used to roll out changes to an application or system while minimizing downtime and risk.
 
 ## Types of Deployment Strategies
-- Recreate Deployment
-- Rolling Deployment
-- Blue-Green Deployment
-- Canary Deployment
-- A/B Deployment
+- **Recreate Deployment**
+   The old version is completely stopped and replaced with the new one. This leads to downtime, as the application cannot serve traffic during the update.
+It is a simple approach but requires careful planning to minimize service interruptions. 
+- **Blue-Green Deployment**
+  Two identical environments are created: Blue (current live) and Green (new version). The new version is deployed to the Green environment. Once verified, traffic is switched from Blue to Green, ensuring zero downtime.
+- **Canary Deployment**
+   The new version is rolled out to a small, random subset of users first. After observing the performance and issues, the deployment is gradually expanded.
+
+- **A/B Deployment**
+  Two versions (A and B) of an application are served to different user groups. Performance and user engagement metrics are compared to see which version performs better.
+
 
 ![image](https://github.com/user-attachments/assets/aa47d084-2541-416a-a8f4-e9ecfbcee622)
 
