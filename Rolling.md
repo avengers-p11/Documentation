@@ -16,8 +16,9 @@
 7. [Pros of Rolling Deployments](#pros-of-rolling-deployments)
 8. [Cons of Rolling Deployments](#cons-of-rolling-deployments)
 9. [Best Practices](#best-practices)
-10. [Contacts](#contacts)
-11. [References](#references)
+10. [Conclusion](#Conclusion)
+11. [Contacts](#contacts)
+12. [References](#references)
 
 
 ## Introduction
@@ -96,6 +97,8 @@ A rolling deployment is a strategy where the previous version of an application 
 | **Integrate CI/CD**                                           | Use Continuous Integration and Continuous Delivery (CI/CD) to streamline and automate rolling deployments. |
 | **Test thoroughly in staging**                                | Perform extensive testing in staging environments to ensure the application functions properly in production.|
 
+## Conclusion
+Rolling deployments offer a balanced approach to software updates, providing a gradual transition to the new version while minimizing downtime and maintaining service availability. This strategy is particularly useful for large-scale applications where downtime can have significant consequences.
 
 ## Contacts
 
