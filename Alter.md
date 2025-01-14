@@ -1,8 +1,5 @@
 # Documentation of on Alerting rules and process for infra monitoring using Alert Manager
-![image](https://github.com/user-attachments/assets/01da6964-2de3-4b8b-b814-9f5de55fa5bb)
-
-
-![image](https://github.com/user-attachments/assets/50d8c2f0-19a1-4cc3-9008-57351e48f7df)
+![image](https://github.com/user-attachments/assets/835d169f-dd69-4bd0-9613-4c4d851959fe)
 
 
 | Created | Version | Author        | Comment | Reviewer     |
@@ -39,12 +36,35 @@ An alert is a notification that an issue has been detected, and an alert manager
 | **Other Alertmanagers**  | Supports integration with other external Alertmanagers, like Prometheus Alertmanager, for hybrid environments.                                                    | External integrations (e.g., Prometheus)  | Handles both **Grafana-managed** and **data source-managed** alerts. |
 
 Alert Rules
-lert rules are used to specify when an alert should be triggered. For example, if we want to be alerted when the memory usage of our Java service exceeds 90%, but not during garbage collection, we can set an alert rule. This rule would trigger only if the memory usage stays above 90% for a certain period, ensuring it isn't triggered just before garbage collection.
+Alert rules are used to specify when an alert should be triggered. For example, if we want to be alerted when the memory usage of our Java service exceeds 90%, but not during garbage collection, we can set an alert rule. This rule would trigger only if the memory usage stays above 90% for a certain period, ensuring it isn't triggered just before garbage collection.
 
 Types of Alert Rules
 
 ![image](https://github.com/user-attachments/assets/b7041c89-ee67-4503-b100-f50811b709a7)
 
 **Grafana-managed rules** Grafana-managed rules are flexible and can pull data from multiple sources in one alert. You can use them to process data, set alert conditions, and include images in notifications.
+
+![image](https://github.com/user-attachments/assets/26a48997-0b1d-4b79-afc4-b70b62dd9d9c)
+
+![image](https://github.com/user-attachments/assets/c15a6ca4-e164-42f1-8beb-8221ffdde9f2)
+
+-
 **Data source-managed alert rules** Data source-managed alert rules work only with Prometheus-based sources like Prometheus, Grafana Mimir, or Grafana Loki. They are stored in the data source and can scale to handle high availability.
 
+![image](https://github.com/user-attachments/assets/dcaf769a-5c91-4013-91b3-262237e40c25)
+
+
+Rules for Infrastructure
+Infrastructure monitoring is the continuous tracking of the health, performance, and availability of an organization's IT infrastructure.
+[image](https://github.com/user-attachments/assets/8fca8b6c-fc7c-432d-9932-57ba599dd94c)
+
+Each alert rule can produce multiple alert instances (also known as alerts) - one alert instance for each time series. This is exceptionally powerful as it allows you to observe multiple series in a single expression.
+!
+
+![image](https://github.com/user-attachments/assets/486f5684-3beb-4082-9f6d-9e46a1bbf764)
+
+Notification policies
+
+![image](https://github.com/user-attachments/assets/9979233d-b786-4cf7-97f0-67fdad6d371f)
+
+![image](https://github.com/user-attachments/assets/2b5e29f1-e091-4065-b3f0-a29d518e1135)
