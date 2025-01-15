@@ -1,1 +1,49 @@
+#    **Attendance API POC**
+#    **(OT-MICROSERVICES)**
+| Created     |    Version   | Author | Comment | Reviewer | Date |
+|:------------------:|:-------------:|:-------------:|:-------------:|:------------------:|:--------:|
+| 15-01-2025   | V1   | Mohit Saini | L0 | | 15-11-24 |
+
+
+## **Table of Contents**
+
+-   [**Introduction**](#introduction)
+
+-   [**Pre-requisites**](#pre-requisites)
+
+-   [**System Requirements**](#system-requirements)
+
+-   **[Dependencies](#dependencies)**
+
+-   **[Important Ports](#important-ports)**
+
+-   [**Architecture**](#architecture)
+
+-   [**Flow Diagram**](#flow-diagram)
+
+-   [**Step by step
+    installation**](#step-by-step-installation-of-attendance-api)
+
+-   [**Conclusion**](#conclusion)
+
+-   [**Contacts**](#contact-information)
+
+-   [**References**](#references)
+
+## Introduction
+The document covers the structure of alerting rules, how to configure and manage them within Alert Manager, and the best practices for setting up alert thresholds to ensure timely and accurate notifications.
+
+
+# What is Alert Manger
+The document covers the structure of alerting rules, how to configure and manage them within Alert Manager, and the best practices for setting up alert thresholds to ensure timely and accurate notifications.
+
+# Why Alertmanager?
+
+| **Feature**               | **Benefit**                                                                                 | **Explanation**                                                                                                                        |
+|----------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| **Reduces alert noise**    | Groups and deduplicates alerts                                                              | Helps teams focus on critical issues by combining similar alerts into a single notification.                                           |
+| **Prioritizes alerts**     | Suppresses less critical alerts                                                             | Avoids overwhelming teams by suppressing notifications for lower-priority alerts when higher-priority ones are already firing.         |
+| **Routes alerts to receivers** | Flexible notification options                                                             | Sends alerts to multiple destinations, such as email, Slack, PagerDuty, or custom webhooks, based on configuration.                    |
+| **Simplifies architecture**| Direct integration with Prometheus                                                          | Eliminates the need for a separate tool to fetch alerts, as Alertmanager directly receives and processes alerts pushed from Prometheus. |
+| **Mitigates issues**       | Enables timely actions                                                                      | Provides robust notification management to ensure teams are informed promptly, allowing quicker response to mitigate and resolve issues effectively. |
 
