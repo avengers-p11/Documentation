@@ -127,7 +127,7 @@ Grafana alerting lets you set up alerts to watch your data and notify you when s
 ![image](https://github.com/user-attachments/assets/b8fe378e-b156-4947-8abb-1c381aff8107)
 
 ## Conclusion
-Rolling deployments offer a balanced approach to software updates, providing a gradual transition to the new version while minimizing downtime and maintaining service availability. This strategy is particularly useful for large-scale applications where downtime can have significant consequences.
+Grafana's alerting system helps monitor the performance and health of applications by setting up alert rules based on specific conditions. It allows integration with data sources like Prometheus, Loki, and Mimir. By configuring alert notifications and leveraging alert managers, users can ensure timely responses to critical issues, reducing downtime and improving system reliability. 
 
 ## Contacts
 
