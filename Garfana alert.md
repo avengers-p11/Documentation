@@ -1,4 +1,5 @@
 # Documentation on Alerting rules and process for App monitoring using Alert Manager
+![image](https://github.com/user-attachments/assets/87b4fc18-3319-4fae-bc09-d1c3333f7e79)
 
 
 | Created     |    Version   | Author | Comment | Reviewer | Date |
@@ -10,12 +11,11 @@
 - [**Introduction**](#introduction)
 - [**What is Alert Manager**](#what-is-alert-manager)
 - [**Why Alertmanager?**](#why-alertmanager)
-- [**Types of Alertmanager**](#types-of-alertmanager)
+- [**Types of Alertmanager**](#related-resources-of-grafana-alert-manager-types)
 - [**Grafana Alert Workflow**](#grafana-alert-workflow)
 - [**Key Features**](#key-features)
 - [**Monitoring Parameters for App Performance and Alerts**](#monitoring-parameters-for-app-performance-and-alerts)
-- [**Grafana-managed Alert Rule Steps**](#grafana-managed-alert-rule-steps)
-- [[**Steps to Create an Alert Rule in Grafana**](#steps-to-create-an-alert-rule-in-grafana)
+- [**Steps to Create an Alert Rule in Grafana**](#steps-to-create-an-alert-rule-in-grafana)
 - [**Conclusion**](#conclusion)
 - [**Contacts**](#contacts)
 - [**References**](#references)
@@ -40,11 +40,11 @@ Grafana alerting lets you set up alerts to watch your data and notify you when s
 | **Simplifies architecture** | Direct integration with Prometheus                                                        | Eliminates the need for a separate tool to fetch alerts, as Alertmanager directly receives and processes alerts pushed from Prometheus. |
 | **Mitigates issues**        | Enables timely actions                                                                    | Provides robust notification management to ensure teams are informed promptly, allowing quicker response to mitigate and resolve issues effectively. |
 
-### Related Resources
-**For detailed information of Grafana Alert Manager Types**
+## Related Resources of Grafana Alert Manager Types
+
 | Link         | Description                                                    |
 |--------------|---------------------------------------------------------------|
-| [Attendance API](https://github.com/avengers-p11/Documentation/blob/main/Alter.md#types-of-alert-rules) | Detailed overview of alert manager types. |
+| [Garafana](https://github.com/avengers-p11/Documentation/blob/main/Alter.md#types-of-alert-rules) | Detailed overview of alert manager types. |
 
 ## Grafana Alert Workflow
 
@@ -93,40 +93,37 @@ Grafana alerting lets you set up alerts to watch your data and notify you when s
 | **Custom Business Metrics**   | Custom metrics based on business logic, like transactions or registrations. | Alert if failed transactions exceed a set threshold.      |
 
 
+## Steps to Create an Alert Rule in Grafana**
 
-## Grafana-managed Alert Rule Steps
-
-### **Steps to Create an Alert Rule in Grafana**
-
-#### **Step 1: Go to the dashboard. In the left-side menu, click Alerting.**
+### **Step 1: Go to the dashboard. In the left-side menu, click Alerting.**
 ![image](https://github.com/user-attachments/assets/36b0a375-48d9-4b7a-9706-0fe35f984177)
 
-#### **Step 2: Now click on Alert Rules.**
+### **Step 2: Now click on Alert Rules.**
 ![image](https://github.com/user-attachments/assets/87f69486-14f3-4085-9752-6bea26b78640)
 
-#### **Step 3: Click on Create Alert Rule. The new alert rule page opens, where the Grafana Managed Alerts option is selected by default.**
+### **Step 3: Click on Create Alert Rule. The new alert rule page opens, where the Grafana Managed Alerts option is selected by default.**
 ![image](https://github.com/user-attachments/assets/7b4d6074-928f-45e3-b36a-fc1213819b12)
 
-#### **Step 4: Add a Rule Name.**
+### **Step 4: Add a Rule Name.**
 ![image](https://github.com/user-attachments/assets/b5340e36-4129-4801-b5c8-c866b7737b78)
 
-#### **Step 5: In the Rule Name field, add a descriptive name for your rule.**
+### **Step 5: In the Rule Name field, add a descriptive name for your rule.**
 ![image](https://github.com/user-attachments/assets/6dfbc8c7-94ba-4c8b-b021-23b27b760ff0)
 
-#### **Step 6: Select the Mimir or Loki Recording Rule option and choose your Loki or Prometheus data source.**
+### **Step 6: Select the Mimir or Loki Recording Rule option and choose your Loki or Prometheus data source.**
 ![image](https://github.com/user-attachments/assets/cb401845-2cb1-46f2-afcd-1158597f3da7)
 
-#### **Step 7: Add the Alert Evaluation Behavior and set a valid For Duration. This defines how long the condition must be true for the alert to be triggered.**
+### **Step 7: Add the Alert Evaluation Behavior and set a valid For Duration. This defines how long the condition must be true for the alert to be triggered.**
 ![image](https://github.com/user-attachments/assets/0d94db8b-b781-42e0-800d-c231cc234374)
 
-#### **Step 8: Save the rule by clicking Save.**
+### **Step 8: Save the rule by clicking Save.**
 ![image](https://github.com/user-attachments/assets/0961159d-f9d0-470a-8e44-157229b4b2e7)
 ![image](https://github.com/user-attachments/assets/d77b8923-57d0-4a1b-b1c1-91f0232bbd3a)
 
-#### **Preview: Check the preview to ensure the rule is set up correctly.**
+### **Preview: Check the preview to ensure the rule is set up correctly.**
 ![image](https://github.com/user-attachments/assets/9ba5ef21-7070-4c14-8a00-a73c90eacca5)
 
-#### **Step 9: Click Save to save the rule, or click Save and Exit to save the rule and return to the Alerting page.**
+### **Step 9: Click Save to save the rule, or click Save and Exit to save the rule and return to the Alerting page.**
 ![image](https://github.com/user-attachments/assets/b8fe378e-b156-4947-8abb-1c381aff8107)
 
 ## Conclusion
