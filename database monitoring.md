@@ -56,7 +56,7 @@ Database monitoring refers to the tasks associated with checking the operational
 | **Backup and Restore**        |  Backup job success/failure                       |  Backup fails or takes longer than scheduled time (e.g., 2 hours)                 |
 |                               |  Backup duration                                  |  Backup job has not run within the defined interval (e.g., daily/weekly)          |
 |                               |  Restore validation                               |                                                                                     |
-| **Error Logs and Transaction Failures** | - Number of transaction errors              |  More than 5% of transactions fail within 10 minutes                              |
+| **Error Logs and Transaction Failures** |  Number of transaction errors              |  More than 5% of transactions fail within 10 minutes                              |
 |                               |  Error log size                                   |  Critical error codes appear in logs (e.g., deadlocks, data corruption)           |
 |                               |  Specific error patterns                          |                                                                                     |
 | **Resource Utilization**      |  CPU usage                                        |  CPU usage exceeds 90% for 5 minutes                                              |
