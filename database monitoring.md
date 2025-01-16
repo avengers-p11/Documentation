@@ -1,6 +1,5 @@
 # Documentation on Alerting Rules and Process for Database Monitoring
-###### ![image](https://github.com/user-attachments/assets/1a8b02c8-7ff4-43a5-98fe-a5956fefd6ca)
-
+<img src="https://github.com/user-attachments/assets/1a8b02c8-7ff4-43a5-98fe-a5956fefd6ca" width="300" />
 
 | Created | Version | Author        | Comment | Reviewer     |
 |---------|---------|---------------|---------|--------------|
@@ -86,7 +85,7 @@ Alerting rules for database monitoring are criteria that trigger alerts when cer
 | [Grafana](https://github.com/avengers-p11/Documentation/blob/main/Alter.md#types-of-alert-rules) | Link to Grafana Alert Rule |
 
 
-**Prometheus Alerting Rules**
+**Example of Prometheus Alerting Rules and Integration**
 
 ![image](https://github.com/user-attachments/assets/461f9bd9-2818-441a-a4f6-51f9131aeca0)
 
