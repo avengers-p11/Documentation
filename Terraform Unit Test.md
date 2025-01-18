@@ -42,28 +42,28 @@ Unit tests in Terraform help ensure that individual resources and modules perfor
 
 # Tools for Parameter checklist 
 
-| **Parameter**                     | **Checkov** | **tfsec** | **Terratest** | **OPA/Conftest** | **Infracost** | **GitLeaks** | **Sentinel** | **Terrascan** | **tflint** | **Kitchen-Terraform** |
+| **Parameter**                     | **Checkov** | **tfsec** | **Terratest** | **OPA/Conftest** | **Infracost** | **GitLeaks** | **Sentinel** | **Terrascan** | **tflint** | **Kitchen** |
 |------------------------------------|-------------|-----------|---------------|------------------|---------------|--------------|--------------|----------------|------------|----------------------|
-| **Hard-coded credentials**         | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ✔️           | ✔️           | ✔️             | ✔️         | ✔️                   |
-| **Encryption for sensitive data**  | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️                   |
-| **Overly permissive IAM policies** | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️                   |
-| **Open ports and unrestricted CIDR** | ✔️         | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️                   |
-| **Tagging enforcement**            | ✔️          | ❌        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ❌             | ❌         | ✔️                   |
-| **Naming conventions**             | ✔️          | ❌        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ❌             | ❌         | ✔️                   |
-| **Approved AMIs and instance types** | ✔️         | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️                   |
-| **Subnet CIDR blocks**             | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️                   |
-| **Route table configurations**     | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️                   |
-| **Load balancer health checks**    | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️                   |
-| **DNS records correctness**        | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️                   |
-| **Resource creation correctness**  | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️                   |
-| **Scaling policies**               | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️                   |
-| **Cost estimation**                | ❌          | ❌        | ❌            | ❌               | ✔️            | ❌           | ❌           | ❌             | ❌         | ❌                   |
-| **Secrets accidentally committed** | ❌          | ❌        | ❌            | ❌               | ❌            | ✔️           | ❌           | ❌             | ❌         | ❌                   |
-| **Failed apply simulation**        | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️                   |
-| **State file locking mechanism**   | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️                   |
-| **Expensive instance types**       | ❌          | ❌        | ❌            | ❌               | ✔️            | ❌           | ❌           | ❌             | ❌         | ❌                   |
-| **Unused resources**               | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️                   |
-| **Backup configuration**           | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️                   |
+| **Hard-coded credentials**         | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ✔️           | ✔️           | ✔️             | ✔️         | ✔️              |
+| **Encryption for sensitive data**  | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️              |
+| **Overly permissive IAM policies** | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️              |
+| **Open ports and unrestricted CIDR** | ✔️         | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️             |
+| **Tagging enforcement**            | ✔️          | ❌        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ❌             | ❌         | ✔️              |
+| **Naming conventions**             | ✔️          | ❌        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ❌             | ❌         | ✔️              |
+| **Approved AMIs and instance types** | ✔️         | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️             |
+| **Subnet CIDR blocks**             | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️              |
+| **Route table configurations**     | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️              |
+| **Load balancer health checks**    | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️              |
+| **DNS records correctness**        | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️              |
+| **Resource creation correctness**  | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️              |
+| **Scaling policies**               | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️              |
+| **Cost estimation**                | ❌          | ❌        | ❌            | ❌               | ✔️            | ❌           | ❌           | ❌             | ❌         | ❌              |
+| **Secrets accidentally committed** | ❌          | ❌        | ❌            | ❌               | ❌            | ✔️           | ❌           | ❌             | ❌         | ❌              |
+| **Failed apply simulation**        | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️              |
+| **State file locking mechanism**   | ❌          | ❌        | ✔️            | ❌               | ❌            | ❌           | ❌           | ❌             | ❌         | ✔️              |
+| **Expensive instance types**       | ❌          | ❌        | ❌            | ❌               | ✔️            | ❌           | ❌           | ❌             | ❌         | ❌              |
+| **Unused resources**               | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️              |
+| **Backup configuration**           | ✔️          | ✔️        | ❌            | ✔️               | ❌            | ❌           | ✔️           | ✔️             | ✔️         | ✔️              |
 
 
 
@@ -78,6 +78,10 @@ Terratest is a free tool used to test infrastructure created with Terraform. It 
 
 # Terratest Working Flow
 ![image](https://github.com/user-attachments/assets/711c0b32-7aca-4f62-b116-9db984deef74)
+
+# Test infrasturece code with Terratest
+![image](https://github.com/user-attachments/assets/fbbbaba5-193a-43b7-9aa6-fa7d65d5142d)
+
 
 # Prerequisites
 | **Binary**  | **Description**                         | 
