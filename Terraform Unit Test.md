@@ -15,7 +15,7 @@
 - [**Terratest**](#terratest)
 - [**Why Terratest?**](#why-terratest)
 - [**Terratest Working Flow**](#terratest-working-flow)
-- [**Prerequisites**](#prerequisites)
+- [**Pre-requisites**](#pre-requisites)
 - [**Installation Steps for Terratest**](#installation-steps-for-terratest)
 - [**Conclusion**](#conclusion)
 - [ [**Contacts**](#contacts)
@@ -70,6 +70,10 @@ Unit tests in Terraform help ensure that individual resources and modules perfor
 # Terratest
 Terratest is a free tool used to test infrastructure created with Terraform. It helps check small parts (unit tests), connected parts (integration tests), and the entire setup (end-to-end tests) of cloud infrastructure.
 
+![image](https://github.com/user-attachments/assets/f2bfd954-252b-4860-b9f9-299b111155cb)
+
+
+
 # Why Terratest?
 | Step                          | Description                                                                 |
 |-------------------------------|-----------------------------------------------------------------------------|
@@ -83,7 +87,7 @@ Terratest is a free tool used to test infrastructure created with Terraform. It 
 ![image](https://github.com/user-attachments/assets/fbbbaba5-193a-43b7-9aa6-fa7d65d5142d)
 
 
-# Prerequisites
+# Pre-requisites
 | **Binary**  | **Description**                         | 
 |-------------|-----------------------------------------|
 | **Go**      | Programming language used for Terratest | 
@@ -92,56 +96,50 @@ Terratest is a free tool used to test infrastructure created with Terraform. It 
 | **Terratest** | Testing framework for Terraform        | 
 
 # Installation Steps for Terratest
-1. **Update your package list**: 
-   ```bash
-   sudo apt update
+
 Steps 1. Update your package list
 
-'''
+```
 sudo apt update
-'''
+```
 ![image](https://github.com/user-attachments/assets/7299ea26-620c-4e5c-a4c8-bc739be9abd5)
 
 
 
-Steps 2. Install Go using the package manager
+## Steps 2. Install Go using the package manager
 
+```
 sudo apt install golang-go
-
+```
 ![image](https://github.com/user-attachments/assets/e0e66265-7f3a-46c7-b7d9-7917f00fc909)
 
 
-Sets3. Verify the installation
+## Sets3. Verify the installation
 
+```
 go version
+```
 ![image](https://github.com/user-attachments/assets/585ecb98-4138-444a-99ee-5c2fa9f9dd30)
 
 
-Steps 4. Terrafrom installation 
+## Steps 4. Terrafrom installation 
 
 ![image](https://github.com/user-attachments/assets/3be98f4e-36e7-48f2-b136-50ad59f9fd8d)
 
-Steps 5. create test file 
+## Steps 5. create test file 
 
 ![image](https://github.com/user-attachments/assets/501ced09-049e-46c4-b57f-56fa3658bade)
 
-Steps 6. script
+## Steps 6. test file script
 
-![image](https://github.com/user-attachments/assets/bc2caa16-36e5-419f-9dae-68e900e6bbef)
+![image](https://github.com/user-attachments/assets/fe8a9a5a-fe19-46df-8553-fdf47725fb01)
 
-Steps 7. 
-
-![image](https://github.com/user-attachments/assets/dcdd83d3-f2fd-4962-aa52-8d7e45ce8938)
-
-
-steps 8.
-
-steps 9.
+## Steps 7.
 
 ![image](https://github.com/user-attachments/assets/a5271da2-62d5-4bd4-b38b-5aa65dc567e3)
 
 ## Conclusion
-Grafana's alerting system helps monitor the performance and health of applications by setting up alert rules based on specific conditions. It allows integration with data sources like Prometheus, Loki, and Mimir. By configuring alert notifications and leveraging alert managers, users can ensure timely responses to critical issues, reducing downtime and improving system reliability. 
+The purpose of this Proof of Concept was to evaluate Terratest as a tool for automating Infrastructure as Code (IaC) testing. It demonstrated the feasibility and effectiveness of validating Terraform configurations and ensuring infrastructure reliability before deployment.
 
 ## Contacts
 
@@ -153,5 +151,5 @@ Grafana's alerting system helps monitor the performance and health of applicatio
 
 | **Title**            | **Link**                                                                                  |
 |-----------------------|------------------------------------------------------------------------------------------|
-| Garfana Alert and Manager    | [Link](https://medium.com/trendyol-tech/alert-and-monitoring-with-grafana-b659c433bb51)          |
-| Alert Rules   | [Link](https://grafana.com/docs/grafana/latest/alerting/fundamentals/alert-rules/) | 
+| Terratest    | [Link](https://medium.com/@a.warkhade98/testing-your-infrastructure-as-code-using-terratest-3b1f774336ce)          |
+| Terratest working   | [Link](https://blog.nashtechglobal.com/getting-started-with-terratest/) | 
