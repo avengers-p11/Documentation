@@ -79,7 +79,7 @@ Data source-managed alert rules are alerts that are defined and evaluated within
 
 | Link         | Description                                                    |
 |--------------|---------------------------------------------------------------|
-| [Garafana](https://github.com/avengers-p11/Documentation/blob/main/Alter.md#types-of-alert-rules) | Link to Grafana Alert rule |
+| [Garafana](https://github.com/MyGurukulam-p11/Documentation/blob/main/Design%20Monitoring/Design%20App%20Monitoring/Documentation%20/Alerting%20rules%20and%20process%20for%20App%20monitoring.md#steps-to-create-an-alert-rule-in-grafana) | Link to Grafana Alert rule |
 
 
 ## Alertmanager Working
